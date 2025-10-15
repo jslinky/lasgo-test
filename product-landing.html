@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" class="new">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="../gardners25/layers/tailwind/assets/css/tailwind.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    </style>
+  </head>
+  <body>
+    <svg style="display: none">
+      <symbol id="clarity--color-picker-line" viewBox="0 0 36 36">
+        <path
+          fill="currentColor"
+          d="M33 10.05a5.07 5.07 0 0 0 .1-7.17A5.06 5.06 0 0 0 26 3l-5.22 5.15a2.13 2.13 0 0 1-3 0l-.67-.67l-1.39 1.44l11.36 11.36l1.42-1.42l-.67-.67a2.13 2.13 0 0 1 0-3Zm-6.56 3.75a4.07 4.07 0 0 0-1.08 1.92l-5.08-5.08a4.07 4.07 0 0 0 1.92-1.08l5.16-5.17a3.09 3.09 0 0 1 4.35-.1a3.09 3.09 0 0 1-.1 4.35Z"
+          class="clr-i-outline clr-i-outline-path-1"
+        />
+        <path
+          fill="currentColor"
+          d="M7.3 31.51a2 2 0 1 1-2.83-2.83l14.11-14.11l-1.42-1.41L3.05 27.27a4 4 0 0 0-.68 4.8L.89 33.55a1 1 0 0 0 0 1.45a1 1 0 0 0 1.42 0l1.43-1.44a3.93 3.93 0 0 0 2.09.6a4.06 4.06 0 0 0 2.88-1.2l14.11-14.15l-1.41-1.41Z"
+          class="clr-i-outline clr-i-outline-path-2"
+        />
+        <path fill="none" d="M0 0h36v36H0z" />
+      </symbol>
+      <symbol id="box" viewBox="0 0 56 57">
+        <path
+          d="M27.9999 2.8335L50.1666 15.6668V41.3335L27.9999 54.1668L5.83325 41.3335V15.6668L27.9999 2.8335ZM12.8193 17.0155L27.9999 25.8028L43.1806 17.0155L27.9999 8.2235L12.8193 17.0155ZM10.4999 21.0638V38.6432L25.6666 47.4235V29.8465L10.4999 21.0638ZM30.3333 47.4235L45.4999 38.6432V21.0638L30.3333 29.8442V47.4235Z"
+          fill="currentColor"
+        />
+      </symbol>
+      <symbol id="office" viewBox="0 0 56 57">
+        <path
+          d="M35 21.5002H39.6667V26.1668H35V21.5002ZM39.6667 12.1668H35V16.8335H39.6667V12.1668ZM25.6667 35.5002H30.3333V30.8335H25.6667V35.5002ZM30.3333 12.1668H25.6667V16.8335H30.3333V12.1668ZM25.6667 26.1668H30.3333V21.5002H25.6667V26.1668ZM21 12.1668H16.3333V16.8335H21V12.1668ZM21 21.5002H16.3333V26.1668H21V21.5002ZM33.95 49.5002H30.3333V41.3335H25.6667V49.5002H11.6667V7.50016H44.3333V26.2368C45.99 26.3768 47.5767 26.8902 49 27.6368V2.8335H7V54.1668H37.1233C36.1667 52.8602 35 51.2735 33.95 49.5002ZM16.3333 44.8335H21V40.1668H16.3333V44.8335ZM21 30.8335H16.3333V35.5002H21V30.8335ZM51.3333 39.0002C51.3333 45.0668 43.1667 54.1668 43.1667 54.1668C43.1667 54.1668 35 45.0668 35 39.0002C35 34.5668 38.7333 30.8335 43.1667 30.8335C47.6 30.8335 51.3333 34.5668 51.3333 39.0002ZM45.9667 39.2335C45.9667 37.8335 44.5667 36.4335 43.1667 36.4335C41.7667 36.4335 40.3667 37.6002 40.3667 39.2335C40.3667 40.6335 41.5333 42.0335 43.1667 42.0335C44.8 42.0335 46.2 40.6335 45.9667 39.2335Z"
+          fill="currentColor"
+        />
+      </symbol>
+      <symbol id="phone" viewBox="0 0 56 57">
+        <path
+          d="M17.9375 4C16.4291 4 14.9824 4.59922 13.9158 5.66583C12.8492 6.73244 12.25 8.17908 12.25 9.6875V47.3125C12.25 48.8209 12.8492 50.2676 13.9158 51.3342C14.9824 52.4008 16.4291 53 17.9375 53H38.0625C39.5709 53 41.0176 52.4008 42.0842 51.3342C43.1508 50.2676 43.75 48.8209 43.75 47.3125V9.6875C43.75 8.17908 43.1508 6.73244 42.0842 5.66583C41.0176 4.59922 39.5709 4 38.0625 4H17.9375ZM15.75 9.6875C15.75 8.48 16.73 7.5 17.9375 7.5H38.0625C39.27 7.5 40.25 8.48 40.25 9.6875V47.3125C40.25 48.52 39.27 49.5 38.0625 49.5H17.9375C16.73 49.5 15.75 48.52 15.75 47.3125V9.6875ZM24.5 42.5C24.0359 42.5 23.5908 42.6844 23.2626 43.0126C22.9344 43.3408 22.75 43.7859 22.75 44.25C22.75 44.7141 22.9344 45.1592 23.2626 45.4874C23.5908 45.8156 24.0359 46 24.5 46H31.5C31.9641 46 32.4093 45.8156 32.7374 45.4874C33.0656 45.1592 33.25 44.7141 33.25 44.25C33.25 43.7859 33.0656 43.3408 32.7374 43.0126C32.4093 42.6844 31.9641 42.5 31.5 42.5H24.5Z"
+          fill="currentColor"
+        />
+      </symbol>
+    </svg>
+    <!-- Hero -->
+    <section class="@container hero">
+      <article
+        class="card"
+        data-card-column-reverse-order="true"
+        data-surface="dark"
+        data-card-shadow="lg"
+        data-card-row-text-align="center"
+        data-card-row-justify="center"
+        data-card-row-align="start"
+        data-card-row-image-align-self="center"
+        data-card-column-text-align="start"
+        data-card-column-justify="start"
+        data-card-column-align="center"
+        data-card-column-image-align-self="center"
+        data-surface="default"
+      >
+        <div class="card-picture aspect-video">
+          <img src="./assets/vinyl-cover.png" alt="Card image" style="object-fit:contain" />
+        </div>
+        <div class="card-body flow flow--md col-start-1 mx-0 wrapper pr-0">
+          <div class="card-body__content flow flow--sm">
+            <div class="card-body__content__caption flow">
+              <h2
+                class="heading-3xl card-body__content__caption-title normal-case fluid"
+              >
+                <span>Home to all great vinyl labels and records</span>
+              </h2>
+            </div>
+            <div class="card-body__content-slot flow">
+              <p class="heading-default normal-case font-normal fluid">
+                Lose yourself in the greatest hits of your generation, and those that came before!
+              </p>
+              <p class="heading-default normal-case font-normal fluid">
+                Here you will find hundreds of officially licensed <strong class="font-semibold">Music CD</strong> & <strong class="font-semibold">Vinyl Records</strong>
+              </p>
+            </div>
+            <div
+              class="card-body__content__ctas w-full flex items-end flow--xl"
+            >
+              <!-- <a
+                href="/supplier-services"
+                class="button button--primary button--block select-none max-w-fit"
+                ><span class="button__text">Find out more</span></a
+              > -->
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div class="wrapper-grid py-section-gap">
+      <div
+        class="content-grid layout-grid layout-grid--column-count col-start-2 col-end-2"
+      >
+        <nav class="content-grid_full">
+          <a href="#" class="button button--primary flex-1">DVD & Blu-ray</a>
+          <a href="#" class="button button--primary flex-1">Music CD & Vinyl</a>
+          <a href="#" class="button button--primary flex-1">Merchandise</a>
+          <a href="#" class="button button--primary flex-1"
+            >Consumer Electronics</a
+          >
+        </nav>
+        <aside class="content-grid__aside">
+          <details
+            class="c-collapse collapse--outlined"
+            style="--details-inline-size: fit-content"
+            open
+          >
+            <summary
+              class="collapse-title collapse-title--has-icon collapse-title--text-base"
+            >
+              <div class="collapse-icon-slot">
+                <div class="collapse-icon collapse-icon--arrow">
+                  <span
+                    class="iconify i-lineicons:chevron-down"
+                    aria-hidden="true"
+                  ></span>
+                </div>
+                <p>
+                  <span>Useful Links</span>
+                </p>
+              </div>
+            </summary>
+            <div class="collapse-content">
+              <nav>
+                <ul class="pl-0" style="padding-left: 0">
+                  <li><a href="#">About us</a></li>
+                  <li><a href="#">Contact us</a></li>
+                  <li><a href="#">Terms and Conditions</a></li>
+                  <li><a href="#">Terms of use</a></li>
+                  <li><a href="#">FAQs</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Cookie Policy</a></li>
+                </ul>
+              </nav>
+            </div>
+          </details>
+        </aside>
+        <div class="content-grid__main flow">
+          <div class="content-grid_full flow">
+            <h2 class="heading-xl heading--underline col-span-full mt-lg fluid">
+              <span class="line-across heading-xs text-base"
+                >Music CD &amp; Vinyl</span
+              ><span>Featured Products</span>
+            </h2>
+            <div class="aspect-video bg-tertiary col-span-full"></div>
+          </div>
+          <div class="content-grid_full flow flow--sm">
+            <h2 class="heading-xl heading--underline col-span-full mt-lg fluid">
+              <span class="line-across heading-xs text-base"
+                >Consumer Electronics</span
+              ><span>Featured Products</span>
+            </h2>
+            <div
+              class="col-span-full layout-grid layout-grid--column-count"
+              style="
+                --column-count: 8;
+                --layout-column-min: calc(10ch * 0.25);
+                --layout-grid-auto-repeat: auto-fill;
+              "
+            >
+              <div class="content-grid_full featured-products">
+                <div class="bg-tertiary aspect-video"></div>
+                <div class="bg-tertiary aspect-video"></div>
+                <div class="bg-tertiary aspect-video"></div>
+              </div>
+              <div class="content-grid_full col-span-full">
+                <div class="bg-tertiary aspect-video"></div>
+                <div class="bg-tertiary aspect-video"></div>
+                <div class="bg-tertiary aspect-video"></div>
+                <div class="bg-tertiary aspect-video"></div>
+                <div class="bg-tertiary aspect-video"></div>
+                <div class="bg-tertiary aspect-video"></div>
+                <div class="bg-tertiary aspect-video"></div>
+                <div
+                  class="bg-tertiary aspect-video place-content-center"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section
+        class="bg-tertiary mt-xl overflow-x-clip"
+        style="grid-column: 1/4"
+      >
+        <div class="col-start-2 col-end-2 wrapper pt-xl pb-layout-gap">
+          <h2 class="heading-default">Heading default</h2>
+        </div>
+        <div class="relative wrapper-grid ">
+          <div
+            class="col-start-2 col-end-2 opacity-100 flex w-full snap-x snap-mandatory overflow-x-auto *:shrink-0 max-w-full [--wrapper-padding-min:calc(var(--layout-gap)*4)] [--wrapper-inline:max(var(--wrapper-padding-min,1rem),50vw-var(--wrapper-width)/2+var(--wrapper-padding)*2/2)] focus-within:outline-0 transition-opacity duration-500 ease-in-out scroll-mt-4xl pb-2xl [clip-path:inset(0_0_3rem_0)] hover:[clip-path:inset(0)]"
+          >
+            <div
+              tabindex="0"
+              class="carousel-item *:w-full @container snap-center opacity-100"
+            >
+              <div data-v-a12fe0ca="">
+                <article
+                  class="card card gap-y-layout-gap bg-transparent"
+                  data-card-row-text-align="center"
+                  data-card-row-justify="center"
+                  data-card-row-align="start"
+                  data-card-row-image-align-self="start"
+                  data-card-column-text-align="center"
+                  data-card-column-justify="center"
+                  data-card-column-align="start"
+                  data-card-column-image-align-self="start"
+                  data-surface="default"
+                >
+                  <div
+                    class="card-picture aspect-square w-[calc(100% - var(--spacing-layout-gap))] mx-auto"
+                  >
+                    <img
+                      src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
+                      alt="Team member 1"
+                    />
+                  </div>
+                  <div
+                    class="card-body flow flow--md w-[calc(100%-var(--spacing-layout-gap))] mx-auto"
+                  ></div>
+                </article>
+              </div>
+            </div>
+            <div
+              tabindex="0"
+              class="carousel-item *:w-full @container snap-center opacity-100"
+            >
+              <div data-v-a12fe0ca="">
+                <article
+                  class="card card gap-y-layout-gap bg-transparent"
+                  data-card-row-text-align="center"
+                  data-card-row-justify="center"
+                  data-card-row-align="start"
+                  data-card-row-image-align-self="start"
+                  data-card-column-text-align="center"
+                  data-card-column-justify="center"
+                  data-card-column-align="start"
+                  data-card-column-image-align-self="start"
+                  data-surface="default"
+                >
+                  <div
+                    class="card-picture aspect-square w-[calc(100% - var(--spacing-layout-gap))] mx-auto"
+                  >
+                    <img
+                      src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
+                      alt="Team member 2"
+                    />
+                  </div>
+                  <div
+                    class="card-body flow flow--md w-[calc(100%-var(--spacing-layout-gap))] mx-auto"
+                  ></div>
+                </article>
+              </div>
+            </div>
+            <div
+              tabindex="0"
+              class="carousel-item *:w-full @container snap-center opacity-100"
+            >
+              <div data-v-a12fe0ca="">
+                <article
+                  class="card card gap-y-layout-gap bg-transparent"
+                  data-card-row-text-align="center"
+                  data-card-row-justify="center"
+                  data-card-row-align="start"
+                  data-card-row-image-align-self="start"
+                  data-card-column-text-align="center"
+                  data-card-column-justify="center"
+                  data-card-column-align="start"
+                  data-card-column-image-align-self="start"
+                  data-surface="default"
+                >
+                  <div
+                    class="card-picture aspect-square w-[calc(100% - var(--spacing-layout-gap))] mx-auto"
+                  >
+                    <img
+                      src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
+                      alt="Team member 3"
+                    />
+                  </div>
+                  <div
+                    class="card-body flow flow--md w-[calc(100%-var(--spacing-layout-gap))] mx-auto"
+                  ></div>
+                </article>
+              </div>
+            </div>
+            <div
+              tabindex="0"
+              class="carousel-item *:w-full @container snap-center opacity-100"
+            >
+              <div data-v-a12fe0ca="">
+                <article
+                  class="card card gap-y-layout-gap bg-transparent"
+                  data-card-row-text-align="center"
+                  data-card-row-justify="center"
+                  data-card-row-align="start"
+                  data-card-row-image-align-self="start"
+                  data-card-column-text-align="center"
+                  data-card-column-justify="center"
+                  data-card-column-align="start"
+                  data-card-column-image-align-self="start"
+                  data-surface="default"
+                >
+                  <div
+                    class="card-picture aspect-square w-[calc(100% - var(--spacing-layout-gap))] mx-auto"
+                  >
+                    <img
+                      src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
+                      alt="Team member 4"
+                    />
+                  </div>
+                  <div
+                    class="card-body flow flow--md w-[calc(100%-var(--spacing-layout-gap))] mx-auto"
+                  ></div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer
+      style="
+        min-height: 400px;
+        background: var(--color-tertiary-light);
+        margin-top: var(--spacing-section-gap);
+      "
+    >
+      <div class="wrapper">
+        <p>&copy; 2023 Large Company. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" class="new">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./tailwind-output.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="../gardners25/layers/tailwind/assets/css/tailwind.css"
+    /> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    </style>
+  </head>
+  <body>
+    <svg style="display: none">
+      <symbol id="clarity--color-picker-line" viewBox="0 0 36 36">
+        <path
+          fill="currentColor"
+          d="M33 10.05a5.07 5.07 0 0 0 .1-7.17A5.06 5.06 0 0 0 26 3l-5.22 5.15a2.13 2.13 0 0 1-3 0l-.67-.67l-1.39 1.44l11.36 11.36l1.42-1.42l-.67-.67a2.13 2.13 0 0 1 0-3Zm-6.56 3.75a4.07 4.07 0 0 0-1.08 1.92l-5.08-5.08a4.07 4.07 0 0 0 1.92-1.08l5.16-5.17a3.09 3.09 0 0 1 4.35-.1a3.09 3.09 0 0 1-.1 4.35Z"
+          class="clr-i-outline clr-i-outline-path-1"
+        />
+        <path
+          fill="currentColor"
+          d="M7.3 31.51a2 2 0 1 1-2.83-2.83l14.11-14.11l-1.42-1.41L3.05 27.27a4 4 0 0 0-.68 4.8L.89 33.55a1 1 0 0 0 0 1.45a1 1 0 0 0 1.42 0l1.43-1.44a3.93 3.93 0 0 0 2.09.6a4.06 4.06 0 0 0 2.88-1.2l14.11-14.15l-1.41-1.41Z"
+          class="clr-i-outline clr-i-outline-path-2"
+        />
+        <path fill="none" d="M0 0h36v36H0z" />
+      </symbol>
+      <symbol id="box" viewBox="0 0 56 57">
+        <path d="M27.9999 2.8335L50.1666 15.6668V41.3335L27.9999 54.1668L5.83325 41.3335V15.6668L27.9999 2.8335ZM12.8193 17.0155L27.9999 25.8028L43.1806 17.0155L27.9999 8.2235L12.8193 17.0155ZM10.4999 21.0638V38.6432L25.6666 47.4235V29.8465L10.4999 21.0638ZM30.3333 47.4235L45.4999 38.6432V21.0638L30.3333 29.8442V47.4235Z" fill="currentColor"/>
+      </symbol>
+      <symbol id="office" viewBox="0 0 56 57">
+        <path d="M35 21.5002H39.6667V26.1668H35V21.5002ZM39.6667 12.1668H35V16.8335H39.6667V12.1668ZM25.6667 35.5002H30.3333V30.8335H25.6667V35.5002ZM30.3333 12.1668H25.6667V16.8335H30.3333V12.1668ZM25.6667 26.1668H30.3333V21.5002H25.6667V26.1668ZM21 12.1668H16.3333V16.8335H21V12.1668ZM21 21.5002H16.3333V26.1668H21V21.5002ZM33.95 49.5002H30.3333V41.3335H25.6667V49.5002H11.6667V7.50016H44.3333V26.2368C45.99 26.3768 47.5767 26.8902 49 27.6368V2.8335H7V54.1668H37.1233C36.1667 52.8602 35 51.2735 33.95 49.5002ZM16.3333 44.8335H21V40.1668H16.3333V44.8335ZM21 30.8335H16.3333V35.5002H21V30.8335ZM51.3333 39.0002C51.3333 45.0668 43.1667 54.1668 43.1667 54.1668C43.1667 54.1668 35 45.0668 35 39.0002C35 34.5668 38.7333 30.8335 43.1667 30.8335C47.6 30.8335 51.3333 34.5668 51.3333 39.0002ZM45.9667 39.2335C45.9667 37.8335 44.5667 36.4335 43.1667 36.4335C41.7667 36.4335 40.3667 37.6002 40.3667 39.2335C40.3667 40.6335 41.5333 42.0335 43.1667 42.0335C44.8 42.0335 46.2 40.6335 45.9667 39.2335Z" fill="currentColor"/>
+      </symbol>
+      <symbol id="phone" viewBox="0 0 56 57">
+        <path d="M17.9375 4C16.4291 4 14.9824 4.59922 13.9158 5.66583C12.8492 6.73244 12.25 8.17908 12.25 9.6875V47.3125C12.25 48.8209 12.8492 50.2676 13.9158 51.3342C14.9824 52.4008 16.4291 53 17.9375 53H38.0625C39.5709 53 41.0176 52.4008 42.0842 51.3342C43.1508 50.2676 43.75 48.8209 43.75 47.3125V9.6875C43.75 8.17908 43.1508 6.73244 42.0842 5.66583C41.0176 4.59922 39.5709 4 38.0625 4H17.9375ZM15.75 9.6875C15.75 8.48 16.73 7.5 17.9375 7.5H38.0625C39.27 7.5 40.25 8.48 40.25 9.6875V47.3125C40.25 48.52 39.27 49.5 38.0625 49.5H17.9375C16.73 49.5 15.75 48.52 15.75 47.3125V9.6875ZM24.5 42.5C24.0359 42.5 23.5908 42.6844 23.2626 43.0126C22.9344 43.3408 22.75 43.7859 22.75 44.25C22.75 44.7141 22.9344 45.1592 23.2626 45.4874C23.5908 45.8156 24.0359 46 24.5 46H31.5C31.9641 46 32.4093 45.8156 32.7374 45.4874C33.0656 45.1592 33.25 44.7141 33.25 44.25C33.25 43.7859 33.0656 43.3408 32.7374 43.0126C32.4093 42.6844 31.9641 42.5 31.5 42.5H24.5Z" fill="currentColor"/>
+      </symbol>
+
+    </svg>    
+    <!-- Hero -->
+    <section class="@container hero">
+      <article
+        class="card [--card-left-col:fit-content]"
+        data-card-layout="overlay"
+        data-card-column-reverse-order="true"
+        data-surface="dark"
+        data-card-shadow="lg"
+        data-card-row-text-align="start"
+        data-card-row-justify="center"
+        data-card-row-align="end"
+        data-card-row-image-align-self="start"
+        data-card-column-text-align="start"
+        data-card-column-justify="start"
+        data-card-column-align="center"
+        data-card-column-image-align-self="start"
+        data-surface="default"
+      >
+        <div class="card-picture *:object-cover">
+          <img src="./assets/hero-home.jpg" alt="Card image" />
+        </div>
+        <div class="card-body flow flow--md col-start-1 mx-0 wrapper @lg:pr-0">
+          <div class="card-body__content flow flow--sm flex-col">
+            <div class="card-body__content__caption flow">
+              <h2
+                class="heading-3xl card-body__content__caption-title normal-case fluid [--line-height:1]"
+              >
+                <span>Lasgo Worldwide Media</span>
+              </h2>
+            </div>
+            <div class="card-body__content-slot">
+              <p class="heading-lg fluid">
+                <span class="normal-case font-semibold"
+                  >Your perfect partner for</span
+                >
+                WHOLESALE & DISTRIBUTION
+              </p>
+            </div>
+            <div
+              class="card-body__content__ctas w-full flex items-end flow--xl"
+            >
+              <a
+                href="/supplier-services"
+                class="button button--primary button--block select-none max-w-fit"
+                ><span class="button__text">Find out more</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div class="wrapper py-section-gap">
+      <div class="flow">
+        <div class="flow">
+          <h2 class="heading-xl heading--underline fluid [--heading-underline-color:var(--color-brand-yellow)]">
+            <span class="heading-xs text-base"
+              >Innovating UK entertainment supply</span
+            ><span>What we do</span>
+          </h2>
+          <div class="layout-grid flow [--layout-column-min:40ch]">
+            <div class="flow flex-auto">
+              <div class="max-w-prose flow">
+                <p class="text-lg font-bold">
+                  Established in 1978, Lasgo Worldwide Media has become the UK's
+                  longest established international wholesaler and distributor of home
+                  entertainment product.
+                </p>
+                <p>
+                  From our humble beginnings in London's Oxford Street, our success
+                  has been achieved through the company's ability to diversify and
+                  identify new opportunities. As such we were well placed to take full
+                  advantage of this growth. We have also invested in the expansion of
+                  our Visual Entertainment and Merchandise divisions to meet a growing
+                  demand for fan-based physical products.
+                </p>
+              </div>
+            </div>
+            <div class="basis-[fit-content] md:content-end flex md:items-end md:justify-center">
+              <a href="#" class="button button--primary button--wide md:mx-auto min-w-max">Find out more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper py-section-gap">
+      <div class="flow">
+        <div class="flow">
+          <h2 class="heading-xl heading--underline text-center fluid">
+            <span class="heading-xs text-base"
+              >Wholesale and worldwide distribution</span
+            ><span>Core Services</span>
+          </h2>
+          <div class="layout-grid [--layout-column-min:35ch]">
+            <div>
+              <article
+                class="card aspect-4/3 @lg:aspect-21/9"
+                data-surface="primary"
+                data-card-shadow="lg"
+                data-card-row-text-align="center"
+                data-card-row-justify="center"
+                data-card-row-align="center"
+                data-card-row-image-align-self="start"
+                data-card-column-text-align="start"
+                data-card-column-justify="start"
+                data-card-column-align="start"
+                data-card-column-image-align-self="start"
+                data-surface="default"
+              >
+                <div class="card-body flow flow--md">
+                  <div class="card-body__content flow flex-col">
+                    <div class="card-body__content__caption flow">
+                      <h2
+                        class="heading-lg card-body__content__caption-title normal-case fluid"
+                      >
+                        <span>Wholesale</span>
+                      </h2>
+                    </div>
+                    <div class="card-body__content-slot min-h-[4lh] max-w-11/12 @lg:max-w-2/3 mx-auto">
+                      <p>
+                        Trading has been at the heart of Lasgo for many years and we continue to invest in both bulk stock acquisitions and exclusive product ranges...
+                      </p>
+                    </div>
+                    <div class="card-body__content__ctas w-full flex items-end">
+                      <a
+                        href="/supplier-services"
+                        class="button button--block select-none contents *:sr-only"
+                        ><span class="button__text">Find out more</span></a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div>
+              <article
+                class="card aspect-4/3 @lg:aspect-21/9"
+                data-surface="primary"
+                data-card-shadow="lg"
+                data-card-row-text-align="center"
+                data-card-row-justify="center"
+                data-card-row-align="center"
+                data-card-row-image-align-self="start"
+                data-card-column-text-align="center"
+                data-card-column-justify="center"
+                data-card-column-align="center"
+                data-card-column-image-align-self="start"
+                data-surface="default"
+              >
+                <div class="card-body flow flow--md">
+                  <div class="card-body__content flow flex-col">
+                    <div class="card-body__content__caption flow">
+                      <h2
+                        class="heading-lg card-body__content__caption-title normal-case fluid"
+                      >
+                        <span>Distribution</span>
+                      </h2>
+                    </div>
+                    <div class="card-body__content-slot min-h-[4lh] max-w-11/12 @lg:max-w-2/3 mx-auto">
+                      <p>
+                        We are official distributors with a worldwide reach for a variety of product ranges encompassing music CD and vinyl, branded merchandise and consumer electronics...
+                      </p>
+                    </div>
+                    <div class="card-body__content__ctas w-full flex items-end">
+                      <a
+                        href="/supplier-services"
+                        class="button button--block select-none contents *:sr-only"
+                        ><span class="button__text">Find out more</span></a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="py-section-gap section-latest-releases">
+      <div class="wrapper flow">
+        <div class="flex items-center justify-between">
+          <h2 class="heading-xl heading--underline fluid [--heading-underline-color:var(--color-primary-light)]">
+            <span class="heading-xs text-base"
+              >Stay ahead with the latest releases</span
+            ><span>Latest Releases</span>
+          </h2>
+          <p class="text-lg font-bold text-primary">DVD &amp; Blu-ray</p>
+        </div>
+        <div class="carousel">
+          <div class="carousel__inner">
+            <div>
+              <img src="https://placehold.co/1260x450" alt="Product image" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="section-latest-releases__bg"></div>
+    </section>
+
+    <section>
+      <div class="wrapper flow flow--md">
+        <h3 class="text-base normal-case font-semibold text-center">Brands we work with</h3>
+        <div class="flex items-center justify-between mx-auto max-w-fit gap-md">
+          <div><img src="https://placehold.co/215x60" /></div>
+          <div><img src="https://placehold.co/215x60" /></div>
+          <div><img src="https://placehold.co/215x60" /></div>
+          <div><img src="https://placehold.co/215x60" /></div>
+        </div>
+    </section>
+
+    <section class="wrapper py-section-gap">
+      <div class="layout-grid layout-grid--column-count [--column-count:2] gap-0 flow">
+        <div class="flex items-end justify-end" style="justify-content:flex-end; transform:translateY(var(--flow-space)); margin-right: calc(var(--flow-space) * 2)"><img src="https://placehold.co/215x60" /></div>
+        <div class="flow">
+                    <h2 class="heading-xl heading--underline fluid">
+            <span class="heading-xs text-base"
+              >Stay ahead with the latest releases</span
+            ><span>Latest Releases</span>
+          </h2>
+          <p>At Lasgo, we value strong partnerships built on trust and efficiency. Whether you are looking to stock our extensive range of entertainment and books or supply us with exciting new products.</p>
+        </div>
+        <div>              <article
+                class="card [--card-body-padding-block:var(--spacing-xl)]"
+                data-surface="secondary"
+                data-card-shadow="lg"
+                data-card-row-text-align="center"
+                data-card-row-justify="center"
+                data-card-row-align="start"
+                data-card-row-image-align-self="start"
+                data-card-column-text-align="start"
+                data-card-column-justify="start"
+                data-card-column-align="start"
+                data-card-column-image-align-self="start"
+                data-surface="default"
+              >
+                <div class="card-body flow flow--md">
+                  <div class="card-body__content flow flex-col">
+                    <div class="card-body__content__caption flow">
+                      <h2
+                        class="heading-default card-body__content__caption-title fluid"
+                      >
+                        <span>Buying from us</span>
+                      </h2>
+                    </div>
+                    <div class="card-body__content-slot max-w-2/3 mx-auto">
+                      <p>
+                        Lasgo's stock range is the largest offered by any entertainment and books wholesale distributor in the UK: All available for immediate shipping.
+                      </p>
+                    </div>
+                    <div class="card-body__content__ctas w-full flex items-end">
+                      <a
+                        href="/supplier-services"
+                        class="button button--block select-none max-w-fit mx-auto"
+                        ><span class="button__text">Find out more</span></a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div>
+              <article
+                class="card [--card-body-padding-block:var(--spacing-xl)]"
+                data-surface="dark"
+                data-card-shadow="lg"
+                data-card-row-text-align="center"
+                data-card-row-justify="center"
+                data-card-row-align="start"
+                data-card-row-image-align-self="start"
+                data-card-column-text-align="start"
+                data-card-column-justify="start"
+                data-card-column-align="start"
+                data-card-column-image-align-self="start"
+                data-surface="default"
+              >
+                <div class="card-body flow flow--md">
+                  <div class="card-body__content flow flex-col">
+                    <div class="card-body__content__caption flow">
+                      <h2
+                        class="heading-default card-body__content__caption-title fluid text-secondary"
+                      >
+                        <span>Selling to us</span>
+                      </h2>
+                    </div>
+                    <div class="card-body__content-slot max-w-2/3 mx-auto">
+                      <p>
+                        Trading has been at the heart of Lasgo for many years and we continue to invest in both bulk stock acquisitions and exclusive product ranges...
+                      </p>
+                    </div>
+                    <div class="card-body__content__ctas w-full flex items-end">
+                      <a
+                        href="/supplier-services"
+                        class="button button--block button--secondary select-none max-w-fit mx-auto"
+                        ><span class="button__text">Download a credit application form</span></a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </article></div>
+      </div>
+    </section>
+
+    <div class="wrapper py-section-gap">
+      <div class="flow">
+        <div class="flow">
+          <h2 class="heading-xl heading--underline fluid [--heading-underline-color:var(--color-brand-yellow)]">
+            <span class="heading-xs text-base"
+              >Innovating UK entertainment supply</span
+            ><span>What we do</span>
+          </h2>
+          <div class="layout-grid flow [--layout-column-min:40ch]">
+            <div class="flow flex-auto">
+              <div class="max-w-prose flow">
+                <p class="text-lg font-bold">
+                  Established in 1978, Lasgo Worldwide Media has become the UK's
+                  longest established international wholesaler and distributor of home
+                  entertainment product.
+                </p>
+                <p>
+                  From our humble beginnings in London's Oxford Street, our success
+                  has been achieved through the company's ability to diversify and
+                  identify new opportunities. As such we were well placed to take full
+                  advantage of this growth. We have also invested in the expansion of
+                  our Visual Entertainment and Merchandise divisions to meet a growing
+                  demand for fan-based physical products.
+                </p>
+              </div>
+            </div>
+            <div class="basis-[fit-content] md:content-end flex md:items-end md:justify-center">
+              <a href="#" class="button button--primary button--wide md:mx-auto min-w-max">Find out more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>p
+    <div class="wrapper-grid">
+      <div data-surface="dark" class="col-start-2" style="grid-column-end: 4; padding-right: var(--wrapper-inline)">
+      <div class="layout-grid border gap-0 m-md" style="margin: var(--spacing-md)">
+        <div>
+          <article
+             class="card"
+             data-card-layout="row"
+             data-card-row-text-align="center"
+             data-card-row-justify="center"
+             data-card-row-align="start"
+             data-card-row-image-align-self="start"
+             data-card-column-text-align="start"
+             data-card-column-justify="start"
+             data-card-column-align="start"
+             data-card-column-image-align-self="start"
+             data-surface="default"
+           >
+             <div class="card-picture pt-layout-gap">
+               <svg style="width: 56px; height: 56px">
+                 <use href="#box" />
+                </svg>
+             </div>
+             <div class="card-body flow flow--md pt-md">
+               <div class="card-body__content flow flex-col">
+                 <div class="card-body__content__caption flow">
+                   <h2
+                     class="heading-default card-body__content__caption-title fluid"
+                   >
+                     <span>Office Hours</span>
+                   </h2>
+                 </div>
+                 <div class="card-body__content-slot flow">
+                  <div>
+                    <p>
+                      Monday - Friday
+                    </p>
+                    <p>08.30 to 18.00</p>
+                  </div>
+                   <p>Closed on Bank Holidays</p>
+                 </div>
+               </div>
+             </div>
+           </article>
+        </div>
+        <div>
+          <article
+             class="card"
+             data-card-row-text-align="center"
+             data-card-row-justify="center"
+             data-card-row-align="start"
+             data-card-row-image-align-self="start"
+             data-card-column-text-align="start"
+             data-card-column-justify="start"
+             data-card-column-align="start"
+             data-card-column-image-align-self="start"
+             data-surface="default"
+           >
+             <div class="card-picture pt-layout-gap">
+               <svg style="width: 56px; height:56px;">
+                 <use href="#phone" />
+                </svg>
+             </div>
+             <div class="card-body flow flow--md pt-md">
+               <div class="card-body__content flow flex-col">
+                 <div class="card-body__content__caption flow">
+                   <h2
+                     class="heading-default card-body__content__caption-title fluid"
+                   >
+                     <span>Phone</span>
+                   </h2>
+                 </div>
+                 <div class="card-body__content-slot flow">
+                   <div>
+                    <p>Tel: +44(0)20 6459 8600</p>
+                      <p>Fax: +44(0) 8452 7491</p>
+                   </div>
+                   <p>General Enquiries - info@large.com</p>
+                 </div>                 
+               </div>
+             </div>
+           </article>
+        </div>
+        <div>
+          <article
+             class="card"
+             data-card-layout="row"
+             data-card-row-text-align="center"
+             data-card-row-justify="center"
+             data-card-row-align="start"
+             data-card-row-image-align-self="start"
+             data-card-column-text-align="start"
+             data-card-column-justify="start"
+             data-card-column-align="start"
+             data-card-column-image-align-self="start"
+             data-surface="default"
+           >
+             <div class="card-picture pt-layout-gap">
+               <svg style="width: 56px; height:56px">
+                 <use href="#office" />
+                </svg>
+             </div>
+             <div class="card-body flow flow--md pt-md">
+               <div class="card-body__content flow flex-col">
+                 <div class="card-body__content__caption flow">
+                   <h2                     
+                     class="heading-default card-body__content__caption-title fluid"
+                   >
+                     <span>Office Hours</span>
+                   </h2>
+                 </div>
+                 <div class="card-body__content-slot">
+                   <p>
+                     Unit 1 Falcon Park, Neasden Lane, Neasdon, London, United Kingdom, NW10 1RZ
+                   </p>
+                 </div>                 
+               </div>
+             </div>
+           </article>
+        </div>                
+      </div>
+      </div>
+
+    </div>
+    <footer style="min-height:400px; background: var(--color-tertiary-light); margin-top: var(--spacing-section-gap)">
+      <div class="wrapper">
+        <p>&copy; 2023 Large Company. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
