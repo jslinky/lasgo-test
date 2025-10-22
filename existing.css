@@ -1,0 +1,206 @@
+#filterMenu {
+    background-color: #fff;
+    margin: 10px 0 0 0;
+    padding: 10px 0 0 0;
+    vertical-align: top
+}
+
+#filterMenu .introHeading {
+    padding: 0 10px;
+    color: #004f59;
+    font-size: 18px;
+    margin-top: 5px;
+    font-weight: 600
+}
+
+#filterMenu div#matched {
+    padding: 0 10px 10px
+}
+
+#filterMenu div#matched span {
+    font-weight: 600
+}
+
+.tealbox .formDetails ul li {
+    line-height: 1.7;
+    overflow: hidden
+}
+
+.formDetails {
+    padding: 0 0 0 0
+}
+
+.formDetails .accountPreferences {
+    padding-bottom: 15px
+}
+
+.formDetails .priceFilter {
+    position: relative;
+    left: -2px
+}
+
+.formDetails .priceFilter #frmPrice {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0
+}
+
+.formDetails .priceFilter .k-numerictextbox {
+    width: 70px
+}
+
+.formDetails .priceFilter p.priceLabel {
+    background-image: none;
+    margin: 10px 0 10px 0;
+    padding: 0 0 0 0;
+    position: relative;
+    left: -9px
+}
+
+.formDetails .priceFilter button {
+    display: inline;
+    width: 35px;
+    text-align: center;
+    padding: 5px 0 5px 0
+}
+
+.formDetails .priceFilter .priceRange {
+    font-size: 14px
+}
+
+.facetHeading {
+    font-weight: 400;
+    margin: 10px 0 3px 0;
+    color: #004f59;
+    font-weight: 600;
+    background: transparent url(/public/images/search/facet_filter_sprite.png) no-repeat scroll 0 -10px;
+    padding-left: 13px;
+    cursor: pointer
+}
+
+.collapse {
+    background: transparent url(/public/images/search/facet_filter_sprite.png) no-repeat scroll 0 5px
+}
+
+#facetList {
+    margin: 0 0 0 0;
+    line-height: 1.5em
+}
+
+#facetList .facetContainer {
+    margin: 0 0 13px 0;
+    padding: 0 0 0 0;
+    border-top: 1px solid #e6e6e6;
+    width: 100%
+}
+
+#facetList .facetContainer div {
+    margin-left: 10px
+}
+
+#facetList .facetContainer div ul {
+    list-style-position: outside
+}
+
+#facetList .facetContainer div ul li {
+    padding: 0 7.5px 0 0;
+    position: relative;
+    line-height: 17px;
+    margin-bottom: 6px;
+    vertical-align: middle
+}
+
+#facetList .customFacetContainer .customFacetListBox {
+    margin-left: -1px
+}
+
+#facetList .customFacetContainer .customFacetListBox .facetContainer {
+    margin: 0 0 13px 0;
+    padding: 0 0 0 0;
+    border-top: none;
+    width: 100%
+}
+
+#facetList .facetHeading {
+    margin-left: 10px
+}
+
+#facetList .facetHeading a {
+    padding-left: 3px
+}
+
+#facetList .filter-state-uparrow {
+    background: transparent url(/public/images/search/facet_filter_sprite.png) no-repeat scroll 0 -137px !important;
+    cursor: pointer;
+    margin-left: 9px
+}
+
+#facetList a {
+    padding: 0 45px 0 16px;
+    display: block
+}
+
+#facetList a {
+    text-decoration: none
+}
+
+#facetList a .facetCount {
+    vertical-align: middle;
+    color: #999;
+    float: right;
+    position: absolute;
+    right: 8px;
+    top: 0
+}
+
+#facetList a.filter-indent {
+    padding-left: 25px;
+    background: none !important;
+    display: block
+}
+
+#facetList span.filter-state-boldindent {
+    color: #999;
+    font-weight: 600;
+    padding-left: 16px
+}
+
+#facetList .filter-state-selected,
+#facetList .filter-state-selectlist {
+    padding-left: 0
+}
+
+#facetList .filter-state-selected {
+    height: 17px;
+    background: transparent url(/public/images/search/facet_filter_sprite.png) no-repeat 0 -103px;
+    display: inline-block
+}
+
+#facetList .filter-state-selected:hover {
+    background: transparent url(/public/images/search/facet_filter_sprite.png) no-repeat 0 -122px
+}
+
+#facetList .filter-state-selectlist {
+    height: 17px;
+    background: transparent url(/public/images/search/facet_filter_sprite.png) no-repeat 0 -82px;
+    display: inline-block
+}
+
+#facetList .filter-state-selectlist:hover {
+    background: transparent url(/public/images/search/facet_filter_sprite.png) no-repeat 0 -64px
+}
+
+#facetList a:link:hover {
+    color: #222
+}
+
+#facetList a:link,
+#facetList a:visited {
+    color: #222
+}
+
+#facetList .dvdAndBlurayTitle {
+    font-size: 14px;
+    font-weight: bold;
+    text-indent: 17px;
+    margin: 10px 0 2px 0
+}

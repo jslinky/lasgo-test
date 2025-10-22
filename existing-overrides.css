@@ -1,0 +1,95 @@
+@layer existing-overrides {
+/* This is set in existing reset - currently not included */
+    #facetList .facetContainer div ul {
+        padding: 0;
+    }
+
+    #facetList .facetContainer {
+        border-top:0;
+        &:first-of-type {
+            .facetHeading {
+                border-top-left-radius: var(--radius);
+                border-top-right-radius: var(--radius);
+            }
+        }
+        &:last-of-type {
+            .facetContainer div ul li:last-of-type {
+                border-bottom-left-radius: var(--radius);
+                border-bottom-right-radius: var(--radius);
+            }
+        }
+    }
+
+
+    .facetHeading {
+        --color: var(--color-primary);
+        font-size: var(--text-sm);
+        background: var(--color-grey-12);
+        border: 1px solid var(--color-grey-11);
+        padding-block: var(--space-3xs);
+        &:has(+ div[style*="display:none"]) {
+            border-bottom-color: var(--color-grey-12);
+        }
+        + div {
+            margin-block-start: var(--space-2xs);
+        }
+    }
+
+    :is(#facetList .filter-state-selected, #facetList .filter-state-selectlist) {
+        display: flex;
+    }
+
+    #facetList a {
+        display: flex;
+        justify-content: space-between;
+        flex: 1 1 auto;
+        padding-right: 0;
+        font-size: var(--sm);
+    }
+
+    #facetList a .facetCount {
+        position: relative;
+        right: 0;
+        flex-grow: 0;
+    }
+
+    #facetList .facetContainer div ul li {
+        margin-bottom: 6px;
+    }
+
+    /* #facetList .facetContainer {
+        margin: 0 0 13px 0;
+    } */
+
+    :is(#facetList .filter-state-selected, #facetList .filter-state-selected:hover, #facetList .filter-state-selectlist,  #facetList .filter-state-selectlist:hover, #facetList .filter-state-uparrow) {
+        background-image: url(./assets/facet_filter_sprite.png);
+        background-repeat: no-repeat;
+        background-position: 0 var(--bg-y-pos);
+    }
+
+    #facetList .filter-state-uparrow {
+        --bg-y-pos: -137px;
+    }
+
+    #facetList .filter-state-selected {
+        --bg-y-pos: -103px;
+    }
+
+    #facetList .filter-state-selected:hover {
+        --bg-y-pos: -122px;
+    }
+
+    #facetList .filter-state-selectlist {
+        --bg-y-pos: -82px;
+    }
+
+    #facetList .filter-state-selectlist:hover {
+        --bg-y-pos: -64px;
+    }
+
+
+    :is(#filterMenu > .introHeading, #filterMenu > #matched) {
+        display:none;
+    }
+
+}

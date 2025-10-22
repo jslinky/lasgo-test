@@ -89,6 +89,7 @@
   --flow-space: --spacing(--value(integer));
 }
 
+
 @utility fluid {
     --fluid-min: calc(var(--font-size-min, var(--sm-px, 14)) * pow(var(--font-ratio-min, 1.2), var(--font-level, 0)));
     --fluid-max: calc(var(--font-size-max, var(--font-size-base-px, 16)) * pow(var(--font-ratio-max, 1.5), var(--font-level, 0)));

@@ -6,7 +6,8 @@
 @import "./dist/modules/reset.css";
 @import "./dist/modules/base.css";
 @import "./dist/modules/components/typography/headings.css";
-@import "./dist/modules/components/typography/base.css";
+/* Where is this? */
+/* @import "./dist/modules/components/typography/base.css"; */
 @import "./dist/modules/components/typography/fluid-type.css";
 @import "./dist/modules/components/layout.css";
 @import "./dist/modules/components/buttons.css";
@@ -16,6 +17,9 @@
 @import "./dist/modules/components/card.css";
 @import "./dist/modules/components/timeline.css";
 @import "./dist/modules/components/collapse.css";
+
+
+@import "./existing-overrides.css";
 
 @layer site {
   :root:is(.new) :where(input, textarea) {
@@ -337,6 +341,7 @@
     --layout-column-min: 9.45ch;
     --column-count: 8;
     container-type: inline-size;
+    container-name: content-grid;
   }
 
   .content-grid_full {
@@ -359,6 +364,7 @@
     display: grid;
     grid-template-columns: subgrid;
     container: none;
+    align-content: start;
     @container (min-width:900px) {
       grid-column: span 8;
     }
@@ -373,7 +379,25 @@
   }
 
   .content-grid__aside {
-    @container (min-width:900px) {
+    --aside-height: calc(50dvh - var(--aside-sticky-top, 0px));
+    position: sticky;
+    top:var(--aside-sticky-top, 0);
+    background: var(--root-bg);
+    z-index:1;
+    height: auto;
+    @container content-grid (max-width:899px) {
+      width: 100vw;
+      margin-inline: calc(-50vw + 50%);
+      padding-inline: var(--wrapper-inline);
+      #filterMenu {
+        overflow-y: auto;
+        max-height: var(--aside-height);
+        overscroll-behavior-block: contain;
+      }
+    }
+    @container content-grid (min-width:900px) {
+      --aside-height: auto;
+      position: relative;
       grid-column: span 2;
     }
   }
@@ -483,6 +507,7 @@
     --button-border-depth: 0.5;
     --button-font-weight: 700;
 
+    --heading-3xl-line-height:1;
     --heading-xl-line-height:1;
 
     --color-grey-c: 0.01;
@@ -504,7 +529,7 @@
     --button-border-depth: 0;
     --root-bg: #fff;
 
-    --layout-gap: var(--spacing-lg);
+    --layout-gap: max(min(2vmax, var(--space-md)), var(--space-md, 1rem));
     --unit-min: var(--unit-max, 1rem) / 2.5;
 
     --hero-height: min(520px, 80vh);
