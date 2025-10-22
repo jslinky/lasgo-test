@@ -48,6 +48,17 @@
         )
         0 h
     );
+
+    --color-primary-light: oklch(
+      var(--color-primary-light-l) var(--color-primary-light-c)
+        var(--color-primary-light-h)
+    );
+
+    --color-tertiary-light: color-mix(
+      in oklab,
+      var(--color-tertiary),
+      white 65%
+    );    
     
     --spacing-3xs: var(--space-3xs);
     --spacing-2xs: var(--space-2xs);
@@ -63,15 +74,27 @@
     --spacing-6xl: var(--space-6xl);
     /* Move below into frame and register as props */
     --spacing-layout-gap: var(--layout-gap);
-    --spacing-section-gap: calc(var(--layout-gap) * 3);
+    --spacing-section-gap: calc(var(--layout-gap) * 2);
+    --spacing-section-gap-lg: calc(var(--spacing-section-gap) * var(--space-increment));
+    --spacing-section-gap-xl: calc(var(--spacing-section-gap-lg) * var(--space-increment));
     --spacing-huge: 3rem;
     --radius-default: var(--radius);    
+
+
   }
 }
 
 @utility flow--* {
   --flow-space: --value(--spacing- *);
   --flow-space: --spacing(--value(integer));
+}
+
+@utility fluid {
+    --fluid-min: calc(var(--font-size-min, var(--sm-px, 14)) * pow(var(--font-ratio-min, 1.2), var(--font-level, 0)));
+    --fluid-max: calc(var(--font-size-max, var(--font-size-base-px, 16)) * pow(var(--font-ratio-max, 1.5), var(--font-level, 0)));
+    --fluid-preferred: calc((var(--fluid-max) - var(--fluid-min)) / (var(--font-width-max, 1275) - var(--font-width-min, 375)));
+    --fluid-type: clamp((var(--fluid-min) / 16) * 1rem,((var(--fluid-min) / 16) * 1rem) - (((var(--fluid-preferred) * var(--font-width-min, 375)) / 16) * 1rem) + (var(--fluid-preferred) * var(--variable-unit, 100vi)),(var(--fluid-max) / 16) * 1rem);
+    font-size: var(--fluid-type);
 }
 /* @utility heading-3xl {
   --font-size-min: var(--display-md-px);

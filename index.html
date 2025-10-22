@@ -41,10 +41,11 @@
 
     </svg>    
     <!-- Hero -->
-    <section class="@container hero">
+    <section class="@container hero hero--expanded">
       <article
         class="card [--card-left-col:fit-content]"
         data-card-layout="overlay"
+        data-card-backdrop="uniform"
         data-card-column-reverse-order="true"
         data-surface="dark"
         data-card-shadow="lg"
@@ -128,21 +129,22 @@
 
     <div class="wrapper py-section-gap">
       <div class="flow">
-        <div class="flow">
+        <div class="flow flow--xl">
           <h2 class="heading-xl heading--underline text-center fluid">
-            <span class="heading-xs text-base"
+            <span class="heading-xs text-base line-across"
               >Wholesale and worldwide distribution</span
             ><span>Core Services</span>
           </h2>
-          <div class="layout-grid [--layout-column-min:35ch]">
+          <div class="layout-grid [--layout-column-min:35ch] max-w-screen-lg mx-auto">
             <div>
               <article
-                class="card aspect-4/3 @lg:aspect-21/9"
+                class="card aspect-16/9 @lg:aspect-auto p-xs flow--sm ticket-card"
                 data-surface="primary"
+                data-card-layout="overlay"
                 data-card-shadow="lg"
                 data-card-row-text-align="center"
                 data-card-row-justify="center"
-                data-card-row-align="center"
+                data-card-row-align="stretch"
                 data-card-row-image-align-self="start"
                 data-card-column-text-align="start"
                 data-card-column-justify="start"
@@ -150,11 +152,12 @@
                 data-card-column-image-align-self="start"
                 data-surface="default"
               >
-                <div class="card-body flow flow--md">
+              <div class="card-picture"></div>
+                <div class="card-body m-0 flow flow--xs p-sm pt-xl">
                   <div class="card-body__content flow flex-col">
                     <div class="card-body__content__caption flow">
                       <h2
-                        class="heading-lg card-body__content__caption-title normal-case fluid"
+                        class="heading-xl card-body__content__caption-title normal-case fluid"
                       >
                         <span>Wholesale</span>
                       </h2>
@@ -173,28 +176,31 @@
                     </div>
                   </div>
                 </div>
+                <div class="ticket-card_block-border"></div>
               </article>
             </div>
             <div>
               <article
-                class="card aspect-4/3 @lg:aspect-21/9"
+                class="card aspect-16/9 @lg:aspect-auto p-xs flow--sm ticket-card"
                 data-surface="primary"
+                data-card-layout="overlay"
                 data-card-shadow="lg"
                 data-card-row-text-align="center"
                 data-card-row-justify="center"
-                data-card-row-align="center"
+                data-card-row-align="stretch"
                 data-card-row-image-align-self="start"
-                data-card-column-text-align="center"
-                data-card-column-justify="center"
-                data-card-column-align="center"
+                data-card-column-text-align="start"
+                data-card-column-justify="start"
+                data-card-column-align="start"
                 data-card-column-image-align-self="start"
                 data-surface="default"
               >
-                <div class="card-body flow flow--md">
+              <div class="card-picture"></div>
+                <div class="card-body m-0 flow flow--xs p-sm pt-xl">
                   <div class="card-body__content flow flex-col">
                     <div class="card-body__content__caption flow">
                       <h2
-                        class="heading-lg card-body__content__caption-title normal-case fluid"
+                        class="heading-xl card-body__content__caption-title normal-case fluid"
                       >
                         <span>Distribution</span>
                       </h2>
@@ -213,16 +219,17 @@
                     </div>
                   </div>
                 </div>
+                <div class="ticket-card_block-border"></div>
               </article>
-            </div>            
+            </div>         
           </div>
         </div>
       </div>
     </div>
 
-    <section class="py-section-gap section-latest-releases">
+    <section class="py-section-gap-lg pb-5xl section-latest-releases">
       <div class="wrapper flow">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between flex-wrap gap-md">
           <h2 class="heading-xl heading--underline fluid [--heading-underline-color:var(--color-primary-light)]">
             <span class="heading-xs text-base"
               >Stay ahead with the latest releases</span
@@ -233,7 +240,7 @@
         <div class="carousel">
           <div class="carousel__inner">
             <div>
-              <img src="https://placehold.co/1260x450" alt="Product image" />
+              <img src="./assets/karate-kid.png" alt="Product image" />
             </div>
           </div>
         </div>
@@ -242,30 +249,37 @@
       <div class="section-latest-releases__bg"></div>
     </section>
 
-    <section>
+    <section class="@container">
       <div class="wrapper flow flow--md">
-        <h3 class="text-base normal-case font-semibold text-center">Brands we work with</h3>
-        <div class="flex items-center justify-between mx-auto max-w-fit gap-md">
-          <div><img src="https://placehold.co/215x60" /></div>
-          <div><img src="https://placehold.co/215x60" /></div>
-          <div><img src="https://placehold.co/215x60" /></div>
-          <div><img src="https://placehold.co/215x60" /></div>
+        <h3 class="text-base normal-case font-bold text-center">Brands we work with</h3>
+        <div class="max-w-screen-md mx-auto">
+          <div class="layout-grid *:flex *:items-center *:justify-center [--layout-column-min:7rem]">
+            <div class="*:w-[170px] *:mx-auto"><img src="./assets/crosley-logo.png" /></div>
+            <div class="*:w-[170px] *:mx-auto"><img src="./assets/elgato.png" /></div>
+            <div class="*:w-[170px] *:mx-auto"><img src="./assets/ledwood-logo.png" /></div>
+            <div class="*:w-[170px] *:mx-auto"><img src="./assets/meters-logo.png" /></div>
+          </div>
         </div>
     </section>
 
-    <section class="wrapper py-section-gap">
-      <div class="layout-grid layout-grid--column-count [--column-count:2] gap-0 flow">
-        <div class="flex items-end justify-end" style="justify-content:flex-end; transform:translateY(var(--flow-space)); margin-right: calc(var(--flow-space) * 2)"><img src="https://placehold.co/215x60" /></div>
-        <div class="flow">
-                    <h2 class="heading-xl heading--underline fluid">
-            <span class="heading-xs text-base"
-              >Stay ahead with the latest releases</span
-            ><span>Latest Releases</span>
-          </h2>
-          <p>At Lasgo, we value strong partnerships built on trust and efficiency. Whether you are looking to stock our extensive range of entertainment and books or supply us with exciting new products.</p>
+    <section class="wrapper py-section-gap-xl pt-5xl @container">
+      <div class="section-partnership layout-grid layout-grid--column-count [--column-count:2] gap-0 flow">
+        <div class="flex items-end justify-end" style="justify-content:flex-end; transform:translateY(var(--flow-space)); margin-right: calc(var(--flow-space) * 2)">
+          <svg class="absolute top-1/2 -translate-y-1/2" width="39" height="578" viewBox="0 0 39 578" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 16.1754C0 7.24197 8.73045 0 19.5 0C30.2696 0 39 7.24196 39 16.1754V561.825C39 570.758 30.2696 578 19.5 578C8.73045 578 0 570.758 0 561.825V16.1754Z" fill="#C8EBE9"/>
+          </svg>
         </div>
-        <div>              <article
-                class="card [--card-body-padding-block:var(--spacing-xl)]"
+        <div class="flow @4xl:pr-2xl @4xl:pb-xl mb-xl @4xl:mb-0">
+                    <h2 class="heading-xl heading--underline fluid [--heading-underline-color:var(--color-primary-light)]">
+            <span class="heading-xs text-base"
+              >Trust-focused</span
+            ><span>Partnership</span>
+          </h2>
+          <p class="max-w-[min(60vw,400px)]">At Lasgo, we value strong partnerships built on trust and efficiency. Whether you are looking to stock our extensive range of entertainment and books or supply us with exciting new products.</p>
+        </div>
+        <div class="mt-0">              
+          <article
+                class="card [--card-body-padding-block:var(--spacing-xl)] [--card-radius:var(--radius)_0_0_var(--radius)]"
                 data-surface="secondary"
                 data-card-shadow="lg"
                 data-card-row-text-align="center"
@@ -287,7 +301,7 @@
                         <span>Buying from us</span>
                       </h2>
                     </div>
-                    <div class="card-body__content-slot max-w-2/3 mx-auto">
+                    <div class="card-body__content-slot max-w-[min(300px,100%)] mx-auto">
                       <p>
                         Lasgo's stock range is the largest offered by any entertainment and books wholesale distributor in the UK: All available for immediate shipping.
                       </p>
@@ -301,47 +315,48 @@
                     </div>
                   </div>
                 </div>
-              </article>
-            </div>
-            <div>
-              <article
-                class="card [--card-body-padding-block:var(--spacing-xl)]"
-                data-surface="dark"
-                data-card-shadow="lg"
-                data-card-row-text-align="center"
-                data-card-row-justify="center"
-                data-card-row-align="start"
-                data-card-row-image-align-self="start"
-                data-card-column-text-align="start"
-                data-card-column-justify="start"
-                data-card-column-align="start"
-                data-card-column-image-align-self="start"
-                data-surface="default"
-              >
-                <div class="card-body flow flow--md">
-                  <div class="card-body__content flow flex-col">
-                    <div class="card-body__content__caption flow">
-                      <h2
-                        class="heading-default card-body__content__caption-title fluid text-secondary"
-                      >
-                        <span>Selling to us</span>
-                      </h2>
-                    </div>
-                    <div class="card-body__content-slot max-w-2/3 mx-auto">
-                      <p>
-                        Trading has been at the heart of Lasgo for many years and we continue to invest in both bulk stock acquisitions and exclusive product ranges...
-                      </p>
-                    </div>
-                    <div class="card-body__content__ctas w-full flex items-end">
-                      <a
-                        href="/supplier-services"
-                        class="button button--block button--secondary select-none max-w-fit mx-auto"
-                        ><span class="button__text">Download a credit application form</span></a
-                      >
-                    </div>
-                  </div>
+          </article>
+        </div>
+        <div class="mt-0">
+          <article
+            class="card [--card-body-padding-block:var(--spacing-xl)] [--card-radius:0_var(--radius)_var(--radius)_0]"
+            data-surface="dark"
+            data-card-shadow="lg"
+            data-card-row-text-align="center"
+            data-card-row-justify="center"
+            data-card-row-align="start"
+            data-card-row-image-align-self="start"
+            data-card-column-text-align="start"
+            data-card-column-justify="start"
+            data-card-column-align="start"
+            data-card-column-image-align-self="start"
+            data-surface="default"
+          >
+            <div class="card-body flow flow--md">
+              <div class="card-body__content flow flex-col">
+                <div class="card-body__content__caption flow">
+                  <h2
+                    class="heading-default card-body__content__caption-title fluid text-secondary"
+                  >
+                    <span>Selling to us</span>
+                  </h2>
                 </div>
-              </article></div>
+                <div class="card-body__content-slot max-w-[min(300px,100%)] mx-auto">
+                  <p>
+                    Trading has been at the heart of Lasgo for many years and we continue to invest in both bulk stock acquisitions and exclusive product ranges...
+                  </p>
+                </div>
+                <div class="card-body__content__ctas w-full flex items-end">
+                  <a
+                    href="/supplier-services"
+                    class="button button--block button--secondary select-none max-w-fit mx-auto"
+                    ><span class="button__text">Download a credit application form</span></a
+                  >
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -350,38 +365,28 @@
         <div class="flow">
           <h2 class="heading-xl heading--underline fluid [--heading-underline-color:var(--color-brand-yellow)]">
             <span class="heading-xs text-base"
-              >Innovating UK entertainment supply</span
-            ><span>What we do</span>
+              >Contact our sales team</span
+            ><span>Get in touch</span>
           </h2>
           <div class="layout-grid flow [--layout-column-min:40ch]">
             <div class="flow flex-auto">
               <div class="max-w-prose flow">
-                <p class="text-lg font-bold">
-                  Established in 1978, Lasgo Worldwide Media has become the UK's
-                  longest established international wholesaler and distributor of home
-                  entertainment product.
-                </p>
                 <p>
-                  From our humble beginnings in London's Oxford Street, our success
-                  has been achieved through the company's ability to diversify and
-                  identify new opportunities. As such we were well placed to take full
-                  advantage of this growth. We have also invested in the expansion of
-                  our Visual Entertainment and Merchandise divisions to meet a growing
-                  demand for fan-based physical products.
+                  Existing customers can login now and start browsing our offers, or to open an account with us please make sure to check our Terms & Conditions or contact our Customer Service Team for further information.
                 </p>
               </div>
             </div>
             <div class="basis-[fit-content] md:content-end flex md:items-end md:justify-center">
-              <a href="#" class="button button--primary button--wide md:mx-auto min-w-max">Find out more</a>
+              <a href="#" class="button button--dark md:mx-auto min-w-max">Download a credit application form</a>
             </div>
           </div>
         </div>
       </div>
-    </div>p
-    <div class="wrapper-grid">
-      <div data-surface="dark" class="col-start-2" style="grid-column-end: 4; padding-right: var(--wrapper-inline)">
-      <div class="layout-grid border gap-0 m-md" style="margin: var(--spacing-md)">
-        <div>
+    </div>
+    <div class="wrapper-grid @container">
+      <div data-surface="dark" class="col-start-2 col-end-4 pr-[var(--wrapper-inline)] [--field-border-color:var(--color-light)]">
+      <div class="flex-layout-grid border gap-0 m-md [--layout-column-min:31.5ch]">
+        <div class="@xl:border-r @5xl:border-r-0 aspect-video @xl:aspect-auto">
           <article
              class="card"
              data-card-layout="row"
@@ -401,10 +406,10 @@
                 </svg>
              </div>
              <div class="card-body flow flow--md pt-md">
-               <div class="card-body__content flow flex-col">
+               <div class="card-body__content flow flex-col flow--sm">
                  <div class="card-body__content__caption flow">
                    <h2
-                     class="heading-default card-body__content__caption-title fluid"
+                     class="heading-default card-body__content__caption-title fluid [--font-size-max:var(--lg-px)]"
                    >
                      <span>Office Hours</span>
                    </h2>
@@ -416,13 +421,13 @@
                     </p>
                     <p>08.30 to 18.00</p>
                   </div>
-                   <p>Closed on Bank Holidays</p>
+                   <p class="text-sm">Closed on Bank Holidays</p>
                  </div>
                </div>
              </div>
            </article>
         </div>
-        <div>
+        <div class="@5xl:border-x border-t @xl:border-t-0 aspect-video @xl:aspect-auto">
           <article
              class="card"
              data-card-row-text-align="center"
@@ -441,10 +446,10 @@
                 </svg>
              </div>
              <div class="card-body flow flow--md pt-md">
-               <div class="card-body__content flow flex-col">
+               <div class="card-body__content flow flex-col flow--sm">
                  <div class="card-body__content__caption flow">
                    <h2
-                     class="heading-default card-body__content__caption-title fluid"
+                     class="heading-default card-body__content__caption-title fluid [--font-size-max:var(--lg-px)]"
                    >
                      <span>Phone</span>
                    </h2>
@@ -460,7 +465,7 @@
              </div>
            </article>
         </div>
-        <div>
+        <div class="border-t @5xl:border-t-0 aspect-video @xl:aspect-auto">
           <article
              class="card"
              data-card-layout="row"
@@ -480,10 +485,10 @@
                 </svg>
              </div>
              <div class="card-body flow flow--md pt-md">
-               <div class="card-body__content flow flex-col">
+               <div class="card-body__content flow flex-col flow--sm">
                  <div class="card-body__content__caption flow">
                    <h2                     
-                     class="heading-default card-body__content__caption-title fluid"
+                     class="heading-default card-body__content__caption-title fluid [--font-size-max:var(--lg-px)]"
                    >
                      <span>Office Hours</span>
                    </h2>
@@ -501,7 +506,7 @@
       </div>
 
     </div>
-    <footer style="min-height:400px; background: var(--color-tertiary-light); margin-top: var(--spacing-section-gap)">
+    <footer class="mt-section-gap-xl bg-tertiary-light" style="min-height:400px;">
       <div class="wrapper">
         <p>&copy; 2023 Large Company. All rights reserved.</p>
       </div>

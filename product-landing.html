@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./tailwind-output.css" />
+    <!-- <link
       rel="stylesheet"
       href="../gardners25/layers/tailwind/assets/css/tailwind.css"
-    />
+    /> -->
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
     </style>
@@ -48,9 +49,9 @@
       </symbol>
     </svg>
     <!-- Hero -->
-    <section class="@container hero">
+    <section class="@container hero ">
       <article
-        class="card"
+        class="card [--card-top-row:50%]"
         data-card-column-reverse-order="true"
         data-surface="dark"
         data-card-shadow="lg"
@@ -67,20 +68,20 @@
         <div class="card-picture aspect-video">
           <img src="./assets/vinyl-cover.png" alt="Card image" style="object-fit:contain" />
         </div>
-        <div class="card-body flow flow--md col-start-1 mx-0 wrapper pr-0">
-          <div class="card-body__content flow flow--sm">
+        <div class="card-body flow flow--md col-start-1 mx-0 wrapper @2xl:pr-0">
+          <div class="card-body__content flow flow--md">
             <div class="card-body__content__caption flow">
               <h2
-                class="heading-3xl card-body__content__caption-title normal-case fluid"
+                class="heading-3xl card-body__content__caption-title normal-case fluid [--font-size-min:var(--xl-px)]"
               >
                 <span>Home to all great vinyl labels and records</span>
               </h2>
             </div>
-            <div class="card-body__content-slot flow">
-              <p class="heading-default normal-case font-normal fluid">
+            <div class="card-body__content-slot flow *:flow--sm flow--xl">
+              <p class="heading-sm normal-case font-normal fluid">
                 Lose yourself in the greatest hits of your generation, and those that came before!
               </p>
-              <p class="heading-default normal-case font-normal fluid">
+              <p class="heading-sm normal-case font-normal fluid">
                 Here you will find hundreds of officially licensed <strong class="font-semibold">Music CD</strong> & <strong class="font-semibold">Vinyl Records</strong>
               </p>
             </div>
@@ -98,15 +99,15 @@
       </article>
     </section>
 
-    <div class="wrapper-grid py-section-gap">
+    <div class="wrapper-grid py-section-gap pt-xl">
       <div
         class="content-grid layout-grid layout-grid--column-count col-start-2 col-end-2"
       >
-        <nav class="content-grid_full">
-          <a href="#" class="button button--primary flex-1">DVD & Blu-ray</a>
-          <a href="#" class="button button--primary flex-1">Music CD & Vinyl</a>
-          <a href="#" class="button button--primary flex-1">Merchandise</a>
-          <a href="#" class="button button--primary flex-1"
+        <nav class="col-span-full gap-y-layout-gap layout-grid [--layout-column-min:20ch] *:text-center *:fluid">
+          <a href="#" class="button button--primary">DVD & Blu-ray</a>
+          <a href="#" class="button button--primary">Music CD & Vinyl</a>
+          <a href="#" class="button button--primary">Merchandise</a>
+          <a href="#" class="button button--primary"
             >Consumer Electronics</a
           >
         </nav>
@@ -119,30 +120,21 @@
             <summary
               class="collapse-title collapse-title--has-icon collapse-title--text-base"
             >
-              <div class="collapse-icon-slot">
-                <div class="collapse-icon collapse-icon--arrow">
+              <div class="collapse-icon-slot flex-wrap gap-y-0">
+                <div class="collapse-icon collapse-icon--arrow md:hidden">
                   <span
                     class="iconify i-lineicons:chevron-down"
                     aria-hidden="true"
                   ></span>
                 </div>
-                <p>
-                  <span>Useful Links</span>
+                <p class="heading-sm fluid">
+                  <span>Refine your search</span>
                 </p>
+                <p class="basis-full text-sm">87,924 products match your search criteria</p>
               </div>
             </summary>
             <div class="collapse-content">
-              <nav>
-                <ul class="pl-0" style="padding-left: 0">
-                  <li><a href="#">About us</a></li>
-                  <li><a href="#">Contact us</a></li>
-                  <li><a href="#">Terms and Conditions</a></li>
-                  <li><a href="#">Terms of use</a></li>
-                  <li><a href="#">FAQs</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Cookie Policy</a></li>
-                </ul>
-              </nav>
+              <p>Refine content</p>
             </div>
           </details>
         </aside>
@@ -162,14 +154,9 @@
               ><span>Featured Products</span>
             </h2>
             <div
-              class="col-span-full layout-grid layout-grid--column-count"
-              style="
-                --column-count: 8;
-                --layout-column-min: calc(10ch * 0.25);
-                --layout-grid-auto-repeat: auto-fill;
-              "
+              class="col-span-full content-grid layout-grid layout-grid--column-count [--layout-grid-auto-repeat:auto-fill] [--layout-column-min:calc(9.45ch*0.25)]"
             >
-              <div class="content-grid_full featured-products">
+              <div class="content-grid_full featured-products col-span-full">
                 <div class="bg-tertiary aspect-video"></div>
                 <div class="bg-tertiary aspect-video"></div>
                 <div class="bg-tertiary aspect-video"></div>
@@ -199,7 +186,7 @@
         </div>
         <div class="relative wrapper-grid ">
           <div
-            class="col-start-2 col-end-2 opacity-100 flex w-full snap-x snap-mandatory overflow-x-auto *:shrink-0 max-w-full [--wrapper-padding-min:calc(var(--layout-gap)*4)] [--wrapper-inline:max(var(--wrapper-padding-min,1rem),50vw-var(--wrapper-width)/2+var(--wrapper-padding)*2/2)] focus-within:outline-0 transition-opacity duration-500 ease-in-out scroll-mt-4xl pb-2xl [clip-path:inset(0_0_3rem_0)] hover:[clip-path:inset(0)]"
+            class="col-start-2 col-end-2 opacity-100 flex w-full snap-x snap-mandatory overflow-x-auto *:shrink-0 max-w-full [--wrapper-padding-min:calc(var(--layout-gap)*4)] [--wrapper-inline:max(var(--wrapper-padding-min,1rem),50vw-var(--wrapper-width)/2+var(--wrapper-padding)*2/2)] focus-within:outline-0 transition-opacity duration-500 ease-in-out scroll-mt-4xl pb-2xl [clip-path:inset(0_0_3rem_0)] hover:[clip-path:inset(0)] *:bg-primary"
           >
             <div
               tabindex="0"
@@ -219,7 +206,7 @@
                   data-surface="default"
                 >
                   <div
-                    class="card-picture aspect-square w-[calc(100% - var(--spacing-layout-gap))] mx-auto"
+                    class="card-picture aspect-square w-full mx-auto"
                   >
                     <img
                       src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
@@ -250,7 +237,7 @@
                   data-surface="default"
                 >
                   <div
-                    class="card-picture aspect-square w-[calc(100% - var(--spacing-layout-gap))] mx-auto"
+                    class="card-picture aspect-square w-full mx-auto"
                   >
                     <img
                       src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
@@ -281,7 +268,7 @@
                   data-surface="default"
                 >
                   <div
-                    class="card-picture aspect-square w-[calc(100% - var(--spacing-layout-gap))] mx-auto"
+                    class="card-picture aspect-square w-full mx-auto"
                   >
                     <img
                       src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
@@ -312,7 +299,7 @@
                   data-surface="default"
                 >
                   <div
-                    class="card-picture aspect-square w-[calc(100% - var(--spacing-layout-gap))] mx-auto"
+                    class="card-picture aspect-square w-full mx-auto"
                   >
                     <img
                       src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
