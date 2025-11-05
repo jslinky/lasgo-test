@@ -1,0 +1,1523 @@
+@property --text-frame-ratio {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 2.75;
+}
+@property --text-frame-y {
+  syntax: "*";
+  inherits: true;
+  initial-value: 0.725em;
+}
+@property --text-frame-x {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(0.725em * 2.75);
+}
+@property --space-increment {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1.38;
+}
+@property --unit-max {
+  syntax: "*";
+  inherits: true;
+  initial-value: 1rem;
+}
+@property --unit-min {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(1rem / 2);
+}
+@property --unit-fluid {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1vi;
+}
+@property --unit {
+  syntax: "*";
+  inherits: true;
+  initial-value: clamp(1rem / 2, 1vi, 1rem);
+}
+@property --radius {
+  syntax: "*";
+  inherits: true;
+  initial-value: 0.35rem;
+}
+@property --line-height-relative {
+  syntax: "*";
+  inherits: true;
+  initial-value: 1.4em;
+}
+@property --line-height-fixed {
+  syntax: "*";
+  inherits: true;
+  initial-value: 0.375rem;
+}
+@property --flow-space {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42);
+}
+@property --field-border-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1px;
+}
+@property --field-border-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d1d5db;
+}
+@property --text-size-increment {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1.25;
+}
+@property --font-size-base-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 16;
+}
+@property --font-size-base {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1rem;
+}
+@property --xxs-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 10;
+}
+@property --xs-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 13;
+}
+@property --sm-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 13;
+}
+@property --md-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 16;
+}
+@property --lg-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 20;
+}
+@property --xl-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 25;
+}
+@property --display-xs-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 31;
+}
+@property --display-sm-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 39;
+}
+@property --display-md-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 49;
+}
+@property --display-lg-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 61;
+}
+@property --display-xl-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 76;
+}
+@property --display-2xl-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 95;
+}
+@property --xxs {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0.625rem;
+}
+@property --xs {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0.8125rem;
+}
+@property --sm {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0.8125rem;
+}
+@property --md {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1rem;
+}
+@property --lg {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1.25rem;
+}
+@property --xl {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1.5625rem;
+}
+@property --display-xs {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1.9375rem;
+}
+@property --display-sm {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 2.4375rem;
+}
+@property --display-md {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 3.0625rem;
+}
+@property --display-lg {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 3.8125rem;
+}
+@property --display-xl {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 4.75rem;
+}
+@property --display-2xl {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 4.75rem;
+}
+@property --font-family-base {
+  syntax: "*";
+  inherits: true;
+  initial-value: 'system-ui';
+}
+@property --font-family-heading {
+  syntax: "*";
+  inherits: true;
+  initial-value: sans-serif;
+}
+@property --font-heading-weight {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 800;
+}
+@property --space-3xs {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) / 1.42 / 1.42 / 1.42);
+}
+@property --space-2xs {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) / 1.42 / 1.42);
+}
+@property --space-xs {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) / 1.42);
+}
+@property --space-sm {
+  syntax: "*";
+  inherits: true;
+  initial-value: clamp(0.25rem, 1vi, 1rem);
+}
+@property --space-md {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42);
+}
+@property --space-lg {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42);
+}
+@property --space-xl {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42);
+}
+@property --space-2xl {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 1.42);
+}
+@property --space-3xl {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 1.42 * 1.42);
+}
+@property --space-4xl {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 1.42 * 1.42 * 1.42);
+}
+@property --space-5xl {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 1.42 * 1.42 * 1.42 * 1.42);
+}
+@property --space-6xl {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 1.42 * 1.42 * 1.42 * 1.42 * 1.42);
+}
+/* calculations */
+@property --root-max-wrapper-width {
+  syntax: "*";
+  inherits: true;
+  initial-value: 1200px;
+}
+@property --max-wrapper-width {
+  syntax: "*";
+  inherits: true;
+  initial-value: 1200px;
+}
+@property --wrapper-padding {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42);
+}
+@property --wrapper-padding-min {
+  syntax: "*";
+  inherits: true;
+  initial-value: clamp(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42, 2vw, clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 2);
+}
+@property --wrapper-inline {
+  syntax: "*";
+  inherits: true;
+  initial-value: max(clamp(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42, 2vw, clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 2), 50vw - 1200px / 2 + clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 2 / 2);
+}
+@property --wrapper-width {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(1200px + clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 2);
+}
+@property --grid-wrapper-columns {
+  syntax: "*";
+  inherits: true;
+  initial-value: max(clamp(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42, 2vw, clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 2), 50vw - 1200px / 2 + clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 2 / 2) 1fr max(clamp(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42, 2vw, clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 2), 50vw - 1200px / 2 + clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * 2 / 2);
+}
+@property --layout-column-min {
+  syntax: "*";
+  inherits: true;
+  initial-value: 30ch;
+}
+@property --layout-gap {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42);
+}
+@property --layout-grid-min {
+  syntax: "*";
+  inherits: true;
+  initial-value: 30ch;
+}
+@property --layout-grid-gap {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42);
+}
+@property --layout-grid-template-columns {
+  syntax: "*";
+  inherits: true;
+  initial-value: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
+}
+@property --column-count {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 4;
+}
+@property --breakpoint {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(30ch * 4 + clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42 * (4 - 1));
+}
+@property --column-size {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(100% / var(--column-count, 4) - var(--layout-grid-gap, var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)))));
+}
+@property --flex-grid-min {
+  syntax: "*";
+  inherits: true;
+  initial-value: 30ch;
+}
+@property --flex-grid-gap {
+  syntax: "*";
+  inherits: true;
+  initial-value: calc(clamp(0.25rem, 1vi, 1rem) * 1.42 * 1.42 * 1.42);
+}
+@property --color-primary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(58.74% 0.1373 241.77deg);
+}
+@property --color-primary-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(58.74% 0.1373 241.77deg) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(58.74% 0.1373 241.77deg) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(72% 0.14 145deg);
+}
+@property --color-secondary-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(72% 0.14 145deg) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(72% 0.14 145deg) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(87.35% 0.0578 236.52deg);
+}
+@property --color-tertiary-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(87.35% 0.0578 236.52deg) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(87.35% 0.0578 236.52deg) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(23% 0 0deg);
+}
+@property --color-dark-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(23% 0 0deg) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(23% 0 0deg) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(97% 0 0deg);
+}
+@property --color-light-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(97% 0 0deg) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(97% 0 0deg) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-primary-1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(10% 0.1373 241.77deg);
+}
+@property --color-primary-1-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-1-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-primary-2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(18% 0.1373 241.77deg);
+}
+@property --color-primary-2-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-2-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-primary-3 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(25% 0.1373 241.77deg);
+}
+@property --color-primary-3-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-3-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-primary-4 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(33% 0.1373 241.77deg);
+}
+@property --color-primary-4-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-4-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-primary-5 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(41% 0.1373 241.77deg);
+}
+@property --color-primary-5-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-5-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-primary-6 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(49% 0.1373 241.77deg);
+}
+@property --color-primary-6-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-6-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-primary-7 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(59% 0.1373 241.77deg);
+}
+@property --color-primary-7-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-7-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-primary-8 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(64% 0.1373 241.77deg);
+}
+@property --color-primary-8-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-8-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-primary-9 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(72% 0.1373 241.77deg);
+}
+@property --color-primary-9-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-9-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-primary-10 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(80% 0.1373 241.77deg);
+}
+@property --color-primary-10-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-10-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-primary-11 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(87% 0.1373 241.77deg);
+}
+@property --color-primary-11-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-11-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-primary-12 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(95% 0.1373 241.77deg);
+}
+@property --color-primary-12-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-primary-12-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary-1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(10% 0.14 145deg);
+}
+@property --color-secondary-1-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-1-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary-2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(18% 0.14 145deg);
+}
+@property --color-secondary-2-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-2-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary-3 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(25% 0.14 145deg);
+}
+@property --color-secondary-3-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-3-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary-4 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(33% 0.14 145deg);
+}
+@property --color-secondary-4-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-4-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary-5 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(41% 0.14 145deg);
+}
+@property --color-secondary-5-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-5-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary-6 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(49% 0.14 145deg);
+}
+@property --color-secondary-6-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-6-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary-7 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(56% 0.14 145deg);
+}
+@property --color-secondary-7-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-7-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary-8 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(64% 0.14 145deg);
+}
+@property --color-secondary-8-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-8-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary-9 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(72% 0.14 145deg);
+}
+@property --color-secondary-9-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-9-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary-10 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(80% 0.14 145deg);
+}
+@property --color-secondary-10-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-10-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary-11 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(87% 0.14 145deg);
+}
+@property --color-secondary-11-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-11-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-secondary-12 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(95% 0.14 145deg);
+}
+@property --color-secondary-12-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-secondary-12-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.14 145) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary-1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(10% 0.0578 236.52deg);
+}
+@property --color-tertiary-1-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-1-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary-2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(18% 0.0578 236.52deg);
+}
+@property --color-tertiary-2-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-2-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary-3 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(25% 0.0578 236.52deg);
+}
+@property --color-tertiary-3-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-3-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary-4 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(33% 0.0578 236.52deg);
+}
+@property --color-tertiary-4-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-4-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary-5 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(41% 0.0578 236.52deg);
+}
+@property --color-tertiary-5-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-5-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary-6 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(49% 0.0578 236.52deg);
+}
+@property --color-tertiary-6-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-6-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary-7 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(56% 0.0578 236.52deg);
+}
+@property --color-tertiary-7-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-7-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary-8 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(64% 0.0578 236.52deg);
+}
+@property --color-tertiary-8-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-8-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary-9 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(72% 0.0578 236.52deg);
+}
+@property --color-tertiary-9-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-9-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary-10 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(80% 0.0578 236.52deg);
+}
+@property --color-tertiary-10-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-10-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary-11 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(87% 0.0578 236.52deg);
+}
+@property --color-tertiary-11-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-11-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-tertiary-12 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(95% 0.0578 236.52deg);
+}
+@property --color-tertiary-12-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-tertiary-12-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8735 0.0578 236.52) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark-1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(10% 0 0deg);
+}
+@property --color-dark-1-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-1-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark-2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(18% 0 0deg);
+}
+@property --color-dark-2-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-2-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark-3 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(25% 0 0deg);
+}
+@property --color-dark-3-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-3-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark-4 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(23% 0 0deg);
+}
+@property --color-dark-4-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-4-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark-5 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(41% 0 0deg);
+}
+@property --color-dark-5-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-5-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark-6 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(49% 0 0deg);
+}
+@property --color-dark-6-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-6-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark-7 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(56% 0 0deg);
+}
+@property --color-dark-7-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-7-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark-8 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(64% 0 0deg);
+}
+@property --color-dark-8-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-8-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark-9 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(72% 0 0deg);
+}
+@property --color-dark-9-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-9-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark-10 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(80% 0 0deg);
+}
+@property --color-dark-10-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-10-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark-11 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(87% 0 0deg);
+}
+@property --color-dark-11-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-11-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-dark-12 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(95% 0 0deg);
+}
+@property --color-dark-12-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-dark-12-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.23 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light-1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(10% 0 0deg);
+}
+@property --color-light-1-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-1-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light-2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(18% 0 0deg);
+}
+@property --color-light-2-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-2-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light-3 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(25% 0 0deg);
+}
+@property --color-light-3-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-3-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light-4 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(33% 0 0deg);
+}
+@property --color-light-4-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-4-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light-5 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(41% 0 0deg);
+}
+@property --color-light-5-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-5-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light-6 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(49% 0 0deg);
+}
+@property --color-light-6-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-6-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light-7 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(56% 0 0deg);
+}
+@property --color-light-7-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-7-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light-8 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(64% 0 0deg);
+}
+@property --color-light-8-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-8-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light-9 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(72% 0 0deg);
+}
+@property --color-light-9-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-9-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light-10 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(80% 0 0deg);
+}
+@property --color-light-10-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-10-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light-11 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(87% 0 0deg);
+}
+@property --color-light-11-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-11-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-light-12 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(97% 0 0deg);
+}
+@property --color-light-12-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-light-12-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.97 0 0) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-grey-1 {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) 0.1 0.02 h);
+}
+@property --color-grey-1-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.1 0.02 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-grey-1-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.1 0.02 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-grey-2 {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) 0.18 0.02 h);
+}
+@property --color-grey-2-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.18 0.02 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-grey-2-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.18 0.02 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-grey-3 {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) 0.25 0.02 h);
+}
+@property --color-grey-3-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.25 0.02 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-grey-3-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.25 0.02 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-grey-4 {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) 0.33 0.02 h);
+}
+@property --color-grey-4-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.33 0.02 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-grey-4-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.33 0.02 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-grey-5 {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) 0.41 0.02 h);
+}
+@property --color-grey-5-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.41 0.02 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-grey-5-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.41 0.02 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-grey-6 {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) 0.49 0.02 h);
+}
+@property --color-grey-6-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.49 0.02 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-grey-6-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.49 0.02 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-grey-7 {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) 0.59 0.02 h);
+}
+@property --color-grey-7-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.59 0.02 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-grey-7-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.59 0.02 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-grey-8 {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) 0.64 0.02 h);
+}
+@property --color-grey-8-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.64 0.02 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-grey-8-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.64 0.02 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-grey-9 {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) 0.72 0.02 h);
+}
+@property --color-grey-9-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.02 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-grey-9-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.72 0.02 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-grey-10 {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) 0.8 0.02 h);
+}
+@property --color-grey-10-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8 0.02 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-grey-10-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.8 0.02 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-grey-11 {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) 0.87 0.02 h);
+}
+@property --color-grey-11-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.87 0.02 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-grey-11-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.87 0.02 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+@property --color-grey-12 {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.5874 0.1373 241.77) 0.95 0.02 h);
+}
+@property --color-grey-12-contrast {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.95 0.02 241.77) clamp(0, (l / 0.7 - 1) * -infinity, 1) 0 h);
+}
+@property --color-grey-12-contrast-muted {
+  syntax: "*";
+  inherits: true;
+  initial-value: oklch(from oklch(0.95 0.02 241.77) clamp(0.4, (l / 0.7 - 1) * -infinity, 0.9) 0 h);
+}
+
+/*# sourceMappingURL=registration.css.map */

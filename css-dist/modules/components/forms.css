@@ -1,0 +1,119 @@
+@layer base.components {
+  @layer base {
+    :root:is(.new) .form-layout {
+      --row-gap: var(--space-sm);
+      --column-gap: var(--space-sm);
+      --hint-fs: var(--xs);
+      --half-row-gap: calc(var(--row-gap) / 2);
+      --quarter-row-gap: calc(var(--row-gap) / 4);
+      display: grid;
+      grid-template-columns: max(25%, 120px) 1fr;
+      gap: var(--row-gap) var(--column-gap);
+    }
+    :root:is(.new) .form-layout:has(.hint) {
+      row-gap: max(var(--half-row-gap), var(--hint-fs) + var(--half-row-gap));
+    }
+    :root:is(.new) .form-layout:has(.hint) :is(.form__row, :where(div:has(> input, > select))) {
+      row-gap: max(var(--quarter-row-gap), 4px);
+    }
+    :root:is(.new) .form-layout:has(.hint) :is(.form__row, :where(div:has(> input, > select))):not(:has(.hint)) {
+      margin-block-start: var(--row-gap);
+    }
+    :root:is(.new) .form-layout:has(.hint) :is(.form__row, :where(div:has(> input, > select))):has(.hint) + :is(.form__row, :where(div:has(> input, > select))) {
+      margin-block-start: 0;
+    }
+    :root:is(.new) .form-layout :where(.hint) {
+      visibility: hidden;
+      grid-column-start: 2;
+      font-size: var(--hint-fs);
+    }
+    :root:is(.new) .form-layout :is(.form__row, :where(div:has(> input, > select))) {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-column: 1/-1;
+    }
+    :root:is(.new) .form-layout :is(div:has(> input[type=radio], > input[type=checkbox]),
+    button[type=submit]) {
+      grid-column-start: 2;
+      grid-template-columns: max-content 1fr;
+      column-gap: min(var(--column-gap), var(--space-xs));
+      align-items: center;
+    }
+  }
+  @layer base {
+    :root:is(.new) :where(label:has(+ input:is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]))) {
+      padding-block-start: var(--input-text-frame-y, var(--text-frame-y));
+    }
+  }
+  @layer base {
+    :root:is(.new) :where(div:has(> input[type=radio], > input[type=checkbox]):has(label:first-child)) label {
+      order: 2;
+    }
+  }
+  @layer base {
+    :root:is(.new) :where(input) {
+      --_color: var(--input-color, var(--color, CanvasText));
+      --_bg: var(--input-bg, Canvas);
+      --_fs: var(--input-fs, 1em);
+      --_outline-color: color-mix(in oklch, var(--_bg) 90%, black);
+      --_outline-color-focused: color-mix(in oklch, var(--input-outline-color, var(--_outline-color)) 90%, black);
+      background-color: var(--_bg);
+      color: var(--_color);
+      font-size: var(--_fs);
+    }
+    :root:is(.new) :where(input):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]) {
+      padding-inline: var(--input-text-frame-x, var(--text-frame-x));
+      padding-block: var(--input-text-frame-y, var(--text-frame-y));
+      outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
+    }
+    :root:is(.new) :where(input):is([type=radio], [type=checkbox]) {
+      accent-color: var(--input-accent-color, var(--accent-color, initial));
+      width: var(--_fs);
+      height: var(--_fs);
+      padding-inline: var(--input-box-frame-x, 1em);
+      padding-block: var(--input-box-frame-y, 1em);
+    }
+  }
+  @layer modifiers {
+    :root:is(.new) :where(input) .input--sm {
+      font-size: var(--sm);
+    }
+    :root:is(.new) :where(input) .input--lg {
+      font-size: var(--lg);
+    }
+  }
+  @layer states {
+    :root:is(.new) :where(input):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password]):is([minlength],
+    [pattern],
+    [required]):focus-within {
+      outline-color: var(--input-outline-color-focused, var(--_outline-color-focused));
+    }
+    :root:is(.new) :where(input):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password]):is([minlength],
+    [pattern],
+    [required]):invalid:not(:placeholder-shown) {
+      outline-color: red;
+    }
+    :root:is(.new) :where(input):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password]):is([minlength],
+    [pattern],
+    [required]):valid {
+      outline-color: green;
+    }
+  }
+  @layer base {
+    :root:is(.new) :where(textarea) {
+      padding-inline: var(--input-text-frame-x, var(--text-frame-x));
+      padding-block: var(--input-text-frame-y, var(--text-frame-y));
+      outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
+    }
+  }
+  :root:is(.new) :where(input:is([type=radio], [type=checkbox])).input--sm {
+    width: var(--sm);
+    height: var(--sm);
+  }
+  :root:is(.new) :where(input:is([type=radio], [type=checkbox])).input--lg {
+    width: var(--lg);
+    height: var(--lg);
+  }
+}
+
+/*# sourceMappingURL=forms.css.map */

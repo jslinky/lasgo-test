@@ -1,0 +1,438 @@
+@layer base.components {
+  @layer base {
+    :root:is(.new) :where(.button) {
+      --text-frame-x: calc(var(--text-frame-y, 0.725em) * var(--text-frame-ratio, 2.75));
+      --button-color: var(--button-default-color, var(--color-grey-10));
+      --button-color-contrast: var(--button-default-color-contrast, var(--color-grey-10-contrast));
+      --button-border-color: color-mix(in oklab, var(--button-color), calc(var(--button-border-depth, 1) * 5%) var(--button-border-color-mix, var(--color-dark, #000)));
+      --button-fg: var(--button-color-contrast);
+      --button-bg: var(--button-color);
+      --button-border: var(--button-border-color);
+      display: inline-flex;
+      justify-content: center;
+      color: var(--button-fg);
+      background-color: var(--button-bg);
+      border: var(--button-border-width, 1px) var(--button-border-style, solid) var(--button-border, var(--button-color));
+      padding: var(--button-padding-block-start, var(--text-frame-y)) var(--button-padding-inline-end, var(--text-frame-x)) var(--button-padding-block-end, var(--text-frame-y)) var(--button-padding-inline-start, var(--text-frame-x));
+      border-radius: var(--button-border-radius, min(var(--radius), var(--button-max-radius, var(--radius))));
+      font-weight: var(--button-font-weight, normal);
+    }
+    :root:is(.new) :where(.button) :where(.button__icon, .button__text) {
+      display: inline-flex;
+      align-items: center;
+    }
+    :root:is(.new) :where(.button):has(.button__icon + .button__text), :root:is(.new) :where(.button) :has(.button__text + .button__icon) {
+      gap: 0.5em;
+    }
+  }
+  @layer modifiers {
+    :root:is(.new) :where(.button).button--xs {
+      --button-padding-block-start: var(--button-xs-padding-block-start, 0.25em);
+      --button-padding-block-end: var(--button-xs-padding-block-end, 0.25em);
+      --button-padding-inline-start: calc( var(--button-xs-padding-inline-start, var(--text-frame-y))  *  var(--button-xs-padding-inline-ratio,  1.2 ));
+      --button-padding-inline-end: calc( var(--button-sm-padding-inline-end, var(--text-frame-y))  *  var(--button-xs-padding-inline-ratio,  1.2 ));
+      font-size: var(--button-xs-font-size, var(--xs));
+    }
+    :root:is(.new) :where(.button).button--sm {
+      --button-padding-block-start: var(--button-sm-padding-block-start, 0.5em);
+      --button-padding-block-end: var(--button-sm-padding-block-end, 0.5em);
+      --button-padding-inline-start: calc( var(--button-sm-padding-inline-start, var(--text-frame-y))  *  var(--button-sm-padding-inline-ratio,  1.2 ));
+      --button-padding-inline-end: calc( var(--button-sm-padding-inline-end, var(--text-frame-y))  *  var(--button-sm-padding-inline-ratio,  1.2 ));
+      font-size: var(--button-sm-font-size, var(--sm));
+    }
+    :root:is(.new) :where(.button).button--lg {
+      --button-padding-block-start: var(--button-lg-padding-block-start, 0.725em);
+      --button-padding-block-end: var(--button-lg-padding-block-end, 0.725em);
+      --button-padding-inline-start: calc( var(--button-lg-padding-inline-start, var(--text-frame-y))  *  var(--button-lg-padding-inline-ratio,  3 ));
+      --button-padding-inline-end: calc( var(--button-sm-padding-inline-end, var(--text-frame-y))  *  var(--button-lg-padding-inline-ratio,  3 ));
+      font-size: var(--button-lg-font-size, var(--lg));
+    }
+    :root:is(.new) :where(.button).button--xl {
+      --button-padding-block-start: var(--button-xl-padding-block-start, 0.725em);
+      --button-padding-block-end: var(--button-xl-padding-block-end, 0.725em);
+      --button-padding-inline-start: calc( var(--button-xl-padding-inline-start, var(--text-frame-y))  *  var(--button-xl-padding-inline-ratio,  3.25 ));
+      --button-padding-inline-end: calc( var(--button-sm-padding-inline-end, var(--text-frame-y))  *  var(--button-xl-padding-inline-ratio,  3.25 ));
+      font-size: var(--button-xl-font-size, var(--xl));
+    }
+    :root:is(.new) :where(.button).button--primary {
+      --button-color: var(--color-primary);
+      --button-color-contrast: var(--color-primary-contrast);
+      --button-fg: var(--button-fg-primary, var(--button-color-contrast));
+      --button-bg: var(--button-bg-primary, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--secondary {
+      --button-color: var(--color-secondary);
+      --button-color-contrast: var(--color-secondary-contrast);
+      --button-fg: var(--button-fg-secondary, var(--button-color-contrast));
+      --button-bg: var(--button-bg-secondary, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--tertiary {
+      --button-color: var(--color-tertiary);
+      --button-color-contrast: var(--color-tertiary-contrast);
+      --button-fg: var(--button-fg-tertiary, var(--button-color-contrast));
+      --button-bg: var(--button-bg-tertiary, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--dark {
+      --button-color: var(--color-dark);
+      --button-color-contrast: var(--color-dark-contrast);
+      --button-fg: var(--button-fg-dark, var(--button-color-contrast));
+      --button-bg: var(--button-bg-dark, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--light {
+      --button-color: var(--color-light);
+      --button-color-contrast: var(--color-light-contrast);
+      --button-fg: var(--button-fg-light, var(--button-color-contrast));
+      --button-bg: var(--button-bg-light, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--inverted {
+      --button-fg: var(--button-inverted-default-fg, var(--button-color));
+      --button-bg: var(--button-inverted-default-bg, var(--button-color-contrast));
+      --button-border-color: var(--button-inverted-default-border-color, var(--button-color-contrast));
+    }
+    :root:is(.new) :where(.button).button--outline {
+      --button-fg: var(--button-outline-default-fg, var(--button-color));
+      --button-bg: var(--button-outline-default-bg, transparent);
+      --button-border-color: var(--button-outline-default-border-color, var(--button-fg));
+    }
+    :root:is(.new) :where(.button).button--soft {
+      --button-fg: var(--button-soft-default-fg, var(--button-color));
+      --button-bg: var(--button-soft-default-bg, oklch(from var(--button-color) l c h / var(--button-soft-default-bg-opacity, 0.125) ));
+      --button-border-color: var(--button-soft-default-border-color, oklch(from var(--button-color) l c h / var(--button-soft-default-border-opacity, 0) ));
+    }
+    :root:is(.new) :where(.button).button--ghost {
+      --button-fg: var(--button-ghost-default-fg, var(--button-color-contrast));
+      --button-bg: var(--button-ghost-default-bg, transparent);
+      --button-border-color: var(--button-ghost-default-border-color, transparent);
+    }
+    :root:is(.new) :where(.button).button--link {
+      --button-fg: var(--button-link-default-fg, var(--button-color));
+      --button-bg: var(--button-link-default-bg, transparent);
+      --button-border-color: var(--button-link-default-border-color, transparent);
+    }
+    :root:is(.new) :where(.button).button--wide {
+      --button-padding-inline-wide: clamp(var(--text-frame-x), 10vw, calc(var(--text-frame-x) * 3));
+      --button-padding-inline-start: var(--button-padding-inline-wide);
+      --button-padding-inline-end: var(--button-padding-inline-wide);
+    }
+    :root:is(.new) :where(.button).button--block {
+      flex-basis: 100%;
+    }
+    :root:is(.new) :where(.button).button--square {
+      --button-padding-inline-start: 0;
+      --button-padding-inline-end: 0;
+      width: 3em;
+      aspect-ratio: 1/1;
+      align-self: center;
+    }
+    :root:is(.new) :where(.button).button--circle {
+      --button-padding-inline-start: 0;
+      --button-padding-inline-end: 0;
+      width: 3em;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      align-self: center;
+    }
+  }
+  @layer states {
+    :root:is(.new) :where(.button):hover {
+      --_button-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-border-hover: color-mix(in oklab, var(--button-border-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-bg-hover, var(--_button-bg-hover));
+      --button-fg: var(--button-fg-hover, var(--button-color-contrast));
+      --button-border: var(--button-border-hover, var(--_button-border-hover));
+    }
+    :root:is(.new) :where(.button):focus {
+      --_button-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-border-focus: color-mix(in oklab, var(--button-border-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-bg-focus, var(--_button-bg-focus));
+      --button-fg: var(--button-fg-focus, var(--button-color-contrast));
+      --button-border: var(--button-border-focus, var(--_button-border-focus));
+    }
+    :root:is(.new) :where(.button).button--primary:hover {
+      --_button-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-border-hover: color-mix(in oklab, var(--button-border-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-bg-primary-hover, var(--_button-bg-hover));
+      --button-fg: var(--button-fg-primary-hover, var(--button-color-contrast));
+      --button-border: var(--button-border-primary-hover, var(--_button-border-hover));
+    }
+    :root:is(.new) :where(.button).button--primary:focus {
+      --_button-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-border-focus: color-mix(in oklab, var(--button-border-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-bg-primary-focus, var(--_button-bg-focus));
+      --button-fg: var(--button-fg-primary-focus, var(--button-color-contrast));
+      --button-border: var(--button-border-primary-focus, var(--_button-border-focus));
+    }
+    :root:is(.new) :where(.button).button--secondary:hover {
+      --_button-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-border-hover: color-mix(in oklab, var(--button-border-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-bg-secondary-hover, var(--_button-bg-hover));
+      --button-fg: var(--button-fg-secondary-hover, var(--button-color-contrast));
+      --button-border: var(--button-border-secondary-hover, var(--_button-border-hover));
+    }
+    :root:is(.new) :where(.button).button--secondary:focus {
+      --_button-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-border-focus: color-mix(in oklab, var(--button-border-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-bg-secondary-focus, var(--_button-bg-focus));
+      --button-fg: var(--button-fg-secondary-focus, var(--button-color-contrast));
+      --button-border: var(--button-border-secondary-focus, var(--_button-border-focus));
+    }
+    :root:is(.new) :where(.button).button--tertiary:hover {
+      --_button-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-border-hover: color-mix(in oklab, var(--button-border-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-bg-tertiary-hover, var(--_button-bg-hover));
+      --button-fg: var(--button-fg-tertiary-hover, var(--button-color-contrast));
+      --button-border: var(--button-border-tertiary-hover, var(--_button-border-hover));
+    }
+    :root:is(.new) :where(.button).button--tertiary:focus {
+      --_button-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-border-focus: color-mix(in oklab, var(--button-border-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-bg-tertiary-focus, var(--_button-bg-focus));
+      --button-fg: var(--button-fg-tertiary-focus, var(--button-color-contrast));
+      --button-border: var(--button-border-tertiary-focus, var(--_button-border-focus));
+    }
+    :root:is(.new) :where(.button).button--dark:hover {
+      --_button-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-border-hover: color-mix(in oklab, var(--button-border-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-bg-dark-hover, var(--_button-bg-hover));
+      --button-fg: var(--button-fg-dark-hover, var(--button-color-contrast));
+      --button-border: var(--button-border-dark-hover, var(--_button-border-hover));
+    }
+    :root:is(.new) :where(.button).button--dark:focus {
+      --_button-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-border-focus: color-mix(in oklab, var(--button-border-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-bg-dark-focus, var(--_button-bg-focus));
+      --button-fg: var(--button-fg-dark-focus, var(--button-color-contrast));
+      --button-border: var(--button-border-dark-focus, var(--_button-border-focus));
+    }
+    :root:is(.new) :where(.button).button--light:hover {
+      --_button-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-border-hover: color-mix(in oklab, var(--button-border-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-bg-light-hover, var(--_button-bg-hover));
+      --button-fg: var(--button-fg-light-hover, var(--button-color-contrast));
+      --button-border: var(--button-border-light-hover, var(--_button-border-hover));
+    }
+    :root:is(.new) :where(.button).button--light:focus {
+      --_button-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-border-focus: color-mix(in oklab, var(--button-border-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-bg-light-focus, var(--_button-bg-focus));
+      --button-fg: var(--button-fg-light-focus, var(--button-color-contrast));
+      --button-border: var(--button-border-light-focus, var(--_button-border-focus));
+    }
+    :root:is(.new) :where(.button).button--inverted:hover {
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-hover, var(--_button-inverted-border-hover));
+    }
+    :root:is(.new) :where(.button).button--inverted:focus {
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-focus, var(--_button-inverted-border-focus));
+    }
+    :root:is(.new) :where(.button).button--inverted.button--primary:hover {
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-primary-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-primary-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-primary-hover, var(--_button-inverted-border-hover));
+    }
+    :root:is(.new) :where(.button).button--inverted.button--primary:focus {
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-primary-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-primary-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-primary-focus, var(--_button-inverted-border-focus));
+    }
+    :root:is(.new) :where(.button).button--inverted.button--secondary:hover {
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-secondary-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-secondary-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-secondary-hover, var(--_button-inverted-border-hover));
+    }
+    :root:is(.new) :where(.button).button--inverted.button--secondary:focus {
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-secondary-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-secondary-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-secondary-focus, var(--_button-inverted-border-focus));
+    }
+    :root:is(.new) :where(.button).button--inverted.button--tertiary:hover {
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-tertiary-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-tertiary-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-tertiary-hover, var(--_button-inverted-border-hover));
+    }
+    :root:is(.new) :where(.button).button--inverted.button--tertiary:focus {
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-tertiary-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-tertiary-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-tertiary-focus, var(--_button-inverted-border-focus));
+    }
+    :root:is(.new) :where(.button).button--inverted.button--dark:hover {
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-dark-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-dark-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-dark-hover, var(--_button-inverted-border-hover));
+    }
+    :root:is(.new) :where(.button).button--inverted.button--dark:focus {
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-dark-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-dark-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-dark-focus, var(--_button-inverted-border-focus));
+    }
+    :root:is(.new) :where(.button).button--inverted.button--light:hover {
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-light-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-light-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-light-hover, var(--_button-inverted-border-hover));
+    }
+    :root:is(.new) :where(.button).button--inverted.button--light:focus {
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-light-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-light-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-light-focus, var(--_button-inverted-border-focus));
+    }
+    :root:is(.new) :where(.button).button--soft.button--primary:hover {
+      --button-bg: var(--button-soft-bg-primary-hover, oklch(from var(--button-color) l c h / var(--button-soft-primary-hover-bg-opacity, 0.25)));
+      --button-fg: var(--button-soft-fg-primary-hover, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--soft.button--primary:focus {
+      --button-bg: var(--button-soft-bg-primary-focus, oklch(from var(--button-color) l c h / var(--button-soft-primary-focus-bg-opacity, 0.25)));
+      --button-fg: var(--button-soft-fg-primary-focus, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--soft.button--secondary:hover {
+      --button-bg: var(--button-soft-bg-secondary-hover, oklch(from var(--button-color) l c h / var(--button-soft-secondary-hover-bg-opacity, 0.25)));
+      --button-fg: var(--button-soft-fg-secondary-hover, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--soft.button--secondary:focus {
+      --button-bg: var(--button-soft-bg-secondary-focus, oklch(from var(--button-color) l c h / var(--button-soft-secondary-focus-bg-opacity, 0.25)));
+      --button-fg: var(--button-soft-fg-secondary-focus, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--soft.button--tertiary:hover {
+      --button-bg: var(--button-soft-bg-tertiary-hover, oklch(from var(--button-color) l c h / var(--button-soft-tertiary-hover-bg-opacity, 0.25)));
+      --button-fg: var(--button-soft-fg-tertiary-hover, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--soft.button--tertiary:focus {
+      --button-bg: var(--button-soft-bg-tertiary-focus, oklch(from var(--button-color) l c h / var(--button-soft-tertiary-focus-bg-opacity, 0.25)));
+      --button-fg: var(--button-soft-fg-tertiary-focus, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--soft.button--dark:hover {
+      --button-bg: var(--button-soft-bg-dark-hover, oklch(from var(--button-color) l c h / var(--button-soft-dark-hover-bg-opacity, 0.25)));
+      --button-fg: var(--button-soft-fg-dark-hover, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--soft.button--dark:focus {
+      --button-bg: var(--button-soft-bg-dark-focus, oklch(from var(--button-color) l c h / var(--button-soft-dark-focus-bg-opacity, 0.25)));
+      --button-fg: var(--button-soft-fg-dark-focus, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--soft.button--light:hover {
+      --button-bg: var(--button-soft-bg-light-hover, oklch(from var(--button-color) l c h / var(--button-soft-light-hover-bg-opacity, 0.25)));
+      --button-fg: var(--button-soft-fg-light-hover, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--soft.button--light:focus {
+      --button-bg: var(--button-soft-bg-light-focus, oklch(from var(--button-color) l c h / var(--button-soft-light-focus-bg-opacity, 0.25)));
+      --button-fg: var(--button-soft-fg-light-focus, var(--button-color));
+    }
+    :root:is(.new) :where(.button).button--outline.button--primary:hover {
+      --button-bg: var(--button-outline-bg-primary-hover, transparent);
+      --button-fg: var(--button-outline-fg-primary-hover, color-mix(in oklab, var(--button-color), calc(var(--button-fg-primary-hover-depth, 1) * 10%) var(--button-fg-primary-hover-color-mix, #000) ));
+    }
+    :root:is(.new) :where(.button).button--outline.button--primary:focus {
+      --button-bg: var(--button-outline-bg-primary-focus, transparent);
+      --button-fg: var(--button-outline-fg-primary-focus, color-mix(in oklab, var(--button-color), calc(var(--button-fg-primary-focus-depth, 1) * 10%) var(--button-fg-primary-focus-color-mix, #000) ));
+    }
+    :root:is(.new) :where(.button).button--outline.button--secondary:hover {
+      --button-bg: var(--button-outline-bg-secondary-hover, transparent);
+      --button-fg: var(--button-outline-fg-secondary-hover, color-mix(in oklab, var(--button-color), calc(var(--button-fg-secondary-hover-depth, 1) * 10%) var(--button-fg-secondary-hover-color-mix, #000) ));
+    }
+    :root:is(.new) :where(.button).button--outline.button--secondary:focus {
+      --button-bg: var(--button-outline-bg-secondary-focus, transparent);
+      --button-fg: var(--button-outline-fg-secondary-focus, color-mix(in oklab, var(--button-color), calc(var(--button-fg-secondary-focus-depth, 1) * 10%) var(--button-fg-secondary-focus-color-mix, #000) ));
+    }
+    :root:is(.new) :where(.button).button--outline.button--tertiary:hover {
+      --button-bg: var(--button-outline-bg-tertiary-hover, transparent);
+      --button-fg: var(--button-outline-fg-tertiary-hover, color-mix(in oklab, var(--button-color), calc(var(--button-fg-tertiary-hover-depth, 1) * 10%) var(--button-fg-tertiary-hover-color-mix, #000) ));
+    }
+    :root:is(.new) :where(.button).button--outline.button--tertiary:focus {
+      --button-bg: var(--button-outline-bg-tertiary-focus, transparent);
+      --button-fg: var(--button-outline-fg-tertiary-focus, color-mix(in oklab, var(--button-color), calc(var(--button-fg-tertiary-focus-depth, 1) * 10%) var(--button-fg-tertiary-focus-color-mix, #000) ));
+    }
+    :root:is(.new) :where(.button).button--outline.button--dark:hover {
+      --button-bg: var(--button-outline-bg-dark-hover, transparent);
+      --button-fg: var(--button-outline-fg-dark-hover, color-mix(in oklab, var(--button-color), calc(var(--button-fg-dark-hover-depth, 1) * 10%) var(--button-fg-dark-hover-color-mix, #000) ));
+    }
+    :root:is(.new) :where(.button).button--outline.button--dark:focus {
+      --button-bg: var(--button-outline-bg-dark-focus, transparent);
+      --button-fg: var(--button-outline-fg-dark-focus, color-mix(in oklab, var(--button-color), calc(var(--button-fg-dark-focus-depth, 1) * 10%) var(--button-fg-dark-focus-color-mix, #000) ));
+    }
+    :root:is(.new) :where(.button).button--outline.button--light:hover {
+      --button-bg: var(--button-outline-bg-light-hover, transparent);
+      --button-fg: var(--button-outline-fg-light-hover, color-mix(in oklab, var(--button-color), calc(var(--button-fg-light-hover-depth, 1) * 10%) var(--button-fg-light-hover-color-mix, #000) ));
+    }
+    :root:is(.new) :where(.button).button--outline.button--light:focus {
+      --button-bg: var(--button-outline-bg-light-focus, transparent);
+      --button-fg: var(--button-outline-fg-light-focus, color-mix(in oklab, var(--button-color), calc(var(--button-fg-light-focus-depth, 1) * 10%) var(--button-fg-light-focus-color-mix, #000) ));
+    }
+    :root:is(.new) :where(.button).button--ghost.button--primary:hover {
+      --button-bg: var(--button-ghost-bg-primary-hover, var(--button-color));
+      --button-fg: var(--button-ghost-fg-primary-hover, var(--button-color-contrast));
+    }
+    :root:is(.new) :where(.button).button--ghost.button--primary:focus {
+      --button-bg: var(--button-ghost-bg-primary-focus, var(--button-color));
+      --button-fg: var(--button-ghost-fg-primary-focus, var(--button-color-contrast));
+    }
+    :root:is(.new) :where(.button).button--ghost.button--secondary:hover {
+      --button-bg: var(--button-ghost-bg-secondary-hover, var(--button-color));
+      --button-fg: var(--button-ghost-fg-secondary-hover, var(--button-color-contrast));
+    }
+    :root:is(.new) :where(.button).button--ghost.button--secondary:focus {
+      --button-bg: var(--button-ghost-bg-secondary-focus, var(--button-color));
+      --button-fg: var(--button-ghost-fg-secondary-focus, var(--button-color-contrast));
+    }
+    :root:is(.new) :where(.button).button--ghost.button--tertiary:hover {
+      --button-bg: var(--button-ghost-bg-tertiary-hover, var(--button-color));
+      --button-fg: var(--button-ghost-fg-tertiary-hover, var(--button-color-contrast));
+    }
+    :root:is(.new) :where(.button).button--ghost.button--tertiary:focus {
+      --button-bg: var(--button-ghost-bg-tertiary-focus, var(--button-color));
+      --button-fg: var(--button-ghost-fg-tertiary-focus, var(--button-color-contrast));
+    }
+    :root:is(.new) :where(.button).button--ghost.button--dark:hover {
+      --button-bg: var(--button-ghost-bg-dark-hover, var(--button-color));
+      --button-fg: var(--button-ghost-fg-dark-hover, var(--button-color-contrast));
+    }
+    :root:is(.new) :where(.button).button--ghost.button--dark:focus {
+      --button-bg: var(--button-ghost-bg-dark-focus, var(--button-color));
+      --button-fg: var(--button-ghost-fg-dark-focus, var(--button-color-contrast));
+    }
+    :root:is(.new) :where(.button).button--ghost.button--light:hover {
+      --button-bg: var(--button-ghost-bg-light-hover, var(--button-color));
+      --button-fg: var(--button-ghost-fg-light-hover, var(--button-color-contrast));
+    }
+    :root:is(.new) :where(.button).button--ghost.button--light:focus {
+      --button-bg: var(--button-ghost-bg-light-focus, var(--button-color));
+      --button-fg: var(--button-ghost-fg-light-focus, var(--button-color-contrast));
+    }
+    :root:is(.new) :where(.button).button--link:hover {
+      --button-fg: var(--button-link-fg-hover, var(--button-color));
+      --button-bg: var(--button-link-bg-hover, transparent);
+      text-decoration-line: underline;
+    }
+    :root:is(.new) :where(.button).button--link:focus {
+      --button-fg: var(--button-link-fg-focus, var(--button-color));
+      --button-bg: var(--button-link-bg-focus, transparent);
+      text-decoration-line: underline;
+    }
+  }
+}
+
+/*# sourceMappingURL=buttons.css.map */

@@ -1,0 +1,42 @@
+/* calculations */
+@layer base.props {
+:root:is(.new) {
+  --layout-column-min: 30ch;
+  --layout-gap: max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem));
+  --layout-grid-min: var(--layout-column-min, 30ch);
+  --layout-grid-gap: var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)));
+  --layout-grid-template-columns: repeat(var(--layout-grid-auto-repeat, auto-fit), minmax(min(100%, var(--layout-column-min, 30ch)), 1fr));
+  --column-count: 4;
+  --breakpoint: calc(var(--layout-grid-min, var(--layout-column-min, 30ch)) * var(--column-count, 4) + var(--layout-grid-gap, var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)))) * (var(--column-count, 4) - 1));
+  --column-size: calc(100% / var(--column-count, 4) - var(--layout-grid-gap, var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)))));
+  --flex-grid-min: var(--layout-column-min, 30ch);
+  --flex-grid-gap: var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)));
+}
+
+:root:is(.new) {
+  --text-frame-ratio: 2.75;
+  --text-frame-y: 0.725em;
+  --text-frame-x: calc(var(--text-frame-y, 0.725em) * var(--text-frame-ratio, 2.75));
+  --space-increment: 1.38;
+  --unit-max: 1rem;
+  --unit-min: var(--unit-max, 1rem)/2;
+  --unit-fluid: 1vi;
+  --unit: clamp(var(--unit-min, 0.25rem), var(--unit-fluid, 1vi), var(--unit-max, 1rem));
+  --radius: 0.35rem;
+  --line-height-relative: 1.4em;
+  --line-height-fixed: 0.375rem;
+  --flow-space: var(--space-lg);
+  --field-border-color: var(--color-grey-10, #d1d5db);
+  --field-border-width: 1px;
+}
+
+:root:is(.new) {
+  --max-wrapper-width: 1200px;
+  --wrapper-padding: var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)));
+  --wrapper-padding-min: clamp(var(--layout-gap) * 1.5, 2vw, var(--layout-gap) * 2);
+  --wrapper-inline: max(var(--wrapper-padding-min, clamp(var(--layout-gap) * 1.5, 2vw, var(--layout-gap) * 2)), calc(50vw - var(--wrapper-width) / 2 + var(--wrapper-padding, var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)))) * 2 / 2));
+  --wrapper-width: calc(var(--max-wrapper-width, 1200px) + var(--wrapper-padding, var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)))) * 2);
+  --grid-wrapper-columns: var(--start-col, var(--wrapper-inline)) var(--center-col, 1fr) var(--end-col, var(--wrapper-inline));
+}
+}
+/*# sourceMappingURL=layout.css.map */

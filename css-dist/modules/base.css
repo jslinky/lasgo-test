@@ -1,0 +1,26 @@
+@layer base.reset {
+  :root:is(.new):is(html) {
+    height: 100%;
+  }
+  :root:is(.new) body {
+    height: 100%;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    color: var(--root-fg, var(--color-dark, #1d1d1d));
+    background-color: var(--root-bg, var(--color-light, #fff));
+  }
+  :root:is(.new) :where(a):not(.button, button) {
+    text-decoration: none;
+    color: inherit;
+  }
+  :root:is(.new) :where(p) {
+    color: var(--color, inherit);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    :root:is(.new) {
+      interpolate-size: allow-keywords;
+    }
+  }
+}
+
+/*# sourceMappingURL=base.css.map */

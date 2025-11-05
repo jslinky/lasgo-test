@@ -1,0 +1,18 @@
+@layer base.props {
+:root:is(.new) {
+  --space-increment: var(--space-increment, 1.38);
+  --space-3xs: calc(var(--space-2xs) / var(--space-increment, 1.38));
+  --space-2xs: calc(var(--space-xs) / var(--space-increment, 1.38));
+  --space-xs: calc(var(--space-sm) / var(--space-increment, 1.38));
+  --space-sm: var(--unit, clamp(var(--unit-min, 0.25rem), var(--unit-fluid, 1vi), var(--unit-max, 1rem)));
+  --space-md: calc(var(--space-sm) * var(--space-increment, 1.38));
+  --space-lg: calc(var(--space-md) * var(--space-increment, 1.38));
+  --space-xl: calc(var(--space-lg) * var(--space-increment, 1.38));
+  --space-2xl: calc(var(--space-xl) * var(--space-increment, 1.38));
+  --space-3xl: calc(var(--space-2xl) * var(--space-increment, 1.38));
+  --space-4xl: calc(var(--space-3xl) * var(--space-increment, 1.38));
+  --space-5xl: calc(var(--space-4xl) * var(--space-increment, 1.38));
+  --space-6xl: calc(var(--space-5xl) * var(--space-increment, 1.38));
+}
+}
+/*# sourceMappingURL=spacing.css.map */

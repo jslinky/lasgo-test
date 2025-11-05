@@ -1,0 +1,7 @@
+@layer base.components {
+  :where(p) {
+    color: var(--color, inherit);
+  }
+}
+
+/*# sourceMappingURL=base.css.map */

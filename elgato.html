@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="../gardners25/layers/tailwind/assets/css/tailwind.css"
-    />
+  <style>
+    @layer existing, override;
+    @import "./existing.css" layer(existing);
+    @import "./style.css" layer(override);
+    @import "./tailwind-output.css" layer(override);
+  </style>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
     </style>
@@ -48,83 +49,54 @@
       </symbol>
     </svg>
     <!-- Hero -->
-    <section class="@container hero">
-      <article
-        class="card"
-        data-card-column-reverse-order="true"
-        data-surface="dark"
-        data-card-shadow="lg"
-        data-card-row-text-align="center"
-        data-card-row-justify="center"
-        data-card-row-align="start"
-        data-card-row-image-align-self="center"
-        data-card-column-text-align="start"
-        data-card-column-justify="start"
-        data-card-column-align="center"
-        data-card-column-image-align-self="center"
-        data-surface="default"
-      >
-        <div class="card-picture aspect-video">
-          <img
-            src="./assets/vinyl-cover.png"
-            alt="Card image"
-            style="object-fit: contain"
-          />
-        </div>
-        <div class="card-body flow flow--md col-start-1 mx-0 wrapper pr-0">
-          <div class="card-body__content flow flow--sm">
-            <div class="card-body__content__caption flow">
-              <h2
-                class="heading-3xl card-body__content__caption-title normal-case fluid"
-              >
-                <span>Home to all great vinyl labels and records</span>
-              </h2>
-            </div>
-            <div class="card-body__content-slot flow">
-              <p class="heading-default normal-case font-normal fluid">
-                Lose yourself in the greatest hits of your generation, and those
-                that came before!
-              </p>
-              <p class="heading-default normal-case font-normal fluid">
-                Here you will find hundreds of officially licensed
-                <strong class="font-semibold">Music CD</strong> &
-                <strong class="font-semibold">Vinyl Records</strong>
-              </p>
-            </div>
-            <div
-              class="card-body__content__ctas w-full flex items-end flow--xl"
-            >
-              <!-- <a
-                href="/supplier-services"
-                class="button button--primary button--block select-none max-w-fit"
-                ><span class="button__text">Find out more</span></a
-              > -->
-            </div>
+  <section class="@container hero ">
+    <article class="card [--card-top-row:50%] [--card-auto-row:1fr]"
+      data-card-column-reverse-order="true" data-card-layout="overlay" data-card-shadow="lg" data-card-row-text-align="center"
+      data-card-row-justify="start" data-card-row-align="end" data-card-row-image-align-self="center"
+      data-card-column-text-align="start" data-card-column-justify="start" data-card-column-align="end"
+      data-card-column-image-align-self="center" data-surface="dark">
+      <div class="card-picture aspect-video">
+        <img src="./assets/elgato-hero-wide.jpg" class="object-cover" alt="Card image" />
+      </div>
+      <div class="card-body flow flow--md col-start-1 mx-0 wrapper @2xl:pr-0">
+        <div class="card-body__content flow flow--md">
+          <div class="card-body__content__caption flow">
+            <h2 class="heading-3xl card-body__content__caption-title fluid flex items-baseline gap-x-sm">
+              <span class="normal-case font-normal">Featuring</span>
+              <span>Elgato</span>
+            </h2>
           </div>
+          <!-- <div class="card-body__content-slot flow *:flow--sm flow--sm">
+            <p class="[--font-size-max:var(--lg-px)] font-normal fluid">
+              Lose yourself in the greatest hits of your generation, and those that came before!
+            </p>
+            <p class=" font-normal fluid">
+              Here you will find hundreds of officially licensed <strong class="font-semibold">Music CD</strong> &
+              <strong class="font-semibold">Vinyl Records</strong>
+            </p>
+          </div>
+          <div class="card-body__content__ctas w-full flex items-end flow--xl">
+          </div> -->
         </div>
-      </article>
-    </section>
+      </div>
+    </article>
+  </section>
 
-    <div class="wrapper-grid py-section-gap">
+    <div class="wrapper-grid py-section-gap pt-md">
       <div
-        class="content-grid layout-grid layout-grid--column-count col-start-2 col-end-2"
+        class="content-grid layout-grid layout-grid--column-count col-start-2 col-end-2 flow"
       >
-        <div class="col-span-full flow flow--sm">
-          <h2 class="heading-xl line-under text-center">
-            <span
-              ><span class="normal-case font-normal">Featuring</span>
-              Elgato</span
-            >
-          </h2>
+        <div class="group/breadcrumbs col-span-full flow flow--sm text-sm">
           <p>Homepage / Contact Us</p>
         </div>
 
         <div class="col-span-full">
           <div>
             <article
-              class="card"
+              class="card [--card-body-padding-inline:0] [--card-gap-row:var(--space-2xl)] [--card-gap-column:var(--space-4xl)]"
               data-card-column-reverse-order="true"
-              data-card-row-text-align="center"
+              data-card-row-reverse-order="true"
+              data-card-row-text-align="start"
               data-card-row-justify="center"
               data-card-row-align="start"
               data-card-row-image-align-self="start"
@@ -132,17 +104,16 @@
               data-card-column-justify="start"
               data-card-column-align="start"
               data-card-column-image-align-self="start"
-              data-surface="default"
-              style="--card-gap-column: var(--space-2xl);"
+              data-surface="default"              
             >
-              <div class="card-picture pt-layout-gap">
+              <div class="card-picture">
                 <img src="https://placehold.co/1600x900" alt="Card image">
               </div>
               <div class="card-body flow flow--md pt-md">
                 <div class="card-body__content flow flex-col">
                   <div class="card-body__content__caption flow">
                     <p
-                      class="heading-sm card-body__content__caption-title fluid"
+                      class="heading-default normal-case font-bold card-body__content__caption-title fluid"
                     >
                       World-leading provider of audiovisual technology for
                       content creators on all video sharing platforms.
@@ -166,38 +137,38 @@
           </div>
         </div>
 
-        <div class="col-span-full text-center">
+        <div class="col-span-full text-center flow--section-gap-lg">
           <h2 class="heading-xl line-across">
           <span>Take your content to the next level</span>
           </h2>          
-          <p class="heading-xs">Play and Create Without Compimise, and illuminate on Command</p>
+          <p class="heading-xs mt-xs">Play and Create Without Compimise, and illuminate on Command</p>
         </div>
 
 
-        <div class="content-grid__main flow">
-          <div class="content-grid_full flow">
+        <div class="content-grid__main col-span-full flow flow--xs *:flow--md">
+          <div class="layout-grid layout-grid--column-count [--column-count:4] col-span-full">
           <div class="col-span-full">
             <article
               class="card"
               data-card-layout="overlay"
               data-card-column-reverse-order="true"
-              data-card-row-text-align="center"
-              data-card-row-justify="center"
-              data-card-row-align="start"
+              data-card-row-text-align="start"
+              data-card-row-justify="start"
+              data-card-row-align="end"
               data-card-row-image-align-self="start"
               data-card-column-text-align="start"
               data-card-column-justify="start"
-              data-card-column-align="start"
+              data-card-column-align="end"
               data-card-column-image-align-self="start"
-              data-surface="default"
+              data-surface="primary"
               style="--card-gap-column: var(--space-2xl);"
             >
-              <div class="card-picture" style="--card-picture-aspect:1260/250">
-                <img src="https://placehold.co/1260x250" alt="Card image">
+              <div class="card-picture [--card-picture-aspect:1260/250]">
+                <img src="./assets/elgato-station.jpg" alt="Card image">
               </div>
-              <div class="card-body flow flow--md pt-md">
-                <div class="card-body__content flow flex-col">
-                  <div class="card-body__content__caption flow">
+              <div class="card-body flow flow--md p-xs m-0 col-span-full h-full content-end">
+                <div class="card-body__content flow flex-col basis-full h-full justify-end overlay-expand">
+                  <div class="card-body__content__caption flow grid grid-cols-[var(--overlay-contracted-size)_1fr] before:content-[''] before:block">
                     <p
                       class="heading-sm card-body__content__caption-title fluid"
                     >
@@ -208,30 +179,30 @@
               </div>
             </article>
           </div>
-          <div class="col-span-4" style="grid-column: span 4;">
+          <div class="col-span-full @2xl:col-span-2">
             <article
               class="card"
               data-card-layout="overlay"
               data-card-column-reverse-order="true"
-              data-card-row-text-align="center"
-              data-card-row-justify="center"
-              data-card-row-align="start"
+              data-card-row-text-align="start"
+              data-card-row-justify="start"
+              data-card-row-align="end"
               data-card-row-image-align-self="start"
               data-card-column-text-align="start"
               data-card-column-justify="start"
-              data-card-column-align="start"
+              data-card-column-align="end"
               data-card-column-image-align-self="start"
-              data-surface="default"
+              data-surface="dark"
               style="--card-gap-column: var(--space-2xl);"
             >
-              <div class="card-picture" style="--card-picture-aspect:618/168">
+              <div class="card-picture [--card-picture-aspect:618/168]">
                 <img src="https://placehold.co/1260x250" alt="Card image">
               </div>
-              <div class="card-body flow flow--md pt-md">
-                <div class="card-body__content flow flex-col">
-                  <div class="card-body__content__caption flow">
+              <div class="card-body flow flow--md p-xs m-0 col-span-full h-full content-end">
+                <div class="card-body__content flow flex-col basis-full h-full justify-end overlay-expand">
+                  <div class="card-body__content__caption flow grid grid-cols-[var(--overlay-contracted-size)_1fr] before:content-[''] before:block">
                     <p
-                      class="heading-sm card-body__content__caption-title fluid"
+                      class="heading-xs [--text-transform:uppercase] card-body__content__caption-title fluid"
                     >
                       Stream Deck
                     </p>
@@ -240,160 +211,160 @@
               </div>
             </article>
           </div>
-          <div class="col-span-4" style="grid-column: span 4;">
+          <div class="col-span-full @2xl:col-span-2">
             <article
               class="card"
               data-card-layout="overlay"
               data-card-column-reverse-order="true"
-              data-card-row-text-align="center"
-              data-card-row-justify="center"
-              data-card-row-align="start"
+              data-card-row-text-align="start"
+              data-card-row-justify="start"
+              data-card-row-align="end"
               data-card-row-image-align-self="start"
               data-card-column-text-align="start"
               data-card-column-justify="start"
-              data-card-column-align="start"
+              data-card-column-align="end"
               data-card-column-image-align-self="start"
-              data-surface="default"
+              data-surface="dark"
               style="--card-gap-column: var(--space-2xl);"
             >
-              <div class="card-picture" style="--card-picture-aspect:618/168">
+              <div class="card-picture [--card-picture-aspect:618/168]">
                 <img src="https://placehold.co/618x168" alt="Card image">
               </div>
-              <div class="card-body flow flow--md pt-md">
-                <div class="card-body__content flow flex-col">
-                  <div class="card-body__content__caption flow">
+              <div class="card-body flow flow--md p-xs m-0 col-span-full h-full content-end">
+                <div class="card-body__content flow flex-col basis-full h-full justify-end overlay-expand">
+                  <div class="card-body__content__caption flow grid grid-cols-[var(--overlay-contracted-size)_1fr] before:content-[''] before:block">
                     <p
-                      class="heading-sm card-body__content__caption-title fluid"
+                      class="heading-xs [--text-transform:uppercase] card-body__content__caption-title fluid"
                     >
-                      Stream Deck
+                      Video Capture
                     </p>
                   </div>
                 </div>
               </div>
             </article>
           </div>   
-          <div class="col-span-2" style="grid-column: span 2;">
+          <div class="col-span-full @2xl:col-span-2 @4xl:col-span-1">
             <article
               class="card"
               data-card-layout="overlay"
               data-card-column-reverse-order="true"
-              data-card-row-text-align="center"
-              data-card-row-justify="center"
-              data-card-row-align="start"
+              data-card-row-text-align="start"
+              data-card-row-justify="start"
+              data-card-row-align="end"
               data-card-row-image-align-self="start"
               data-card-column-text-align="start"
               data-card-column-justify="start"
-              data-card-column-align="start"
+              data-card-column-align="end"
               data-card-column-image-align-self="start"
-              data-surface="default"
+              data-surface="dark"
               style="--card-gap-column: var(--space-2xl);"
             >
-              <div class="card-picture" style="--card-picture-aspect:618/168">
+              <div class="card-picture [--card-picture-aspect:618/168]">
                 <img src="https://placehold.co/618x168" alt="Card image">
               </div>
-              <div class="card-body flow flow--md pt-md">
-                <div class="card-body__content flow flex-col">
-                  <div class="card-body__content__caption flow">
+              <div class="card-body flow flow--md p-xs m-0 col-span-full h-full content-end">
+                <div class="card-body__content flow flex-col basis-full h-full justify-end overlay-expand">
+                  <div class="card-body__content__caption flow grid grid-cols-[var(--overlay-contracted-size)_1fr] before:content-[''] before:block">
                     <p
-                      class="heading-sm card-body__content__caption-title fluid"
+                      class="heading-xs [--text-transform:uppercase] card-body__content__caption-title fluid"
                     >
-                      Stream Deck
+                      Camera
                     </p>
                   </div>
                 </div>
               </div>
             </article>
           </div>   
-          <div class="col-span-2" style="grid-column: span 2;">
+          <div class="col-span-full @2xl:col-span-2 @4xl:col-span-1">
             <article
               class="card"
               data-card-layout="overlay"
               data-card-column-reverse-order="true"
-              data-card-row-text-align="center"
-              data-card-row-justify="center"
-              data-card-row-align="start"
+              data-card-row-text-align="start"
+              data-card-row-justify="start"
+              data-card-row-align="end"
               data-card-row-image-align-self="start"
               data-card-column-text-align="start"
               data-card-column-justify="start"
-              data-card-column-align="start"
+              data-card-column-align="end"
               data-card-column-image-align-self="start"
-              data-surface="default"
+              data-surface="dark"
               style="--card-gap-column: var(--space-2xl);"
             >
-              <div class="card-picture" style="--card-picture-aspect:618/168">
+              <div class="card-picture [--card-picture-aspect:618/168]">
                 <img src="https://placehold.co/618x168" alt="Card image">
               </div>
-              <div class="card-body flow flow--md pt-md">
-                <div class="card-body__content flow flex-col">
-                  <div class="card-body__content__caption flow">
+              <div class="card-body flow flow--md p-xs m-0 col-span-full h-full content-end">
+                <div class="card-body__content flow flex-col basis-full h-full justify-end overlay-expand">
+                  <div class="card-body__content__caption grid flow grid-cols-[var(--overlay-contracted-size)_1fr] before:content-[''] before:block">
                     <p
-                      class="heading-sm card-body__content__caption-title fluid"
+                      class="heading-xs [--text-transform:uppercase] card-body__content__caption-title fluid"
                     >
-                      Stream Deck
+                      Microphones
                     </p>
                   </div>
                 </div>
               </div>
             </article>
           </div>   
-          <div class="col-span-2" style="grid-column: span 2;">
+          <div class="col-span-full @2xl:col-span-2 @4xl:col-span-1">
             <article
               class="card"
               data-card-layout="overlay"
               data-card-column-reverse-order="true"
-              data-card-row-text-align="center"
-              data-card-row-justify="center"
-              data-card-row-align="start"
+              data-card-row-text-align="start"
+              data-card-row-justify="start"
+              data-card-row-align="end"
               data-card-row-image-align-self="start"
               data-card-column-text-align="start"
               data-card-column-justify="start"
-              data-card-column-align="start"
+              data-card-column-align="end"
               data-card-column-image-align-self="start"
-              data-surface="default"
+              data-surface="dark"
               style="--card-gap-column: var(--space-2xl);"
             >
-              <div class="card-picture" style="--card-picture-aspect:618/168">
+              <div class="card-picture [--card-picture-aspect:618/168]">
                 <img src="https://placehold.co/618x168" alt="Card image">
               </div>
-              <div class="card-body flow flow--md pt-md">
-                <div class="card-body__content flow flex-col">
-                  <div class="card-body__content__caption flow">
+              <div class="card-body flow flow--md p-xs m-0 col-span-full h-full content-end">
+                <div class="card-body__content flow flex-col basis-full h-full justify-end overlay-expand">
+                  <div class="card-body__content__caption flow grid grid-cols-[var(--overlay-contracted-size)_1fr] before:content-[''] before:block">
                     <p
-                      class="heading-sm card-body__content__caption-title fluid"
+                      class="heading-xs [--text-transform:uppercase] card-body__content__caption-title fluid"
                     >
-                      Stream Deck
+                      Docking Stations
                     </p>
                   </div>
                 </div>
               </div>
             </article>
           </div>   
-          <div class="col-span-2" style="grid-column: span 2;">
+          <div class="col-span-full @2xl:col-span-2 @4xl:col-span-1">
             <article
               class="card"
               data-card-layout="overlay"
               data-card-column-reverse-order="true"
-              data-card-row-text-align="center"
-              data-card-row-justify="center"
-              data-card-row-align="start"
+              data-card-row-text-align="start"
+              data-card-row-justify="start"
+              data-card-row-align="end"
               data-card-row-image-align-self="start"
               data-card-column-text-align="start"
               data-card-column-justify="start"
-              data-card-column-align="start"
+              data-card-column-align="end"
               data-card-column-image-align-self="start"
-              data-surface="default"
+              data-surface="dark"
               style="--card-gap-column: var(--space-2xl);"
             >
-              <div class="card-picture" style="--card-picture-aspect:618/168">
+              <div class="card-picture col-span-full [--card-picture-aspect:618/168]">
                 <img src="https://placehold.co/618x168" alt="Card image">
               </div>
-              <div class="card-body flow flow--md pt-md">
-                <div class="card-body__content flow flex-col">
-                  <div class="card-body__content__caption flow">
+              <div class="card-body flow flow--md p-xs m-0 col-span-full h-full content-end">
+                <div class="card-body__content flow flex-col basis-full h-full justify-end overlay-expand">
+                  <div class="card-body__content__caption flow grid grid-cols-[var(--overlay-contracted-size)_1fr] before:content-[''] before:block">
                     <p
-                      class="heading-sm card-body__content__caption-title fluid"
+                      class="heading-xs [--text-transform:uppercase] card-body__content__caption-title fluid"
                     >
-                      Stream Deck
+                      Studio Accessories
                     </p>
                   </div>
                 </div>

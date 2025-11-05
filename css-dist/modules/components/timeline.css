@@ -1,0 +1,77 @@
+@layer base.components {
+  :root:is(.new) .c-timeline {
+    --gap: 1rem;
+    --total-gap: calc(var(--gap) + (var(--spacing) * 2));
+    counter-reset: c-timeline-counter;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-template-rows: auto;
+    position: relative;
+    grid-gap: var(--total-gap);
+    width: min(var(--breakpoint-lg), 100%);
+    margin-inline: auto;
+  }
+  :root:is(.new) .c-timeline[data-timeline-counter=true] .c-timeline__item:before {
+    counter-increment: c-timeline-counter;
+    content: counter(c-timeline-counter);
+    padding: calc(var(--spacing) * 1);
+    font-size: var(--text-4xl);
+  }
+  :root:is(.new) .c-timeline[data-timeline-counter=false] .c-timeline__item:before {
+    content: "";
+  }
+  :root:is(.new) .c-timeline[data-timeline-branch=true] .c-timeline__item:before {
+    content: "";
+    width: var(--timeline-branch-width, 2px);
+    height: 100%;
+    background: var(--timeline-branch-bg, var(--color-accent, var(--color-primary)));
+    position: absolute;
+    left: calc(50% - 1px);
+  }
+  :root:is(.new) .c-timeline[data-timeline-branch=true] .c-timeline__item:nth-of-type(odd) .c-timeline__item-inner:before {
+    right: calc(-1 * var(--total-gap));
+  }
+  :root:is(.new) .c-timeline[data-timeline-branch=true] .c-timeline__item:nth-of-type(even) .c-timeline__item-inner:before {
+    left: calc(-1 * var(--total-gap));
+  }
+  :root:is(.new) .c-timeline__item {
+    display: contents;
+  }
+  :root:is(.new) .c-timeline__item:nth-of-type(odd) > .c-timeline__item-inner {
+    grid-column: 1/1;
+    text-align: right;
+  }
+  :root:is(.new) .c-timeline__item:nth-of-type(even) > .c-timeline__item-inner {
+    grid-column: 3/3;
+    text-align: left;
+  }
+  :root:is(.new) .c-timeline__item:before {
+    font-weight: bold;
+    display: grid;
+    place-content: center;
+    grid-column: 2/2;
+    background: var(--timeline-marker-bg, var(--accent-color, var(--color-primary)));
+    z-index: 1;
+    aspect-ratio: 1/1;
+    align-self: center;
+    width: var(--timeline-marker-size, 1rem);
+    height: var(--timeline-marker-size, 1rem);
+    border-radius: 50%;
+  }
+  :root:is(.new) .c-timeline__item-inner {
+    position: relative;
+    background: var(--bg-color, transparent);
+    grid-row: var(--index)/var(--index);
+  }
+  :root:is(.new) .c-timeline-grid-vertical-line {
+    grid-column: 2/2;
+    grid-row: 1/var(--timeline-length, -1);
+    width: var(--timeline-line-width, 2px);
+    height: 100%;
+    background: var(--timeline-line-bg, var(--accent-color, var(--color-primary)));
+    position: absolute;
+    left: calc(50% - 1px);
+  }
+}
+
+/*# sourceMappingURL=timeline.css.map */

@@ -1,0 +1,59 @@
+@layer base.components {
+  /* calculations */
+  :root:is(.new) {
+    /* Note: There is a bug as of Safari 16.4 where using containment on a grid using auto-fit collapses widths to zero, so proceed with caution if you see this strategy before the bug is resolved */
+  }
+  :root:is(.new) .wrapper {
+    --max-wrapper-width: var(--root-max-wrapper-width, 1200px);
+    --wrapper-padding: var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)));
+    --wrapper-padding-min: clamp(var(--layout-gap) * 1.5, 2vw, var(--layout-gap) * 2);
+    --wrapper-width: calc(var(--max-wrapper-width, 1200px) + var(--wrapper-padding, var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)))) * 2);
+    --wrapper-inline: max(var(--wrapper-padding-min, clamp(var(--layout-gap) * 1.5, 2vw, var(--layout-gap) * 2)), calc(50vw - var(--wrapper-width) / 2 + var(--wrapper-padding, var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)))) * 2 / 2));
+    --grid-wrapper-columns: var(--start-col, var(--wrapper-inline)) var(--center-col, 1fr) var(--end-col, var(--wrapper-inline));
+    padding-inline: var(--wrapper-inline);
+  }
+  :root:is(.new) .wrapper-grid {
+    --grid-wrapper-columns: var(--start-col, var(--wrapper-inline)) var(--center-col, 1fr) var(--end-col, var(--wrapper-inline));
+    /* --grid-wrapper-columns: var(--start-col, calc(var(--wrapper-inline) + var(--wrapper-padding))) var(--center-col, 1fr) var(--end-col, calc(var(--wrapper-inline) + var(--wrapper-padding))); */
+    display: grid;
+    grid-template-columns: var(--grid-wrapper-columns);
+    max-width: 100vw;
+  }
+  :root:is(.new) .layout-grid {
+    --layout-grid-min: var(--layout-column-min, 30ch);
+    --layout-grid-gap: var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)));
+    --layout-grid-template-columns: repeat(var(--layout-grid-auto-repeat, auto-fit), minmax(min(100%, var(--layout-column-min, 30ch)), 1fr));
+    display: grid;
+    grid-template-columns: var(--layout-grid-template-columns);
+    gap: var(--layout-grid-gap);
+  }
+  :root:is(.new) .layout-grid.layout-grid--column-count {
+    --column-count: 4;
+    --breakpoint: calc(var(--layout-grid-min, var(--layout-column-min, 30ch)) * var(--column-count, 4) + var(--layout-grid-gap, var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)))) * (var(--column-count, 4) - 1));
+    --column-size: calc(100% / var(--column-count, 4) - var(--layout-grid-gap, var(--layout-gap, max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem)))));
+    --layout-grid-template-columns: repeat(
+      var(--layout-grid-auto-repeat, auto-fit),
+      minmax(
+        min(max(var(--column-size), (100% - var(--breakpoint)) * -999), 100%),
+        1fr
+      )
+    );
+  }
+  :root:is(.new) .flex-layout-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--flex-grid-gap);
+  }
+  :root:is(.new) .flex-layout-grid > * {
+    display: grid;
+    flex: 1 1 var(--flex-grid-min);
+  }
+  :root:is(.new) :is(.layout) {
+    container: layout-container/inline-size;
+  }
+  :root:is(.new) :is(.layout-grid, .flex-layout-grid) > * {
+    container: var(--grid-item-container, grid-item)/inline-size;
+  }
+}
+
+/*# sourceMappingURL=layout.css.map */

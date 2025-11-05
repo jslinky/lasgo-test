@@ -1,0 +1,123 @@
+@layer base.components {
+  @layer base {
+    :root:is(.new) .c-collapse {
+      inline-size: var(--details-inline-size, 50ch);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      :root:is(.new) .c-collapse {
+        interpolate-size: allow-keywords;
+      }
+    }
+    :root:is(.new) .c-collapse .collapse-content {
+      block-size: 0;
+      overflow-y: clip;
+      transition: var(--collapse-transition, content-visibility 1s allow-discrete, opacity 1s, block-size 1s);
+    }
+    :root:is(.new) .c-collapse .collapse-content > div {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    :root:is(.new) .c-collapse[open] .collapse-title {
+      --marker-content: attr(data-marker-collapse);
+    }
+    :root:is(.new) .c-collapse[open] .collapse-icon > *:is(:not(:only-child)):nth-child(1) {
+      display: none;
+    }
+    :root:is(.new) .c-collapse[open] .collapse-icon > *:is(:not(:only-child)):nth-child(2) {
+      display: inline-flex;
+    }
+    :root:is(.new) .c-collapse[open] .collapse-content {
+      /* opacity: 1; */
+      block-size: auto;
+    }
+    :root:is(.new) .c-collapse[open] .collapse-content > div {
+      opacity: 1;
+    }
+    :root:is(.new) .c-collapse .collapse-title {
+      cursor: pointer;
+      --marker-content: attr(data-marker-expand);
+      display: flex;
+      align-items: center;
+      gap: var(--collapse-title-gap, var(--spacing-md, 0.5rem));
+    }
+    :root:is(.new) .c-collapse .collapse-title span {
+      flex: 1 1 auto;
+    }
+    :root:is(.new) .c-collapse .collapse-title::marker {
+      display: none;
+    }
+    :root:is(.new) .c-collapse .collapse-title:before {
+      content: var(--marker-content);
+      font-size: 1.75em;
+      width: 1em;
+      height: 1em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-color, inherit);
+      background-color: var(--color, transparent);
+      flex-shrink: 0;
+    }
+    :root:is(.new) .c-collapse .collapse-title[open] {
+      --marker-content: attr(data-marker-collapse);
+    }
+    :root:is(.new) .collapse-icon-slot {
+      gap: var(--collapse-title-gap, var(--spacing-md, 0.5rem));
+      display: flex;
+      align-items: center;
+    }
+    :root:is(.new) .collapse-icon {
+      display: grid;
+      place-items: center;
+    }
+    :root:is(.new) .collapse-icon > * {
+      width: 1.75em;
+      height: 1.75em;
+    }
+    :root:is(.new) .collapse-icon > *:is(:not(:only-child)):nth-child(1) {
+      display: inline-flex;
+    }
+    :root:is(.new) .collapse-icon > *:is(:not(:only-child)):nth-child(2) {
+      display: none;
+    }
+    :root:is(.new) .collapse-icon.collapse-icon--arrow > *:is(:only-child) {
+      transition: var(--collapse-icon-arrow-transition, rotate 0.3s ease-in-out);
+    }
+  }
+  @layer modifiers {
+    :root:is(.new) .c-collapse:is([data-surface], .c-collapse--outlined) .collapse-content {
+      padding-inline: max(var(--text-frame-y), var(--spacing-sm)) var(--spacing-sm);
+      padding-block-end: max(var(--text-frame-y), var(--spacing-sm));
+    }
+    :root:is(.new) .c-collapse:is([data-surface], .c-collapse--outlined) .collapse-title {
+      padding-inline: var(--text-frame-y) var(--spacing-sm);
+      padding-block: var(--text-frame-y);
+    }
+    :root:is(.new) .c-collapse.c-collapse--outlined {
+      border: var(--field-border-width, 1px) solid var(--field-border-color, var(--color-gray-200));
+    }
+    :root:is(.new) .c-collapse.c-collapse--outlined[data-surface] {
+      --field-border-color: oklch(from var(--bg-color) calc(l - 0.05) c h);
+    }
+    :root:is(.new) .c-collapse[open] .collapse-icon.collapse-icon--arrow > *:is(:only-child) {
+      rotate: 180deg;
+    }
+    :root:is(.new) .c-collapse .collapse-title.collapse-title--has-icon:before {
+      display: none;
+    }
+    :root:is(.new) .c-collapse .collapse-title.collapse-title--text-base {
+      gap: 0;
+    }
+    :root:is(.new) .c-collapse .collapse-title.collapse-title--text-base > p {
+      flex: 1 1 auto;
+    }
+    :root:is(.new) .c-collapse .collapse-title--marker-end {
+      flex-direction: row-reverse;
+    }
+    :root:is(.new) .c-collapse .collapse-title--marker-end .collapse-icon-slot {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+/*# sourceMappingURL=collapse.css.map */

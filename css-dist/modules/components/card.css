@@ -1,0 +1,1879 @@
+@layer base.components {
+  @layer base {
+    :root:is(.new) :where(.card) {
+      --card-two-columns: var(--card-left-col, minmax(0, 1fr))
+        var(--card-right-col, minmax(0, 1fr));
+      --card-body-padding-inline: var(--layout-gap);
+      --card-body-padding-block: var(--layout-gap);
+      --card-auto-row: auto;
+      --fluid-headings: false;
+      grid-template-columns: var(--card-columns, 1fr);
+      background-color: var(--card-background-color, var(--surface-bg-color));
+      position: relative;
+      border: var(--card-border-width, var(--field-border-width, 1px)) var(--card-border-style, solid) var(--card-border-color, var(--field-border-color, transparent));
+      border-radius: var(--card-radius, var(--radius));
+      height: 100%;
+      column-gap: calc(var(--card-gap-column, var(--card-padding-inline, 0)) * var(--card-gap-column-multiplier, 1));
+      row-gap: calc(var(--card-gap-row, var(--card-padding-block, 0)) * var(--card-gap-row-multiplier, 1));
+      aspect-ratio: var(--card-aspect, none);
+      display: grid;
+      padding-inline: var(--card-padding-inline, 0);
+      padding-block: var(--card-padding-block, 0);
+    }
+    :root:is(.new) :where(.card) :is(h2, h3):not(.heading) {
+      text-wrap: balance;
+    }
+    :root:is(.new) :where(.card) :where(.button, button):focus-visible {
+      --outline-color: transparent;
+    }
+    :root:is(.new) :where(.card) :where(.button, button):only-of-type::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+    :root:is(.new) :where(.card-body) {
+      padding-inline: var(--card-body-padding-inline);
+      padding-block: var(--card-body-padding-block);
+      display: block;
+    }
+    :root:is(.new) :where(.card-body) > * + * {
+      margin-block-start: var(--flow-space, 1em);
+    }
+    :root:is(.new) :where(.card-picture) {
+      max-width: 100%;
+    }
+    :root:is(.new) :where(.card-picture):not(:empty) {
+      align-self: stretch;
+      display: flex;
+      justify-content: center;
+    }
+    :root:is(.new) :where(.card-picture):not(:empty) :where(img) {
+      aspect-ratio: var(--card-picture-aspect, var(--aspect-video));
+      width: 100%;
+      object-fit: cover;
+    }
+    :root:is(.new) :where(.card-body__content__caption-title):is(h1, h2, h3, h4, h5, h6) {
+      --font-size-min: var(--heading-xs-font-size-min, var(--sm-px));
+      --font-size-max: var(--heading-xs-font-size-max, var(--md-px));
+      --font-size: calc((var(--font-size-max) / var(--font-size-base-px)) * 1rem) ;
+      --font-ratio-min: var(--heading-xs-font-ratio-min, 1.2);
+      --font-ratio-max: var(--heading-xs-font-ratio-max, 1.5);
+      --font-width-min: var(--heading-xs-font-width-min, 375);
+      --font-width-max: var(--heading-xs-font-width-max, 1440);
+    }
+    @container style(--fluid-headings: true) {
+      :root:is(.new) :where(.card-body__content__caption-title):is(h1, h2, h3, h4, h5, h6) {
+        --fluid-min: calc(
+          var(--font-size-min) * pow(var(--font-ratio-min), var(--font-level, 0))
+        );
+        --fluid-max: calc(
+          var(--font-size-max) * pow(var(--font-ratio-max), var(--font-level, 0))
+        );
+        --fluid-preferred: calc(
+          (var(--fluid-max) - var(--fluid-min)) /
+            (var(--font-width-max) - var(--font-width-min))
+        );
+        --fluid-type: clamp(
+          (var(--fluid-min) / 16) * 1rem,
+          ((var(--fluid-min) / 16) * 1rem) -
+            (((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) +
+            (var(--fluid-preferred) * var(--variable-unit, 100vi)),
+          (var(--fluid-max) / 16) * 1rem
+        );
+        font-size: var(--fluid-type);
+      }
+    }
+  }
+  @layer modifiers {
+    :root:is(.new) :where(.card) {
+      /* Browser has modern attr() support */
+    }
+    @supports (x: attr(x type(*))) {
+      :root:is(.new) :where(.card):is([data-card-column-content-0-size]) {
+        --card-left-col: attr(
+          data-card-column-content-0-size type(<length> | <percentage>)
+        );
+      }
+      :root:is(.new) :where(.card):is([data-card-column-content-1-size]) {
+        --card-right-col: attr(
+          data-card-column-content-1-size type(<length> | <percentage>)
+        );
+      }
+      :root:is(.new) :where(.card):is([data-card-row-content-0-size]) {
+        --card-top-row: attr(
+          data-card-row-content-0-size type(<length> | <percentage>)
+        );
+      }
+      :root:is(.new) :where(.card):is([data-card-row-content-1-size]) {
+        --card-bottom-row: attr(
+          data-card-row-content-1-size type(<length> | <percentage>)
+        );
+      }
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-text-align=start]) :is(.card-body__content) {
+      text-align: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-text-align=center]) :is(.card-body__content) {
+      text-align: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-text-align=end]) :is(.card-body__content) {
+      text-align: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):where([data-card-column-justify]) :is(.card-body, .card-body__content) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):where([data-card-column-justify]) :is(.card-body, .card-body__content) > :is(.card-body__caption,
+    .card-body,
+    .card-footer) {
+      flex: 1 1 100%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=start]) :is(.card-body, .card-body__content) {
+      justify-content: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=center]) :is(.card-body, .card-body__content) {
+      justify-content: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=end]) :is(.card-body, .card-body__content) {
+      justify-content: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=stretch]) :is(.card-body, .card-body__content) {
+      justify-content: stretch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=space-between]) :is(.card-body, .card-body__content) {
+      justify-content: space-between;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=space-around]) :is(.card-body, .card-body__content) {
+      justify-content: space-around;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=space-evenly]) :is(.card-body, .card-body__content) {
+      justify-content: space-evenly;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=safe]) :is(.card-body, .card-body__content) {
+      justify-content: safe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=unsafe]) :is(.card-body, .card-body__content) {
+      justify-content: unsafe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=start]) {
+      align-items: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=center]) {
+      align-items: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=end]) {
+      align-items: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=stretch]) {
+      align-items: stretch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=baseline]) {
+      align-items: baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=first]) {
+      align-items: first baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=last]) {
+      align-items: last baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=safe]) {
+      align-items: safe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=unsafe]) {
+      align-items: unsafe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-start]) {
+      align-self: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-center]) {
+      align-self: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-end]) {
+      align-self: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-stretch]) {
+      align-self: stretch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-baseline]) {
+      align-self: baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-first]) {
+      align-self: first baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-last]) {
+      align-self: last baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-safe]) {
+      align-self: safe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-unsafe]) {
+      align-self: unsafe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-auto]) {
+      align-self: auto;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-normal]) {
+      align-self: normal;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-image-align-self=start]) :is(.card-picture) {
+      align-self: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-image-align-self=center]) :is(.card-picture) {
+      align-self: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-image-align-self=end]) :is(.card-picture) {
+      align-self: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-image-align-self=stretch]) :is(.card-picture) {
+      align-self: stretch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="0.25fr"]) {
+      --card-left-col: 0.25fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="0.25fr"]) {
+      --card-right-col: 0.25fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="0.5fr"]) {
+      --card-left-col: 0.5fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="0.5fr"]) {
+      --card-right-col: 0.5fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="0.75fr"]) {
+      --card-left-col: 0.75fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="0.75fr"]) {
+      --card-right-col: 0.75fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="1fr"]) {
+      --card-left-col: 1fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="1fr"]) {
+      --card-right-col: 1fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="1.25fr"]) {
+      --card-left-col: 1.25fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="1.25fr"]) {
+      --card-right-col: 1.25fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="1.5fr"]) {
+      --card-left-col: 1.5fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="1.5fr"]) {
+      --card-right-col: 1.5fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="1.75fr"]) {
+      --card-left-col: 1.75fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="1.75fr"]) {
+      --card-right-col: 1.75fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="2fr"]) {
+      --card-left-col: 2fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="2fr"]) {
+      --card-right-col: 2fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="25%"]) {
+      --card-left-col: 25%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="25%"]) {
+      --card-right-col: 25%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="33%"]) {
+      --card-left-col: 33%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="33%"]) {
+      --card-right-col: 33%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="50%"]) {
+      --card-left-col: 50%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="50%"]) {
+      --card-right-col: 50%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="75%"]) {
+      --card-left-col: 75%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="75%"]) {
+      --card-right-col: 75%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="100%"]) {
+      --card-left-col: 100%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="100%"]) {
+      --card-right-col: 100%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="256px"]) {
+      --card-left-col: 256px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="256px"]) {
+      --card-right-col: 256px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="288px"]) {
+      --card-left-col: 288px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="288px"]) {
+      --card-right-col: 288px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="320px"]) {
+      --card-left-col: 320px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="320px"]) {
+      --card-right-col: 320px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="384px"]) {
+      --card-left-col: 384px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="384px"]) {
+      --card-right-col: 384px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="448px"]) {
+      --card-left-col: 448px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="448px"]) {
+      --card-right-col: 448px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="512px"]) {
+      --card-left-col: 512px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="512px"]) {
+      --card-right-col: 512px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="576px"]) {
+      --card-left-col: 576px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="576px"]) {
+      --card-right-col: 576px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="672px"]) {
+      --card-left-col: 672px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="672px"]) {
+      --card-right-col: 672px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="20ch"]) {
+      --card-left-col: 20ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="20ch"]) {
+      --card-right-col: 20ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="30ch"]) {
+      --card-left-col: 30ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="30ch"]) {
+      --card-right-col: 30ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="40ch"]) {
+      --card-left-col: 40ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="40ch"]) {
+      --card-right-col: 40ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="50ch"]) {
+      --card-left-col: 50ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="50ch"]) {
+      --card-right-col: 50ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="60ch"]) {
+      --card-left-col: 60ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="60ch"]) {
+      --card-right-col: 60ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="70ch"]) {
+      --card-left-col: 70ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="70ch"]) {
+      --card-right-col: 70ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="80ch"]) {
+      --card-left-col: 80ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="80ch"]) {
+      --card-right-col: 80ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-top] {
+      --card-backdrop-direction: in oklch to top;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-bottom] {
+      --card-backdrop-direction: in oklch to bottom;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-left] {
+      --card-backdrop-direction: in oklch to left;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-right] {
+      --card-backdrop-direction: in oklch to right;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-top-right] {
+      --card-backdrop-direction: in oklch to top right;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-top-left] {
+      --card-backdrop-direction: in oklch to top left;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-bottom-right] {
+      --card-backdrop-direction: in oklch to bottom right;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-bottom-left] {
+      --card-backdrop-direction: in oklch to bottom left;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=uniform] {
+      --card-backdrop-color-stop-from-opacity: 0.45;
+      --card-backdrop-color-stop-to-opacity: 0.45;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):where([data-card-column-reverse-order]):has(.card-picture:first-child) .card-body {
+      order: 0;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):where([data-card-column-reverse-order]):has(.card-picture:first-child) .card-picture {
+      order: 1;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):where([data-card-column-reverse-order]):has(.card-picture:not(:first-child)) .card-body {
+      order: 1;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):where([data-card-column-reverse-order]):has(.card-picture:not(:first-child)) .card-picture {
+      order: 0;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]) :where(.card-picture) {
+      align-self: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):has(.card-picture) {
+      --card-columns: var(--card-two-columns);
+      grid-auto-flow: column;
+    }
+    :root:is(.new) :where(.card):not([data-card-bordered]) {
+      --card-border-width: 0;
+    }
+    :root:is(.new) :where(.card):not([data-card-layout=col]) {
+      grid-auto-flow: row;
+      align-items: flex-start;
+      justify-content: start;
+      aspect-ratio: unset;
+    }
+    :root:is(.new) :where(.card):not([data-card-layout=col]):has(.card-picture) {
+      grid-auto-flow: row;
+      grid-auto-rows: var(--card-auto-row);
+    }
+    :root:is(.new) :where(.card):not([data-card-layout=col]):has(.card-picture:first-child) {
+      --card-auto-row: var(--card-top-row, auto) var(--card-bottom-row, 1fr);
+    }
+    :root:is(.new) :where(.card):not([data-card-layout=col]):has(.card-picture:not(:first-child)) {
+      --card-auto-row: var(--card-top-row, max-content) var(--card-bottom-row, auto);
+    }
+    :root:is(.new) :where(.card[data-card-outer-shadow="1"]) {
+      box-shadow: 0 1px 2px -1px Hsl(220 3% 15%/10%);
+    }
+    :root:is(.new) :where(.card[data-card-layout=overlay]) .card-body {
+      grid-row: 1/-1;
+      grid-column: 1/-1;
+      z-index: 1;
+      margin-inline: var(--card-body-padding-inline);
+      margin-block: var(--card-body-padding-block);
+    }
+    :root:is(.new) :where(.card[data-card-layout=overlay]) .card-picture {
+      grid-column: 1/-1;
+      grid-row: 1/-1;
+    }
+    @container (inline-size <= 80ch) {
+      :root:is(.new) :where(.card[data-card-layout=overlay]) {
+        grid-auto-rows: 1fr;
+      }
+    }
+    @container (inline-size > 80ch) {
+      :root:is(.new) :where(.card[data-card-layout=overlay]) {
+        --card-auto-row: var(--card-top-row, max-content) var(--card-bottom-row, auto);
+        grid-auto-columns: 1fr;
+        /* Default is pic on left, body on right */
+        /* This is default */
+      }
+      :root:is(.new) :where(.card[data-card-layout=overlay]):is(:has(:not(.card-picture:first-child)),
+      :is([data-card-column-reverse-order]):has(.card-picture:first-child)) .card-body {
+        grid-column: 1/1;
+        margin-inline-start: var(--card-body-padding-inline);
+        margin-inline-end: 0;
+      }
+      :root:is(.new) :where(.card[data-card-layout=overlay]):is(:has(.card-picture:first-child),
+      :is([data-card-column-reverse-order]):has(:not(.card-picture:first-child))) .card-body {
+        grid-column: 2/2;
+        margin-inline-end: var(--card-body-padding-inline);
+        margin-inline-start: 0;
+      }
+    }
+    :root:is(.new) :where(.card[data-card-backdrop])[data-surface] {
+      --card-backdrop-color-from-color: var(--surface-bg-color);
+      --card-backdrop-color-to-color: var(--surface-bg-color);
+    }
+    :root:is(.new) :where(.card[data-card-backdrop]) .card-body {
+      isolation: isolate;
+    }
+    :root:is(.new) :where(.card[data-card-backdrop]) .card-body:before {
+      content: "";
+      display: block;
+      width: 100%;
+      inset: 0;
+      position: absolute;
+      height: 100%;
+      border-image: var(--card-backdrop-fill, fill 0 linear-gradient(var(--card-backdrop-direction, in oklch to top), var(--card-backdrop-color-stop-from, oklch(from var(--card-backdrop-color-from-color, var(--color-light, #fff)) l c h/var(--card-backdrop-color-stop-from-opacity, 0.9)) 0%), var(--card-backdrop-color-stop-to, oklch(from var(--card-backdrop-color-to-color, var(--color-light, #fff)) l c h/var(--card-backdrop-color-stop-to-opacity, 0.15)) 100%)));
+      z-index: -1;
+    }
+    :root:is(.new) :where(.card[data-card-backdrop=to-top]) {
+      --card-backdrop-direction: in oklch to top;
+    }
+    :root:is(.new) :where(.card[data-card-backdrop=to-bottom]) {
+      --card-backdrop-direction: in oklch to bottom;
+    }
+    :root:is(.new) :where(.card[data-card-backdrop=to-left]) {
+      --card-backdrop-direction: in oklch to left;
+    }
+    :root:is(.new) :where(.card[data-card-backdrop=to-right]) {
+      --card-backdrop-direction: in oklch to right;
+    }
+    :root:is(.new) :where(.card[data-card-backdrop=to-top-right]) {
+      --card-backdrop-direction: in oklch to top right;
+    }
+    :root:is(.new) :where(.card[data-card-backdrop=to-top-left]) {
+      --card-backdrop-direction: in oklch to top left;
+    }
+    :root:is(.new) :where(.card[data-card-backdrop=to-bottom-right]) {
+      --card-backdrop-direction: in oklch to bottom right;
+    }
+    :root:is(.new) :where(.card[data-card-backdrop=to-bottom-left]) {
+      --card-backdrop-direction: in oklch to bottom left;
+    }
+    :root:is(.new) :where(.card[data-card-backdrop=uniform]) {
+      --card-backdrop-color-stop-from-opacity: 0.45;
+      --card-backdrop-color-stop-to-opacity: 0.45;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-text-align=start]) :is(.card-body__content) {
+      text-align: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-text-align=center]) :is(.card-body__content) {
+      text-align: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-text-align=end]) :is(.card-body__content) {
+      text-align: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):where([data-card-column-justify]) :is(.card-body, .card-body__content) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):where([data-card-column-justify]) :is(.card-body, .card-body__content) > :is(.card-body__caption,
+    .card-body,
+    .card-footer) {
+      flex: 1 1 100%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=start]) :is(.card-body, .card-body__content) {
+      justify-content: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=center]) :is(.card-body, .card-body__content) {
+      justify-content: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=end]) :is(.card-body, .card-body__content) {
+      justify-content: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=stretch]) :is(.card-body, .card-body__content) {
+      justify-content: stretch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=space-between]) :is(.card-body, .card-body__content) {
+      justify-content: space-between;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=space-around]) :is(.card-body, .card-body__content) {
+      justify-content: space-around;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=space-evenly]) :is(.card-body, .card-body__content) {
+      justify-content: space-evenly;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=safe]) :is(.card-body, .card-body__content) {
+      justify-content: safe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-justify=unsafe]) :is(.card-body, .card-body__content) {
+      justify-content: unsafe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=start]) {
+      align-items: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=center]) {
+      align-items: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=end]) {
+      align-items: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=stretch]) {
+      align-items: stretch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=baseline]) {
+      align-items: baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=first]) {
+      align-items: first baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=last]) {
+      align-items: last baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=safe]) {
+      align-items: safe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=unsafe]) {
+      align-items: unsafe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-start]) {
+      align-self: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-center]) {
+      align-self: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-end]) {
+      align-self: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-stretch]) {
+      align-self: stretch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-baseline]) {
+      align-self: baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-first]) {
+      align-self: first baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-last]) {
+      align-self: last baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-safe]) {
+      align-self: safe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-unsafe]) {
+      align-self: unsafe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-auto]) {
+      align-self: auto;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-align=self-normal]) {
+      align-self: normal;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-image-align-self=start]) :is(.card-picture) {
+      align-self: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-image-align-self=center]) :is(.card-picture) {
+      align-self: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-image-align-self=end]) :is(.card-picture) {
+      align-self: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-image-align-self=stretch]) :is(.card-picture) {
+      align-self: stretch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="0.25fr"]) {
+      --card-left-col: 0.25fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="0.25fr"]) {
+      --card-right-col: 0.25fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="0.5fr"]) {
+      --card-left-col: 0.5fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="0.5fr"]) {
+      --card-right-col: 0.5fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="0.75fr"]) {
+      --card-left-col: 0.75fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="0.75fr"]) {
+      --card-right-col: 0.75fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="1fr"]) {
+      --card-left-col: 1fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="1fr"]) {
+      --card-right-col: 1fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="1.25fr"]) {
+      --card-left-col: 1.25fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="1.25fr"]) {
+      --card-right-col: 1.25fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="1.5fr"]) {
+      --card-left-col: 1.5fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="1.5fr"]) {
+      --card-right-col: 1.5fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="1.75fr"]) {
+      --card-left-col: 1.75fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="1.75fr"]) {
+      --card-right-col: 1.75fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="2fr"]) {
+      --card-left-col: 2fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="2fr"]) {
+      --card-right-col: 2fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="25%"]) {
+      --card-left-col: 25%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="25%"]) {
+      --card-right-col: 25%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="33%"]) {
+      --card-left-col: 33%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="33%"]) {
+      --card-right-col: 33%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="50%"]) {
+      --card-left-col: 50%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="50%"]) {
+      --card-right-col: 50%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="75%"]) {
+      --card-left-col: 75%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="75%"]) {
+      --card-right-col: 75%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="100%"]) {
+      --card-left-col: 100%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="100%"]) {
+      --card-right-col: 100%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="256px"]) {
+      --card-left-col: 256px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="256px"]) {
+      --card-right-col: 256px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="288px"]) {
+      --card-left-col: 288px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="288px"]) {
+      --card-right-col: 288px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="320px"]) {
+      --card-left-col: 320px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="320px"]) {
+      --card-right-col: 320px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="384px"]) {
+      --card-left-col: 384px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="384px"]) {
+      --card-right-col: 384px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="448px"]) {
+      --card-left-col: 448px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="448px"]) {
+      --card-right-col: 448px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="512px"]) {
+      --card-left-col: 512px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="512px"]) {
+      --card-right-col: 512px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="576px"]) {
+      --card-left-col: 576px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="576px"]) {
+      --card-right-col: 576px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="672px"]) {
+      --card-left-col: 672px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="672px"]) {
+      --card-right-col: 672px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="20ch"]) {
+      --card-left-col: 20ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="20ch"]) {
+      --card-right-col: 20ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="30ch"]) {
+      --card-left-col: 30ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="30ch"]) {
+      --card-right-col: 30ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="40ch"]) {
+      --card-left-col: 40ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="40ch"]) {
+      --card-right-col: 40ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="50ch"]) {
+      --card-left-col: 50ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="50ch"]) {
+      --card-right-col: 50ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="60ch"]) {
+      --card-left-col: 60ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="60ch"]) {
+      --card-right-col: 60ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="70ch"]) {
+      --card-left-col: 70ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="70ch"]) {
+      --card-right-col: 70ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-0-size="80ch"]) {
+      --card-left-col: 80ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):is([data-card-column-content-1-size="80ch"]) {
+      --card-right-col: 80ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-top] {
+      --card-backdrop-direction: in oklch to top;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-bottom] {
+      --card-backdrop-direction: in oklch to bottom;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-left] {
+      --card-backdrop-direction: in oklch to left;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-right] {
+      --card-backdrop-direction: in oklch to right;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-top-right] {
+      --card-backdrop-direction: in oklch to top right;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-top-left] {
+      --card-backdrop-direction: in oklch to top left;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-bottom-right] {
+      --card-backdrop-direction: in oklch to bottom right;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=to-bottom-left] {
+      --card-backdrop-direction: in oklch to bottom left;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col])[data-card-overlay-backdrop-direction-column=uniform] {
+      --card-backdrop-color-stop-from-opacity: 0.45;
+      --card-backdrop-color-stop-to-opacity: 0.45;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):where([data-card-column-reverse-order]):has(.card-picture:first-child) .card-body {
+      order: 0;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):where([data-card-column-reverse-order]):has(.card-picture:first-child) .card-picture {
+      order: 1;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):where([data-card-column-reverse-order]):has(.card-picture:not(:first-child)) .card-body {
+      order: 1;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]):where([data-card-column-reverse-order]):has(.card-picture:not(:first-child)) .card-picture {
+      order: 0;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=col]) :where(.card-picture) {
+      align-self: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-text-align=start]) :is(.card-body__content) {
+      text-align: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-text-align=center]) :is(.card-body__content) {
+      text-align: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-text-align=end]) :is(.card-body__content) {
+      text-align: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):where([data-card-row-justify]) :is(.card-body, .card-body__content) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):where([data-card-row-justify]) :is(.card-body, .card-body__content) > :is(.card-body__caption,
+    .card-body,
+    .card-footer) {
+      flex: 1 1 100%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-justify=start]) :is(.card-body, .card-body__content) {
+      justify-content: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-justify=center]) :is(.card-body, .card-body__content) {
+      justify-content: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-justify=end]) :is(.card-body, .card-body__content) {
+      justify-content: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-justify=stretch]) :is(.card-body, .card-body__content) {
+      justify-content: stretch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-justify=space-between]) :is(.card-body, .card-body__content) {
+      justify-content: space-between;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-justify=space-around]) :is(.card-body, .card-body__content) {
+      justify-content: space-around;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-justify=space-evenly]) :is(.card-body, .card-body__content) {
+      justify-content: space-evenly;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-justify=safe]) :is(.card-body, .card-body__content) {
+      justify-content: safe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-justify=unsafe]) :is(.card-body, .card-body__content) {
+      justify-content: unsafe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=start]) {
+      align-items: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=center]) {
+      align-items: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=end]) {
+      align-items: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=stretch]) {
+      align-items: stretch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=baseline]) {
+      align-items: baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=first]) {
+      align-items: first baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=last]) {
+      align-items: last baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=safe]) {
+      align-items: safe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=unsafe]) {
+      align-items: unsafe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=self-start]) {
+      align-self: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=self-center]) {
+      align-self: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=self-end]) {
+      align-self: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=self-stretch]) {
+      align-self: stretch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=self-baseline]) {
+      align-self: baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=self-first]) {
+      align-self: first baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=self-last]) {
+      align-self: last baseline;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=self-safe]) {
+      align-self: safe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=self-unsafe]) {
+      align-self: unsafe center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=self-auto]) {
+      align-self: auto;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-align=self-normal]) {
+      align-self: normal;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-image-align-self=start]) :is(.card-picture) {
+      align-self: start;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-image-align-self=center]) :is(.card-picture) {
+      align-self: center;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-image-align-self=end]) :is(.card-picture) {
+      align-self: end;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-image-align-self=stretch]) :is(.card-picture) {
+      align-self: stretch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="0.25fr"]) {
+      --card-top-row: 0.25fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="0.25fr"]) {
+      --card-bottom-row: 0.25fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="0.5fr"]) {
+      --card-top-row: 0.5fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="0.5fr"]) {
+      --card-bottom-row: 0.5fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="0.75fr"]) {
+      --card-top-row: 0.75fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="0.75fr"]) {
+      --card-bottom-row: 0.75fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="1fr"]) {
+      --card-top-row: 1fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="1fr"]) {
+      --card-bottom-row: 1fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="1.25fr"]) {
+      --card-top-row: 1.25fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="1.25fr"]) {
+      --card-bottom-row: 1.25fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="1.5fr"]) {
+      --card-top-row: 1.5fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="1.5fr"]) {
+      --card-bottom-row: 1.5fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="1.75fr"]) {
+      --card-top-row: 1.75fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="1.75fr"]) {
+      --card-bottom-row: 1.75fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="2fr"]) {
+      --card-top-row: 2fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="2fr"]) {
+      --card-bottom-row: 2fr;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="25%"]) {
+      --card-top-row: 25%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="25%"]) {
+      --card-bottom-row: 25%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="33%"]) {
+      --card-top-row: 33%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="33%"]) {
+      --card-bottom-row: 33%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="50%"]) {
+      --card-top-row: 50%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="50%"]) {
+      --card-bottom-row: 50%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="75%"]) {
+      --card-top-row: 75%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="75%"]) {
+      --card-bottom-row: 75%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="100%"]) {
+      --card-top-row: 100%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="100%"]) {
+      --card-bottom-row: 100%;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="256px"]) {
+      --card-top-row: 256px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="256px"]) {
+      --card-bottom-row: 256px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="288px"]) {
+      --card-top-row: 288px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="288px"]) {
+      --card-bottom-row: 288px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="320px"]) {
+      --card-top-row: 320px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="320px"]) {
+      --card-bottom-row: 320px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="384px"]) {
+      --card-top-row: 384px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="384px"]) {
+      --card-bottom-row: 384px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="448px"]) {
+      --card-top-row: 448px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="448px"]) {
+      --card-bottom-row: 448px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="512px"]) {
+      --card-top-row: 512px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="512px"]) {
+      --card-bottom-row: 512px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="576px"]) {
+      --card-top-row: 576px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="576px"]) {
+      --card-bottom-row: 576px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="672px"]) {
+      --card-top-row: 672px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="672px"]) {
+      --card-bottom-row: 672px;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="20ch"]) {
+      --card-top-row: 20ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="20ch"]) {
+      --card-bottom-row: 20ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="30ch"]) {
+      --card-top-row: 30ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="30ch"]) {
+      --card-bottom-row: 30ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="40ch"]) {
+      --card-top-row: 40ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="40ch"]) {
+      --card-bottom-row: 40ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="50ch"]) {
+      --card-top-row: 50ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="50ch"]) {
+      --card-bottom-row: 50ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="60ch"]) {
+      --card-top-row: 60ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="60ch"]) {
+      --card-bottom-row: 60ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="70ch"]) {
+      --card-top-row: 70ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="70ch"]) {
+      --card-bottom-row: 70ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-0-size="80ch"]) {
+      --card-top-row: 80ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):is([data-card-row-content-1-size="80ch"]) {
+      --card-bottom-row: 80ch;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row])[data-card-overlay-backdrop-direction-row=to-top] {
+      --card-backdrop-direction: in oklch to top;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row])[data-card-overlay-backdrop-direction-row=to-bottom] {
+      --card-backdrop-direction: in oklch to bottom;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row])[data-card-overlay-backdrop-direction-row=to-left] {
+      --card-backdrop-direction: in oklch to left;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row])[data-card-overlay-backdrop-direction-row=to-right] {
+      --card-backdrop-direction: in oklch to right;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row])[data-card-overlay-backdrop-direction-row=to-top-right] {
+      --card-backdrop-direction: in oklch to top right;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row])[data-card-overlay-backdrop-direction-row=to-top-left] {
+      --card-backdrop-direction: in oklch to top left;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row])[data-card-overlay-backdrop-direction-row=to-bottom-right] {
+      --card-backdrop-direction: in oklch to bottom right;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row])[data-card-overlay-backdrop-direction-row=to-bottom-left] {
+      --card-backdrop-direction: in oklch to bottom left;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row])[data-card-overlay-backdrop-direction-row=uniform] {
+      --card-backdrop-color-stop-from-opacity: 0.45;
+      --card-backdrop-color-stop-to-opacity: 0.45;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):where([data-card-row-reverse-order]):has(.card-picture:first-child) {
+      --card-auto-row: var(--card-top-row, max-content) var(--card-bottom-row, auto);
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):where([data-card-row-reverse-order]):has(.card-picture:first-child) .card-body {
+      order: 0;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):where([data-card-row-reverse-order]):has(.card-picture:first-child) .card-picture {
+      order: 1;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):where([data-card-row-reverse-order]):has(.card-picture:not(:first-child)) {
+      --card-auto-row: var(--card-top-row, auto) var(--card-bottom-row, max-content);
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):where([data-card-row-reverse-order]):has(.card-picture:not(:first-child)) .card-body {
+      order: 1;
+    }
+    :root:is(.new) :where(.card):is([data-card-layout=row]):where([data-card-row-reverse-order]):has(.card-picture:not(:first-child)) .card-picture {
+      order: 0;
+    }
+    @container (inline-size <=80ch) {
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-text-align=start]) :is(.card-body__content) {
+        text-align: start;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-text-align=center]) :is(.card-body__content) {
+        text-align: center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-text-align=end]) :is(.card-body__content) {
+        text-align: end;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):where([data-card-row-justify]) :is(.card-body, .card-body__content) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):where([data-card-row-justify]) :is(.card-body, .card-body__content) > :is(.card-body__caption,
+      .card-body,
+      .card-footer) {
+        flex: 1 1 100%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-justify=start]) :is(.card-body, .card-body__content) {
+        justify-content: start;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-justify=center]) :is(.card-body, .card-body__content) {
+        justify-content: center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-justify=end]) :is(.card-body, .card-body__content) {
+        justify-content: end;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-justify=stretch]) :is(.card-body, .card-body__content) {
+        justify-content: stretch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-justify=space-between]) :is(.card-body, .card-body__content) {
+        justify-content: space-between;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-justify=space-around]) :is(.card-body, .card-body__content) {
+        justify-content: space-around;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-justify=space-evenly]) :is(.card-body, .card-body__content) {
+        justify-content: space-evenly;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-justify=safe]) :is(.card-body, .card-body__content) {
+        justify-content: safe center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-justify=unsafe]) :is(.card-body, .card-body__content) {
+        justify-content: unsafe center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=start]) {
+        align-items: start;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=center]) {
+        align-items: center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=end]) {
+        align-items: end;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=stretch]) {
+        align-items: stretch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=baseline]) {
+        align-items: baseline;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=first]) {
+        align-items: first baseline;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=last]) {
+        align-items: last baseline;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=safe]) {
+        align-items: safe center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=unsafe]) {
+        align-items: unsafe center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=self-start]) {
+        align-self: start;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=self-center]) {
+        align-self: center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=self-end]) {
+        align-self: end;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=self-stretch]) {
+        align-self: stretch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=self-baseline]) {
+        align-self: baseline;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=self-first]) {
+        align-self: first baseline;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=self-last]) {
+        align-self: last baseline;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=self-safe]) {
+        align-self: safe center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=self-unsafe]) {
+        align-self: unsafe center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=self-auto]) {
+        align-self: auto;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-align=self-normal]) {
+        align-self: normal;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-image-align-self=start]) :is(.card-picture) {
+        align-self: start;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-image-align-self=center]) :is(.card-picture) {
+        align-self: center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-image-align-self=end]) :is(.card-picture) {
+        align-self: end;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-image-align-self=stretch]) :is(.card-picture) {
+        align-self: stretch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="0.25fr"]) {
+        --card-top-row: 0.25fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="0.25fr"]) {
+        --card-bottom-row: 0.25fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="0.5fr"]) {
+        --card-top-row: 0.5fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="0.5fr"]) {
+        --card-bottom-row: 0.5fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="0.75fr"]) {
+        --card-top-row: 0.75fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="0.75fr"]) {
+        --card-bottom-row: 0.75fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="1fr"]) {
+        --card-top-row: 1fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="1fr"]) {
+        --card-bottom-row: 1fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="1.25fr"]) {
+        --card-top-row: 1.25fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="1.25fr"]) {
+        --card-bottom-row: 1.25fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="1.5fr"]) {
+        --card-top-row: 1.5fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="1.5fr"]) {
+        --card-bottom-row: 1.5fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="1.75fr"]) {
+        --card-top-row: 1.75fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="1.75fr"]) {
+        --card-bottom-row: 1.75fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="2fr"]) {
+        --card-top-row: 2fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="2fr"]) {
+        --card-bottom-row: 2fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="25%"]) {
+        --card-top-row: 25%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="25%"]) {
+        --card-bottom-row: 25%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="33%"]) {
+        --card-top-row: 33%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="33%"]) {
+        --card-bottom-row: 33%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="50%"]) {
+        --card-top-row: 50%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="50%"]) {
+        --card-bottom-row: 50%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="75%"]) {
+        --card-top-row: 75%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="75%"]) {
+        --card-bottom-row: 75%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="100%"]) {
+        --card-top-row: 100%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="100%"]) {
+        --card-bottom-row: 100%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="256px"]) {
+        --card-top-row: 256px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="256px"]) {
+        --card-bottom-row: 256px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="288px"]) {
+        --card-top-row: 288px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="288px"]) {
+        --card-bottom-row: 288px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="320px"]) {
+        --card-top-row: 320px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="320px"]) {
+        --card-bottom-row: 320px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="384px"]) {
+        --card-top-row: 384px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="384px"]) {
+        --card-bottom-row: 384px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="448px"]) {
+        --card-top-row: 448px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="448px"]) {
+        --card-bottom-row: 448px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="512px"]) {
+        --card-top-row: 512px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="512px"]) {
+        --card-bottom-row: 512px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="576px"]) {
+        --card-top-row: 576px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="576px"]) {
+        --card-bottom-row: 576px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="672px"]) {
+        --card-top-row: 672px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="672px"]) {
+        --card-bottom-row: 672px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="20ch"]) {
+        --card-top-row: 20ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="20ch"]) {
+        --card-bottom-row: 20ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="30ch"]) {
+        --card-top-row: 30ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="30ch"]) {
+        --card-bottom-row: 30ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="40ch"]) {
+        --card-top-row: 40ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="40ch"]) {
+        --card-bottom-row: 40ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="50ch"]) {
+        --card-top-row: 50ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="50ch"]) {
+        --card-bottom-row: 50ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="60ch"]) {
+        --card-top-row: 60ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="60ch"]) {
+        --card-bottom-row: 60ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="70ch"]) {
+        --card-top-row: 70ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="70ch"]) {
+        --card-bottom-row: 70ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-0-size="80ch"]) {
+        --card-top-row: 80ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):is([data-card-row-content-1-size="80ch"]) {
+        --card-bottom-row: 80ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col])[data-card-overlay-backdrop-direction-row=to-top] {
+        --card-backdrop-direction: in oklch to top;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col])[data-card-overlay-backdrop-direction-row=to-bottom] {
+        --card-backdrop-direction: in oklch to bottom;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col])[data-card-overlay-backdrop-direction-row=to-left] {
+        --card-backdrop-direction: in oklch to left;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col])[data-card-overlay-backdrop-direction-row=to-right] {
+        --card-backdrop-direction: in oklch to right;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col])[data-card-overlay-backdrop-direction-row=to-top-right] {
+        --card-backdrop-direction: in oklch to top right;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col])[data-card-overlay-backdrop-direction-row=to-top-left] {
+        --card-backdrop-direction: in oklch to top left;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col])[data-card-overlay-backdrop-direction-row=to-bottom-right] {
+        --card-backdrop-direction: in oklch to bottom right;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col])[data-card-overlay-backdrop-direction-row=to-bottom-left] {
+        --card-backdrop-direction: in oklch to bottom left;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col])[data-card-overlay-backdrop-direction-row=uniform] {
+        --card-backdrop-color-stop-from-opacity: 0.45;
+        --card-backdrop-color-stop-to-opacity: 0.45;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):where([data-card-row-reverse-order]):has(.card-picture:first-child) {
+        --card-auto-row: var(--card-top-row, max-content) var(--card-bottom-row, auto);
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):where([data-card-row-reverse-order]):has(.card-picture:first-child) .card-body {
+        order: 0;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):where([data-card-row-reverse-order]):has(.card-picture:first-child) .card-picture {
+        order: 1;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):where([data-card-row-reverse-order]):has(.card-picture:not(:first-child)) {
+        --card-auto-row: var(--card-top-row, auto) var(--card-bottom-row, max-content);
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):where([data-card-row-reverse-order]):has(.card-picture:not(:first-child)) .card-body {
+        order: 1;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=col]):where([data-card-row-reverse-order]):has(.card-picture:not(:first-child)) .card-picture {
+        order: 0;
+      }
+    }
+    @container (inline-size > 80ch) {
+      :root:is(.new) :where(.card):not([data-card-layout=row]) {
+        --card-auto-row: auto;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-text-align=start]) :is(.card-body__content) {
+        text-align: start;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-text-align=center]) :is(.card-body__content) {
+        text-align: center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-text-align=end]) :is(.card-body__content) {
+        text-align: end;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):where([data-card-column-justify]) :is(.card-body, .card-body__content) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):where([data-card-column-justify]) :is(.card-body, .card-body__content) > :is(.card-body__caption,
+      .card-body,
+      .card-footer) {
+        flex: 1 1 100%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-justify=start]) :is(.card-body, .card-body__content) {
+        justify-content: start;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-justify=center]) :is(.card-body, .card-body__content) {
+        justify-content: center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-justify=end]) :is(.card-body, .card-body__content) {
+        justify-content: end;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-justify=stretch]) :is(.card-body, .card-body__content) {
+        justify-content: stretch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-justify=space-between]) :is(.card-body, .card-body__content) {
+        justify-content: space-between;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-justify=space-around]) :is(.card-body, .card-body__content) {
+        justify-content: space-around;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-justify=space-evenly]) :is(.card-body, .card-body__content) {
+        justify-content: space-evenly;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-justify=safe]) :is(.card-body, .card-body__content) {
+        justify-content: safe center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-justify=unsafe]) :is(.card-body, .card-body__content) {
+        justify-content: unsafe center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=start]) {
+        align-items: start;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=center]) {
+        align-items: center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=end]) {
+        align-items: end;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=stretch]) {
+        align-items: stretch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=baseline]) {
+        align-items: baseline;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=first]) {
+        align-items: first baseline;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=last]) {
+        align-items: last baseline;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=safe]) {
+        align-items: safe center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=unsafe]) {
+        align-items: unsafe center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=self-start]) {
+        align-self: start;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=self-center]) {
+        align-self: center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=self-end]) {
+        align-self: end;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=self-stretch]) {
+        align-self: stretch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=self-baseline]) {
+        align-self: baseline;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=self-first]) {
+        align-self: first baseline;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=self-last]) {
+        align-self: last baseline;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=self-safe]) {
+        align-self: safe center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=self-unsafe]) {
+        align-self: unsafe center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=self-auto]) {
+        align-self: auto;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-align=self-normal]) {
+        align-self: normal;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-image-align-self=start]) :is(.card-picture) {
+        align-self: start;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-image-align-self=center]) :is(.card-picture) {
+        align-self: center;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-image-align-self=end]) :is(.card-picture) {
+        align-self: end;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-image-align-self=stretch]) :is(.card-picture) {
+        align-self: stretch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="0.25fr"]) {
+        --card-left-col: 0.25fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="0.25fr"]) {
+        --card-right-col: 0.25fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="0.5fr"]) {
+        --card-left-col: 0.5fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="0.5fr"]) {
+        --card-right-col: 0.5fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="0.75fr"]) {
+        --card-left-col: 0.75fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="0.75fr"]) {
+        --card-right-col: 0.75fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="1fr"]) {
+        --card-left-col: 1fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="1fr"]) {
+        --card-right-col: 1fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="1.25fr"]) {
+        --card-left-col: 1.25fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="1.25fr"]) {
+        --card-right-col: 1.25fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="1.5fr"]) {
+        --card-left-col: 1.5fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="1.5fr"]) {
+        --card-right-col: 1.5fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="1.75fr"]) {
+        --card-left-col: 1.75fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="1.75fr"]) {
+        --card-right-col: 1.75fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="2fr"]) {
+        --card-left-col: 2fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="2fr"]) {
+        --card-right-col: 2fr;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="25%"]) {
+        --card-left-col: 25%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="25%"]) {
+        --card-right-col: 25%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="33%"]) {
+        --card-left-col: 33%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="33%"]) {
+        --card-right-col: 33%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="50%"]) {
+        --card-left-col: 50%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="50%"]) {
+        --card-right-col: 50%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="75%"]) {
+        --card-left-col: 75%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="75%"]) {
+        --card-right-col: 75%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="100%"]) {
+        --card-left-col: 100%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="100%"]) {
+        --card-right-col: 100%;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="256px"]) {
+        --card-left-col: 256px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="256px"]) {
+        --card-right-col: 256px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="288px"]) {
+        --card-left-col: 288px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="288px"]) {
+        --card-right-col: 288px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="320px"]) {
+        --card-left-col: 320px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="320px"]) {
+        --card-right-col: 320px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="384px"]) {
+        --card-left-col: 384px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="384px"]) {
+        --card-right-col: 384px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="448px"]) {
+        --card-left-col: 448px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="448px"]) {
+        --card-right-col: 448px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="512px"]) {
+        --card-left-col: 512px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="512px"]) {
+        --card-right-col: 512px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="576px"]) {
+        --card-left-col: 576px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="576px"]) {
+        --card-right-col: 576px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="672px"]) {
+        --card-left-col: 672px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="672px"]) {
+        --card-right-col: 672px;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="20ch"]) {
+        --card-left-col: 20ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="20ch"]) {
+        --card-right-col: 20ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="30ch"]) {
+        --card-left-col: 30ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="30ch"]) {
+        --card-right-col: 30ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="40ch"]) {
+        --card-left-col: 40ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="40ch"]) {
+        --card-right-col: 40ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="50ch"]) {
+        --card-left-col: 50ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="50ch"]) {
+        --card-right-col: 50ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="60ch"]) {
+        --card-left-col: 60ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="60ch"]) {
+        --card-right-col: 60ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="70ch"]) {
+        --card-left-col: 70ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="70ch"]) {
+        --card-right-col: 70ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-0-size="80ch"]) {
+        --card-left-col: 80ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):is([data-card-column-content-1-size="80ch"]) {
+        --card-right-col: 80ch;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row])[data-card-overlay-backdrop-direction-column=to-top] {
+        --card-backdrop-direction: in oklch to top;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row])[data-card-overlay-backdrop-direction-column=to-bottom] {
+        --card-backdrop-direction: in oklch to bottom;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row])[data-card-overlay-backdrop-direction-column=to-left] {
+        --card-backdrop-direction: in oklch to left;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row])[data-card-overlay-backdrop-direction-column=to-right] {
+        --card-backdrop-direction: in oklch to right;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row])[data-card-overlay-backdrop-direction-column=to-top-right] {
+        --card-backdrop-direction: in oklch to top right;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row])[data-card-overlay-backdrop-direction-column=to-top-left] {
+        --card-backdrop-direction: in oklch to top left;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row])[data-card-overlay-backdrop-direction-column=to-bottom-right] {
+        --card-backdrop-direction: in oklch to bottom right;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row])[data-card-overlay-backdrop-direction-column=to-bottom-left] {
+        --card-backdrop-direction: in oklch to bottom left;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row])[data-card-overlay-backdrop-direction-column=uniform] {
+        --card-backdrop-color-stop-from-opacity: 0.45;
+        --card-backdrop-color-stop-to-opacity: 0.45;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):where([data-card-column-reverse-order]):has(.card-picture:first-child) .card-body {
+        order: 0;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):where([data-card-column-reverse-order]):has(.card-picture:first-child) .card-picture {
+        order: 1;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):where([data-card-column-reverse-order]):has(.card-picture:not(:first-child)) .card-body {
+        order: 1;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):where([data-card-column-reverse-order]):has(.card-picture:not(:first-child)) .card-picture {
+        order: 0;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]) :where(.card-picture) {
+        align-self: start;
+      }
+      :root:is(.new) :where(.card):not([data-card-layout=row]):has(.card-picture:not(:empty)) {
+        --card-columns: var(--card-two-columns);
+        --card-auto-row: auto;
+        grid-auto-flow: column;
+      }
+    }
+  }
+}

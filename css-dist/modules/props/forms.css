@@ -1,0 +1,6 @@
+@layer base.props {
+:root:is(.new) {
+  --accent-color: var(--color-primary);
+}
+}
+/*# sourceMappingURL=forms.css.map */

@@ -1,0 +1,8 @@
+@layer base.props {
+:root:is(.new) {
+  --font-family-base: var(--font-source-sans);
+  --font-family-heading: var(--font-source-sans);
+  --font-heading-weight: 800;
+}
+}
+/*# sourceMappingURL=font.css.map */

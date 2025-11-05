@@ -1,0 +1,7 @@
+@layer base.components {
+  :root:is(.new) .flow > * + * {
+    margin-block-start: var(--flow-space, 1em);
+  }
+}
+
+/*# sourceMappingURL=flow.css.map */

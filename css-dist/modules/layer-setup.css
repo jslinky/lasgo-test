@@ -1,0 +1,23 @@
+@layer tw-base, base, site, tw, site-props, existing-overrides;
+
+@layer base {
+    @layer reset, props, components;
+
+    @layer components {
+        @layer base, modifiers, states;
+    }
+}
+
+@layer site {
+    @layer components {
+        @layer base, modifiers, states;
+    }
+}
+
+@layer tw-base {
+    @layer theme, components;
+}
+
+@layer tw {
+    @layer utilities;
+}
