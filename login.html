@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" class="new">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./tailwind-output.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="../gardners25/layers/tailwind/assets/css/tailwind.css"
+    /> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    </style>
+  </head>
+  <body>
+    <svg style="display: none">
+      <symbol id="clarity--color-picker-line" viewBox="0 0 36 36">
+        <path
+          fill="currentColor"
+          d="M33 10.05a5.07 5.07 0 0 0 .1-7.17A5.06 5.06 0 0 0 26 3l-5.22 5.15a2.13 2.13 0 0 1-3 0l-.67-.67l-1.39 1.44l11.36 11.36l1.42-1.42l-.67-.67a2.13 2.13 0 0 1 0-3Zm-6.56 3.75a4.07 4.07 0 0 0-1.08 1.92l-5.08-5.08a4.07 4.07 0 0 0 1.92-1.08l5.16-5.17a3.09 3.09 0 0 1 4.35-.1a3.09 3.09 0 0 1-.1 4.35Z"
+          class="clr-i-outline clr-i-outline-path-1"
+        />
+        <path
+          fill="currentColor"
+          d="M7.3 31.51a2 2 0 1 1-2.83-2.83l14.11-14.11l-1.42-1.41L3.05 27.27a4 4 0 0 0-.68 4.8L.89 33.55a1 1 0 0 0 0 1.45a1 1 0 0 0 1.42 0l1.43-1.44a3.93 3.93 0 0 0 2.09.6a4.06 4.06 0 0 0 2.88-1.2l14.11-14.15l-1.41-1.41Z"
+          class="clr-i-outline clr-i-outline-path-2"
+        />
+        <path fill="none" d="M0 0h36v36H0z" />
+      </symbol>
+      <symbol id="box" viewBox="0 0 56 57">
+        <path d="M27.9999 2.8335L50.1666 15.6668V41.3335L27.9999 54.1668L5.83325 41.3335V15.6668L27.9999 2.8335ZM12.8193 17.0155L27.9999 25.8028L43.1806 17.0155L27.9999 8.2235L12.8193 17.0155ZM10.4999 21.0638V38.6432L25.6666 47.4235V29.8465L10.4999 21.0638ZM30.3333 47.4235L45.4999 38.6432V21.0638L30.3333 29.8442V47.4235Z" fill="currentColor"/>
+      </symbol>
+      <symbol id="office" viewBox="0 0 56 57">
+        <path d="M35 21.5002H39.6667V26.1668H35V21.5002ZM39.6667 12.1668H35V16.8335H39.6667V12.1668ZM25.6667 35.5002H30.3333V30.8335H25.6667V35.5002ZM30.3333 12.1668H25.6667V16.8335H30.3333V12.1668ZM25.6667 26.1668H30.3333V21.5002H25.6667V26.1668ZM21 12.1668H16.3333V16.8335H21V12.1668ZM21 21.5002H16.3333V26.1668H21V21.5002ZM33.95 49.5002H30.3333V41.3335H25.6667V49.5002H11.6667V7.50016H44.3333V26.2368C45.99 26.3768 47.5767 26.8902 49 27.6368V2.8335H7V54.1668H37.1233C36.1667 52.8602 35 51.2735 33.95 49.5002ZM16.3333 44.8335H21V40.1668H16.3333V44.8335ZM21 30.8335H16.3333V35.5002H21V30.8335ZM51.3333 39.0002C51.3333 45.0668 43.1667 54.1668 43.1667 54.1668C43.1667 54.1668 35 45.0668 35 39.0002C35 34.5668 38.7333 30.8335 43.1667 30.8335C47.6 30.8335 51.3333 34.5668 51.3333 39.0002ZM45.9667 39.2335C45.9667 37.8335 44.5667 36.4335 43.1667 36.4335C41.7667 36.4335 40.3667 37.6002 40.3667 39.2335C40.3667 40.6335 41.5333 42.0335 43.1667 42.0335C44.8 42.0335 46.2 40.6335 45.9667 39.2335Z" fill="currentColor"/>
+      </symbol>
+      <symbol id="phone" viewBox="0 0 56 57">
+        <path d="M17.9375 4C16.4291 4 14.9824 4.59922 13.9158 5.66583C12.8492 6.73244 12.25 8.17908 12.25 9.6875V47.3125C12.25 48.8209 12.8492 50.2676 13.9158 51.3342C14.9824 52.4008 16.4291 53 17.9375 53H38.0625C39.5709 53 41.0176 52.4008 42.0842 51.3342C43.1508 50.2676 43.75 48.8209 43.75 47.3125V9.6875C43.75 8.17908 43.1508 6.73244 42.0842 5.66583C41.0176 4.59922 39.5709 4 38.0625 4H17.9375ZM15.75 9.6875C15.75 8.48 16.73 7.5 17.9375 7.5H38.0625C39.27 7.5 40.25 8.48 40.25 9.6875V47.3125C40.25 48.52 39.27 49.5 38.0625 49.5H17.9375C16.73 49.5 15.75 48.52 15.75 47.3125V9.6875ZM24.5 42.5C24.0359 42.5 23.5908 42.6844 23.2626 43.0126C22.9344 43.3408 22.75 43.7859 22.75 44.25C22.75 44.7141 22.9344 45.1592 23.2626 45.4874C23.5908 45.8156 24.0359 46 24.5 46H31.5C31.9641 46 32.4093 45.8156 32.7374 45.4874C33.0656 45.1592 33.25 44.7141 33.25 44.25C33.25 43.7859 33.0656 43.3408 32.7374 43.0126C32.4093 42.6844 31.9641 42.5 31.5 42.5H24.5Z" fill="currentColor"/>
+      </symbol>
+      <symbol id="ion--logo-facebook" viewBox="0 0 512 512"><path fill="currentColor" fill-rule="evenodd" d="M480 257.35c0-123.7-100.3-224-224-224s-224 100.3-224 224c0 111.8 81.9 204.47 189 221.29V322.12h-56.89v-64.77H221V208c0-56.13 33.45-87.16 84.61-87.16c24.51 0 50.15 4.38 50.15 4.38v55.13H327.5c-27.81 0-36.51 17.26-36.51 35v42h62.12l-9.92 64.77H291v156.54c107.1-16.81 189-109.48 189-221.31"/></symbol>
+      <symbol id="ion--logo-linkedin" viewBox="0 0 512 512"><path fill="currentColor" d="M444.17 32H70.28C49.85 32 32 46.7 32 66.89v374.72C32 461.91 49.85 480 70.28 480h373.78c20.54 0 35.94-18.21 35.94-38.39V66.89C480.12 46.7 464.6 32 444.17 32m-273.3 373.43h-64.18V205.88h64.18ZM141 175.54h-.46c-20.54 0-33.84-15.29-33.84-34.43c0-19.49 13.65-34.42 34.65-34.42s33.85 14.82 34.31 34.42c-.01 19.14-13.31 34.43-34.66 34.43m264.43 229.89h-64.18V296.32c0-26.14-9.34-44-32.56-44c-17.74 0-28.24 12-32.91 23.69c-1.75 4.2-2.22 9.92-2.22 15.76v113.66h-64.18V205.88h64.18v27.77c9.34-13.3 23.93-32.44 57.88-32.44c42.13 0 74 27.77 74 87.64Z"/></symbol>      
+      <symbol id="ion--logo-x" viewBox="0 0 16 16"><path fill="currentColor" d="M9.333 6.929L14.546 1H13.31L8.783 6.147L5.169 1H1l5.466 7.783L1 15h1.235l4.779-5.436L10.83 15H15zM7.641 8.852l-.554-.776L2.68 1.911h1.898l3.557 4.977l.552.776l4.623 6.47h-1.897z"/></symbol>
+      <symbol id="ion--logo-instagram" viewBox="0 0 512 512"><path fill="currentColor" d="M349.33 69.33a93.62 93.62 0 0 1 93.34 93.34v186.66a93.62 93.62 0 0 1-93.34 93.34H162.67a93.62 93.62 0 0 1-93.34-93.34V162.67a93.62 93.62 0 0 1 93.34-93.34zm0-37.33H162.67C90.8 32 32 90.8 32 162.67v186.66C32 421.2 90.8 480 162.67 480h186.66C421.2 480 480 421.2 480 349.33V162.67C480 90.8 421.2 32 349.33 32"/><path fill="currentColor" d="M377.33 162.67a28 28 0 1 1 28-28a27.94 27.94 0 0 1-28 28M256 181.33A74.67 74.67 0 1 1 181.33 256A74.75 74.75 0 0 1 256 181.33m0-37.33a112 112 0 1 0 112 112a112 112 0 0 0-112-112"/></symbol>
+    </svg>    
+    <!-- Hero -->
+
+
+    <div class="wrapper py-section-gap">
+      <div class="flow">
+        <div class="flow flow--xl">
+          <div class="layout-grid">
+            <div>
+              <article
+                class="card flow--sm [--card-body-padding-block:calc(var(--layout-gap)*2)] [--card-body-padding-inline:calc(var(--layout-gap)*2)] text-white bg-[var(--color-grey-8)]"
+                data-card-shadow="lg"
+                data-card-row-text-align="center"
+                data-card-row-justify="center"
+                data-card-row-align="stretch"
+                data-card-row-image-align-self="start"
+                data-card-column-text-align="start"
+                data-card-column-justify="start"
+                data-card-column-align="start"
+                data-card-column-image-align-self="start"
+                data-card-column-reverse-order
+                data-surface="default"
+              >
+              <div class="card-picture h-full">
+                <img
+                  src="./assets/lasgo-office-sign.jpg"
+                  alt="Wholesale"
+                  class="card-picture__image"
+                />
+              </div>
+                <div class="card-body m-0 flow flow--xs">
+                  <div class="card-body__content flow flex-col">
+                    <div class="card-body__content__caption flow">
+                      <h2
+                        class="heading-lg text-inherit card-body__content__caption-title normal-case fluid"
+                      >
+                        <span>Login to your account</span>
+                      </h2>
+                    </div>
+                    <div class="card-body__content-slot">
+            <form class="flow col-span-full max-w-screen-lg [--input-bg:var(--color-grey-11)] [--input-color:var(--color-grey-11-contrast)] [--input-outline-color:color-mix(in_oklch,_var(--input-bg)_90%,white)]">
+              <section class="flow">
+                <fieldset class="p-0 border-0 flow flow--2xl *:flow--xl">
+                                      <legend
+                      class="text-sm fluid"
+                    >
+                      Please insert details to login onto your Lasgo Worlwide Media Account.
+                    </legend>
+                  <div class="form-layout flex-layout-grid gap-y-md">
+                    <div
+                      class="form__row form__row--label-overlay"
+                    >
+                      <label
+                        for="account-no"
+                        class="pt-0 font-bold"
+                        >Account No.</label
+                      >
+                      <input
+                        type="text"
+                        id="account-no"
+                        name="account-no"
+                        placeholder="Please enter you account no."
+                      />
+                    </div>
+                    <div
+                      class="form__row form__row--label-overlay"
+                    >
+                      <label
+                        for="username"
+                        class="pt-0 font-bold"
+                        >Username</label
+                      >
+                      <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Username"
+                      />
+                    </div>
+                    <div class="form__row form__row--label-overlay">
+                      <label for="password" class="pt-0 font-bold"
+                        >Password</label
+                      >
+                      <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                      />
+                    </div>
+                    <div class="form__row flex justify-between items-center">
+                      <div>
+                        <label for="remember-me">Remember me</label>
+                        <input type="checkbox" id="remember-me" name="remember-me" />
+                      </div>
+                      <div>
+                        <a href="#" class="text-sm">Forgot password</a>
+                      </div>
+                    </div>
+                    <div class="form__row flex basis-full justify-between">
+                      <div>
+                        <button
+                          type="submit"
+                          class="button button--primary button--wide"
+                        >
+                          <span class="button__text">Login</span>
+                        </button>
+                      </div>
+                      <div>
+                        <p>Socials</p>
+                      </div>
+                    </div>
+                  </div>
+              </section>
+
+            </form>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Existing code -->
+<div class="container_16 clearfix wrapper">
+    <div class="grid_16 clearfix contents">
+        <div class="accountHolderWrap">
+            <div class="grid_8 alpha">
+                <div class="accountHolderSignIn">
+                    <h2>Account Holders Sign In</h2>
+                    <p>Please note your password is case sensitive</p>
+<form action="/Account/LogOn" autocomplete="off" method="post" novalidate="novalidate"><input id="ReturnUrl" name="ReturnUrl" type="hidden" value="">                        <div class="form-group">
+                            <div class="form-col">
+                                <label for="AccountNumber" class="required">Account Number</label>
+                            </div>
+                            <div class="form-col">
+                                <input class="k-textbox" data-val="true" data-val-required="Account Number required" id="AccountNumber" name="AccountNumber">
+                                <span class="field-validation-valid" data-valmsg-for="AccountNumber" data-valmsg-replace="true"></span>
+                             </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-col">
+                                <label for="UserName" class="required">Username *</label>
+                            </div>
+                            <div class="form-col">
+                                <input class="k-textbox" data-val="true" data-val-required="Username * required" id="UserName" name="UserName"> 
+                                <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-col">
+                                <label for="Password" class="required">Password</label>
+                            </div>
+                            <div class="form-col">
+                                <input class="k-textbox" data-val="true" data-val-required="Password required" id="Password" name="Password" type="password">
+                                <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-col">
+                            </div>
+                            <div class="form-col signIn">
+                                <input class="k-checkbox k-checkbox" data-val="true" data-val-required="Remember me? required" id="RememberMe" name="RememberMe" type="checkbox" value="true"><label class="k-checkbox-label" for="RememberMe">Remember me?</label><input name="RememberMe" type="hidden" value="false">
+                            
+                            
+                                <button class="btn btn-primary" id="logonSubmit" type="submit">Sign in</button>
+                                <a href="/Account/ForgottenPassword">Forgotten your password?</a>
+                                </div>
+                         </div>
+</form>                    <span>*Please use your account number if you don't have an username</span>
+                </div>
+            </div>
+            <div class="grid_8 omega">
+                <div class="openAccount">
+                    <h2>Apply for an account</h2>
+<div class="content">
+<p>Haven't got an account? Apply now...<br>Whether you are a potential customer or a supplier, we have a dedicated form available to start the application process.</p>
+
+<a href="/Content/Documents/application_form.pdf" class="btn btn-white">Download an account application form</a>
+</div>
+<img src="/Content/Images/Logged_Out/apply-for-account-pic.jpg" width="220">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>     
+
+    <footer class="mt-section-gap-xl bg-tertiary-light" style="min-height:400px;">
+      <div class="wrapper">
+        <p>&copy; 2023 Large Company. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

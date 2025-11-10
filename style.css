@@ -502,6 +502,43 @@
       }
     }
   }
+
+  .form__row--label-overlay {
+    --text-frame-y: var(--input-fs);
+    --text-frame-x: calc(var(--text-frame-y) * var(--text-frame-ratio));
+    --label-fs: var(--text-xs);
+    --input-text-frame-y: calc(var(--text-frame-y) + var(--label-fs));
+    --input-fs: var(--font-size-base);
+    grid-template-rows: calc(var(--label-fs) + var(--space-3xs)) 1fr;
+    > * {
+      grid-column: 1/-1;
+    }
+    label {
+      z-index: 1;
+      margin-left: var(--text-frame-x);
+      margin-block-start: var(--space-3xs);
+      grid-row: 2/-1;
+      align-self: start;
+      font-size: var(--label-fs);
+      + :is(input, textarea, select) {
+        grid-row: 2/-1;        
+      }
+    }    
+    :is(input, textarea) {
+      grid-row:2/-1;
+      padding-block-end: var(--text-frame-y);
+      &:not(:focus, :focus-within) {
+        &::placeholder {
+          color: transparent;
+        }
+      }
+    }  
+    /* &:has(input:is(:focus, :focus-within)) label {
+      grid-row-start: 1;
+      align-self: flex-start;
+    }  */
+  }
+
 }
 
 @layer site-props {
@@ -601,7 +638,8 @@
 
     --button-border-depth: 0;
     --root-bg: #fff;
-    --text-frame-ratio: 2;
+    --text-frame-ratio: 1.5;
+    --radius: var(--text-xs);
 
     --layout-gap: max(min(2vmax, var(--space-md)), var(--space-md, 1rem));
     --unit-min: var(--unit-max, 1rem) / 2.5;
