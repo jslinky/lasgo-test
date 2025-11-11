@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./tailwind-output.css" />
+    <link rel="stylesheet" href="./styles/layer-setup-standalone.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
     <!-- <link
       rel="stylesheet"
       href="../gardners25/layers/tailwind/assets/css/tailwind.css"
@@ -219,11 +220,17 @@
             </div>
             <div class="grid_8 omega">
                 <div class="openAccount">
+                  <div class="account-tabs">
+                    <input type="radio" id="login-tab" name="account-tab" checked />
+                    <input type="radio" id="signup-tab" name="account-tab" />
+                  </div>
+                  <div>
                     <h2>Apply for an account</h2>
 <div class="content">
 <p>Haven't got an account? Apply now...<br>Whether you are a potential customer or a supplier, we have a dedicated form available to start the application process.</p>
 
 <a href="/Content/Documents/application_form.pdf" class="btn btn-white">Download an account application form</a>
+</div>
 </div>
 <img src="/Content/Images/Logged_Out/apply-for-account-pic.jpg" width="220">
                 </div>
