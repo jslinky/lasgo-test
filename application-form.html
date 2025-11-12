@@ -1,743 +1,629 @@
 <!DOCTYPE html>
 <html lang="en" class="new">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./styles/layer-setup-standalone.css" />
-    <link rel="stylesheet" href="./styles/main.css" />
-    <!-- <link
-      rel="stylesheet"
-      href="../gardners25/layers/tailwind/assets/css/tailwind.css"
-    /> -->
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-    </style>
-  </head>
-  <body>
-    <svg style="display: none">
-      <symbol id="clarity--color-picker-line" viewBox="0 0 36 36">
-        <path
-          fill="currentColor"
-          d="M33 10.05a5.07 5.07 0 0 0 .1-7.17A5.06 5.06 0 0 0 26 3l-5.22 5.15a2.13 2.13 0 0 1-3 0l-.67-.67l-1.39 1.44l11.36 11.36l1.42-1.42l-.67-.67a2.13 2.13 0 0 1 0-3Zm-6.56 3.75a4.07 4.07 0 0 0-1.08 1.92l-5.08-5.08a4.07 4.07 0 0 0 1.92-1.08l5.16-5.17a3.09 3.09 0 0 1 4.35-.1a3.09 3.09 0 0 1-.1 4.35Z"
-          class="clr-i-outline clr-i-outline-path-1"
-        />
-        <path
-          fill="currentColor"
-          d="M7.3 31.51a2 2 0 1 1-2.83-2.83l14.11-14.11l-1.42-1.41L3.05 27.27a4 4 0 0 0-.68 4.8L.89 33.55a1 1 0 0 0 0 1.45a1 1 0 0 0 1.42 0l1.43-1.44a3.93 3.93 0 0 0 2.09.6a4.06 4.06 0 0 0 2.88-1.2l14.11-14.15l-1.41-1.41Z"
-          class="clr-i-outline clr-i-outline-path-2"
-        />
-        <path fill="none" d="M0 0h36v36H0z" />
-      </symbol>
-      <symbol id="box" viewBox="0 0 56 57">
-        <path
-          d="M27.9999 2.8335L50.1666 15.6668V41.3335L27.9999 54.1668L5.83325 41.3335V15.6668L27.9999 2.8335ZM12.8193 17.0155L27.9999 25.8028L43.1806 17.0155L27.9999 8.2235L12.8193 17.0155ZM10.4999 21.0638V38.6432L25.6666 47.4235V29.8465L10.4999 21.0638ZM30.3333 47.4235L45.4999 38.6432V21.0638L30.3333 29.8442V47.4235Z"
-          fill="currentColor"
-        />
-      </symbol>
-      <symbol id="office" viewBox="0 0 56 57">
-        <path
-          d="M35 21.5002H39.6667V26.1668H35V21.5002ZM39.6667 12.1668H35V16.8335H39.6667V12.1668ZM25.6667 35.5002H30.3333V30.8335H25.6667V35.5002ZM30.3333 12.1668H25.6667V16.8335H30.3333V12.1668ZM25.6667 26.1668H30.3333V21.5002H25.6667V26.1668ZM21 12.1668H16.3333V16.8335H21V12.1668ZM21 21.5002H16.3333V26.1668H21V21.5002ZM33.95 49.5002H30.3333V41.3335H25.6667V49.5002H11.6667V7.50016H44.3333V26.2368C45.99 26.3768 47.5767 26.8902 49 27.6368V2.8335H7V54.1668H37.1233C36.1667 52.8602 35 51.2735 33.95 49.5002ZM16.3333 44.8335H21V40.1668H16.3333V44.8335ZM21 30.8335H16.3333V35.5002H21V30.8335ZM51.3333 39.0002C51.3333 45.0668 43.1667 54.1668 43.1667 54.1668C43.1667 54.1668 35 45.0668 35 39.0002C35 34.5668 38.7333 30.8335 43.1667 30.8335C47.6 30.8335 51.3333 34.5668 51.3333 39.0002ZM45.9667 39.2335C45.9667 37.8335 44.5667 36.4335 43.1667 36.4335C41.7667 36.4335 40.3667 37.6002 40.3667 39.2335C40.3667 40.6335 41.5333 42.0335 43.1667 42.0335C44.8 42.0335 46.2 40.6335 45.9667 39.2335Z"
-          fill="currentColor"
-        />
-      </symbol>
-      <symbol id="phone" viewBox="0 0 56 57">
-        <path
-          d="M17.9375 4C16.4291 4 14.9824 4.59922 13.9158 5.66583C12.8492 6.73244 12.25 8.17908 12.25 9.6875V47.3125C12.25 48.8209 12.8492 50.2676 13.9158 51.3342C14.9824 52.4008 16.4291 53 17.9375 53H38.0625C39.5709 53 41.0176 52.4008 42.0842 51.3342C43.1508 50.2676 43.75 48.8209 43.75 47.3125V9.6875C43.75 8.17908 43.1508 6.73244 42.0842 5.66583C41.0176 4.59922 39.5709 4 38.0625 4H17.9375ZM15.75 9.6875C15.75 8.48 16.73 7.5 17.9375 7.5H38.0625C39.27 7.5 40.25 8.48 40.25 9.6875V47.3125C40.25 48.52 39.27 49.5 38.0625 49.5H17.9375C16.73 49.5 15.75 48.52 15.75 47.3125V9.6875ZM24.5 42.5C24.0359 42.5 23.5908 42.6844 23.2626 43.0126C22.9344 43.3408 22.75 43.7859 22.75 44.25C22.75 44.7141 22.9344 45.1592 23.2626 45.4874C23.5908 45.8156 24.0359 46 24.5 46H31.5C31.9641 46 32.4093 45.8156 32.7374 45.4874C33.0656 45.1592 33.25 44.7141 33.25 44.25C33.25 43.7859 33.0656 43.3408 32.7374 43.0126C32.4093 42.6844 31.9641 42.5 31.5 42.5H24.5Z"
-          fill="currentColor"
-        />
-      </symbol>
-    </svg>
-    <!-- Hero -->
-    <section class="@container hero">
-      <article
-        class="card [--card-left-col:fit-content]"
-        data-card-layout="overlay"
-        data-card-backdrop="uniform"
-        data-card-column-reverse-order="true"
-        data-surface="dark"
-        data-card-shadow="lg"
-        data-card-row-text-align="start"
-        data-card-row-justify="center"
-        data-card-row-align="end"
-        data-card-row-image-align-self="start"
-        data-card-column-text-align="start"
-        data-card-column-justify="start"
-        data-card-column-align="end"
-        data-card-column-image-align-self="start"
-        data-surface="default"
-      >
-        <div class="card-picture *:object-cover">
-          <img src="./assets/hero-home.jpg" alt="Card image" />
-        </div>
-        <div class="card-body flow flow--md col-start-1 mx-0 wrapper @lg:pr-0">
-          <div class="card-body__content flow flow--sm flex-col">
-            <div class="card-body__content__caption flow">
-              <h2
-                class="heading-3xl card-body__content__caption-title normal-case fluid [--line-height:1]"
-              >
-                <span>Apply for an account</span>
-              </h2>
-              <p>Complete your profile by filling in this account form. ALL DETAILS WILL BE TREATED IN THE STRICTEST CONFIDENCE.</p>
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./styles/layer-setup-standalone.css" />
+  <link rel="stylesheet" href="./styles/main.css" />
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+    @property --hero-height {
+      syntax: "<length>";
+      inherits: true;
+      initial-value: 400px;
+    }
+
+    @property --card-backdrop-color-stop-to-opacity {
+      syntax: "<number>";
+      inherits: true;
+      initial-value: null;
+    }
+
+    .hero {
+      /* height:400px; */
+      animation: hero-size linear both;
+      animation-timeline: scroll();
+      animation-range: 0 380px;
+      position:fixed;
+      top:0;
+      width: 100%;
+      overflow: hidden;
+      transition:height 0.3s ease-in-out;
+      .card-body {
+        max-height: var(--hero-height);
+        animation: card-body-shrink linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0 380px;
+      }
+      .card-body__content__caption {
+        h2 {
+          animation: card-title-shrink linear both;
+          animation-timeline: scroll(root);
+          animation-range: 0 380px;          
+          transform-origin: center left;
+        }
+      }
+    }
+
+    @keyframes hero-size {
+      to {
+        --hero-height: 70px;
+        --card-backdrop-color-stop-to-opacity: 1;
+        /* height:100px; */
+      }
+    }
+
+    @keyframes card-body-shrink {
+      to {
+        margin-block:0;
+        padding-block:0;
+    
+      }
+    }
+
+    @keyframes card-title-shrink {
+      to {
+        scale: 0.7;
+      }
+    }
+
+    .c-application-form {
+      input:not([type="checkbox"]) {
+        width: 100%;
+      }
+      label:has(input[type="checkbox"]) {
+        padding: var(--space-sm);
+        /* background: color-mix(in oklab, var(--color-grey-11), white 50%); */
+        border-radius: var(--radius);
+        font-size: var(--text-sm);
+        border: 1px solid var(--field-border-color);        
+        &:hover {
+          background: color-mix(in oklab, var(--color-grey-11), white 80%);          
+        }
+      }
+      label:has(input[type="checkbox"]:checked) {
+        background: color-mix(in oklab, var(--color-grey-11), white 50%);
+        --field-border-color: var(--color-primary);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <svg style="display: none">
+    <symbol id="clarity--color-picker-line" viewBox="0 0 36 36">
+      <path fill="currentColor"
+        d="M33 10.05a5.07 5.07 0 0 0 .1-7.17A5.06 5.06 0 0 0 26 3l-5.22 5.15a2.13 2.13 0 0 1-3 0l-.67-.67l-1.39 1.44l11.36 11.36l1.42-1.42l-.67-.67a2.13 2.13 0 0 1 0-3Zm-6.56 3.75a4.07 4.07 0 0 0-1.08 1.92l-5.08-5.08a4.07 4.07 0 0 0 1.92-1.08l5.16-5.17a3.09 3.09 0 0 1 4.35-.1a3.09 3.09 0 0 1-.1 4.35Z"
+        class="clr-i-outline clr-i-outline-path-1" />
+      <path fill="currentColor"
+        d="M7.3 31.51a2 2 0 1 1-2.83-2.83l14.11-14.11l-1.42-1.41L3.05 27.27a4 4 0 0 0-.68 4.8L.89 33.55a1 1 0 0 0 0 1.45a1 1 0 0 0 1.42 0l1.43-1.44a3.93 3.93 0 0 0 2.09.6a4.06 4.06 0 0 0 2.88-1.2l14.11-14.15l-1.41-1.41Z"
+        class="clr-i-outline clr-i-outline-path-2" />
+      <path fill="none" d="M0 0h36v36H0z" />
+    </symbol>
+    <symbol id="box" viewBox="0 0 56 57">
+      <path
+        d="M27.9999 2.8335L50.1666 15.6668V41.3335L27.9999 54.1668L5.83325 41.3335V15.6668L27.9999 2.8335ZM12.8193 17.0155L27.9999 25.8028L43.1806 17.0155L27.9999 8.2235L12.8193 17.0155ZM10.4999 21.0638V38.6432L25.6666 47.4235V29.8465L10.4999 21.0638ZM30.3333 47.4235L45.4999 38.6432V21.0638L30.3333 29.8442V47.4235Z"
+        fill="currentColor" />
+    </symbol>
+    <symbol id="office" viewBox="0 0 56 57">
+      <path
+        d="M35 21.5002H39.6667V26.1668H35V21.5002ZM39.6667 12.1668H35V16.8335H39.6667V12.1668ZM25.6667 35.5002H30.3333V30.8335H25.6667V35.5002ZM30.3333 12.1668H25.6667V16.8335H30.3333V12.1668ZM25.6667 26.1668H30.3333V21.5002H25.6667V26.1668ZM21 12.1668H16.3333V16.8335H21V12.1668ZM21 21.5002H16.3333V26.1668H21V21.5002ZM33.95 49.5002H30.3333V41.3335H25.6667V49.5002H11.6667V7.50016H44.3333V26.2368C45.99 26.3768 47.5767 26.8902 49 27.6368V2.8335H7V54.1668H37.1233C36.1667 52.8602 35 51.2735 33.95 49.5002ZM16.3333 44.8335H21V40.1668H16.3333V44.8335ZM21 30.8335H16.3333V35.5002H21V30.8335ZM51.3333 39.0002C51.3333 45.0668 43.1667 54.1668 43.1667 54.1668C43.1667 54.1668 35 45.0668 35 39.0002C35 34.5668 38.7333 30.8335 43.1667 30.8335C47.6 30.8335 51.3333 34.5668 51.3333 39.0002ZM45.9667 39.2335C45.9667 37.8335 44.5667 36.4335 43.1667 36.4335C41.7667 36.4335 40.3667 37.6002 40.3667 39.2335C40.3667 40.6335 41.5333 42.0335 43.1667 42.0335C44.8 42.0335 46.2 40.6335 45.9667 39.2335Z"
+        fill="currentColor" />
+    </symbol>
+    <symbol id="phone" viewBox="0 0 56 57">
+      <path
+        d="M17.9375 4C16.4291 4 14.9824 4.59922 13.9158 5.66583C12.8492 6.73244 12.25 8.17908 12.25 9.6875V47.3125C12.25 48.8209 12.8492 50.2676 13.9158 51.3342C14.9824 52.4008 16.4291 53 17.9375 53H38.0625C39.5709 53 41.0176 52.4008 42.0842 51.3342C43.1508 50.2676 43.75 48.8209 43.75 47.3125V9.6875C43.75 8.17908 43.1508 6.73244 42.0842 5.66583C41.0176 4.59922 39.5709 4 38.0625 4H17.9375ZM15.75 9.6875C15.75 8.48 16.73 7.5 17.9375 7.5H38.0625C39.27 7.5 40.25 8.48 40.25 9.6875V47.3125C40.25 48.52 39.27 49.5 38.0625 49.5H17.9375C16.73 49.5 15.75 48.52 15.75 47.3125V9.6875ZM24.5 42.5C24.0359 42.5 23.5908 42.6844 23.2626 43.0126C22.9344 43.3408 22.75 43.7859 22.75 44.25C22.75 44.7141 22.9344 45.1592 23.2626 45.4874C23.5908 45.8156 24.0359 46 24.5 46H31.5C31.9641 46 32.4093 45.8156 32.7374 45.4874C33.0656 45.1592 33.25 44.7141 33.25 44.25C33.25 43.7859 33.0656 43.3408 32.7374 43.0126C32.4093 42.6844 31.9641 42.5 31.5 42.5H24.5Z"
+        fill="currentColor" />
+    </symbol>
+  </svg>
+  <!-- Hero -->
+  <section class="@container hero">
+    <article class="card [--card-left-col:fit-content]" data-card-layout="overlay" data-card-backdrop="uniform"
+      data-card-column-reverse-order="true" data-surface="dark" data-card-shadow="lg" data-card-row-text-align="start"
+      data-card-row-justify="center" data-card-row-align="end" data-card-row-image-align-self="start"
+      data-card-column-text-align="start" data-card-column-justify="start" data-card-column-align="end"
+      data-card-column-image-align-self="start" data-surface="default">
+      <div class="card-picture *:object-cover *:object-top">
+        <img src="./assets/hero-home.jpg" alt="Card image" />
+      </div>
+      <div class="card-body flow flow--md col-start-1 mx-0 wrapper @lg:pr-0">
+        <div class="card-body__content flow flow--sm flex-col">
+          <div class="card-body__content__caption flow">
+            <h2 class="heading-3xl card-body__content__caption-title normal-case fluid [--line-height:1]">
+              <span>Apply for an account</span>
+            </h2>
+            <p>Complete your profile by filling in this account form. ALL DETAILS WILL BE TREATED IN THE STRICTEST
+              CONFIDENCE.</p>
           </div>
         </div>
-      </article>
-    </section>
+      </div>
+    </article>
+  </section>
 
-    <div class="wrapper-grid py-section-gap">
-      <div
-        class="content-grid layout-grid layout-grid--column-count col-start-2 col-end-2"
-      >
-        <!-- <aside class="content-grid__aside">
-          <details
-            class="c-collapse collapse--outlined"
-            style="--details-inline-size: fit-content"
-            open
-          >
-            <summary
-              class="collapse-title collapse-title--has-icon collapse-title--text-base"
-            >
-              <div class="collapse-icon-slot">
-                <div class="collapse-icon collapse-icon--arrow md:hidden">
-                  <svg class="size-md">
-                    <use href="#box" />
-                  </svg>
-                </div>
-                <p>
-                  <span class="heading-xs">Useful Links</span>
-                </p>
-              </div>
-            </summary>
-            <div class="collapse-content">
-              <nav>
-                <ul class="pl-0 *:mt-sm *:text-sm" style="padding-left: 0">
-                  <li><a href="#">About us</a></li>
-                  <li><a href="#">Contact us</a></li>
-                  <li><a href="#">Terms and Conditions</a></li>
-                  <li><a href="#" class="active">Terms of use</a></li>
-                  <li><a href="#">FAQs</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Cookie Policy</a></li>
-                </ul>
-              </nav>
-            </div>
-          </details>
-        </aside> -->
-        <div class="content-grid__main flow">
-          <div class="content-grid_full flow col-span-full">
-            <!-- <nav class="content-grid_full gap-md">
+  <div class="wrapper-grid py-section-gap mt-[var(--hero-height)]" x-data="{
+      step: 1,
+      maxSteps: 3,
+      formContainer: $refs.formContainer,
+      formData: {
+        stepOne: {
+          company_name: '',
+          trading_name: '',
+          vat: '',
+          eori: '',
+          web: '',
+          invoice_address: '',
+          post_code: '',
+          tel: '',
+          email: '',
+          fax: '',
+          contact_buying: {
+            name: '',
+            email: '',
+          },
+          contact_accounts: {
+            name: '',
+            email: ''
+          }
+        },
+        stepTwo: {
+          company_details: {
+            reg_no: '',
+            tel: '',
+            email: '',
+            registered_office_address: '',
+            post_code: '',
+            incorporation: {
+              dd: '',
+              mm: '',
+              yyyy: ''
+            }
+          },
+          business_type: {
+            wholesaler: false,
+            retailer: false,
+            ecom: false,
+            distributor: false,
+            partnership: false,
+            sole_trader: false
+          },
+          product_of_interest: {
+            dvd_bluray: false,
+            music_cd: false,
+            vinyl: false,
+            merchandise: false,
+            consumer_electronics: false,
+            catalogue: false,
+            campaigns: false,
+            overstocks_deals: false,
+            other: ''
+          }
+        },
+        stepThree: {
+          bank_details: {
+            name: '',
+            account_no: '',
+            sort_code: '',
+            address: '',
+            post_code: '',
+            tel: '',
+            member_since: {
+              dd: '',
+              mm: '',
+              yyyy: ''
+            }
+          }
+        }
+      },
+      goto(direction) {
+        if(direction === 'next') {
+          console.log('next')
+          if(this.step !== this.maxSteps) {
+            this.step++
+          }          
+        } else if(direction === 'prev') {
+          if(this.step !== 0) {
+            this.step--
+          }          
+        } else {
+          console.warn('param for form steps should be next or prev')
+        }
+        this.formContainer.scrollIntoView({block:'start'})
+        console.log(this.formContainer)
+      }
+    }">
+    <div x-ref="formContainer" class="content-grid layout-grid layout-grid--column-count col-start-2 col-end-2">
+  <!-- <pre x-text="JSON.stringify(formData, null, 2)" class="fixed left-0 w-[400px] h-[50vh] overflow-y-auto border top-0 z-2 bg-white"></pre> -->
+      <div class="content-grid__main flow">
+        <div class="content-grid_full flow col-span-full">
+          <!-- <nav class="content-grid_full gap-md">
               <a href="#" class="button flex-1">Wholesale</a>
               <a href="#" class="button flex-1">Distribution</a>
               <a href="#" class="button flex-1">FAQs</a>
             </nav> -->
-            <form class="flow col-span-full max-w-screen-lg">
-              <section class="flow hidden">
-                <fieldset class="p-0 border-0 flow flow--2xl *:flow--xl">
-                  <div class="flow flow--sm">
-                    <legend
-                      class="heading-sm fluid"
-                    >
-                      Company Information
-                    </legend>
-                  </div>
-                  <div class="flex-layout-grid gap-y-md [--flex-grid-min:23ch]">
-                    <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
-                    >
-                      <label
-                        for="name"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Company Name</label
-                      >
-                      <input
-                        type="text"
-                        id="company-name"
-                        name="company-name"
-                        class="col-span-2"
-                        placeholder="Full Company Name"
-                      />
-                    </div>
-                    <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
-                    >
-                      <label
-                        for="trading-name"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Trading Name</label
-                      >
-                      <input
-                        type="text"
-                        id="trading-name"
-                        name="trading-name"
-                        class="col-span-2"
-                        placeholder="Trading Name"
-                      />
-                    </div>
-                    <div class="form__row">
-                      <label for="vat" class="pt-0 font-bold sr-only"
-                        >VAT No</label
-                      >
-                      <input
-                        type="number"
-                        id="vat"
-                        name="vat"
-                        class="col-span-2"
-                        placeholder="VAT Number"
-                      />
-                    </div>
-                    <div class="form__row">
-                      <label
-                        for="eori"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >EORI No</label
-                      >
-                      <input
-                        type="text"
-                        id="eori"
-                        name="eori"
-                        class="col-span-2"
-                        placeholder="EORI Number"
-                      />
-                    </div>
-                    <div class="form__row">
-                      <label
-                        for="web-address"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Web Address</label
-                      >
-                      <input
-                        type="text"
-                        id="web-address"
-                        name="web-address"
-                        class="col-span-2"
-                        placeholder="Web Address"
-                      />
-                    </div>
-                    <div
-                      class="form__row basis-full @3xl:basis-[calc(67%-(var(--flex-grid-gap)/2))]"
-                    >
-                      <label
-                        for="invoice-address"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Invoice Address</label
-                      >
-                      <textarea
-                        id="invoice-address"
-                        name="invoice-address"
-                        rows="4"
-                        class="col-span-2"
-                        placeholder="Invoice address"
-                      ></textarea>
-                    </div>
-                    <div
-                      class="form__row @3xl:basis-[calc(33%-(var(--flex-grid-gap)/2))] self-end"
-                    >
-                      <label
-                        for="postcode"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Web Address</label
-                      >
-                      <input
-                        type="text"
-                        id="postcode"
-                        name="postcode"
-                        class="col-span-2"
-                        placeholder="Postcode"
-                      />
-                    </div>
-                    <div class="form__row">
-                      <label for="tel" class="pt-0 col-span-2 font-bold sr-only"
-                        >Tel. No.</label
-                      >
-                      <input
-                        type="tel"
-                        id="tel"
-                        name="tel"
-                        class="col-span-2"
-                        placeholder="Tel"
-                      />
-                    </div>
-                    <div class="form__row">
-                      <label
-                        for="email"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Email</label
-                      >
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        class="col-span-2"
-                        placeholder="Email"
-                      />
-                    </div>
-                    <div class="form__row">
-                      <label for="fax" class="pt-0 col-span-2 font-bold sr-only"
-                        >Fax. No.</label
-                      >
-                      <input
-                        type="text"
-                        id="fax"
-                        name="fax"
-                        class="col-span-2"
-                        placeholder="Fax No."
-                      />
-                    </div>
-                    <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
-                    >
-                      <label for="fax" class="pt-0 col-span-2 font-bold sr-only"
-                        >Contact Buying</label
-                      >
-                      <input
-                        type="text"
-                        id="contact-buying-name"
-                        name="contact-buying-name"
-                        class="col-span-2"
-                        placeholder="Contact Buying Name"
-                      />
-                    </div>
-                    <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
-                    >
-                      <label
-                        for="contact-buying-email"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Contact Buying Email</label
-                      >
-                      <input
-                        type="email"
-                        id="contact-buying-email"
-                        name="contact-buying-email"
-                        class="col-span-2"
-                        placeholder="Email"
-                      />
-                    </div>
-                    <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
-                    >
-                      <label for="fax" class="pt-0 col-span-2 font-bold sr-only"
-                        >Contact Accounts</label
-                      >
-                      <input
-                        type="text"
-                        id="contact-accounts-name"
-                        name="contact-accounts-name"
-                        class="col-span-2"
-                        placeholder="Contact Accounts Name"
-                      />
-                    </div>
-                    <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
-                    >
-                      <label
-                        for="contact-accounts-email"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Contact Accounts Email</label
-                      >
-                      <input
-                        type="email"
-                        id="contact-accounts-email"
-                        name="contact-accounts-email"
-                        class="col-span-2"
-                        placeholder="Email"
-                      />
-                    </div>
-                  </div>
-                </fieldset>
-                <fieldset class="p-0 border-0 flow flow--2xl *:flow--xl">
-                  <div class="flow flow--sm">
-                    <legend
-                      class="heading-sm fluid"
-                    >
-                      B2B Login
-                    </legend>
-                    <p class="flow--sm">
-                      If you require a login to our B2B website, please complete
-                      the details below.
-                    </p>
-                  </div>
-                  <div class="flex-layout-grid gap-y-md [--flex-grid-min:23ch]">
-                    <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
-                    >
-                      <label for="fax" class="pt-0 col-span-2 font-bold sr-only"
-                        >Contact Buying</label
-                      >
-                      <input
-                        type="text"
-                        id="bb-contact-buying-name"
-                        name="bb-contact-buying-name"
-                        class="col-span-2"
-                        placeholder="Contact Buying Name"
-                      />
-                    </div>
-                    <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
-                    >
-                      <label
-                        for="contact-buying-email"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Contact Buying Email</label
-                      >
-                      <input
-                        type="email"
-                        id="bb-contact-buying-email"
-                        name="bb-contact-buying-email"
-                        class="col-span-2"
-                        placeholder="Email"
-                      />
-                    </div>
-                  </div>
-                </fieldset>
-                <div class="text-right">
-                  <button class="button" disabled>Next</button>
+          <form class="c-application-form flow col-span-full max-w-screen-md  mx-auto w-full">
+            <section x-show="step === 1" class="flow mt-lg min-h-screen">
+              <fieldset class="p-0 border-0 flow flow--2xl *:flow--xl">
+                <div class="flow flow--sm">
+                  <legend class="heading-sm fluid">
+                    Company Information
+                  </legend>
                 </div>
-              </section>
-              <!-- Generated-->
-              <!-- Step: Limited Company Details -->
-              <section
-                class="form-step"
-                id="step-limited-company-details"
-                data-step="limited-company-details"
-              >
-                <fieldset class="p-0 border-0 flow">
-                  <legend class="heading-sm fluid">Limited Company Details</legend>
+                <div class="flex-layout-grid gap-y-md [--flex-grid-min:23ch]">
+                  <div class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]">
+                    <label for="name" class="pt-0 col-span-2 font-bold sr-only">Company Name</label>
+                    <input type="text" id="company-name" name="company-name" x-model="formData.stepOne.company_name"  class="col-span-2"
+                      placeholder="Full Company Name" required />
+                  </div>
+                  <div class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]">
+                    <label for="trading-name" class="pt-0 col-span-2 font-bold sr-only">Trading Name</label>
+                    <input type="text" id="trading-name" name="trading-name" x-model="formData.stepOne.trading_name" class="col-span-2"
+                      placeholder="Trading Name" required />
+                  </div>
+                  <div class="form__row">
+                    <label for="vat" class="pt-0 font-bold sr-only">VAT No</label>
+                    <input type="number" id="vat" name="vat" x-model="formData.stepOne.vat" class="col-span-2" placeholder="VAT Number" required />
+                  </div>
+                  <div class="form__row">
+                    <label for="eori" class="pt-0 col-span-2 font-bold sr-only">EORI No</label>
+                    <input type="text" id="eori" name="eori" x-model="formData.stepOne.eori" class="col-span-2" placeholder="EORI Number" required />
+                  </div>
+                  <div class="form__row">
+                    <label for="web-address" class="pt-0 col-span-2 font-bold sr-only">Web Address</label>
+                    <input type="text" id="web-address" name="web-address" x-model="formData.stepOne.web_address" class="col-span-2"
+                      placeholder="Web Address" />
+                  </div>
+                  <div class="form__row basis-full @3xl:basis-[calc(67%-(var(--flex-grid-gap)/2))]">
+                    <label for="invoice-address" class="pt-0 col-span-2 font-bold sr-only">Invoice Address</label>
+                    <textarea id="invoice-address" name="invoice-address" x-model="formData.stepOne.invoice_address" rows="4" class="col-span-2"
+                      placeholder="Invoice address" required></textarea>
+                  </div>
+                  <div class="form__row @3xl:basis-[calc(33%-(var(--flex-grid-gap)/2))] self-end">
+                    <label for="postcode" class="pt-0 col-span-2 font-bold sr-only">Web Address</label>
+                    <input type="text" id="postcode" name="postcode" x-model="formData.stepOne.postcode" class="col-span-2" placeholder="Postcode"
+                      required />
+                  </div>
+                  <div class="form__row">
+                    <label for="tel" class="pt-0 col-span-2 font-bold sr-only">Tel. No.</label>
+                    <input type="tel" id="tel" name="tel" x-model="formData.stepOne.tel" class="col-span-2" pattern="[0-9]" min-length="10"
+                      placeholder="Tel" required />
+                  </div>
+                  <div class="form__row">
+                    <label for="email" class="pt-0 col-span-2 font-bold sr-only">Email</label>
+                    <input type="email" id="email" name="email" x-model="formData.stepOne.email" class="col-span-2" placeholder="Email" required />
+                  </div>
+                  <div class="form__row">
+                    <label for="fax" class="pt-0 col-span-2 font-bold sr-only">Fax. No.</label>
+                    <input type="text" id="fax" name="fax" x-model="formData.stepOne.fax" class="col-span-2" placeholder="Fax No." />
+                  </div>
+                  <div class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]">
+                    <label for="fax" class="pt-0 col-span-2 font-bold sr-only">Contact Buying</label>
+                    <input type="text" id="contact-buying-name" name="contact-buying-name" x-model="formData.stepOne.contact_buying.name" class="col-span-2"
+                      placeholder="Contact Buying Name" required />
+                  </div>
+                  <div class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]">
+                    <label for="contact-buying-email" class="pt-0 col-span-2 font-bold sr-only">Contact Buying
+                      Email</label>
+                    <input type="email" id="contact-buying-email" name="contact-buying-email" x-model="formData.stepOne.contact_buying.email" class="col-span-2"
+                      placeholder="Email" required />
+                  </div>
+                  <div class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]">
+                    <label for="fax" class="pt-0 col-span-2 font-bold sr-only">Contact Accounts</label>
+                    <input type="text" id="contact-accounts-name" name="contact-accounts-name" x-model="formData.stepOne.contact_accounts.name" class="col-span-2"
+                      placeholder="Contact Accounts Name" required />
+                  </div>
+                  <div class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]">
+                    <label for="contact-accounts-email" class="pt-0 col-span-2 font-bold sr-only">Contact Accounts
+                      Email</label>
+                    <input type="email" id="contact-accounts-email" name="contact-accounts-email" x-model="formData.stepOne.contact_accounts.email" class="col-span-2"
+                      placeholder="Email" required />
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="p-layout-gap border-1 rounded-[var(--radius)] bg-[color-mix(in_oklab,var(--color-grey-11),white_80%)] flow flow--lg *:flow--xl">
+                <div class="flow flow--sm">
+                  <legend class="heading-sm fluid">
+                    B2B Login
+                  </legend>
+                  <p class="flow--sm text-sm">
+                    If you require a login to our B2B website, please complete
+                    the details below.
+                  </p>
+                </div>
+                <div class="flex-layout-grid gap-y-md [--flex-grid-min:23ch]">
+                  <div class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]">
+                    <label for="fax" class="pt-0 col-span-2 font-bold sr-only">Contact Buying</label>
+                    <input type="text" id="bb-contact-buying-name" name="bb-contact-buying-name" class="col-span-2"
+                      placeholder="Contact Buying Name" />
+                  </div>
+                  <div class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]">
+                    <label for="contact-buying-email" class="pt-0 col-span-2 font-bold sr-only">Contact Buying
+                      Email</label>
+                    <input type="email" id="bb-contact-buying-email" name="bb-contact-buying-email" class="col-span-2"
+                      placeholder="Email" />
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <!-- Generated-->
+            <!-- Step: Limited Company Details -->
+            <section x-show="step === 2" class="form-step min-height-screen" id="step-limited-company-details"
+              data-step="limited-company-details">
+              <fieldset class="p-0 border-0 flow">
+                <legend class="heading-sm fluid">Limited Company Details</legend>
 
-                  <!-- Company details -->
-                  <div class="form-layout flex-layout-grid gap-y-md [--flex-grid-min:23ch]">
-                    <div class="form__row">
-                      <label for="companyRegNo" class="sr-only"
-                        >Company Registration Number</label
-                      >
-                      <input
-                        id="companyRegNo"
-                        name="companyRegNo"
-                        type="text"
-                        placeholder="Company Registration Number"
-                        autocomplete="off"
-                      />
-                    </div>
-
-                    <div class="form__row">
-                      <label for="telNo" class="sr-only">Tel. No.</label>
-                      <input
-                        id="telNo"
-                        name="telNo"
-                        type="tel"
-                        placeholder="Tel. No."
-                        autocomplete="tel"
-                      />
-                    </div>
-
-
-                      <div class="form__row">
-                        <label for="email" class="sr-only">Email</label>
-                        <input
-                          id="email"
-                          name="email"
-                          type="email"
-                          placeholder="Email"
-                          autocomplete="email"
-                        />
-                      </div>                    
-                    <div class="form__row basis-full @3xl:basis-[calc(67%-(var(--flex-grid-gap)/2))]">
-                      <label for="registeredOffice" class="sr-only"
-                        >Registered Office Address</label
-                      >
-                      <textarea
-                        id="registeredOffice"
-                        name="registeredOffice"
-                        placeholder="Registered Office Address"
-                        autocomplete="off"
-                      ></textarea>
-                    </div>
-                    <div class="form__row basis-full @3xl:basis-[calc(33%-(var(--flex-grid-gap)/2))] self-end">
-                      <label for="postCode" class="sr-only">Post Code</label>
-                      <input
-                        id="postCode"
-                        name="postCode"
-                        type="text"
-                        placeholder="Post Code"
-                        autocomplete="postal-code"
-                      />
-                    </div>
-
-
-                    <div
-                      class="basis-full flex-layout-grid form__row flex [--flex-grid-min:8ch] @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))] @3xl:grow-0"
-                    >
-
-                      
-                        <h3 class="text-base font-bold normal-case pl-[var(--text-frame-x)] pt-[var(--text-frame-y)] basis-full">Date of Incorporation</h3>
-                          <div class="form__row *:w-full">
-                            <label for="incDay" class="sr-only"
-                              >Date of Incorporation — Day</label
-                            >
-                            <input
-                              type="text"
-                              id="incDay"
-                              name="incDay"
-                              inputmode="numeric"
-                              pattern="[0-9]*"
-                              placeholder="DD"
-                            />
-                          </div>
-                          <div class="form__row *:w-full">
-                            <label for="incMonth" class="sr-only"
-                              >Date of Incorporation — Month</label
-                            >
-                            <input
-                              type="text"
-                              id="incMonth"
-                              name="incMonth"
-                              inputmode="numeric"
-                              pattern="[0-9]*"
-                              placeholder="MM"
-                            />
-                          </div>
-                          <div class="form__row *:w-full">
-                            <label for="incYear" class="sr-only"
-                              >Date of Incorporation — Year</label
-                            >
-                            <input
-                              type="text"
-                              id="incYear"
-                              name="incYear"
-                              inputmode="numeric"
-                              pattern="[0-9]*"
-                              placeholder="YYYY"
-                            />
-                          </div>
-                        
-                      
-
-
-                    </div>
+                <!-- Company details -->
+                <div class="form-layout flex-layout-grid gap-y-md [--flex-grid-min:23ch]">
+                  <div class="form__row">
+                    <label for="companyRegNo" class="sr-only">Company Registration Number</label>
+                    <input id="companyRegNo" name="companyRegNo" type="text" placeholder="Company Registration Number"
+                      autocomplete="off" required />
                   </div>
 
-                  <!-- Two-column checkbox groups -->
-                  <div class="layout-grid pt-md [--layout-column-min:25ch]">
-                    <!-- Type of business -->
-                    <section class="flow">
-                      <div class="flow flow--xs">
-                        <h3 class="heading-sm">Type of Business</h3>
-                        <p class="text-sm">
-                          Tick the box that best suits your business model.
-                        </p>
-                      </div>
-                      <ul class="flow *:flow--xs pl-0">
-                        <li>
-                          <label
-                          class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="businessType"
-                              value="wholesaler"
-                            />
-                            Wholesaler</label
-                          >
-                        </li>
-                        <li>
-                          <label
-                          class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="businessType"
-                              value="retailer"
-                            />
-                            Retailer</label
-                          >
-                        </li>
-                        <li>
-                          <label
-                          class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="businessType"
-                              value="ecommerce"
-                            />
-                            e-commerce</label
-                          >
-                        </li>
-                        <li>
-                          <label
-                          class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="businessType"
-                              value="distributor"
-                            />
-                            Distributor</label
-                          >
-                        </li>
-                        <li>
-                          <label
-                          class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="businessType"
-                              value="partnership"
-                            />
-                            Partnership</label
-                          >
-                        </li>
-                        <li>
-                          <label
-                          class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="businessType"
-                              value="soletrader"
-                            />
-                            Sole Trader</label
-                          >
-                        </li>
-                      </ul>
-                    </section>
-
-                    <!-- Product of interest -->
-                    <section class="flow">
-                      <div class="flow flow--xs">
-                        <h3 class="heading-sm">Product of Interest</h3>
-                        <p class="text-sm">
-                          Tick the box that best represent your interested
-                          products.
-                        </p>
-                      </div>
-                      <ul class="flow *:flow--xs pl-0 @md:columns-2">
-                        <li>
-                          <label
-                            class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="productInterest"
-                              value="dvd-bluray"
-                            />
-                            DVD &amp; Blu-ray</label
-                          >
-                        </li>
-                        <li>
-                          <label
-                            class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="productInterest"
-                              value="music-cd"
-                            />
-                            Music CD</label
-                          >
-                        </li>
-                        <li>
-                          <label
-                            class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="productInterest"
-                              value="vinyl"
-                            />
-                            Vinyl</label
-                          >
-                        </li>
-                        <li>
-                          <label
-                            class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="productInterest"
-                              value="merchandise"
-                            />
-                            Merchandise</label
-                          >
-                        </li>
-                        <li>
-                          <label
-                            class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="productInterest"
-                              value="consumer-electronics"
-                            />
-                            Consumer Electronics</label
-                          >
-                        </li>
-                        <li>
-                          <label
-                            class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="productInterest"
-                              value="catalogue"
-                            />
-                            Catalogue</label
-                          >
-                        </li>
-                        <li>
-                          <label
-                            class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="productInterest"
-                              value="campaigns"
-                            />
-                            Campaigns</label
-                          >
-                        </li>
-                        <li>
-                          <label
-                            class="flex items-center gap-xs"
-                            ><input
-                              type="checkbox"
-                              name="productInterest"
-                              value="overstocks"
-                            />
-                            Overstocks/Deals</label
-                          >
-                        </li>
-                        <li
-                          class="grid grid-cols-[auto_1fr] items-center gap-xs"
-                        >
-                          <label class="contents">
-                            <input
-                              type="checkbox"
-                              id="productOtherChk"
-                              name="productInterest"
-                              value="other"
-                            />
-                            <span>Other (specify)</span>
-                          </label>
-                          <input
-                            class="col-span-full"
-                            id="productOtherText"
-                            name="productOther"
-                            type="text"
-                            placeholder="write here..."
-                            aria-describedby="productOtherChk"
-                          />
-                        </li>
-                      </ul>
-                    </section>
+                  <div class="form__row">
+                    <label for="telNo" class="sr-only">Tel. No.</label>
+                    <input id="telNo" name="telNo" type="tel" placeholder="Tel. No." autocomplete="tel" required />
                   </div>
-                </fieldset>
-              </section>
-            </form>
-          </div>
+
+
+                  <div class="form__row">
+                    <label for="email" class="sr-only">Email</label>
+                    <input id="email" name="email" type="email" placeholder="Email" autocomplete="email" required />
+                  </div>
+                  <div class="form__row basis-full @3xl:basis-[calc(67%-(var(--flex-grid-gap)/2))]">
+                    <label for="registeredOffice" class="sr-only">Registered Office Address</label>
+                    <textarea id="registeredOffice" name="registeredOffice" placeholder="Registered Office Address"
+                      autocomplete="off" required></textarea>
+                  </div>
+                  <div class="form__row basis-full @3xl:basis-[calc(33%-(var(--flex-grid-gap)/2))] self-end">
+                    <label for="postCode" class="sr-only">Post Code</label>
+                    <input id="postCode" name="postCode" type="text" placeholder="Post Code" autocomplete="postal-code"
+                      required />
+                  </div>
+
+
+                  <div
+                    class="basis-full flex-layout-grid form__row flex [--flex-grid-min:8ch] @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))] @3xl:grow-0">
+
+
+                    <h3
+                      class="text-base font-bold normal-case pl-[var(--text-frame-x)] pt-[var(--text-frame-y)] basis-full">
+                      Date of Incorporation</h3>
+                    <div class="form__row">
+                      <label for="incDay" class="sr-only">Date of Incorporation — Day</label>
+                      <input type="text" id="incDay" name="incDay" inputmode="numeric" minlength="2" pattern="[0-9]*"
+                        placeholder="DD" class="w-full" />
+                    </div>
+                    <div class="form__row">
+                      <label for="incMonth" class="sr-only">Date of Incorporation — Month</label>
+                      <input type="text" id="incMonth" name="incMonth" inputmode="numeric" pattern="[0-9]*"
+                        placeholder="MM" class="w-full" />
+                    </div>
+                    <div class="form__row">
+                      <label for="incYear" class="sr-only">Date of Incorporation — Year</label>
+                      <input type="text" id="incYear" name="incYear" inputmode="numeric" pattern="[0-9]*"
+                        placeholder="YYYY" class="w-full" />
+                    </div>
+
+
+
+
+                  </div>
+                </div>
+
+                <!-- Two-column checkbox groups -->
+                <div class="layout-grid pt-md [--layout-column-min:25ch] [--layout-gap:var(--space-xl)]">
+                  <!-- Type of business -->
+                  <section class="flow">
+                    <div class="flow flow--xs">
+                      <h3 class="heading-sm">Type of Business</h3>
+                      <p class="text-sm">
+                        Tick the box that best suits your business model.
+                      </p>
+                    </div>
+                    <ul class="flow *:flow--xs pl-0">
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="businessType"
+                            value="wholesaler" />
+                          Wholesaler</label>
+                      </li>
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="businessType"
+                            value="retailer" />
+                          Retailer</label>
+                      </li>
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="businessType"
+                            value="ecommerce" />
+                          e-commerce</label>
+                      </li>
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="businessType"
+                            value="distributor" />
+                          Distributor</label>
+                      </li>
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="businessType"
+                            value="partnership" />
+                          Partnership</label>
+                      </li>
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="businessType"
+                            value="soletrader" />
+                          Sole Trader</label>
+                      </li>
+                    </ul>
+                  </section>
+
+                  <!-- Product of interest -->
+                  <section class="flow">
+                    <div class="flow flow--xs">
+                      <h3 class="heading-sm">Product of Interest</h3>
+                      <p class="text-sm">
+                        Tick the box that best represent your interested
+                        products.
+                      </p>
+                    </div>
+                    <ul class="flow *:flow--xs pl-0 @xs:columns-2">
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="productInterest"
+                            value="dvd-bluray" />
+                          DVD &amp; Blu-ray</label>
+                      </li>
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="productInterest"
+                            value="music-cd" />
+                          Music CD</label>
+                      </li>
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="productInterest"
+                            value="vinyl" />
+                          Vinyl</label>
+                      </li>
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="productInterest"
+                            value="merchandise" />
+                          Merchandise</label>
+                      </li>
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="productInterest"
+                            value="consumer-electronics" />
+                          Consumer Electronics</label>
+                      </li>
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="productInterest"
+                            value="catalogue" />
+                          Catalogue</label>
+                      </li>
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="productInterest"
+                            value="campaigns" />
+                          Campaigns</label>
+                      </li>
+                      <li>
+                        <label class="flex items-center gap-xs"><input type="checkbox" name="productInterest"
+                            value="overstocks" />
+                          Overstocks/Deals</label>
+                      </li>
+                      <li class="grid grid-cols-[auto_1fr] items-center gap-xs">
+                        <label class="contents">
+                          <input type="checkbox" id="productOtherChk" name="productInterest" value="other" />
+                          <span>Other (specify)</span>
+                        </label>
+                        <input class="col-span-full" id="productOtherText" name="productOther" type="text"
+                          placeholder="write here..." aria-describedby="productOtherChk" />
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+              </fieldset>
+            </section>
+            <!-- Step: Bank Details-->
+            <section x-show="step === 3" class="min-h-screen">
+              <fieldset class="p-0 border-0 flow flow--2xl *:flow--xl">
+                <div class="flow flow--sm">
+                  <legend class="heading-sm fluid">
+                    Bank details
+                  </legend>
+                </div>
+                <div class="flex-layout-grid gap-y-md [--flex-grid-min:23ch]">
+                  <div class="form__row basis-full">
+                    <label for="bank-name" class="pt-0 col-span-2 font-bold sr-only">Bank Name</label>
+                    <input type="text" id="bank-name" name="bank-name" class="col-span-2" placeholder="Bank Name"
+                      required />
+                  </div>
+                  <div class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]">
+                    <label for="bank-acc-no" class="pt-0 col-span-2 font-bold sr-only">Account Number</label>
+                    <input type="text" id="bank-acc-no" name="bank-acc-no" class="col-span-2" placeholder="Account No"
+                      required />
+                  </div>
+                  <div class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]">
+                    <label for="vat" class="pt-0 font-bold sr-only">Sort Code</label>
+                    <input type="number" id="bank-sort-code" name="bank-sort-code" class="col-span-2"
+                      placeholder="Sort Code" required />
+                  </div>
+                  <div class="form__row basis-full @3xl:basis-[calc(67%-(var(--flex-grid-gap)/2))]">
+                    <label for="bank-address" class="pt-0 col-span-2 font-bold sr-only">Bank Address</label>
+                    <textarea id="bank-address" name="bank-address" rows="4" class="col-span-2"
+                      placeholder="Bank address" required></textarea>
+                  </div>
+                  <div class="form__row @3xl:basis-[calc(33%-(var(--flex-grid-gap)/2))] self-end">
+                    <label for="bank-postcode" class="pt-0 col-span-2 font-bold sr-only">Post Code</label>
+                    <input type="text" id="bank-postcode" name="bank-postcode" class="col-span-2" placeholder="Postcode"
+                      required />
+                  </div>
+                  <div class="form__row self-end">
+                    <label for="bank-tel" class="pt-0 col-span-2 font-bold sr-only">Tel. No.</label>
+                    <input type="tel" id="bank-tel" name="bank-tel" class="col-span-2" placeholder="Tel" />
+                  </div>
+                  <div
+                    class="basis-full flex-layout-grid form__row flex [--flex-grid-min:8ch] @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))] @3xl:grow-0">
+                    <h3
+                      class="text-base font-bold normal-case pl-[var(--text-frame-x)] pt-[var(--text-frame-y)] basis-full">
+                      Member since</h3>
+                    <div class="form__row">
+                      <label for="member-since-date" class="sr-only">Member since — Day</label>
+                      <input type="text" id="member-since-date" name="member-since-date" inputmode="numeric"
+                        pattern="[0-9]*" placeholder="DD" class="w-full" />
+                    </div>
+                    <div class="form__row">
+                      <label for="member-since-month" class="sr-only">Member since — Month</label>
+                      <input type="text" id="member-since-month" name="member-since-month" inputmode="numeric"
+                        pattern="[0-9]*" placeholder="MM" class="w-full" />
+                    </div>
+                    <div class="form__row">
+                      <label for="member-since-yr" class="sr-only">Member since — Year</label>
+                      <input type="text" id="member-since-yr" name="member-since-yr" inputmode="numeric"
+                        pattern="[0-9]*" placeholder="YYYY" class="w-full" />
+                    </div>
+
+
+
+
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+          </form>
+
         </div>
       </div>
     </div>
+    <div class="col-span-full sticky bottom-0  bg-[oklch(from_var(--root-bg)_l_c_h_/_0.75)] grid grid-cols-subgrid mt-xl">
+      <div class="flex col-start-2 col-end-2 justify-between py-xs max-w-screen-md mx-auto w-full">
+        <div class="w-[5em]">
+          <button class="button" :class="step === 1 ? 'opacity-0' : ''" :disabled="step === 1" @click="goto('prev')">Prev</button>
+        </div>        
+        <ul class="flex items-center gap-sm">
+          <template x-for="num in maxSteps">
+            <li x-text="num" :class="[step !== num ? 'border-transparent': '', num < step ? 'bg-tertiary' : '']"
+              class="border inline-flex items-center rounded-full aspect-square justify-center text-sm w-8 font-bold">
+            </li>
+          </template>
+        </ul>
+        <div class="w-[5em]">
+          <button class="button" x-show="step < 3" :disabled="step === 3" @click="goto('next')">Next</button>
+          <button class="button" x-show="step === 3" type="submit">Submit</button>
+        </div>
 
-    <footer
-      style="
+      </div>
+    </div>
+  </div>
+
+
+  <footer style="
         min-height: 400px;
         background: var(--color-tertiary-light);
         margin-top: var(--spacing-section-gap);
-      "
-    >
-      <div class="wrapper">
-        <p>&copy; 2023 Large Company. All rights reserved.</p>
-      </div>
-    </footer>
-  </body>
+      ">
+    <div class="wrapper">
+      <p>&copy; 2023 Large Company. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
 </html>
