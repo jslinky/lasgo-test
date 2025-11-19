@@ -911,20 +911,50 @@
     }
   }
   @layer base {
-    :root:is(.new) :where(input) {
+    :root:is(.new) :where(input, textarea, select) {
       --_color: var(--input-color, var(--color, CanvasText));
       --_bg: var(--input-bg, Canvas);
       --_fs: var(--input-fs, 1em);
-      --_outline-color: color-mix(in oklch, var(--_bg) 90%, black);
-      --_outline-color-focused: color-mix(in oklch, var(--input-outline-color, var(--_outline-color)) 90%, black);
+      --_outline-color: color-mix(in oklch, var(--_bg) 90%, var(--input-outline-mix-color, black));
+      --_outline-color-focused: color-mix(in oklch, var(--input-outline-color, var(--_outline-color)) 70%, var(--input-outline-mix-color-focused, var(--input-outline-mix-color, black)));
       background-color: var(--_bg);
       color: var(--_color);
       font-size: var(--_fs);
     }
+  }
+  @layer modifiers {
+    :root:is(.new) :where(input, textarea, select) .input--sm {
+      font-size: var(--sm);
+    }
+    :root:is(.new) :where(input, textarea, select) .input--lg {
+      font-size: var(--lg);
+    }
+  }
+  @layer states {
+    :root:is(.new) :where(input, textarea, select):focus-within {
+      outline-color: var(--input-outline-color-focused, var(--_outline-color-focused));
+    }
+    @container style(--eager:true) {
+      :root:is(.new) :where(input, textarea, select):is([minlength], [pattern], [required]):invalid:not(:placeholder-shown) {
+        --input-outline-color: red;
+      }
+      :root:is(.new) :where(input, textarea, select):is([minlength], [pattern], [required]):valid {
+        --input-outline-color: green;
+      }
+    }
+    :root:is(.new) :where(input, textarea, select):is([minlength], [pattern], [required]):user-invalid:not(:placeholder-shown) {
+      --input-outline-color: red;
+    }
+    :root:is(.new) :where(input, textarea, select):is([minlength], [pattern], [required]):user-valid {
+      --input-outline-color: green;
+    }
+  }
+  @layer base {
     :root:is(.new) :where(input):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]) {
       padding-inline: var(--input-text-frame-x, var(--text-frame-x));
       padding-block: var(--input-text-frame-y, var(--text-frame-y));
       outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
+      border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius)));
     }
     :root:is(.new) :where(input):is([type=radio], [type=checkbox]) {
       accent-color: var(--input-accent-color, var(--accent-color, initial));
@@ -932,38 +962,15 @@
       height: var(--_fs);
       padding-inline: var(--input-box-frame-x, 1em);
       padding-block: var(--input-box-frame-y, 1em);
-    }
-  }
-  @layer modifiers {
-    :root:is(.new) :where(input) .input--sm {
-      font-size: var(--sm);
-    }
-    :root:is(.new) :where(input) .input--lg {
-      font-size: var(--lg);
-    }
-  }
-  @layer states {
-    :root:is(.new) :where(input):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password]):is([minlength],
-    [pattern],
-    [required]):focus-within {
-      outline-color: var(--input-outline-color-focused, var(--_outline-color-focused));
-    }
-    :root:is(.new) :where(input):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password]):is([minlength],
-    [pattern],
-    [required]):invalid:not(:placeholder-shown) {
-      outline-color: red;
-    }
-    :root:is(.new) :where(input):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password]):is([minlength],
-    [pattern],
-    [required]):valid {
-      outline-color: green;
+      border-radius: var(--input-box-radius, max(var(--input-box-max-radius, 0.5rem), var(--radius)));
     }
   }
   @layer base {
-    :root:is(.new) :where(textarea) {
+    :root:is(.new) :where(textarea, select) {
       padding-inline: var(--input-text-frame-x, var(--text-frame-x));
       padding-block: var(--input-text-frame-y, var(--text-frame-y));
       outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
+      border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius)));
     }
   }
   :root:is(.new) :where(input:is([type=radio], [type=checkbox])).input--sm {
@@ -3905,6 +3912,7 @@
     grid-row: 2/-1;
     align-self: start;
     font-size: var(--label-fs);
+    padding-block-start: 0;
   }
   .form__row--label-overlay label + :is(input, textarea, select) {
     grid-row: 2/-1;
@@ -3916,11 +3924,8 @@
   .form__row--label-overlay :is(input, textarea):not(:focus, :focus-within)::placeholder {
     color: transparent;
   }
-  .form__row--label-overlay {
-    /* &:has(input:is(:focus, :focus-within)) label {
-      grid-row-start: 1;
-      align-self: flex-start;
-    }  */
+  .form__row--label-overlay:has(input:is(:focus, :focus-within)) label {
+    opacity: 0.5;
   }
 }
 @layer site-props {
@@ -4006,10 +4011,12 @@
     --text-frame-ratio: 1.5;
     --radius: var(--text-xs);
     --layout-gap: max(min(2vmax, var(--space-md)), var(--space-md, 1rem));
-    --unit-min: var(--unit-max, 1rem) / 2.5;
+    --unit-min: var(--unit-max, 1rem) / 1.5;
     --hero-height: min(520px, 80vh);
     --header-height: 169px;
     --hero-height-expanded: calc(var(--header-height) + var(--hero-height));
+    --root-fg: var(--color-dark);
+    --root-fg-muted: var(--color-grey-6);
   }
 }
 @layer tw-base {
@@ -4221,6 +4228,7 @@
       var(--color-tertiary),
       white 65%
     );
+    --color-root-fg-muted: var(--root-fg-muted);
     --spacing-3xs: var(--space-3xs);
     --spacing-2xs: var(--space-2xs);
     --spacing-xs: var(--space-xs);

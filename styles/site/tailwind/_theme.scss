@@ -1,0 +1,59 @@
+  @theme {
+    @if $useTailwindForColorOutput {
+      @include generateTailwindColors();
+      @include generateTailwindSurfaceText();
+    }    
+
+    --color-brand-yellow: oklch(
+      var(--color-brand-yellow-l) var(--color-brand-yellow-c)
+        var(--color-brand-yellow-h)
+    );
+    --color-brand-yellow-contrast: oklch(
+      from var(--color, var(--color-brand-yellow))
+        clamp(
+          var(
+            --color-brand-yellow-contrast-lightest-text,
+            var(--contrast-lightest-text, 0)
+          ),
+          (l / var(--contrast-threshold, 0.623) - 1) * -infinity,
+          var(
+            --color-brand-yellow-contrast-darkest-text,
+            var(--contrast-darkest-text, 1)
+          )
+        )
+        0 h
+    );
+
+    --color-primary-light: oklch(
+      var(--color-primary-light-l) var(--color-primary-light-c)
+        var(--color-primary-light-h)
+    );
+
+    --color-tertiary-light: color-mix(
+      in oklab,
+      var(--color-tertiary),
+      white 65%
+    );    
+
+    --color-root-fg-muted: var(--root-fg-muted);
+    
+    --spacing-3xs: var(--space-3xs);
+    --spacing-2xs: var(--space-2xs);
+    --spacing-xs: var(--space-xs);
+    --spacing-sm: var(--space-sm);
+    --spacing-md: var(--space-md);
+    --spacing-lg: var(--space-lg);
+    --spacing-xl: var(--space-xl);
+    --spacing-2xl: var(--space-2xl);
+    --spacing-3xl: var(--space-3xl);
+    --spacing-4xl: var(--space-4xl);
+    --spacing-5xl: var(--space-5xl);
+    --spacing-6xl: var(--space-6xl);
+    /* Move below into frame and register as props */
+    --spacing-layout-gap: var(--layout-gap);
+    --spacing-section-gap: calc(var(--layout-gap) * 2);
+    --spacing-section-gap-lg: calc(var(--spacing-section-gap) * var(--space-increment));
+    --spacing-section-gap-xl: calc(var(--spacing-section-gap-lg) * var(--space-increment));
+    --spacing-huge: 3rem;
+    --radius-default: var(--radius);    
+  }
