@@ -22,3 +22,7 @@
 @layer tw {
   @layer theme, components, utilities;
 }
+
+@layer existing-overrides {
+  @layer unset, new;
+}
