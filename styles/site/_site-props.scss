@@ -72,8 +72,8 @@
 
     --color-grey-c: 0.01;
 
-    --root-max-wrapper-width: 1275px;
-    --max-wrapper-width: var(--root-max-wrapper-width);
+    --root-max-wrapper-width: 1275;
+    --max-wrapper-width: calc(var(--root-max-wrapper-width) * 1px);
 
     --flow-space: var(--space-lg);
 

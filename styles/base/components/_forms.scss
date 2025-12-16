@@ -1,17 +1,17 @@
 @include layout-rules();
 
 :where(input, textarea, select):not([class*="k-"]),
-*:not([class*="k-"]) > input, textarea, select {
+*:not([class*="k-"]) > :is(input, textarea, select):not([class*="k-"]) {
     @include input-textarea-select-rules();   
 }
 
 :where(input):not([class*="k-"]):is(#{$input-text-selectors}),
-*:not([class*="k-"]) > input:is(#{$input-text-selectors}) {
+*:not([class*="k-"]) > input:is(#{$input-text-selectors}):not([class*="k-"]) {
     @include input-text-rules();
 }
 
 :where(input):not([class*="k-"]):is([type="radio"], [type="checkbox"]),
-*:not([class*="k-"]) > input:is([type="radio"], [type="checkbox"]) {
+*:not([class*="k-"]) > input:is([type="radio"], [type="checkbox"]):not([class*="k-"]) {
     @include input-box-rules();
 }
 

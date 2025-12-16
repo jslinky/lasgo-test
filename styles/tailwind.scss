@@ -4,6 +4,8 @@
 @use "small-style/scss/base/mixins/rules/props/_colors" as *;
 @use "small-style/scss/base/variables/components/forms" as *;
 @use "small-style/scss/base/mixins/rules/components/_forms" as *;
+@use "small-style/scss/base/mixins/rules/components/_layout" as *;
+@use "./base/mixins/rules/components/forms" as *;
 
 @import "tailwindcss/theme.css" layer(tw);
 @import "tailwindcss/utilities.css" layer(tw);

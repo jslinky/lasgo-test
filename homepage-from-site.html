@@ -54,18 +54,18 @@
 
     <script src="http://www.lasgo.com/CommerceManager/public/javascript/AjaxHelpers.js?v=638034181553336511"></script>
 
-    <script src="http://www.lasgo.com/CommerceManager/Publichttp://www.lasgo.com/Content/javascript/CKEditor447/ckeditor.js?v=638034181549306219"></script>
+    <script src="http://www.lasgo.com/CommerceManager/Public/Content/javascript/CKEditor447/ckeditor.js?v=638034181549306219"></script>
 
-    <script src="http://www.lasgo.com/CommerceManager/Publichttp://www.lasgo.com/Content/javascript/jQuery.HoverIntent/jquery.hoverIntent.minified.js?v=638034181552536445"></script>
+    <script src="http://www.lasgo.com/CommerceManager/Public/Content/javascript/jQuery.HoverIntent/jquery.hoverIntent.minified.js?v=638034181552536445"></script>
 
     <link
       rel="stylesheet"
       type="text/css"
-      href="http://www.lasgo.com/CommerceManager/Publichttp://www.lasgo.com/Content/css/EditFrontend.css?v=638034181548026136"
+      href="http://www.lasgo.com/CommerceManager/Public/Content/css/EditFrontend.css?v=638034181548026136"
       media="screen"
     />
 
-    <script src="http://www.lasgo.com/CommerceManager/Publichttp://www.lasgo.com/Content/javascript/EditModeFrontEnd.js?v=638034181552336433"></script>
+    <script src="http://www.lasgo.com/CommerceManager/Public/Content/javascript/EditModeFrontEnd.js?v=638034181552336433"></script>
 
     <script>
       var URL = "https%3a%2f%2flasgo.com%2f10879_contact";
@@ -1757,7 +1757,7 @@
             data-card-layout="overlay"
             data-card-backdrop="uniform"
           >
-            <picture class="card-picture">
+            <picture class="card-picture scanlines">
               <img
                 src="http://www.lasgo.com/Content/Images/hero/hero-home.jpg"
                 alt="Picture"
@@ -1765,7 +1765,7 @@
             </picture>
 
             <div
-              class="card-body flow flow--md col-start-1 mx-0 wrapper @lg:pr-0"
+              class="card-body flow flow--md col-start-1 mx-auto w-[min(100%-var(--wrapper-padding)*2,var(--max-wrapper-width))] px-0"
             >
               <div class="card-body__content flow flex-col max-w-prose">
                 <div class="card-body__content__caption flow">
@@ -1792,7 +1792,7 @@
             </div>
           </article>
         </section>
-        <div class="wrapper pb-section-gap pt-section-gap-3xl min-h-[70vh] content-center">
+        <div class="wrapper pb-section-gap pt-section-gap-3xl min-h-[min(800px,calc(100vh-var(--root-header-height)))] content-center">
           <div class="flow">
             <h2 class="heading fluid heading--underline heading-xl">
               <span class="heading-xs text-default"
@@ -1846,71 +1846,6 @@
                 ><span>Core Services</span>
               </h2>
 
-              <div
-                class="layout-grid [--layout-column-min:35ch] max-w-screen-lg mx-auto"
-              >
-                <div class="relative">
-                  <article
-                    class="card ticket-card aspect-16/9 @lg:aspect-auto p-xs flow--sm"
-                    data-surface="primary"
-                    data-card-column-text-align="center"
-                    data-card-row-text-align="center"
-                  >
-                    <div class="card-body m-0 flow flow--xs p-sm pt-xl">
-                      <div class="card-body__content flow flex-col">
-                        <div class="card-body__content__caption flow">
-                          <h2
-                            class="heading heading-xl w-full text-center card-body__content__caption-title normal-case"
-                          >
-                            <span>Wholesale</span>
-                          </h2>
-                        </div>
-
-                        <div
-                          class="card-body__content-slot min-h-[4lh] max-w-11/12 @lg:max-w-2/3 mx-auto"
-                        >
-                          <p>
-                            trading has been at the heart of Lasgo for many
-                            years and we continue to invest in both bulk stock
-                            aquisitions and exclusive product ranges.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div class="relative">
-                  <article
-                    class="card ticket-card aspect-16/9 @lg:aspect-auto p-xs flow--sm"
-                    data-surface="primary"
-                    data-card-column-text-align="center"
-                    data-card-row-text-align="center"
-                  >
-                    <div class="card-body m-0 flow flow--xs p-sm pt-xl">
-                      <div class="card-body__content flow flex-col">
-                        <div class="card-body__content__caption flow">
-                          <h2
-                            class="heading heading-xl w-full text-center card-body__content__caption-title normal-case"
-                          >
-                            <span>Distribution</span>
-                          </h2>
-                        </div>
-
-                        <div
-                          class="card-body__content-slot min-h-[4lh] max-w-11/12 @lg:max-w-2/3 mx-auto"
-                        >
-                          <p>
-                            We are official distributors with a worldwide reach
-                            for a variety of product ranges encompassing music
-                            CD and vinyl, branded merchandise and consumer
-                            electronics.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              </div>
               <div
                 class="layout-grid [--layout-column-min:35ch] max-w-screen-lg mx-auto"
               >
@@ -2630,14 +2565,31 @@
 
     <script>
 
+      const mobileMenuScollEl = document.querySelector('#navMenu .navMenu');
+
+      //// Burger Menu toggle ////
       const burger = document.querySelector('.hamburgerSection');
       const outerWrap = document.querySelector('#outerWrap');
 
-      burger.addEventListener('click', () => {
+
+      burger.addEventListener('click', async () => {
         outerWrap.classList.toggle('nav-open');
+        
+        // Wait for animations to finish
+        const animations = mobileMenuScollEl.getAnimations();
+        if (animations.length > 0) {
+          await Promise.all(animations.map(animation => animation.finished));
+        }
+        
+        // Apply final state after animations complete
+        if (outerWrap.classList.contains('nav-open')) {
+          outerWrap.classList.add('nav-opened');
+        } else {
+          outerWrap.classList.remove('nav-opened');
+        }
       });
 
-      // Get hero on the page
+      //// Hero Observer ////
       const heroInfo = () => {
         const hero = document.querySelector('.hero');
         if(hero) {
@@ -2658,11 +2610,28 @@
           !entry.isIntersecting ? document.body.classList.add('hero-not-in-view') : document.body.classList.remove('hero-not-in-view')
           entry.intersectionRatio < 0.8 ? document.body.classList.add('hero-solid-bg') : document.body.classList.remove('hero-solid-bg')
         });
-      }, { threshold: [0, 0.1, 0.2, 0.5, 0.8, 1], rootMargin: '-100px' });
+      }, { threshold: [0, 0.1, 0.2, 0.5, 0.8, 1], rootMargin: '-70px' });
 
       if(hero) {
         observerHero.observe(hero.el);
       }
+
+      //// Mobile Menu scrollTo ////      
+      const mobileMenuLinks = [...document.querySelectorAll('.navMenu > .primary > li > a')].filter(link => link?.nextElementSibling && link?.nextElementSibling.classList.contains('megaMenu'));
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          if(window.innerWidth < 701) {
+            const megaMenu = link.nextElementSibling;
+            const megaMenuTop = megaMenu.getBoundingClientRect().top + window.scrollY;
+            const offset = 80; // Adjust based on fixed header height
+            mobileMenuScollEl.scrollTo({
+              top: megaMenuTop - offset,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
 
 
     </script>

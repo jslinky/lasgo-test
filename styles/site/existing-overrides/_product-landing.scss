@@ -22,17 +22,37 @@
     }
 
     .facetHeading {
-      --color: var(--color-primary);
+      --color: inherit;
       font-size: var(--text-sm);
-      background: var(--color-grey-12);
+      background: var(--color-grey-11);
       border: 1px solid
-        color-mix(in oklab, var(--color-grey-12), var(--color-dark) 2%);
+        color-mix(in oklab, var(--color-grey-11), var(--color-dark) 2%);
       padding-block: var(--space-3xs);
       position: sticky;
       top: 0;
       z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: min(var(--space-xs), 0.5rem);
+      &:before {
+        display: block;
+        content: "";
+        width:1em;
+        aspect-ratio: 1/1;
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='32' d='m112 184l144 144l144-144'/%3E%3C/svg%3E");
+        mask-repeat: no-repeat;
+        mask-position: left center;
+        background: currentColor;
+        mask-size: cover;
+      }
+      &.collapse {
+        visibility: visible!important;
+        &:before {
+          rotate: 180deg;
+        }
+      }
       &:has(+ div[style*="display:none"]) {
-        border-bottom-color: var(--color-grey-12);
+        border-bottom-color: var(--color-grey-11);
       }
       + div {
         margin-block-start: var(--space-2xs);
@@ -52,6 +72,9 @@
       flex: 1 1 auto;
       padding-right: 0;
       font-size: var(--sm);
+      @media #{$touch} {
+        padding-block: var(--space-md);
+      }
     }
 
     #facetList a .facetCount {
@@ -62,6 +85,9 @@
 
     #facetList .facetContainer div ul li {
       margin-bottom: 6px;
+      @media #{$touch} {
+        margin-bottom: 0;
+      }
     }
 
     /* #facetList .facetContainer {
@@ -94,6 +120,7 @@
 
     #facetList .filter-state-selectlist {
       --bg-y-pos: -82px;
+      height:auto;
     }
 
     #facetList .filter-state-selectlist:hover {
@@ -122,7 +149,7 @@
 
     .searchResults > ul > li {
       all: unset;
-      --purchase-block-bg: color-mix(in oklab, var(--color-grey-12), white 50%);
+      --purchase-block-bg: color-mix(in oklab, var(--color-grey-11), white 50%);
       display: grid;
       @container content-grid (max-width: 799px) {
         grid-auto-rows: 200px auto auto;
@@ -305,14 +332,14 @@
       --input-bg: transparent;
       --input-outline-color: color-mix(
         in oklab,
-        var(--color-grey-12),
+        var(--color-grey-11),
         var(--color-dark) 2%
       );
       &:hover {
-        --input-bg: color-mix(in oklab, var(--color-grey-12), white 50%);
+        --input-bg: color-mix(in oklab, var(--color-grey-11), white 50%);
         --input-outline-color: color-mix(
           in oklab,
-          var(--color-grey-12),
+          var(--color-grey-11),
           var(--color-dark) 2%
         );
       }

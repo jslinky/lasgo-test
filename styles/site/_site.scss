@@ -1,8 +1,11 @@
+@import "./login";
 
-body:has(.hero--expanded, #outerWrap) {
+
+body:has(.hero--expanded):has(#outerWrap) {
   overflow: hidden;
   #outerWrap {
     scroll-snap-type: y proximity;
+    // animation-timeline: --scroll;
     overflow: auto;
     max-height: 100vh;
     scroll-behavior: smooth;    
@@ -10,11 +13,14 @@ body:has(.hero--expanded, #outerWrap) {
   #body {
     display: contents;
     > * {
-      scroll-snap-type: center;
+      scroll-snap-align: center;
     }
-    :is(.hero, .hero + *) {
+    // .hero {
+    //   scroll-snap-align: center;     
+    // }    
+    .hero + * {
       scroll-snap-align: start;     
-    }    
+    }        
   }
 }
 
@@ -27,11 +33,73 @@ body:has(.hero--expanded, #outerWrap) {
 
 }
 
+@property --card-backdrop-color-stop-from-opacity {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0.7;
+}
+
+@property --card-backdrop-color-stop-to-opacity {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0.7;
+}
+
+@keyframes backdropOpacity {
+  from {
+    opacity:1
+  }
+  to {
+    opacity:0;
+  }
+}
+
+@keyframes shrinkHero {
+  // from {
+  //   max-height: 100vh;
+  // }
+  // to {
+  //   max-height: 200px;
+  // }
+  from {
+    // scale:1;
+    max-height: 100vh;
+  }
+  to {
+    // scale:0.5;
+    max-height: 0px;
+  }
+
+}
+
+.hero.hero--expanded {
+    height: 50vh;
+    position: sticky;
+    bottom: 0;  
+}
+
+.hero--expanded .card {
+  // animation: shrinkHero linear both;
+  animation-timeline: scroll();
+  animation-range: 0 120vh;
+}
+
 .hero--expanded .card {
   --card-backdrop-color-from-color:  color-mix(in oklab, var(--color-primary), var(--color-dark) 50%);
   --card-backdrop-color-to-color:  color-mix(in oklab, var(--color-primary), var(--color-dark) 50%);  
   --card-backdrop-color-stop-from-opacity: 0.7;
   --card-backdrop-color-stop-to-opacity: 0.7;  
+  :is(.card-body__content, .card-picture) {
+    animation: backdropOpacity linear both;
+    animation-timeline: scroll();
+    animation-range: 0 60vh;    
+  }
+}
+
+.hero--expanded .card-body {
+    width: min(100% - var(--wrapper-padding) * 2, var(--max-wrapper-width));
+    margin-inline: auto;
+    padding: 0;  
 }
 
 .hero .card-body__content__caption :where(.heading:first-of-type + .heading) {
@@ -43,55 +111,61 @@ body:has(.hero--expanded, #outerWrap) {
   @include output-heading-rules-default();
 }
 
-.accountHolderWrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  > div {
-    grid-column: 1/1;
-    &:first-of-type {
-      grid-row: 1/2;
-      anchor-name: --account-tabs;
-    }
-    &:last-of-type {
-      grid-row: 2/2;
-    }
-  }
-  &:after {
-    content: "";
-    display: inline-flex;
-    grid-row: 1 / -1;
-    grid-column: 2 / 3;
-    background: url("../assets/lasgo-office-sign.jpg");
-  }
-  .account-tabs {
-    position: absolute;
-    top: 0;
-    position-anchor: --account-tabs;
-    position-area: block-start inline-start;
-    display: flex;
-  }
-  &:has(input:checked:is(#login-tab)) {
-    > div {
-      &:last-of-type {
-        height: 0;
-        > div > div:not(.account-tabs) {
-          opacity: 0;
-        }
-      }
-    }
-  }
-  &:has(input:checked:is(#signup-tab)) {
-    > div {
-      &:first-of-type {
-        height: 0;
-        > div {
-          opacity: 0;
-        }
-      }
-    }
-  }
+.scanlines {
+    overflow: hidden;
+    position: relative;
 }
+.scanlines:before,
+.scanlines:after {
+    display: block;
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    mask: linear-gradient(to bottom, transparent 0%, black 30%, black, transparent 90%);
+    mask-position: center;
+    mask-size: cover;    
+}
+.scanlines:before {
+    width: 100%;
+    height: 2px;
+    z-index: 2147483649;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0.75;
+    animation: scanline 6s linear infinite;
+}
+.scanlines:after {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2147483648;
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.3) 51%
+    );
+    background-size: 100% 4px;
+    animation: scanlines 1s steps(60) infinite;
+}
+
+/* ANIMATE UNIQUE SCANLINE */
+@keyframes scanline {
+    0% {
+        transform: translate3d(0, 200000%, 0);
+    }
+}
+@keyframes scanlines {
+    0% {
+        background-position: 0 50%;
+    }
+}
+
+div.scanlines {
+    position: absolute;
+}
+
+
+
 
 :root:is(.new) :where(input, textarea) {
   border: 0;
@@ -239,6 +313,11 @@ body:has(.hero--expanded, #outerWrap) {
   --heading-underline-block-start: 0.25em;
   --heading-underline-color: var(--color-brand-orange);
   --heading-underline-border-radius: var(--radius);
+}
+
+.heading > span:last-of-type:not(:only-of-type) {
+  margin-block-start: 0.3em;
+  display: block;
 }
 
 .line-across {
@@ -459,6 +538,7 @@ div:has(> .ticket-card) {
   height: auto;
   #filterMenu {
     padding-top: 0;
+    margin-top: var(--spacing-md);
   }
   @container content-grid (max-width:899px) {
     width: calc(100vw - 16px);
