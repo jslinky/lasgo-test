@@ -1,0 +1,356 @@
+.lasgo-artwork {
+  display: grid;
+  place-content: center;
+}
+
+/* .lasgo-artwork {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+      } */
+
+:is(
+    .lasgo-artwork > svg,
+    .globe-logo,
+    .globe-container,
+    .axis,
+    .books,
+    .cd,
+    .record,
+    .tee
+  ) {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+}
+
+.lasgo-artwork > svg {
+  width: 100vmin;
+  /* border: 1px solid red; */
+}
+
+:is(.books, .cd, .record, .tee) {
+  width: 25vmin;
+  aspect-ratio: 1/1;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.books {
+  margin-left: 3vmin;
+  margin-top: 3vmin;
+}
+
+@keyframes cd {
+  to {
+    transform: rotateZ(-14deg) skew(-6deg, 0deg);
+  }
+}
+
+.cd {
+  animation: cd 3500ms ease-in-out 0s infinite alternate both;
+  justify-self: start;
+  align-self: end;
+  margin-left: 3vmin;
+  margin-bottom: 3vmin;
+  display: grid;
+  place-items: center;
+  svg {
+    width: 80%;
+    height: 80%;
+  }
+}
+
+.record {
+  justify-self: end;
+  align-self: start;
+  background: transparent;
+  margin-right: 3vmin;
+  margin-top: 3vmin;
+}
+
+.tee {
+  position: relative;
+  display: grid;
+  place-items: center;
+  perspective: 900px;
+  justify-self: end;
+  align-self: end;
+  background: transparent;
+  margin-right: 3vmin;
+  margin-bottom: 3vmin;
+  z-index: -1;
+}
+
+.globe-logo {
+  align-self: center;
+  justify-self: center;
+  z-index: 3;
+  background: white;
+  width: max(15%, 150px);
+  display: grid;
+  place-content: center;
+  padding: 1rem;
+  border-radius: 3rem;
+  border: 3px solid black;
+}
+
+@keyframes globe-scale {
+  to {
+    scale: 0.8;
+  }
+}
+
+.globe-container {
+  animation: globe-scale 18s ease-in-out 0s infinite alternate both;
+  --track-size: min(1.5vmin, 0.85rem);
+  position: relative;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  overflow: clip;
+  border-radius: 50%;
+  rotate: 20deg;
+  align-self: center;
+  justify-self: center;
+  scale: 0.6;
+  background: white;
+}
+
+.axis {
+  width: 50vmin;
+  aspect-ratio: 1/1;
+  border: var(--track-size) solid #0f646b;
+  border-radius: 50%;
+  z-index: -1;
+  /* mix-blend-mode: screen; */
+}
+
+div:nth-child(2 of .axis) {
+  aspect-ratio: none;
+  height: 25vmin;
+  transform: translateY(-25vmin);
+}
+div:nth-child(3 of .axis) {
+  aspect-ratio: none;
+  height: 25vmin;
+  transform: translateY(25vmin);
+}
+div:nth-child(4 of .axis) {
+  aspect-ratio: none;
+  width: 10vmin;
+  height: calc(100% - (var(--track-size) * 2));
+}
+div:nth-child(5 of .axis) {
+  aspect-ratio: none;
+  width: 33vmin;
+  height: calc(100% - (var(--track-size) * 2));
+}
+
+@property --angle-x {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@property --angle-y {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+.orb {
+  width: var(--track-size);
+  aspect-ratio: 1/1;
+  position: absolute;
+  background: #6ea5c6;
+  border-radius: 50%;
+  left: calc(50% - 0.5rem);
+  --radius-x: calc(25vmin + var(--track-size));
+  --radius-y: calc(25vmin + var(--track-size));
+  transform: translateX(calc(cos(var(--angle-x)) * var(--radius-x)))
+    translateY(calc(sin(var(--angle-y)) * var(--radius-y)));
+}
+
+@keyframes orb-one {
+  0% {
+    opacity: 1;
+    --angle-x: 88deg;
+    --angle-y: -90deg;
+    scale: 1;
+  }
+  5% {
+    --angle-x: 77deg;
+    scale: 1.2;
+  }
+  10% {
+    opacity: 1;
+    --angle-x: 88deg;
+    --angle-y: 90deg;
+    scale: 1;
+  }
+  11% {
+    opacity: 0;
+  }
+  75% {
+  }
+  100% {
+    opacity: 0;
+    --angle-x: 88deg;
+    --angle-y: 90deg;
+  }
+}
+
+@keyframes orbit-right {
+  0% {
+    opacity: 1;
+    --angle-x: 0deg;
+    --angle-y: 0deg;
+  }
+  50% {
+    z-index: -1;
+  }
+  100% {
+    opacity: 1;
+    --angle-x: 360deg;
+    --angle-y: 360deg;
+  }
+}
+
+@keyframes orbit-left {
+  0% {
+    opacity: 1;
+    --angle-x: 0deg;
+    --angle-y: 0deg;
+    z-index: -1;
+  }
+  78% {
+    z-index: 1;
+  }
+  79% {
+    z-index: -1;
+  }
+  100% {
+    z-index: -1;
+    opacity: 1;
+    --angle-x: 360deg;
+    --angle-y: 360deg;
+  }
+}
+
+div:nth-child(1 of .orb) {
+  animation: 10s orbit-left 2s linear infinite;
+  --angle-y: 90deg;
+  --angle-x: 90deg;
+  --radius-x: calc(5.4vmin + (var(--track-size) / 2));
+}
+
+div:nth-child(2 of .orb) {
+  background: #ce6d6e;
+  animation: 10s orbit-left 2s linear infinite;
+  --angle-y: 90deg;
+  --angle-x: 90deg;
+  --radius-x: calc(16.5vmin + (var(--track-size) / 2));
+}
+
+div:nth-child(3 of .orb) {
+  background: #f2ab70;
+  animation: 10s orbit-right 0s linear infinite;
+  --angle-y: 90deg;
+  --angle-x: 90deg;
+  --radius-x: calc(5.4vmin + (var(--track-size) / 2));
+}
+
+div:nth-child(4 of .orb) {
+  animation: 10s orbit-right 0s linear infinite;
+  background: #f4dd6e;
+  --angle-y: 80deg;
+  --angle-x: 93deg;
+  --radius-x: calc(16.5vmin + (var(--track-size) / 2));
+}
+
+div:nth-child(5 of .orb) {
+  animation: 10s orbit-right 0s linear infinite;
+  --angle-y: 80deg;
+  --angle-x: 93deg;
+  rotate: 90deg;
+  --radius-x: calc(12vmin + (var(--track-size) / 2));
+  top: 1vmin;
+}
+
+div:nth-child(6 of .orb) {
+  animation: 10s orbit-left 0s linear infinite;
+  background: #ce6d6e;
+  --angle-y: 80deg;
+  --angle-x: 93deg;
+  rotate: 90deg;
+  --radius-x: calc(12vmin + (var(--track-size) / 2));
+  top: 50vmin;
+}
+
+@keyframes draw-line {
+  50% {
+    stroke-dashoffset: 0;
+  }
+  70% {
+    stroke-dashoffset: -194px;
+  }
+  100% {
+    stroke-dashoffset: -194px;
+  }
+}
+
+.tee-line {
+  animation: draw-line 4s linear forwards infinite;
+  stroke-linecap: round;
+  stroke-dasharray: 194px;
+  stroke-dashoffset: 194px;
+}
+
+@keyframes t-shirt-move {
+  0%,
+  100% {
+    transform: translateY(0px) scale(0.95);
+    transform-origin: center;
+  }
+  50% {
+    transform: translateY(20px) scale(0.85);
+    transform-origin: center;
+  }
+}
+
+#t-shirt {
+  /* transform: translateY(25px);
+        scale: 0.8; */
+  animation: t-shirt-move 8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes mug {
+  0%,
+  100% {
+    transform: translateY(45px) scale(0.85);
+  }
+  50% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+#mug {
+  /* scale: 0.8; */
+  transform-origin: left center;
+  /* transform: translateY(70px); */
+  animation: mug 8s ease-in-out infinite;
+}
+
+@keyframes record-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#Record_2 {
+  transform-origin: center;
+  animation: record-spin 8s ease-in-out infinite;
+}

@@ -3348,31 +3348,35 @@
       #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu.ui-sortable:after, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu.ui-sortable:after, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu.ui-sortable:after {
         all: unset;
       }
+      #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut > li ul.primary > li, #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut > li > ul.primary > li ul.primary > li {
+        all: unset;
+      }
       #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu ul.categories > li, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu ul.categories > li, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu ul.categories > li {
         width: 100%;
       }
       #breadCrumb {
         display: none;
       }
-      #accountHeader.clearfix:before, #accountHeader.clearfix:after,
-      #accountHeader .clearfix:before,
-      #accountHeader .clearfix:after {
+      :is(#mainHeader .headerMenu .headerMenuRight > li, #mainHeader .headerMenu .headerMenuRight a) {
         all: unset;
       }
-      #accountHeader > div > div {
+      :is(#accountHeader, #mainHeader).clearfix:before, :is(#accountHeader, #mainHeader).clearfix:after,
+      :is(#accountHeader, #mainHeader) .clearfix:before,
+      :is(#accountHeader, #mainHeader) .clearfix:after {
         all: unset;
       }
-      #accountHeader > div {
+      .stickyHeaderLoggedOut {
+        all: unset;
+      }
+      :is(#accountHeader, #mainHeader) > div > div {
+        all: unset;
+      }
+      #mainHeader :is(.grid_3, .headerMenu) {
+        all: unset;
+      }
+      :is(#accountHeader, #mainHeader) > div {
         width: min(100% - var(--wrapper-padding) * 2, var(--max-wrapper-width));
         margin-inline: auto;
-      }
-      @media (min-width: 701px) {
-        #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li > a {
-          color: #fff;
-        }
-      }
-      #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li > a {
-        margin: 0 11px;
       }
       .grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12, .grid_13, .grid_14, .grid_15, .grid_16 {
         margin-left: 10px;
@@ -3431,10 +3435,32 @@
       }
     }
     @layer new {
+      :root {
+        --hero-expanded-surface-color: var(--color-dark);
+        --hero-expanded-surface-mix-color: var(--color-primary);
+        --hero-expanded-nav-bg: oklch(from color-mix(in oklab, var(--hero-expanded-surface-mix-color), var(--hero-expanded-surface-color) 70%) l c h / 1);
+      }
+      @media (min-width: 701px) {
+        :is(#megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li > a, #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut ul.primary > li > a) {
+          color: #fff;
+        }
+      }
+      #mainHeader {
+        padding-bottom: 1rem;
+      }
+      #mainHeader .headerMenu .headerMenuRight a {
+        font-weight: 600;
+      }
+      @media (min-width: 701px) {
+        #mainHeader .headerMenu .headerMenuRight a {
+          font-size: var(--text-sm);
+          color: #fff;
+        }
+      }
       :where(.sticky-wrapper) {
         background: var(--root-bg);
       }
-      :where(body:not(.hero-solid-bg)) :where(#outerWrap:has(.hero--expanded)) .sticky-wrapper {
+      :where(body:not(.hero-solid-bg)) :where(#outerWrap:has(.hero--expanded)) :is(.sticky-wrapper, #megaMenuHeaderLoggedOut) {
         background: transparent;
       }
       #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .menuSelected > a, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .menuSelected > a, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .menuSelected > a {
@@ -3459,37 +3485,51 @@
       @media (min-width: 701px) {
         #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > ul.primary > li ul.primary .megaMenu {
           min-height: 50vh;
+          max-width: var(--max-wrapper-width);
+          left: 50%;
+          transform: translateX(-50%);
+          padding-inline: 0;
+        }
+      }
+      @media (min-width: 701px) {
+        #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu.ui-sortable:after, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu.ui-sortable:after, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu.ui-sortable:after {
+          content: "";
         }
       }
       #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu.ui-sortable:after, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu.ui-sortable:after, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu.ui-sortable:after {
-        content: "";
         position: absolute;
         z-index: 13;
         top: 0;
         bottom: 0;
         right: 0;
         background: #fff;
-        width: 50vw;
+        width: 40vw;
         height: 100%;
         border-bottom: 1px solid #ccc;
         box-shadow: 0 3px 0 rgba(0, 0, 0, 0.06);
         transform: translateX(100%);
         right: 50%;
         z-index: -1;
+        border-radius: var(--radius);
+      }
+      @media (min-width: 701px) {
+        #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu.ui-sortable:before, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu.ui-sortable:before, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu.ui-sortable:before {
+          content: "";
+        }
       }
       #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu.ui-sortable:before, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu.ui-sortable:before, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu.ui-sortable:before {
-        content: "";
         position: absolute;
         z-index: 13;
         top: 0;
         bottom: 0;
         left: 50%;
         background: #fff;
-        width: 50vw;
+        width: 40vw;
         height: 100%;
         box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
         transform: translateX(-100%);
         z-index: -1;
+        border-radius: var(--radius);
       }
       .text-color {
         color: transparent;
@@ -3520,31 +3560,31 @@
       html {
         font-size: var(--font-size-base-px, 16px);
       }
-      #accountHeader {
+      :is(#accountHeader) {
         z-index: 1;
         max-width: 100%;
         padding-inline: calc(clamp(0.25rem, 1vi, 1rem) * 2);
         background: var(--root-bg);
       }
-      #accountHeader :is(.headerMenuOptions, .grid_16) {
+      :is(#accountHeader) :is(.headerMenuOptions, .grid_16) {
         display: flex;
         flex-wrap: nowrap;
       }
-      #accountHeader .left {
+      :is(#accountHeader) .left {
         flex: 1 1 auto;
         overflow: hidden;
       }
-      #accountHeader .right {
+      :is(#accountHeader) .right {
         white-space: nowrap;
         flex: 1;
       }
-      #accountHeader .loggedIn {
+      :is(#accountHeader) :is(.loggedIn, .loggedOut) {
         flex: 1 1 auto;
       }
-      #accountHeader .headerMenuRight {
+      :is(#accountHeader) .headerMenuRight {
         min-width: max-content;
       }
-      #accountHeader .loggedinWrap {
+      :is(#accountHeader) .loggedinWrap {
         white-space: nowrap;
         text-overflow: ellipsis;
         width: 100%;
@@ -3570,7 +3610,7 @@
           height: 45px;
         }
       }
-      .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.logoSection #logo a.normal {
+      :is(.stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.logoSection #logo a.normal, #mainHeader #logo a) {
         background-image: none;
         background-color: var(--color-primary);
         mask: url("data:image/svg+xml,%3Csvg width='350' height='135' viewBox='0 0 350 135' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.9772 128.708C17.9772 130.691 16.924 132.071 14.7925 132.071C12.6611 132.071 11.6079 130.691 11.6079 128.708V116.407H9.25101V128.708C9.25101 130.691 8.19728 132.071 6.06585 132.071C3.93441 132.071 2.88119 130.691 2.88119 128.708V116.407H0.524323V128.708C0.524323 132.248 3.08215 134.281 5.71494 134.281C7.72091 134.281 9.25101 133.754 10.4297 131.996C11.6084 133.754 13.138 134.281 15.1434 134.281C17.7773 134.281 20.3351 132.247 20.3351 128.708V116.407H17.9772V128.708Z' fill='black'/%3E%3Cpath d='M28.5619 121.679C25.2268 121.679 22.3181 124.24 22.3181 127.955C22.3181 131.67 25.2268 134.231 28.5619 134.231C31.897 134.231 34.8058 131.67 34.8058 127.955C34.8058 124.24 31.897 121.679 28.5619 121.679ZM28.5619 132.122C26.28 132.122 24.6245 130.415 24.6245 127.955C24.6245 125.495 26.28 123.787 28.5619 123.787C30.8438 123.787 32.4984 125.495 32.4984 127.955C32.4984 130.415 30.8438 132.122 28.5619 132.122Z' fill='black'/%3E%3Cpath d='M38.7948 123.311H38.7442V121.93H36.6378V133.979H38.8442V128.357C38.8442 125.093 40.0984 123.787 42.2298 123.787H42.5563V121.679H42.0544C40.5748 121.679 39.5471 122.131 38.7948 123.311Z' fill='black'/%3E%3Cpath d='M46.3932 116.407H44.1863V133.979H46.3932V116.407Z' fill='black'/%3E%3Cpath d='M58.8075 127.202C58.8075 130.516 57.0519 132.122 54.9455 132.122C52.5876 132.122 50.9331 130.39 50.9331 127.93C50.9331 125.445 52.5126 123.788 54.895 123.788C55.8982 123.788 57.1264 124.29 57.9292 124.842V122.533C56.876 121.93 55.7228 121.68 54.5191 121.68C51.4344 121.68 48.7261 124.291 48.7261 127.654C48.7261 131.219 51.0335 134.231 54.9455 134.231C58.481 134.231 61.0139 131.571 61.0139 127.604V116.408H58.8075V127.202Z' fill='black'/%3E%3Cpath d='M76.6883 129.612C76.6883 131.143 75.836 132.122 74.5313 132.122C73.1022 132.122 72.1744 131.319 72.1744 129.26V121.93H69.968V129.26C69.968 131.319 69.0403 132.122 67.6102 132.122C66.3065 132.122 65.4537 131.143 65.4537 129.612V121.93H63.2473V130.114C63.2473 132.374 65.1028 134.231 67.5607 134.231C68.9143 134.231 70.2684 133.679 71.0707 132.524C71.873 133.679 73.2272 134.231 74.5818 134.231C77.0397 134.231 78.8952 132.374 78.8952 130.114V121.93H76.6883V129.612Z' fill='black'/%3E%3Cpath d='M83.9145 120.524C84.6289 120.355 85.0713 119.639 84.9026 118.924C84.7339 118.208 84.018 117.766 83.3036 117.934C82.5892 118.103 82.1469 118.82 82.3155 119.535C82.4842 120.25 83.2001 120.693 83.9145 120.524Z' fill='black'/%3E%3Cpath d='M84.7147 121.93H82.5078V133.979H84.7147V121.93Z' fill='black'/%3E%3Cpath d='M97.8307 127.202C97.8307 130.516 96.0752 132.122 93.9687 132.122C91.6108 132.122 89.9563 130.39 89.9563 127.93C89.9563 125.445 91.5359 123.788 93.9182 123.788C94.9215 123.788 96.1496 124.29 96.9524 124.842V122.533C95.8992 121.93 94.746 121.68 93.5423 121.68C90.4576 121.68 87.7494 124.291 87.7494 127.654C87.7494 131.219 90.0568 134.231 93.9687 134.231C97.5043 134.231 100.037 131.571 100.037 127.604V116.408H97.8307V127.202Z' fill='black'/%3E%3Cpath d='M108.039 132.122C105.757 132.122 104.101 130.415 104.101 127.955C104.101 125.495 105.757 123.787 108.039 123.787C109.393 123.787 110.02 124.189 110.772 124.942L104.829 128.256L105.732 130.013L113.857 125.495C112.728 123.16 110.848 121.679 108.039 121.679C104.704 121.679 101.795 124.239 101.795 127.955C101.795 131.67 104.704 134.23 108.039 134.23C111.5 134.23 114.057 131.82 114.308 128.632L112.077 128.356C111.625 130.566 110.646 132.122 108.039 132.122Z' fill='black'/%3E%3Cpath d='M137.481 116.106C136.454 116.106 135.801 116.482 135.299 118.164L131.739 129.988H131.688L128.128 118.164C127.626 116.483 126.975 116.106 125.946 116.106C125.018 116.106 124.141 116.759 123.99 117.964L121.959 133.979H124.417L126.096 119.721H126.147L129.908 131.971C130.435 133.703 130.836 133.979 131.688 133.979H131.739C132.592 133.979 132.992 133.703 133.519 131.971L137.28 119.721H137.331L139.011 133.979H141.469L139.437 117.964C139.286 116.759 138.409 116.106 137.481 116.106Z' fill='black'/%3E%3Cpath d='M148.467 132.122C146.185 132.122 144.529 130.415 144.529 127.955C144.529 125.495 146.185 123.787 148.467 123.787C149.821 123.787 150.448 124.189 151.2 124.942L145.257 128.256L146.16 130.013L154.284 125.495C153.156 123.16 151.276 121.679 148.467 121.679C145.132 121.679 142.223 124.239 142.223 127.955C142.223 131.67 145.132 134.23 148.467 134.23C151.928 134.23 154.485 131.82 154.736 128.632L152.504 128.356C152.053 130.566 151.075 132.122 148.467 132.122Z' fill='black'/%3E%3Cpath d='M166.148 127.202C166.148 130.516 164.392 132.122 162.286 132.122C159.928 132.122 158.273 130.39 158.273 127.93C158.273 125.445 159.853 123.788 162.235 123.788C163.239 123.788 164.467 124.29 165.269 124.842V122.533C164.216 121.93 163.063 121.68 161.859 121.68C158.775 121.68 156.066 124.291 156.066 127.654C156.066 131.219 158.374 134.231 162.286 134.231C165.821 134.231 168.354 131.571 168.354 127.604V116.408H166.148V127.202Z' fill='black'/%3E%3Cpath d='M172.845 117.914C171.992 117.914 171.515 118.566 171.515 119.244C171.515 119.922 171.992 120.575 172.845 120.575C173.697 120.575 174.174 119.922 174.174 119.244C174.174 118.566 173.697 117.914 172.845 117.914Z' fill='black'/%3E%3Cpath d='M173.948 121.93H171.741V133.979H173.948V121.93Z' fill='black'/%3E%3Cpath d='M32.2602 101.83H47.5184V89.0279H34.2947C20.0535 89.0279 13.6597 81.3177 13.6597 65.6068V0H0V68.9531C0 88.1554 12.6427 101.83 32.2602 101.83Z' fill='black'/%3E%3Cpath d='M189.488 82.3364C189.488 57.3157 145.311 62.4071 145.457 50.3325C145.603 45.9687 147.491 44.2225 153.74 44.2225H186V32.0034H155.92C140.661 32.0034 132.088 38.5495 132.088 50.9146C132.088 75.0628 176.118 70.1168 176.118 82.9185C176.118 87.2823 173.793 89.6101 167.835 89.6101H132.088V101.83H167.835C180.188 101.83 189.488 95.5741 189.488 82.3364Z' fill='black'/%3E%3Cpath d='M313.727 30.5488C294.4 30.5488 277.543 45.3866 277.543 66.9166C277.543 88.4465 294.4 103.285 313.727 103.285C333.054 103.285 349.911 88.447 349.911 66.9166C349.911 45.3866 333.054 30.5488 313.727 30.5488ZM313.727 91.0647C300.504 91.0647 290.913 81.1728 290.913 66.9166C290.913 52.6608 300.504 42.7689 313.727 42.7689C326.951 42.7689 336.542 52.6608 336.542 66.9166C336.542 81.1723 326.951 91.0647 313.727 91.0647Z' fill='black'/%3E%3Cpath d='M254.73 37.9241C249.127 33.3851 241.848 30.5488 233.224 30.5488C211.426 30.5488 197.185 46.8418 197.185 67.7891C197.185 88.1555 212.88 103.284 233.224 103.284C238.02 103.284 244.849 101.248 249.645 98.6294V85.3912C244.704 88.3005 239.182 91.0647 233.369 91.0647C220.146 91.0647 209.973 82.1914 209.973 68.5172C209.973 54.843 217.385 42.7689 232.643 42.7689C244.512 42.7689 254.651 52.2957 254.73 67.8974V76.1187V85.2983H254.731V100.666C254.731 117.686 241.943 122.778 230.463 122.778C223.924 122.778 217.53 121.032 211.136 119.286L208.084 130.924C215.495 133.397 223.197 134.998 231.045 134.998C251.534 134.998 267.519 122.488 267.519 96.3022V85.2983H267.519V32.0035H254.73V37.9241Z' fill='black'/%3E%3Cpath d='M109.42 36.9274C103.603 32.8224 96.0043 30.5488 87.0425 30.5488C64.6637 30.5488 51.0039 46.2597 51.0039 66.189C51.0039 86.7003 65.2451 103.284 85.2986 103.284C94.163 103.284 99.1037 100.375 104.19 96.5927V81.4639C99.8311 86.9919 93.8728 91.0652 86.6069 91.0652C73.2374 91.0652 63.7925 80.1548 63.7925 67.2081C63.7925 53.9704 72.6569 42.7694 86.7527 42.7694C98.3193 42.7694 109.311 49.3941 109.421 62.3571V76.1192V85.2988H109.422V101.831H122.21V85.2988V63.7163V32.0035H109.421V36.9274H109.42Z' fill='black'/%3E%3Cpath d='M187.063 122.782C186.06 122.073 184.749 121.679 183.202 121.679C179.34 121.679 176.983 124.39 176.983 127.83C176.983 127.834 176.983 127.838 176.983 127.842C176.983 127.846 176.983 127.851 176.983 127.855C176.983 131.394 179.44 134.256 182.901 134.256C184.43 134.256 185.283 133.754 186.161 133.101V133.076C186.161 133.076 186.162 133.076 186.162 133.076V130.465C185.409 131.419 184.381 132.122 183.127 132.122C180.821 132.122 179.193 130.242 179.19 128.011C179.199 125.735 180.727 123.813 183.152 123.813C185.155 123.813 187.059 124.965 187.063 127.219V129.569V131.152V134.005H189.27V133.979V131.152V127.428V127.403V121.956H187.063V122.782Z' fill='black'/%3E%3C/svg%3E%0A");
@@ -3581,7 +3621,7 @@
         padding: 0;
       }
       @media (min-width: 701px) {
-        .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.logoSection #logo a.normal {
+        :is(.stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.logoSection #logo a.normal, #mainHeader #logo a) {
           width: 110px;
         }
       }
@@ -3601,16 +3641,24 @@
         display: flex;
         flex-direction: column;
       }
-      .stickyHeader {
+      :is(.stickyHeader, .sticky-wrapper > .sticky-wrapper, .stickyHeaderLoggedOut) {
         display: contents;
       }
-      .bar-inner > ul.loggedIn {
+      :is(.bar-inner > ul.loggedIn, #mainHeader > div) {
         margin-inline: auto;
-        margin-top: var(--root-header-mt);
         row-gap: var(--space-xs);
         column-gap: var(--space-xs);
       }
-      #megaMenuHeader {
+      .bar-inner > ul.loggedIn {
+        margin-top: var(--root-header-mt);
+      }
+      #mainHeader > div {
+        margin-top: calc(var(--root-header-mt) + var(--root-account-header-height));
+      }
+      #mainHeader > div > div {
+        display: flex;
+      }
+      :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) {
         margin-inline: auto;
         margin-top: var(--root-nav-mt);
         border-radius: 0 0 var(--radius) var(--radius);
@@ -3623,14 +3671,18 @@
         display: flex;
         align-items: center;
       }
+      .loggedOut .navMenu {
+        anchor-name: --nav-menu;
+      }
       :is(#mainHeader,
       #accountHeader,
+      #mainHeader,
       #footer,
       #sticky-wrapper.sticky-wrapper,
       #sticky-wrapper.sticky-wrapper.is-sticky) {
         min-width: auto;
       }
-      .sticky-wrapper {
+      :is(#accountHeader + .sticky-wrapper, #mainHeader + .sticky-wrapper, #mainHeader) {
         transition: all 50ms ease-in-out;
         height: calc(105 / var(--font-size-base-px) * 1rem) !important;
         z-index: 2;
@@ -3641,13 +3693,18 @@
         width: calc(100% - clamp(0.25rem, 1vi, 1rem) * 2);
       }
       @media (min-width: 701px) {
-        .sticky-wrapper {
+        :is(#accountHeader + .sticky-wrapper, #mainHeader + .sticky-wrapper, #mainHeader) {
           height: max-content !important;
         }
       }
       .sticky-wrapper.is-sticky .stickyHeader {
         left: 50%;
         transform: translateX(-50%);
+      }
+      #mainHeader + .sticky-wrapper {
+        top: 87px;
+        isolation: isolate;
+        z-index: 2;
       }
       #outerWrap:has(.hero) #breadcrumb {
         display: none;
@@ -3661,7 +3718,7 @@
       .hero--expanded .card-body {
         margin-top: calc(var(--root-header-height) + var(--root-nav-height));
       }
-      ul.loggedIn {
+      :is(ul.loggedIn, ul.loggedOut) {
         width: min(100% - var(--wrapper-padding) * 2, var(--max-wrapper-width));
         display: flex;
         justify-content: space-between;
@@ -3670,7 +3727,7 @@
       .barinner > ul.loggedin {
         height: var(--root-header-height);
       }
-      .navinner > ul.loggedIn {
+      :is(.navinner > ul.loggedIn, .navInner > ul.loggedOut) {
         height: var(--root-nav-height);
         margin-inline: auto;
       }
@@ -3709,14 +3766,19 @@
         }
       }
       @media (max-width: 700px) {
-        .nav-open.nav-opened .navinner > ul.loggedIn:before {
+        :is(.navinner > ul.loggedIn, .navInner > ul.loggedOut):before {
           content: "";
           display: block;
-          height: 4rem;
+          border-bottom: 1px solid oklch(from var(--color-primary) l c h/0.2);
+        }
+      }
+      @media (max-width: 700px) {
+        .nav-open.nav-opened :is(.navinner > ul.loggedIn, .navInner > ul.loggedOut):before {
+          height: 7rem;
           top: 0;
           left: 0;
           width: 100%;
-          background: oklch(from var(--color-grey-11) l c h/0.5);
+          background: oklch(from var(--color-grey-11) l c h/0.1);
           position: fixed;
           z-index: 1;
           backdrop-filter: blur(10px);
@@ -3735,14 +3797,19 @@
       .mainBasketHeader {
         color: var(--color-primary);
       }
-      body.hero-solid-bg:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) .sticky-wrapper {
-        background: oklch(from color-mix(in oklab, var(--color-primary), var(--color-dark) 70%) l c h/1);
-        box-shadow: 0 40px 30px oklch(from color-mix(in oklab, var(--color-primary), var(--color-dark) 70%) l c h/1);
+      body.hero-solid-bg:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(#accountHeader + .sticky-wrapper, #mainHeader) {
+        border-radius: var(--radius);
       }
-      body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.logoSection #logo a.normal {
+      body.hero-solid-bg:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(.sticky-wrapper, #mainHeader) {
+        background: var(--hero-expanded-nav-bg);
+      }
+      body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(.stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.logoSection #logo a.normal, #mainHeader #logo a) {
         background-color: white;
       }
-      body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) #megaMenuHeader {
+      body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) #mainHeader {
+        background-color: transparent;
+      }
+      body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) {
         background-color: transparent;
       }
       body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) .hamburgerSection {
@@ -3785,9 +3852,15 @@
         background-color: transparent;
       }
       @media (min-width: 701px) {
-        #megaMenuHeader {
+        :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) {
           background-color: var(--color-primary);
         }
+      }
+      .sticky-wrapper :is(#barHeader,
+      [class^=container],
+      [class^=grid],
+      #bar-Wrapper) {
+        display: contents;
       }
       #outerWrap:has(.hero--expanded) .hero--expanded {
         --heading-3xl-font-size-max: calc(var(--display-2xl-px) * var(--text-size-increment));
@@ -3802,20 +3875,14 @@
       #outerWrap:has(.hero--expanded) .hero--expanded .card {
         overflow: clip;
       }
-      #outerWrap:has(.hero--expanded) .stickyHeader :is(#barHeader,
-      [class^=container],
-      [class^=grid],
-      #bar-Wrapper) {
-        display: contents;
-      }
-      #outerWrap:has(.hero--expanded) .stickyHeader #megaMenuHeader {
+      #outerWrap:has(.hero--expanded) .sticky-wrapper :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) {
         width: 100%;
         align-self: end;
       }
-      #outerWrap:has(.hero--expanded) .stickyHeader #megaMenuHeader :is([class^=container], [class^=grid]) {
+      #outerWrap:has(.hero--expanded) .sticky-wrapper :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) :is([class^=container], [class^=grid]) {
         width: 100%;
       }
-      #outerWrap:has(.hero--expanded) .stickyHeader #megaMenuHeader ul.primary > li > a {
+      #outerWrap:has(.hero--expanded) .sticky-wrapper :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) ul.primary > li > a {
         font-size: var(--text-sm);
         font-weight: 600;
         text-wrap: nowrap;
@@ -3827,15 +3894,9 @@
         padding-inline: var(--spacing-xl);
       }
       @media (min-width: 701px) {
-        #outerWrap:has(.hero--expanded) .stickyHeader #megaMenuHeader ul.primary > li > a {
+        #outerWrap:has(.hero--expanded) .sticky-wrapper :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) ul.primary > li > a {
           padding-inline: var(--spacing-xs);
         }
-      }
-      #outerWrap:has(.hero--expanded) .stickyHeader {
-        /*     Hide loggedin elements  */
-        /* :is(.searchSection, .basketSection) {
-          display: none;
-        } */
       }
       select#productType {
         border-radius: var(--radius) 0 0 var(--radius);
@@ -3845,6 +3906,26 @@
       }
       .headerMenuRight {
         display: flex;
+        border: none;
+        height: var(--root-nav-height);
+        align-items: stretch;
+      }
+      .headerMenuRight > li {
+        display: flex;
+        align-items: center;
+      }
+      .headerMenuRight > li span {
+        display: none;
+      }
+      .headerMenuRight a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+      @media (min-width: 701px) {
+        .headerMenuRight a {
+          padding-inline: var(--spacing-sm);
+        }
       }
       .headerMenuOptionsWrap {
         font-size: var(--text-sm);
@@ -3900,15 +3981,21 @@
       .categoryContainer {
         margin-inline: auto;
       }
+      @media (max-width: 700px) {
+        .categoryContainer {
+          background: color-mix(in oklab, var(--color-secondary), transparent 40%);
+          padding-top: var(--space-lg);
+        }
+      }
       @media (min-width: 701px) {
         .categoryContainer {
-          width: min(100% - var(--wrapper-padding) * 2, var(--max-wrapper-width));
+          width: 100%;
           padding-inline: 1.2rem;
         }
       }
       .categoryContainer .categories {
         padding-bottom: 0;
-        padding-inline: 0;
+        padding-inline: var(--space-sm);
       }
       .categoryContainer .categories h5 {
         --heading-sm-font-size-min: var(--sm-px);
@@ -3931,7 +4018,7 @@
         }
       }
       @media (max-width: 700px) {
-        #megaMenuHeader ul.primary a {
+        :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) ul.primary a {
           text-align: left;
           margin-inline: 0;
           padding-inline: var(--spacing-xl);
@@ -4001,7 +4088,7 @@
         .mainBasketHeader {
           font-size: var(--text-base);
         }
-        ul.loggedIn {
+        :is(ul.loggedIn, ul.loggedOut) {
           flex-wrap: wrap;
           justify-content: center;
         }
@@ -4066,7 +4153,7 @@
         .navMenu > ul > li:nth-of-type(7) {
           --delay: calc(50ms * 7);
         }
-        #megaMenuHeader {
+        :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) {
           position: relative;
           z-index: 1;
         }
@@ -4081,6 +4168,79 @@
         }
         #outerWrap.nav-open {
           --nav-translate-x: 0%;
+        }
+      }
+      @media (hover) and (pointer: fine) and (min-width: 701px) {
+        a + .megaMenu {
+          display: block !important;
+          opacity: 0;
+          pointer-events: none;
+          transform-origin: top left;
+          transition: opacity 200ms ease-in, transform 200ms ease-in, visibility 0s linear 200ms;
+        }
+        a:hover + .megaMenu,
+        .megaMenu:hover {
+          opacity: 1;
+          pointer-events: auto;
+          transition: opacity 200ms ease-in, transform 200ms ease-in, visibility 0s;
+        }
+        a:not(:hover) + .megaMenu {
+          transition-delay: 150ms;
+        }
+      }
+      @supports not (anchor-name: --my-anchor) {
+        body.hero-solid-bg:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) #megaMenuHeaderLoggedOut {
+          background: var(--hero-expanded-nav-bg);
+        }
+      }
+      @supports (anchor-name: --my-anchor) {
+        #mainHeader > div {
+          display: flex;
+          justify-content: space-between;
+        }
+        #mainHeader > div > div {
+          justify-content: space-between;
+          width: 100%;
+        }
+        #mainHeader .headerMenu {
+          display: flex;
+          justify-content: flex-end;
+          anchor-name: --login;
+          align-items: flex-end;
+        }
+        #mainHeader .headerMenu + .loggedOut {
+          display: flex;
+          align-items: flex-end;
+        }
+        .navInner .loggedOut {
+          width: auto;
+        }
+        #megaMenuHeaderLoggedOut {
+          width: auto !important;
+          position-anchor: --login;
+          position: fixed;
+          position-area: left center;
+        }
+        #megaMenuHeaderLoggedOut .navInner {
+          width: auto;
+        }
+        .unauthenticated #outerWrap:has(.hero--expanded) .hero--expanded {
+          margin-top: calc(-1 * (var(--root-nav-mt) + var(--root-header-height) + var(--root-header-mt)));
+        }
+        @media (min-width: 701px) {
+          #megaMenuHeaderLoggedOut {
+            background: transparent;
+          }
+          :is(.headerMenuRight > li > a, #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut ul.primary > li > a) {
+            color: var(--color-primary);
+          }
+          body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(.headerMenuRight > li > a, #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut ul.primary > li > a) {
+            color: var(--color-light);
+          }
+          body.hero-not-in-view #outerWrap:has(.hero--expanded) #mainHeader {
+            width: 100%;
+            box-shadow: 0 5px 2px 0px var(--color-grey-10);
+          }
         }
       }
     }
@@ -5126,6 +5286,321 @@
       order: 2;
     }
   }
+  .lasgo-artwork {
+    display: grid;
+    place-content: center;
+  }
+  /* .lasgo-artwork {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr;
+        } */
+  :is(.lasgo-artwork > svg,
+  .globe-logo,
+  .globe-container,
+  .axis,
+  .books,
+  .cd,
+  .record,
+  .tee) {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+  }
+  .lasgo-artwork > svg {
+    width: 100vmin;
+    /* border: 1px solid red; */
+  }
+  :is(.books, .cd, .record, .tee) {
+    width: 25vmin;
+    aspect-ratio: 1/1;
+  }
+  :is(.books, .cd, .record, .tee) svg {
+    width: 100%;
+    height: 100%;
+  }
+  .books {
+    margin-left: 3vmin;
+    margin-top: 3vmin;
+  }
+  @keyframes cd {
+    to {
+      transform: rotateZ(-14deg) skew(-6deg, 0deg);
+    }
+  }
+  .cd {
+    animation: cd 3500ms ease-in-out 0s infinite alternate both;
+    justify-self: start;
+    align-self: end;
+    margin-left: 3vmin;
+    margin-bottom: 3vmin;
+    display: grid;
+    place-items: center;
+  }
+  .cd svg {
+    width: 80%;
+    height: 80%;
+  }
+  .record {
+    justify-self: end;
+    align-self: start;
+    background: transparent;
+    margin-right: 3vmin;
+    margin-top: 3vmin;
+  }
+  .tee {
+    position: relative;
+    display: grid;
+    place-items: center;
+    perspective: 900px;
+    justify-self: end;
+    align-self: end;
+    background: transparent;
+    margin-right: 3vmin;
+    margin-bottom: 3vmin;
+    z-index: -1;
+  }
+  .globe-logo {
+    align-self: center;
+    justify-self: center;
+    z-index: 3;
+    background: white;
+    width: max(15%, 150px);
+    display: grid;
+    place-content: center;
+    padding: 1rem;
+    border-radius: 3rem;
+    border: 3px solid black;
+  }
+  @keyframes globe-scale {
+    to {
+      scale: 0.8;
+    }
+  }
+  .globe-container {
+    animation: globe-scale 18s ease-in-out 0s infinite alternate both;
+    --track-size: min(1.5vmin, 0.85rem);
+    position: relative;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    overflow: clip;
+    border-radius: 50%;
+    rotate: 20deg;
+    align-self: center;
+    justify-self: center;
+    scale: 0.6;
+    background: white;
+  }
+  .axis {
+    width: 50vmin;
+    aspect-ratio: 1/1;
+    border: var(--track-size) solid #0f646b;
+    border-radius: 50%;
+    z-index: -1;
+    /* mix-blend-mode: screen; */
+  }
+  div:nth-child(2 of .axis) {
+    aspect-ratio: none;
+    height: 25vmin;
+    transform: translateY(-25vmin);
+  }
+  div:nth-child(3 of .axis) {
+    aspect-ratio: none;
+    height: 25vmin;
+    transform: translateY(25vmin);
+  }
+  div:nth-child(4 of .axis) {
+    aspect-ratio: none;
+    width: 10vmin;
+    height: calc(100% - var(--track-size) * 2);
+  }
+  div:nth-child(5 of .axis) {
+    aspect-ratio: none;
+    width: 33vmin;
+    height: calc(100% - var(--track-size) * 2);
+  }
+  @property --angle-x {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0deg;
+  }
+  @property --angle-y {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0deg;
+  }
+  .orb {
+    width: var(--track-size);
+    aspect-ratio: 1/1;
+    position: absolute;
+    background: #6ea5c6;
+    border-radius: 50%;
+    left: calc(50% - 0.5rem);
+    --radius-x: calc(25vmin + var(--track-size));
+    --radius-y: calc(25vmin + var(--track-size));
+    transform: translateX(calc(cos(var(--angle-x)) * var(--radius-x))) translateY(calc(sin(var(--angle-y)) * var(--radius-y)));
+  }
+  @keyframes orb-one {
+    0% {
+      opacity: 1;
+      --angle-x: 88deg;
+      --angle-y: -90deg;
+      scale: 1;
+    }
+    5% {
+      --angle-x: 77deg;
+      scale: 1.2;
+    }
+    10% {
+      opacity: 1;
+      --angle-x: 88deg;
+      --angle-y: 90deg;
+      scale: 1;
+    }
+    11% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      --angle-x: 88deg;
+      --angle-y: 90deg;
+    }
+  }
+  @keyframes orbit-right {
+    0% {
+      opacity: 1;
+      --angle-x: 0deg;
+      --angle-y: 0deg;
+    }
+    50% {
+      z-index: -1;
+    }
+    100% {
+      opacity: 1;
+      --angle-x: 360deg;
+      --angle-y: 360deg;
+    }
+  }
+  @keyframes orbit-left {
+    0% {
+      opacity: 1;
+      --angle-x: 0deg;
+      --angle-y: 0deg;
+      z-index: -1;
+    }
+    78% {
+      z-index: 1;
+    }
+    79% {
+      z-index: -1;
+    }
+    100% {
+      z-index: -1;
+      opacity: 1;
+      --angle-x: 360deg;
+      --angle-y: 360deg;
+    }
+  }
+  div:nth-child(1 of .orb) {
+    animation: 10s orbit-left 2s linear infinite;
+    --angle-y: 90deg;
+    --angle-x: 90deg;
+    --radius-x: calc(5.4vmin + (var(--track-size) / 2));
+  }
+  div:nth-child(2 of .orb) {
+    background: #ce6d6e;
+    animation: 10s orbit-left 2s linear infinite;
+    --angle-y: 90deg;
+    --angle-x: 90deg;
+    --radius-x: calc(16.5vmin + (var(--track-size) / 2));
+  }
+  div:nth-child(3 of .orb) {
+    background: #f2ab70;
+    animation: 10s orbit-right 0s linear infinite;
+    --angle-y: 90deg;
+    --angle-x: 90deg;
+    --radius-x: calc(5.4vmin + (var(--track-size) / 2));
+  }
+  div:nth-child(4 of .orb) {
+    animation: 10s orbit-right 0s linear infinite;
+    background: #f4dd6e;
+    --angle-y: 80deg;
+    --angle-x: 93deg;
+    --radius-x: calc(16.5vmin + (var(--track-size) / 2));
+  }
+  div:nth-child(5 of .orb) {
+    animation: 10s orbit-right 0s linear infinite;
+    --angle-y: 80deg;
+    --angle-x: 93deg;
+    rotate: 90deg;
+    --radius-x: calc(12vmin + (var(--track-size) / 2));
+    top: 1vmin;
+  }
+  div:nth-child(6 of .orb) {
+    animation: 10s orbit-left 0s linear infinite;
+    background: #ce6d6e;
+    --angle-y: 80deg;
+    --angle-x: 93deg;
+    rotate: 90deg;
+    --radius-x: calc(12vmin + (var(--track-size) / 2));
+    top: 50vmin;
+  }
+  @keyframes draw-line {
+    50% {
+      stroke-dashoffset: 0;
+    }
+    70% {
+      stroke-dashoffset: -194px;
+    }
+    100% {
+      stroke-dashoffset: -194px;
+    }
+  }
+  .tee-line {
+    animation: draw-line 4s linear forwards infinite;
+    stroke-linecap: round;
+    stroke-dasharray: 194px;
+    stroke-dashoffset: 194px;
+  }
+  @keyframes t-shirt-move {
+    0%, 100% {
+      transform: translateY(0px) scale(0.95);
+      transform-origin: center;
+    }
+    50% {
+      transform: translateY(20px) scale(0.85);
+      transform-origin: center;
+    }
+  }
+  #t-shirt {
+    /* transform: translateY(25px);
+          scale: 0.8; */
+    animation: t-shirt-move 8s ease-in-out infinite;
+    transform-origin: center;
+  }
+  @keyframes mug {
+    0%, 100% {
+      transform: translateY(45px) scale(0.85);
+    }
+    50% {
+      transform: translateY(0px) scale(1);
+    }
+  }
+  #mug {
+    /* scale: 0.8; */
+    transform-origin: left center;
+    /* transform: translateY(70px); */
+    animation: mug 8s ease-in-out infinite;
+  }
+  @keyframes record-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  #Record_2 {
+    transform-origin: center;
+    animation: record-spin 8s ease-in-out infinite;
+  }
   body:has(.hero--expanded):has(#outerWrap) {
     overflow: hidden;
   }
@@ -5143,6 +5618,9 @@
   }
   body:has(.hero--expanded):has(#outerWrap) #body .hero + * {
     scroll-snap-align: start;
+  }
+  .hero--expanded {
+    --variable-unit: calc(40vi + 60vb);
   }
   @container (min-width: 70ch) {
     .hero--expanded .card-picture {

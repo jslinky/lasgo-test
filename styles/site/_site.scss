@@ -1,4 +1,5 @@
 @import "./login";
+@import "./artwork";
 
 
 body:has(.hero--expanded):has(#outerWrap) {
@@ -25,6 +26,7 @@ body:has(.hero--expanded):has(#outerWrap) {
 }
 
 .hero--expanded {
+  --variable-unit: calc(40vi + 60vb);
   @container (min-width: 70ch) {
     .card-picture {
       transform: translateX(20%);
