@@ -1,6 +1,9 @@
-@import "./login";
 @import "./artwork";
 
+// #outerWrap {
+//   scroll-timeline-name: --outer-scroll;
+//   scroll-timeline-axis: block;
+// }
 
 body:has(.hero--expanded):has(#outerWrap) {
   overflow: hidden;
@@ -16,12 +19,12 @@ body:has(.hero--expanded):has(#outerWrap) {
     > * {
       scroll-snap-align: center;
     }
-    // .hero {
-    //   scroll-snap-align: center;     
-    // }    
-    .hero + * {
-      scroll-snap-align: start;     
-    }        
+    .hero {
+      scroll-snap-align: center;     
+    }    
+    // .hero + * {
+    //   scroll-snap-align: start;     
+    // }        
   }
 }
 
@@ -165,9 +168,6 @@ body:has(.hero--expanded):has(#outerWrap) {
 div.scanlines {
     position: absolute;
 }
-
-
-
 
 :root:is(.new) :where(input, textarea) {
   border: 0;
@@ -378,7 +378,7 @@ div.scanlines {
   }
 }
 
-div:has(> .ticket-card) {
+div:has(> .ticket-card) .card {
   position: relative;
   &:before {
     content: "";
@@ -391,6 +391,7 @@ div:has(> .ticket-card) {
     opacity: 0.6;
   }
 }
+
 
 .ticket-card {
   --field-border-color: var(--color-light);
@@ -437,6 +438,25 @@ div:has(> .ticket-card) {
     background: transparent;
     width: 100%;
     margin-block: auto;
+  }
+}
+
+@keyframes ticket-card {
+  to {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.ticket-cards > div {
+  /// animation timline
+  animation: ticket-card linear both;
+  animation-timeline: view();
+  animation-range: 0 35%;    
+  &:first-of-type {
+    transform: translateX(50%) rotate(4deg);
+  }
+  &:last-of-type {
+    transform: translateX(-50%) rotate(-4deg);
   }
 }
 

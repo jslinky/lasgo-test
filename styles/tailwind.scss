@@ -22,6 +22,9 @@
   // @import url("existing-overrides.css");
   @import "./site/existing-overrides/header";
   @import "./site/existing-overrides/product-landing";
+  @import "./site/existing-overrides/popup";
+  @import "./site/existing-overrides/login";
+  @import "./site/existing-overrides/footer";
 }
 
 @layer base {
