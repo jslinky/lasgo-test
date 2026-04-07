@@ -1,0 +1,26 @@
+:is(#kgrid-orderDetails, #kgrid-orderDetails) {
+    overflow: auto;
+    width: 100%;
+    max-width: calc(100vw - 6rem);
+    table {
+        width: max(600px, 100%);        
+    }
+    .k-pager-wrap {
+        display: flex;
+        position: sticky;
+        left: 0;        
+    }
+}
+
+  .grid_16.layoutContent {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+.container_16 {
+    all:unset;
+    width: min(1260px,100%);
+    display: block;
+    margin-inline:auto;
+}

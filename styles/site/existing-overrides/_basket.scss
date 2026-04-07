@@ -1,0 +1,211 @@
+@media (max-width: 1000px) {
+  .basketTable#basketGrid {
+    --inline-layout: min(120px, 100%) 1fr;
+    background-color: #c2c2c2 !important;
+    width: calc(100vw - 16px) !important;
+    max-width: 1260px !important;
+    margin-inline: auto;
+    td:not(.colSelect) {
+      padding-block: 4px !important;
+      border: 0 !important;
+    }
+    thead {
+      display: none;
+    }
+    tbody {
+      width: calc(100vw - 16px);
+      max-width: 1260px;
+      flex-direction: row;
+      display: flex;
+      flex-wrap: wrap;
+      container-type: inline-size;
+      tr {
+        width: 100%;
+        @container (width > 600px) {
+          width: calc(50% - 1px);
+        }
+
+        background: #fff;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      td {
+        width: fit-content !important;
+        flex-basis: 100%;
+        border: none;
+        text-align: left !important;
+      }
+    }
+    tbody,
+    tbody tr,
+    tbody td {
+      display: flex;
+      column-gap: 2px;
+    }
+  }
+
+  .basketPage {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  #basketGridWrapper {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  #stockOrderBasket {
+    width: 100% !important;
+  }
+
+  .grid_16.layoutContent {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  td.colEAN {
+    order: 99;
+    border: 0 !important;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem !important;
+    &:before {
+      content: "EAN/Barcode";
+      display: inline-block;
+      font-weight: bold;
+    }
+  }
+
+  td.colSelect {
+    padding: 0 !important;
+  }
+
+  td.colTitle {
+    order: 1;
+    background-color: #f2f2f2;
+    padding-bottom: 0.75rem !important;
+    flex-direction: column;
+    &:before {
+      content: "Title";
+      display: inline-block;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    font-size: 18px;
+  }
+
+  td:is(
+    .colArtist,
+    .colFormat,
+    .colRef,
+    .colWeight,
+    .colQty,
+    .colStock,
+    .colYouPay,
+    .colEAN
+  ) {
+    @container (width > 300px) {
+      max-width: calc(50% - 1.5rem) !important;
+    }
+
+    text-align: left !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    &:before {
+      display: inline-block;
+      font-weight: bold;
+      flex-basis: min(120px, 100%);
+    }
+  }
+
+  td.colArtist {
+    order: 2;
+    &:before {
+      content: "Artist";
+    }
+  }
+
+  td.colFormat {
+    order: 3;
+    &:before {
+      content: "Format";
+    }
+  }
+
+  td.colRef {
+    order: 4;
+    &:before {
+      content: "Ref";
+    }
+  }
+
+  td.colWeight {
+    order: 6;
+    &:before {
+      content: "Indicative Weight*";
+    }
+  }
+
+  td.colQty {
+    order: 5;
+    &:before {
+      content: "Qty";
+    }
+  }
+
+  .table.basketTable .colQty .quantity {
+    width: min(60px, 100%) !important;
+  }
+
+  td.colStock {
+    order: 8;
+    &:before {
+      content: "Availability";
+    }
+  }
+
+  td.colYouPay {
+    order: 7;
+    &:before {
+      content: "Unit price";
+    }
+  }
+
+  td.colSelect {
+    all: unset;
+    display: contents;
+    border: 0 !important;
+    input[type="checkbox"] {
+      /*         position: relative; */
+    }
+    label {
+      display: none;
+    }
+  }
+
+  .jacketPreviewIcon {
+    max-width: fit-content;
+  }
+}
+
+.basketPage table.basketSummary {
+  width: 100%;
+  @media (min-width: 1000px) {
+    width: 75%;
+  }
+}
+
+.basketTotals {
+  margin-bottom: 2.5rem;
+  @media (max-width: 1000px) {
+    margin-inline: 2rem;
+  }
+}
+
+.basketPage .gridOptionsWrapper {
+    display: none;
+}

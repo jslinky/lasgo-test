@@ -110,10 +110,16 @@
     }
   }
 
-  .searchResultsWrapper .searchResults .pager .actionLinks {
+
+.searchResults .actionLinks {
+    padding: var(--spacing-xs); 
     background: var(--color-secondary);
-    border-radius: var(--radius);
-  }
+    border-radius: var(--radius);    
+    ul {
+        display: flex;
+        gap: var(--spacing-sm);
+    }
+}  
 
   .searchResults > ul > li {
     all: unset;

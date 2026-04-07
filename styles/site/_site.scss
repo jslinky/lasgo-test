@@ -1,4 +1,5 @@
 @import "./artwork";
+@import "./pdp/pdp";
 
 // #outerWrap {
 //   scroll-timeline-name: --outer-scroll;
@@ -560,14 +561,21 @@ div:has(> .ticket-card) .card {
   height: auto;
   #filterMenu {
     padding-top: 0;
-    margin-top: var(--spacing-md);
+    // margin-top: var(--spacing-md);
   }
   @container content-grid (max-width:899px) {
-    width: calc(100vw - 16px);
+    width: 100vw;
     grid-column: 1/-1;
-    margin-inline-start: calc(var(--wrapper-inline) * -1);
+    margin-inline: calc(var(--wrapper-inline) * -1);
     padding-inline: 0;
     padding-inline-start: var(--wrapper-inline);
+    .collapse-content {
+      padding-top: var(--spacing-sm);
+      padding-right: 1rem; // scrollbar space
+    }
+    .formDetails {
+      padding-right: var(--layout-gap);
+    }
     #filterMenu {
       overflow-y: auto;
       max-height: var(--aside-height);
