@@ -229,7 +229,7 @@ div.scanlines {
   display: grid;
   place-items: center;
   position: relative;
-
+  scroll-margin-block-start: var(--space-5xl);
   > *:not(.section-latest-releases__bg) {
     grid-column: 1/-1;
     grid-row: 1/-1;

@@ -7154,9 +7154,9 @@
       .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.searchSection #SearchForm {
         margin: 0 !important;
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.searchSection #SearchForm {
-          margin: 0 135px 0 0 !important;
+          margin: 0 0px 0 0 !important;
         }
       }
       li.searchSection {
@@ -7164,7 +7164,7 @@
         display: flex;
         position: relative;
       }
-      @media (max-width: 700px) {
+      @media only screen and (max-width: 63.9375rem) {
         li.searchSection {
           width: 100%;
         }
@@ -7204,12 +7204,24 @@
       :root {
         --hero-expanded-surface-color: var(--color-dark);
         --hero-expanded-surface-mix-color: var(--color-primary);
-        --hero-expanded-nav-bg: oklch(from var(--hero-expanded-surface-mix-color) l c h / 1);
+        --hero-expanded-nav-bg: oklch(
+          from
+            var(--hero-expanded-surface-mix-color)
+            l c h / 1
+        );
         @supports (color: color-mix(in lab, red, red)) {
-          --hero-expanded-nav-bg: oklch(from color-mix(in oklab, var(--hero-expanded-surface-mix-color), var(--hero-expanded-surface-color) 70%) l c h / 1);
+          --hero-expanded-nav-bg: oklch(
+          from
+            color-mix(
+              in oklab,
+              var(--hero-expanded-surface-mix-color),
+              var(--hero-expanded-surface-color) 70%
+            )
+            l c h / 1
+        );
         }
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         :is(#megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li > a, #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut ul.primary > li > a) {
           color: #fff;
         }
@@ -7220,7 +7232,7 @@
       #mainHeader .headerMenu .headerMenuRight a {
         font-weight: 600;
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         #mainHeader .headerMenu .headerMenuRight a {
           font-size: var(--text-sm);
           color: #fff;
@@ -7228,6 +7240,16 @@
       }
       :where(.sticky-wrapper) {
         background: var(--root-bg);
+      }
+      :where(.sticky-wrapper):before {
+        content: "";
+        display: block;
+        width: calc(100vw - 0.5rem);
+        margin-inline: calc(-50vw + 50%);
+        height: 102px;
+        background: transparent;
+        z-index: -1;
+        position: absolute;
       }
       :where(body:not(.hero-solid-bg)) :where(#outerWrap:has(.hero--expanded)) :is(.sticky-wrapper, #megaMenuHeaderLoggedOut) {
         background: transparent;
@@ -7248,7 +7270,7 @@
         left: -9px;
         background: var(--color-grey-11);
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > ul.primary > li ul.primary .megaMenu {
           min-height: 50vh;
           max-width: var(--max-wrapper-width);
@@ -7269,9 +7291,9 @@
         border-bottom: 1px solid #ccc;
         box-shadow: 0 3px 0 rgba(0, 0, 0, 0.06);
         z-index: -1;
-        border-radius: var(--radius);
+        border-radius: 0 var(--radius) var(--radius) 0;
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu.ui-sortable:after, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu.ui-sortable:after, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu.ui-sortable:after {
           content: "";
         }
@@ -7294,9 +7316,9 @@
         box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
         transform: translateX(-100%);
         z-index: -1;
-        border-radius: var(--radius);
+        border-radius: var(--radius) 0 0 var(--radius);
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu.ui-sortable:before, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu.ui-sortable:before, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu.ui-sortable:before {
           content: "";
         }
@@ -7328,7 +7350,7 @@
         --root-header-height: 138px;
         --root-header-mt: var(--space-xs);
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         :root {
           --root-header-height: 50px;
         }
@@ -7380,7 +7402,7 @@
         background-size: contain;
         background-repeat: no-repeat;
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         #logo:before {
           width: 20px;
           height: 45px;
@@ -7396,7 +7418,7 @@
         width: 100px;
         padding: 0;
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         :is(.stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.logoSection #logo a.normal, #mainHeader #logo a) {
           width: 110px;
         }
@@ -7405,7 +7427,7 @@
         font-size: var(--text-sm);
         font-weight: 600;
       }
-      @media (max-width: 700px) {
+      @media only screen and (max-width: 63.9375rem) {
         #megaMenuHeader #navWrapper .navinner > ul.loggedIn .advancedSearchNavigation #advancedSearch {
           background: var(--color-primary);
         }
@@ -7462,7 +7484,7 @@
         margin-inline: auto;
         width: calc(100% - clamp(0.25rem, 1vi, 1rem) * 2);
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         :is(#accountHeader + .sticky-wrapper, #mainHeader + .sticky-wrapper, #mainHeader) {
           height: max-content !important;
         }
@@ -7482,7 +7504,11 @@
       }
       .hero--expanded {
         --hero-expanded-outer-margin: clamp(0.25rem, 1vi, 1rem);
-        --hero-height: clamp(520px, calc(95dvh - (var(--header-height) + 50px)), 1000px);
+        --hero-height: clamp(
+          520px,
+          calc(95dvh - (var(--header-height) + 50px)),
+          1000px
+        );
         --hero-height-expanded: calc(var(--header-height) + var(--hero-height));
       }
       .hero--expanded .card-body {
@@ -7493,6 +7519,44 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+      }
+      :is(ul.loggedIn, ul.loggedOut):before {
+        content: "";
+        display: block;
+        position: absolute;
+        background: var(--root-bg);
+        width: calc(100vw - 0.5rem);
+        height: calc(100% - 35px);
+        left: 0;
+        margin-inline: calc(-50vw + 50%);
+        z-index: -10;
+        top: 0;
+      }
+      .loggedInSearch > .k-widget {
+        border-color: var(--input-bg) !important;
+        border-radius: 0 var(--radius) var(--radius) 0 !important;
+      }
+      .loggedInSearch > .k-widget > input {
+        border-radius: 0 var(--radius) var(--radius) 0 !important;
+      }
+      .loggedInSearch .k-loading {
+        bottom: auto;
+        top: 50%;
+        translate: -50% -50%;
+        right: 40px !important;
+      }
+      body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(ul.loggedIn, ul.loggedOut):before {
+        background: transparent;
+      }
+      #navMenu:before {
+        content: "";
+        display: block;
+        width: calc(100vw - 0.5rem);
+        margin-inline: calc(-50vw + 50%);
+        background-color: inherit;
+        height: 35px;
+        z-index: -1;
+        position: absolute;
       }
       .barinner > ul.loggedin {
         height: var(--root-header-height);
@@ -7526,7 +7590,7 @@
           transform: translateX(0);
         }
       }
-      @media (max-width: 700px) {
+      @media only screen and (max-width: 63.9375rem) {
         #outerWrap:not(.nav-open) .navMenu > ul > li {
           opacity: 0;
         }
@@ -7535,14 +7599,13 @@
           opacity: 1;
         }
       }
-      @media (max-width: 700px) {
+      @media only screen and (max-width: 63.9375rem) {
         :is(.navinner > ul.loggedIn, .navInner > ul.loggedOut):before {
           content: "";
           display: block;
-          border-bottom: 1px solid oklch(from var(--color-primary) l c h/0.2);
         }
       }
-      @media (max-width: 700px) {
+      @media only screen and (max-width: 63.9375rem) {
         .nav-open.nav-opened :is(.navinner > ul.loggedIn, .navInner > ul.loggedOut):before {
           height: 7rem;
           top: 0;
@@ -7552,6 +7615,7 @@
           position: fixed;
           z-index: 1;
           backdrop-filter: blur(10px);
+          border-bottom: 1px solid oklch(from var(--color-primary) l c h/0.2);
         }
       }
       .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.basketSection .basketWrapper ul#basketNavigation li.basketDropDownMenu .basketDropdown, .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.basketSection .basketWrapper ul#basketNavigation li.basketDropDownMenu .basketDropDownActive {
@@ -7585,12 +7649,12 @@
       body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) .hamburgerSection {
         background: var(--color-light);
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li > a {
           color: #fff;
         }
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) #megaMenuHeader #navWrapper .navinner > ul.loggedIn .advancedSearchNavigation #advancedSearch {
           color: var(--color-light);
         }
@@ -7608,6 +7672,7 @@
         color: var(--color-light);
       }
       body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) #searchControls {
+        position: relative;
         --input-color: var(--root-bg);
         @supports (color: color-mix(in lab, red, red)) {
           --input-color: color-mix(in oklab, var(--root-bg), transparent 40%);
@@ -7617,7 +7682,7 @@
           --input-bg: color-mix(in oklab, var(--root-bg), transparent 90%);
         }
       }
-      @media (max-width: 700px) {
+      @media only screen and (max-width: 63.9375rem) {
         @supports (anchor-name: --my-anchor) {
           body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) .advancedSearchNavigation > a {
             background: var(--color-light);
@@ -7627,13 +7692,17 @@
       #megaMenuHeader {
         background-color: transparent;
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) {
           background-color: var(--color-primary);
         }
       }
       .sticky-wrapper :is(#barHeader, [class^=container], [class^=grid], #bar-Wrapper) {
         display: contents;
+        background-color: inherit;
+      }
+      :is(#navWrapper, #navMenu) {
+        background-color: inherit;
       }
       .sticky-wrapper :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) {
         width: 100%;
@@ -7653,17 +7722,24 @@
         margin-inline: 0;
         padding-inline: var(--spacing-xl);
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         .sticky-wrapper :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) ul.primary > li > a {
           padding-inline: var(--spacing-xs);
         }
       }
+      @media (max-width: 1319px) {
+        .sticky-wrapper :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) ul.primary > li > a {
+          font-size: var(--text-sm) !important;
+        }
+      }
       #outerWrap:has(.hero--expanded) .hero--expanded {
-        --heading-3xl-font-size-max: calc(var(--display-2xl-px) * var(--text-size-increment));
+        --heading-3xl-font-size-max: calc(
+          var(--display-2xl-px) * var(--text-size-increment)
+        );
         margin-inline: var(--hero-expanded-outer-margin);
         margin-top: -105px;
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         #outerWrap:has(.hero--expanded) .hero--expanded {
           margin-top: calc(-1 * (var(--root-nav-mt) + var(--root-header-height) + var(--root-nav-height) + var(--root-header-mt)));
         }
@@ -7673,6 +7749,7 @@
       }
       select#productType {
         border-radius: var(--radius) 0 0 var(--radius);
+        padding-inline-start: 1rem;
       }
       .loggedInSearch {
         background-color: transparent !important;
@@ -7695,7 +7772,7 @@
         align-items: center;
         height: 100%;
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         .headerMenuRight a {
           padding-inline: var(--spacing-sm);
         }
@@ -7718,7 +7795,13 @@
         left: 0;
         align-self: center;
       }
+      .headerMenuOptions > .logoutWrap {
+        display: flex;
+      }
       #searchControls {
+        position: relative;
+      }
+      .searchSection {
         display: flex;
         align-items: stretch;
         --input-color: var(--root-fg);
@@ -7731,14 +7814,15 @@
         }
         --input-fs: var(--text-sm);
       }
-      #searchControls span.k-widget {
+      .searchSection span.k-widget {
         width: 100% !important;
         background-color: transparent !important;
+        padding-block: 0 !important;
       }
-      #searchControls span.k-state-default {
+      .searchSection span.k-state-default {
         background-image: none !important;
       }
-      #searchControls input[type=text] {
+      .searchSection input[type=text] {
         font-size: var(--input-fs) !important;
         box-sizing: border-box !important;
         height: 100% !important;
@@ -7746,11 +7830,15 @@
         background-color: var(--input-bg) !important;
         padding-inline: var(--text-frame-x) !important;
       }
-      #searchControls .clearable {
-        height: auto !important;
+      .searchSection .clearable {
+        position: absolute;
+        right: 60px;
+        z-index: 11;
+        width: 40px;
+        height: 40px !important;
       }
-      #searchControls .clearTerms {
-        background: var(--input-bg);
+      .searchSection .clearTerms {
+        background-color: transparent;
       }
       .basketDropDownMenu {
         --button-width: 3em;
@@ -7758,9 +7846,17 @@
         justify-content: flex-end;
       }
       .basketDropDownMenu .jq-dropdown-panel {
-        --color-bg: color-mix(in srgb, oklch(var(--color-secondary-l, 0.45) var(--color-secondary-c, 0.1373) var(--color-secondary-h, 241.77)), oklch(var(--color-light-l, 0.97) var(--color-light-c, 0) var(--color-light-h, 0)) 60%);
+        --color-bg: color-mix(
+          in oklab,
+          oklch(var(--color-secondary-l, 0.45) var(--color-secondary-c, 0.1373) var(--color-secondary-h, 241.77)),
+          oklch(var(--color-light-l, 0.97) var(--color-light-c, 0) var(--color-light-h, 0)) 60%
+        );
         @supports (color: color-mix(in lab, red, red)) {
-          --color-bg: color-mix(in oklab, var(--color-secondary), var(--color-light) 60%);
+          --color-bg: color-mix(
+          in oklab,
+          var(--color-secondary),
+          var(--color-light) 60%
+        );
         }
         width: fit-content;
         background: var(--color-bg);
@@ -7839,7 +7935,7 @@
       .categoryContainer {
         margin-inline: auto;
       }
-      @media (max-width: 700px) {
+      @media only screen and (max-width: 63.9375rem) {
         .categoryContainer {
           background: color-mix(in srgb, oklch(var(--color-secondary-l, 0.45) var(--color-secondary-c, 0.1373) var(--color-secondary-h, 241.77)), transparent 40%);
           @supports (color: color-mix(in lab, red, red)) {
@@ -7848,7 +7944,7 @@
           padding-top: var(--space-lg);
         }
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         .categoryContainer {
           width: 100%;
           padding-inline: 1.2rem;
@@ -7862,7 +7958,7 @@
         --heading-sm-font-size-min: var(--sm-px);
         --heading-sm-font-size-max: var(--sm-px);
       }
-      @media (max-width: 700px) {
+      @media only screen and (max-width: 63.9375rem) {
         .categoryContainer .categories h5 {
           padding-inline: var(--spacing-xl);
         }
@@ -7871,14 +7967,14 @@
         margin-top: var(--space-xs);
       }
       .category > .group-label:first-child {
-        margin-top: var(--space-xs);
+        margin-top: var(--space-md);
       }
-      @media (min-width: 701px) {
+      @media only screen and (min-width: 64rem) {
         .hamburgerSection {
           display: none;
         }
       }
-      @media (max-width: 700px) {
+      @media only screen and (max-width: 63.9375rem) {
         :is(#megaMenuHeader, #megaMenuHeaderLoggedOut) ul.primary a {
           text-align: left;
           margin-inline: 0;
@@ -8031,7 +8127,10 @@
           --nav-translate-x: 0%;
         }
       }
-      @media (hover) and (pointer: fine) and (min-width: 701px) {
+      body.hero-not-in-view:has(.hero--expanded) .sticky-wrapper:before {
+        background: var(--root-bg);
+      }
+      @media (hover) and (pointer: fine) and (min-width: 64rem) {
         a + .megaMenu {
           display: block !important;
           opacity: 0;
@@ -8087,7 +8186,7 @@
         .unauthenticated #outerWrap:has(.hero--expanded) .hero--expanded {
           margin-top: calc(-1 * (var(--root-nav-mt) + var(--root-header-height) + var(--root-header-mt)));
         }
-        @media (min-width: 701px) {
+        @media only screen and (min-width: 64rem) {
           #megaMenuHeaderLoggedOut {
             background: transparent;
           }
@@ -9939,6 +10038,7 @@
     display: grid;
     place-items: center;
     position: relative;
+    scroll-margin-block-start: var(--space-5xl);
   }
   .section-latest-releases > *:not(.section-latest-releases__bg) {
     grid-column: 1/-1;
