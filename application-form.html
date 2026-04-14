@@ -4,16 +4,175 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./tailwind-output.css" />
-    <!-- <link
-      rel="stylesheet"
-      href="../gardners25/layers/tailwind/assets/css/tailwind.css"
-    /> -->
+    <link rel="stylesheet" href="./styles/layer-setup-standalone.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <script src="./scripts/form.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+      @layer site {
+        @property --hero-height {
+          syntax: "<length>";
+          inherits: true;
+          initial-value: 400px;
+        }
+
+        @property --card-backdrop-color-stop-to-opacity {
+          syntax: "<number>";
+          inherits: true;
+          initial-value: null;
+        }
+
+        /* body:has([x-ref="formContainer"]) {
+      scroll-snap-type: y mandatory;
+      scroll-snap-align: start;
+    } */
+
+        .hero {
+          /* height:400px; */
+          animation: hero-size linear both;
+          animation-timeline: scroll();
+          animation-range: 0 380px;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          overflow: hidden;
+          z-index:2;
+          transition: height 0.3s ease-in-out;
+          .card-body {
+            max-height: var(--hero-height);
+            animation: card-body-shrink linear both;
+            animation-timeline: scroll(root);
+            animation-range: 0 380px;
+          }
+          .card-body__content__caption {
+            h2 {
+              animation: card-title-shrink linear both;
+              animation-timeline: scroll(root);
+              animation-range: 0 380px;
+              transform-origin: center left;
+            }
+          }
+          .card-picture {
+            animation: parallax-hero-image linear both;
+            animation-timeline: scroll(root);
+            animation-range: 0 380px;
+          }
+        }
+
+        @keyframes hero-size {
+          to {
+            --hero-height: var(--hero-height-contracted);
+            --card-backdrop-color-stop-to-opacity: 1;
+            /* height:100px; */
+          }
+        }
+
+        @keyframes card-body-shrink {
+          to {
+            margin-block: 0;
+            padding-block: 0;
+          }
+        }
+
+        @keyframes card-title-shrink {
+          to {
+            scale: 0.7;
+          }
+        }
+
+        .c-application-form {
+          input:not([type="checkbox"]) {
+            width: 100%;
+          }
+          label:has(input[type="checkbox"]) {
+            padding: var(--space-sm);
+            /* background: color-mix(in oklab, var(--color-grey-11), white 50%); */
+            border-radius: var(--radius);
+            font-size: var(--text-sm);
+            border: 1px solid var(--field-border-color);
+            &:hover {
+              background: color-mix(in oklab, var(--color-grey-11), white 80%);
+            }
+          }
+          label:has(input[type="checkbox"]:checked) {
+            background: color-mix(in oklab, var(--color-grey-11), white 50%);
+            --field-border-color: var(--color-primary);
+          }
+        }
+      }        
+      
+      .form__row:has(label + :is(input, textarea)):has([required]) {
+          label:after {
+            content: "*";
+          }
+        }     
+        
+        
+      :where(.form__row > div:last-of-type, .form__row__error) {
+        font-size: var(--text-xs);
+        grid-row: 3 / 3;
+        padding-left: var(--input-text-frame-y);
+        margin-top: var(--space-3xs);        
+      }        
+      
+      :where(.form__row :where(input, textarea, select)) {
+        align-self: start;
+        &:is(:invalid, :user-invalid).invalid {
+          outline-color: red;
+        }
+        &:is(:valid, :user-valid) {
+          + :is(div:last-of-type, .form__row__error) {
+            visibility: hidden;
+          }
+        }
+      }
+
+
+
+
+
+      .c-application-form > section {
+          max-width: calc(100vw - ((var(--wrapper-inline)*2) + 1rem));     
+          margin-top: 5vh;     
+      }
+
+      .c-application-form__legend-container {
+        position: sticky;
+        top: var(--hero-height-contracted);
+        background: #fff;
+        padding-block: var(--space-lg);
+        width: calc(100vw - (var(--wrapper-padding)));
+        /* max-width: calc(100vw - ((var(--wrapper-padding)*2) - 1rem));      */        
+        margin-inline: calc(
+          calc(-1 * (50vw - var(--wrapper-padding))) +
+            (50% - (var(--wrapper-padding) / 2))
+        );
+        z-index: 2;
+        padding-inline: var(--wrapper-padding);
+        &:not(:has(legend)) {
+          border-bottom:1px solid var(--field-border-color);          
+        }
+        &:has(legend) {
+          position:relative;
+          z-index:1;
+          top:unset;
+        }
+        legend {
+          max-width: var(--breakpoint-lg);
+          margin-inline: auto;
+        }
+      }
+
+      @layer site-props {
+        :root {
+          --hero-height-contracted: 70px;
+        }
+      }      
     </style>
   </head>
+
   <body>
     <svg style="display: none">
       <symbol id="clarity--color-picker-line" viewBox="0 0 36 36">
@@ -49,7 +208,7 @@
       </symbol>
     </svg>
     <!-- Hero -->
-    <section class="@container hero">
+    <section class="@container hero [--max-wrapper-width:var(--breakpoint-lg)] ">
       <article
         class="card [--card-left-col:fit-content]"
         data-card-layout="overlay"
@@ -67,7 +226,7 @@
         data-card-column-image-align-self="start"
         data-surface="default"
       >
-        <div class="card-picture *:object-cover">
+        <div class="card-picture *:object-cover *:object-top">
           <img src="./assets/hero-home.jpg" alt="Card image" />
         </div>
         <div class="card-body flow flow--md col-start-1 mx-0 wrapper @lg:pr-0">
@@ -78,337 +237,382 @@
               >
                 <span>Apply for an account</span>
               </h2>
-              <p>Complete your profile by filling in this account form. ALL DETAILS WILL BE TREATED IN THE STRICTEST CONFIDENCE.</p>
+              <p>
+                Complete your profile by filling in this account form. ALL
+                DETAILS WILL BE TREATED IN THE STRICTEST CONFIDENCE.
+              </p>
             </div>
           </div>
         </div>
       </article>
     </section>
 
-    <div class="wrapper-grid py-section-gap">
+    <div
+      class="wrapper-grid mt-[var(--hero-height)] min-h-[calc(100dvh-var(--hero-height-contracted))] grid-rows-[1fr_max-content]"
+      x-data="appForm"
+    >
       <div
-        class="content-grid layout-grid layout-grid--column-count col-start-2 col-end-2"
+        x-ref="formContainer"
+        class="scroll-mt-2xl pt-md pb-section-gap content-grid layout-grid layout-grid--column-count col-start-2 col-end-2"
       >
-        <!-- <aside class="content-grid__aside">
-          <details
-            class="c-collapse collapse--outlined"
-            style="--details-inline-size: fit-content"
-            open
-          >
-            <summary
-              class="collapse-title collapse-title--has-icon collapse-title--text-base"
-            >
-              <div class="collapse-icon-slot">
-                <div class="collapse-icon collapse-icon--arrow md:hidden">
-                  <svg class="size-md">
-                    <use href="#box" />
-                  </svg>
-                </div>
-                <p>
-                  <span class="heading-xs">Useful Links</span>
-                </p>
-              </div>
-            </summary>
-            <div class="collapse-content">
-              <nav>
-                <ul class="pl-0 *:mt-sm *:text-sm" style="padding-left: 0">
-                  <li><a href="#">About us</a></li>
-                  <li><a href="#">Contact us</a></li>
-                  <li><a href="#">Terms and Conditions</a></li>
-                  <li><a href="#" class="active">Terms of use</a></li>
-                  <li><a href="#">FAQs</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Cookie Policy</a></li>
-                </ul>
-              </nav>
-            </div>
-          </details>
-        </aside> -->
+        <!-- <pre x-text="JSON.stringify(formData, null, 2)" class="fixed left-0 w-[400px] h-[50vh] overflow-y-auto border top-0 z-2 bg-white"></pre> -->
         <div class="content-grid__main flow">
           <div class="content-grid_full flow col-span-full">
-            <!-- <nav class="content-grid_full gap-md">
-              <a href="#" class="button flex-1">Wholesale</a>
-              <a href="#" class="button flex-1">Distribution</a>
-              <a href="#" class="button flex-1">FAQs</a>
-            </nav> -->
-            <form class="flow col-span-full max-w-screen-lg">
-              <section class="flow hidden">
-                <fieldset class="p-0 border-0 flow flow--2xl *:flow--xl">
-                  <div class="flow flow--sm">
-                    <legend
-                      class="heading-sm fluid"
-                    >
-                      Company Information
+            <form
+              class="c-application-form col-span-full max-w-screen-lg mx-auto w-full"
+            >
+              <div class="c-application-form__legend-container">
+                <div class="max-w-screen-lg mx-auto">
+                  <div class="heading-sm fluid h-[calc(var(--fluid-type)+0.2em)] overflow-clip">
+                    <ul class="pl-0 @2xl:translate-y-0! @2xl:flex @2xl:gap-layout-gap" :style="{'--step': step - 1, 'translate': `0 calc(var(--step) * -${100/maxSteps}%)`}">
+                      <template x-for="([key, stepSection], index) in Object.entries(formData)">
+                        <li
+                          class="heading-sm fluid flex flex-nowrap items-center gap-xs"   
+                          :class="index + 1 > step ? 'text-root-fg-muted opacity-50' : step !== 1 ? step !== index + 1 ? 'text-green-500': '' : '' "                   
+                        >
+                        <span class="heading-sm fluid" :class="step !== index + 1 ? 'text-root-fg-muted opacity-50' : ''" x-text="index + 1"></span>
+                        <span x-text="stepSection.label"></span>
+                      </li>
+                      </template>                                     
+                    </ul>
+                  </div>
+
+ 
+                </div>
+              </div>
+              <section
+                x-ref="sectionOne"
+                x-show="step === 1"
+                class="flow"
+              >
+                <fieldset class="p-0 border-0">
+                  <div class="c-application-form__legend-container sr-only py-0!">
+                    <legend class="heading-sm fluid">
+                      <span>Company Information</span>
                     </legend>
                   </div>
-                  <div class="flex-layout-grid gap-y-md [--flex-grid-min:23ch]">
+                  <div
+                    class="flex-layout-grid [--flex-grid-min:23ch] gap-y-[calc(var(--layout-gap)/4)]"
+                  >
                     <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
+                      class="form__row form__row--label-overlay @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
                     >
-                      <label
-                        for="name"
-                        class="pt-0 col-span-2 font-bold sr-only"
+                      <label for="name" class="pt-0 font-bold"
                         >Company Name</label
                       >
                       <input
                         type="text"
                         id="company-name"
                         name="company-name"
-                        class="col-span-2"
-                        placeholder="Full Company Name"
+                        x-model="formData.stepOne.data.company_name"
+                        placeholder="e.g. 'Company' Ltd"
+                        minlength="2"
+                        required
+                        data-test="Company Name"
                       />
                     </div>
                     <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
+                      class="form__row form__row--label-overlay @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
                     >
-                      <label
-                        for="trading-name"
-                        class="pt-0 col-span-2 font-bold sr-only"
+                      <label for="trading-name" class="pt-0 font-bold"
                         >Trading Name</label
                       >
                       <input
                         type="text"
                         id="trading-name"
                         name="trading-name"
-                        class="col-span-2"
-                        placeholder="Trading Name"
+                        x-model="formData.stepOne.data.trading_name"
+                        placeholder="e.g. 'Company' Wholesale"
+                        minlength="1"
+                        required
+                        data-test="Company Trading Name"
                       />
                     </div>
-                    <div class="form__row">
-                      <label for="vat" class="pt-0 font-bold sr-only"
-                        >VAT No</label
-                      >
+                    <div class="form__row form__row--label-overlay">
+                      <label for="vat" class="pt-0 font-bold">VAT No</label>
                       <input
-                        type="number"
+                        type="text"
                         id="vat"
                         name="vat"
-                        class="col-span-2"
-                        placeholder="VAT Number"
+                        x-model="formData.stepOne.data.vat"
+                        pattern="^(GB)?[0-9]{9}([0-9]{3})?$"
+                        placeholder="e.g. GB123456789"
+                        required
+                        data-test="GB123456789"
                       />
                     </div>
-                    <div class="form__row">
-                      <label
-                        for="eori"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >EORI No</label
-                      >
+                    <div class="form__row form__row--label-overlay">
+                      <label for="eori" class="pt-0 font-bold">EORI No</label>
                       <input
                         type="text"
                         id="eori"
                         name="eori"
-                        class="col-span-2"
-                        placeholder="EORI Number"
+                        x-model="formData.stepOne.data.eori"
+                        pattern="^(GB|gb)[0-9]{12}$"
+                        placeholder="e.g. GB123456789000"                        
+                        required
+                        data-test="GB123456789000"
                       />
                     </div>
-                    <div class="form__row">
-                      <label
-                        for="web-address"
-                        class="pt-0 col-span-2 font-bold sr-only"
+                    <div class="form__row form__row--label-overlay">
+                      <label for="web-address" class="pt-0 font-bold"
                         >Web Address</label
                       >
                       <input
-                        type="text"
+                        type="url"
                         id="web-address"
                         name="web-address"
-                        class="col-span-2"
-                        placeholder="Web Address"
+                        x-model="formData.stepOne.data.web_address"
+                        pattern="https?://.+"
+                        placeholder="https://yourcompanywebsite.com"
+                        data-test="https://yourcompanywebsite.com"
                       />
                     </div>
                     <div
-                      class="form__row basis-full @3xl:basis-[calc(67%-(var(--flex-grid-gap)/2))]"
+                      class="form__row basis-full form__row--label-overlay @3xl:basis-[calc(67%-(var(--flex-grid-gap)/2))]"
                     >
-                      <label
-                        for="invoice-address"
-                        class="pt-0 col-span-2 font-bold sr-only"
+                      <label for="invoice-address" class="pt-0 font-bold"
                         >Invoice Address</label
                       >
                       <textarea
                         id="invoice-address"
                         name="invoice-address"
+                        x-model="formData.stepOne.data.invoice_address"
                         rows="4"
-                        class="col-span-2"
-                        placeholder="Invoice address"
+                        required
+                        minlength="5"
+                        data-test="Invoice Address"
                       ></textarea>
                     </div>
                     <div
-                      class="form__row @3xl:basis-[calc(33%-(var(--flex-grid-gap)/2))] self-end"
+                      class="form__row form__row--label-overlay @3xl:basis-[calc(33%-(var(--flex-grid-gap)/2))] self-end"
                     >
-                      <label
-                        for="postcode"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Web Address</label
+                      <label for="company-postcode" class="pt-0 font-bold"
+                        >Postcode</label
                       >
                       <input
                         type="text"
-                        id="postcode"
-                        name="postcode"
-                        class="col-span-2"
-                        placeholder="Postcode"
+                        id="company-postcode"
+                        name="company-postcode"
+                        x-model="formData.stepOne.data.postcode"
+                        :pattern="validation_config.postcode.pattern"
+                        placeholder="e.g. SW1A 1AA"
+                        required
+                        data-test="SW1A 1AA"
                       />
                     </div>
-                    <div class="form__row">
-                      <label for="tel" class="pt-0 col-span-2 font-bold sr-only"
-                        >Tel. No.</label
-                      >
+                    <div class="form__row form__row--label-overlay">
+                      <label for="tel" class="pt-0 font-bold">Tel. No.</label>
                       <input
                         type="tel"
                         id="tel"
                         name="tel"
-                        class="col-span-2"
+                        x-model="formData.stepOne.data.tel"
+                        :pattern="validation_config.tel.pattern"
+                        :minlength="validation_config.tel.min"
                         placeholder="Tel"
+                        required
+                        data-test="0900 111222"
                       />
                     </div>
-                    <div class="form__row">
-                      <label
-                        for="email"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Email</label
-                      >
+                    <div class="form__row form__row--label-overlay">
+                      <label for="company-email" class="pt-0 font-bold">Email</label>
                       <input
                         type="email"
-                        id="email"
-                        name="email"
-                        class="col-span-2"
-                        placeholder="Email"
+                        id="company-email"
+                        name="company-email"
+                        x-model="formData.stepOne.data.email"
+                        :pattern="validation_config.email.pattern"
+                        placeholder="email@company.com"
+                        required
+                        data-test="email@company.com"
                       />
                     </div>
-                    <div class="form__row">
-                      <label for="fax" class="pt-0 col-span-2 font-bold sr-only"
-                        >Fax. No.</label
-                      >
+                    <div class="form__row form__row--label-overlay">
+                      <label for="company-fax" class="pt-0 font-bold">Fax. No.</label>
                       <input
-                        type="text"
-                        id="fax"
-                        name="fax"
-                        class="col-span-2"
-                        placeholder="Fax No."
+                        type="tel"
+                        id="company-fax"
+                        name="company-fax"
+                        :pattern="validation_config.fax.pattern"
+                        placeholder="e.g. +44 20 1234 5678"
+                        x-model="formData.stepOne.data.fax"
+                        data-test="+44 20 1234 5678"
                       />
                     </div>
+                  </fieldset>
+                  <fieldset class="p-0 border-0">
+                  <div class="c-application-form__legend-container">
+                    <legend class="heading-xs fluid">
+                      <span>Contacts</span>
+                    </legend>
+                  </div>                    
+                    <div class="flex-layout-grid [--flex-grid-min:23ch] gap-y-[calc(var(--layout-gap)/4)] flow-space--0">
+
+                    
                     <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
+                      class="form__row form__row--label-overlay @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
                     >
-                      <label for="fax" class="pt-0 col-span-2 font-bold sr-only"
-                        >Contact Buying</label
+                      <label for="fax" class="pt-0 font-bold"
+                        >Buying Name</label
                       >
                       <input
                         type="text"
                         id="contact-buying-name"
                         name="contact-buying-name"
-                        class="col-span-2"
+                        x-model="formData.stepOne.data.contact_buying.name"
                         placeholder="Contact Buying Name"
+                        required
+                        data-test="Contact Buying Name"
                       />
                     </div>
                     <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
+                      class="form__row form__row--label-overlay @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
                     >
-                      <label
-                        for="contact-buying-email"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Contact Buying Email</label
+                      <label for="contact-buying-email" class="pt-0 font-bold"
+                        >Buying Email</label
                       >
                       <input
                         type="email"
                         id="contact-buying-email"
                         name="contact-buying-email"
-                        class="col-span-2"
-                        placeholder="Email"
+                        x-model="formData.stepOne.data.contact_buying.email"
+                        placeholder="Contact Buying Email"
+                        :pattern="validation_config.email.pattern"
+                        required
+                        data-test="email@company.com"
                       />
                     </div>
+                    <!-- <div class="form__row basis-full">
+                      <label class="flex items-center gap-xs border-0 font-bold hover:bg-transparent :has(:checked):bg-transparent"><input type="checkbox" name="b2blogin" value="true">Create a B2B login for this contact</label>                      
+                    </div> -->
                     <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
+                      class="form__row form__row--label-overlay @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
                     >
-                      <label for="fax" class="pt-0 col-span-2 font-bold sr-only"
+                      <label for="fax" class="pt-0 font-bold"
                         >Contact Accounts</label
                       >
                       <input
                         type="text"
                         id="contact-accounts-name"
                         name="contact-accounts-name"
-                        class="col-span-2"
+                        x-model="formData.stepOne.data.contact_accounts.name"
                         placeholder="Contact Accounts Name"
+                        required
+                        data-test="Name"
                       />
                     </div>
                     <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
+                      class="form__row form__row--label-overlay @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
                     >
-                      <label
-                        for="contact-accounts-email"
-                        class="pt-0 col-span-2 font-bold sr-only"
+                      <label for="contact-accounts-email" class="pt-0 font-bold"
                         >Contact Accounts Email</label
                       >
                       <input
                         type="email"
                         id="contact-accounts-email"
                         name="contact-accounts-email"
-                        class="col-span-2"
+                        x-model="formData.stepOne.data.contact_accounts.email"
+                        :pattern="validation_config.email.pattern"
                         placeholder="Email"
+                        required
+                        data-test="email@company.com"
                       />
                     </div>
-                  </div>
+                    </div>
+                  
                 </fieldset>
-                <fieldset class="p-0 border-0 flow flow--2xl *:flow--xl">
-                  <div class="flow flow--sm">
-                    <legend
-                      class="heading-sm fluid"
-                    >
-                      B2B Login
-                    </legend>
-                    <p class="flow--sm">
+                <fieldset
+                  class="border-0 p-0"
+                >
+                  <div class="c-application-form__legend-container">
+                    <legend class="heading-xs fluid flow flow--2">
+                      <span>B2B Login</span>
+                                          <p class="text-sm font-normal text-root-fg-muted">
                       If you require a login to our B2B website, please complete
                       the details below.
                     </p>
-                  </div>
-                  <div class="flex-layout-grid gap-y-md [--flex-grid-min:23ch]">
+                    </legend>
+                  </div>                
+                  <div class="flex-layout-grid gap-y-[calc(var(--layout-gap)/4)] [--flex-grid-min:23ch]">
                     <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
+                      class="form__row basis-full"
                     >
-                      <label for="fax" class="pt-0 col-span-2 font-bold sr-only"
-                        >Contact Buying</label
-                      >
-                      <input
-                        type="text"
-                        id="bb-contact-buying-name"
-                        name="bb-contact-buying-name"
-                        class="col-span-2"
-                        placeholder="Contact Buying Name"
-                      />
+                      <select id="require-login" x-model="formData.stepOne.data.bb_login.status" class="@3xl:w-[calc(50%-(var(--layout-gap)/2))]">
+                        <option value="not-required">Not required</option>
+                        <hr>
+                        <option value="use-buying" :disabled="formData.stepOne.data.contact_buying.name === '' && formData.stepOne.data.contact_buying.email === ''">Use Buying contact</option>
+                        <!-- create method / getter for this validation -->
+                        <option value="use-accounts" :disabled="formData.stepOne.data.contact_accounts.name === '' && formData.stepOne.data.contact_accounts.email === ''">Use Accounts contact</option>
+                        <hr>
+                        <option value="use-other">Other</option>
+                      </select>
                     </div>
-                    <div
-                      class="form__row @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
-                    >
-                      <label
-                        for="contact-buying-email"
-                        class="pt-0 col-span-2 font-bold sr-only"
-                        >Contact Buying Email</label
+                    <template x-if="formData.stepOne.data.bb_login.status !== 'not-required'" class="contents">
+                      <div
+                        class="form__row form__row--label-overlay @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
                       >
-                      <input
-                        type="email"
-                        id="bb-contact-buying-email"
-                        name="bb-contact-buying-email"
-                        class="col-span-2"
-                        placeholder="Email"
-                      />
-                    </div>
+                        <label for="fax" class="pt-0 font-bold"
+                          >B2B Login Name</label
+                        >
+                        <input
+                          type="text"
+                          id="bb-login-name"
+                          name="bb-login-name"
+                          placeholder="Login Name"
+                          x-model="formData.stepOne.data.bb_login.name"
+                          :readonly="formData.stepOne.data.bb_login.status.includes('use-buying') || formData.stepOne.data.bb_login.status.includes('use-account')"
+                          :disabled="formData.stepOne.data.bb_login.status.includes('use-buying') || formData.stepOne.data.bb_login.status.includes('use-account')"
+                          :class="formData.stepOne.data.bb_login.status.includes('use-buying') || formData.stepOne.data.bb_login.status.includes('use-account') ? 'pointer-events-none outline-0' : ''"
+                        />
+                      </div>
+                      </template>
+                      <template x-if="formData.stepOne.data.bb_login.status !== 'not-required'" class="contents">
+                      <div
+                        class="form__row form__row--label-overlay @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
+                      >
+                        <label for="login-buying-email" class="pt-0 font-bold"
+                          >B2B Login Email</label
+                        >
+                        <input
+                          type="email"
+                          id="bb-login-email"
+                          name="bb-login-email"
+                          :pattern="validation_config.email.pattern"
+                          placeholder="Email"
+                          x-model="formData.stepOne.data.bb_login.email"
+                          :readonly="formData.stepOne.data.bb_login.status.includes('use-buying') || formData.stepOne.data.bb_login.status.includes('use-account')"
+                          :disabled="formData.stepOne.data.bb_login.status.includes('use-buying') || formData.stepOne.data.bb_login.status.includes('use-account')"
+                          :class="formData.stepOne.data.bb_login.status.includes('use-buying') || formData.stepOne.data.bb_login.status.includes('use-account') ? 'pointer-events-none outline-0' : ''"
+                        />
+                      </div>
+                      </template>
+                    
                   </div>
                 </fieldset>
-                <div class="text-right">
-                  <button class="button" disabled>Next</button>
-                </div>
               </section>
               <!-- Generated-->
               <!-- Step: Limited Company Details -->
               <section
-                class="form-step"
+                x-ref="sectionTwo"
+                x-show="step === 2"
+                class="form-step "
                 id="step-limited-company-details"
                 data-step="limited-company-details"
               >
-                <fieldset class="p-0 border-0 flow">
-                  <legend class="heading-sm fluid">Limited Company Details</legend>
+                <fieldset class="p-0 border-0">
+                  <div class="c-application-form__legend-container sr-only py-0!">
+                    <legend class="heading-sm fluid">
+                      Limited Company Details
+                    </legend>
+                  </div>                  
 
                   <!-- Company details -->
-                  <div class="form-layout flex-layout-grid gap-y-md [--flex-grid-min:23ch]">
-                    <div class="form__row">
-                      <label for="companyRegNo" class="sr-only"
+                  <div
+                    class="form-layout flex-layout-grid [--flex-grid-min:23ch] gap-y-[calc(var(--layout-gap)/4)]"
+                  >
+                    <div class="form__row form__row--label-overlay">
+                      <label for="companyRegNo" class="font-bold"
                         >Company Registration Number</label
                       >
                       <input
@@ -417,33 +621,45 @@
                         type="text"
                         placeholder="Company Registration Number"
                         autocomplete="off"
+                        :pattern="validation_config.company_reg_no.pattern"
+                        :minlength="validation_config.company_reg_no.min"
+                        :maxlength="validation_config.company_reg_no.max"
+                        required
+                        data-test="12345678"
                       />
                     </div>
 
-                    <div class="form__row">
-                      <label for="telNo" class="sr-only">Tel. No.</label>
+                    <div class="form__row form__row--label-overlay">
+                      <label for="telNo" class="font-bold">Tel. No.</label>
                       <input
                         id="telNo"
                         name="telNo"
                         type="tel"
+                        :pattern="validation_config.tel.pattern"
                         placeholder="Tel. No."
                         autocomplete="tel"
+                        required
+                        data-test="0900 111222"
                       />
                     </div>
 
-
-                      <div class="form__row">
-                        <label for="email" class="sr-only">Email</label>
-                        <input
-                          id="email"
-                          name="email"
-                          type="email"
-                          placeholder="Email"
-                          autocomplete="email"
-                        />
-                      </div>                    
-                    <div class="form__row basis-full @3xl:basis-[calc(67%-(var(--flex-grid-gap)/2))]">
-                      <label for="registeredOffice" class="sr-only"
+                    <div class="form__row form__row--label-overlay basis-full">
+                      <label for="email" class="font-bold">Email</label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        :pattern="validation_config.email.pattern"
+                        placeholder="Email"
+                        autocomplete="email"
+                        required
+                        data-test="name@company.com"
+                      />
+                    </div>
+                    <div
+                      class="form__row form__row--label-overlay basis-full @3xl:basis-[calc(67%-(var(--flex-grid-gap)/2))]"
+                    >
+                      <label for="registeredOffice" class="font-bold"
                         >Registered Office Address</label
                       >
                       <textarea
@@ -451,86 +667,114 @@
                         name="registeredOffice"
                         placeholder="Registered Office Address"
                         autocomplete="off"
+                        minlength="5"
+                        required                        
+                        data-test="Registered Office Address"
                       ></textarea>
                     </div>
-                    <div class="form__row basis-full @3xl:basis-[calc(33%-(var(--flex-grid-gap)/2))] self-end">
-                      <label for="postCode" class="sr-only">Post Code</label>
+                    <div
+                      class="form__row form__row--label-overlay basis-full @3xl:basis-[calc(33%-(var(--flex-grid-gap)/2))] self-end"
+                    >
+                      <label for="reg_office_postCode" class="font-bold">Post Code</label>
                       <input
-                        id="postCode"
-                        name="postCode"
+                        id="reg_office_postCode"
+                        name="reg_office_postCode"
                         type="text"
+                        :pattern="validation_config.postcode.pattern"
                         placeholder="Post Code"
-                        autocomplete="postal-code"
+                        autocomplete="false"
+                        required
+                        data-test="SW1A 1AA"
                       />
                     </div>
 
-
                     <div
-                      class="basis-full flex-layout-grid form__row flex [--flex-grid-min:8ch] @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))] @3xl:grow-0"
+                      class="basis-full flex-layout-grid flex [--flex-grid-min:8ch] @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))] @3xl:grow-0 gap-y-[calc(var(--layout-gap)/4)]"
                     >
-
-                      
-                        <h3 class="text-base font-bold normal-case pl-[var(--text-frame-x)] pt-[var(--text-frame-y)] basis-full">Date of Incorporation</h3>
-                          <div class="form__row *:w-full">
-                            <label for="incDay" class="sr-only"
-                              >Date of Incorporation — Day</label
-                            >
-                            <input
-                              type="text"
-                              id="incDay"
-                              name="incDay"
-                              inputmode="numeric"
-                              pattern="[0-9]*"
-                              placeholder="DD"
-                            />
-                          </div>
-                          <div class="form__row *:w-full">
-                            <label for="incMonth" class="sr-only"
-                              >Date of Incorporation — Month</label
-                            >
-                            <input
-                              type="text"
-                              id="incMonth"
-                              name="incMonth"
-                              inputmode="numeric"
-                              pattern="[0-9]*"
-                              placeholder="MM"
-                            />
-                          </div>
-                          <div class="form__row *:w-full">
-                            <label for="incYear" class="sr-only"
-                              >Date of Incorporation — Year</label
-                            >
-                            <input
-                              type="text"
-                              id="incYear"
-                              name="incYear"
-                              inputmode="numeric"
-                              pattern="[0-9]*"
-                              placeholder="YYYY"
-                            />
-                          </div>
-                        
-                      
-
-
+                      <h3
+                        class="text-xs font-bold normal-case pl-[var(--text-frame-x)] pt-[var(--text-frame-y)] basis-full"
+                      >
+                        Date of Incorporation
+                      </h3>
+                      <div class="form__row form__row--label-overlay">
+                        <label for="incDay" class="font-bold">Day</label>
+                        <input
+                          type="text"
+                          id="incDay"
+                          name="incDay"
+                          inputmode="numeric"
+                          :pattern="validation_config.dd.pattern"
+                          :minlength="validation_config.dd.min"
+                          placeholder="DD"
+                          class="w-full"
+                          required
+                          data-test="01"
+                        />
+                      </div>
+                      <div class="form__row form__row--label-overlay">
+                        <label for="incMonth" class="font-bold">Month</label>
+                        <input
+                          type="text"
+                          id="incMonth"
+                          name="incMonth"
+                          inputmode="numeric"
+                          :pattern="validation_config.mm.pattern"
+                          :minlength="validation_config.mm.min"
+                          placeholder="MM"
+                          class="w-full"
+                          required
+                          data-test="01"
+                        />
+                      </div>
+                      <div class="form__row form__row--label-overlay">
+                        <label for="incYear" class="font-bold">Year</label>
+                        <input
+                          type="text"
+                          id="incYear"
+                          name="incYear"
+                          inputmode="numeric"
+                          :pattern="validation_config.yyyy.pattern"
+                          :minlength="validation_config.yyyy.min"
+                          placeholder="YYYY"
+                          class="w-full"                          
+                          required
+                          data-test="1980"
+                        />
+                      </div>
                     </div>
                   </div>
 
+
+                </fieldset>
+              </section>
+              <section
+                x-ref="sectionThree"
+                x-show="step === 3"
+                class="form-step "
+                id="step-interests"
+                data-step="interests"
+              >
+                <fieldset class="p-0 border-0">
+                  <div class="c-application-form__legend-container sr-only py-0!">
+                    <legend class="heading-sm fluid">
+                      Business type
+                    </legend>
+                  </div>                  
                   <!-- Two-column checkbox groups -->
-                  <div class="layout-grid pt-md [--layout-column-min:25ch]">
+                  <div
+                    class="layout-grid [--layout-column-min:25ch] [--layout-gap:var(--space-xl)]"
+                  >
                     <!-- Type of business -->
-                    <section class="flow">
-                      <div class="flow flow--xs">
-                        <h3 class="heading-sm">Type of Business</h3>
-                        <p class="text-sm">
+                    <section class="flow flow--md">
+                      <div class="flow flow--2">
+                        <h3 class="heading-xs">Type of Business</h3>
+                        <p class="text-xs text-root-fg-muted">
                           Tick the box that best suits your business model.
                         </p>
                       </div>
                       <ul class="flow *:flow--xs pl-0">
                         <li>
-                          <label
-                          class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="businessType"
@@ -540,8 +784,7 @@
                           >
                         </li>
                         <li>
-                          <label
-                          class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="businessType"
@@ -551,8 +794,7 @@
                           >
                         </li>
                         <li>
-                          <label
-                          class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="businessType"
@@ -562,8 +804,7 @@
                           >
                         </li>
                         <li>
-                          <label
-                          class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="businessType"
@@ -573,8 +814,7 @@
                           >
                         </li>
                         <li>
-                          <label
-                          class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="businessType"
@@ -584,8 +824,7 @@
                           >
                         </li>
                         <li>
-                          <label
-                          class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="businessType"
@@ -598,18 +837,17 @@
                     </section>
 
                     <!-- Product of interest -->
-                    <section class="flow">
-                      <div class="flow flow--xs">
-                        <h3 class="heading-sm">Product of Interest</h3>
-                        <p class="text-sm">
+                    <section class="flow flow--md">
+                      <div class="flow flow--2">
+                        <h3 class="heading-xs">Product of Interest</h3>
+                        <p class="text-xs text-root-fg-muted">
                           Tick the box that best represent your interested
                           products.
                         </p>
                       </div>
-                      <ul class="flow *:flow--xs pl-0 @md:columns-2">
+                      <ul class="flow *:flow--xs pl-0 @xs:columns-2">
                         <li>
-                          <label
-                            class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="productInterest"
@@ -619,8 +857,7 @@
                           >
                         </li>
                         <li>
-                          <label
-                            class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="productInterest"
@@ -630,8 +867,7 @@
                           >
                         </li>
                         <li>
-                          <label
-                            class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="productInterest"
@@ -641,8 +877,7 @@
                           >
                         </li>
                         <li>
-                          <label
-                            class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="productInterest"
@@ -652,8 +887,7 @@
                           >
                         </li>
                         <li>
-                          <label
-                            class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="productInterest"
@@ -663,8 +897,7 @@
                           >
                         </li>
                         <li>
-                          <label
-                            class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="productInterest"
@@ -674,8 +907,7 @@
                           >
                         </li>
                         <li>
-                          <label
-                            class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="productInterest"
@@ -685,8 +917,7 @@
                           >
                         </li>
                         <li>
-                          <label
-                            class="flex items-center gap-xs"
+                          <label class="flex items-center gap-xs"
                             ><input
                               type="checkbox"
                               name="productInterest"
@@ -720,8 +951,235 @@
                     </section>
                   </div>
                 </fieldset>
+              </section>              
+              <!-- Step: Bank Details-->
+              <section
+                x-ref="sectionFour"
+                x-show="step === 4"
+                class=""
+              >
+                <fieldset class="p-0 border-0">
+                  <div class="flow flow--sm">
+                  <div class="c-application-form__legend-container sr-only py-0!">
+                    <legend class="heading-sm fluid">
+                      Bank Details
+                    </legend>
+                  </div>                  
+                  </div>
+                  <div class="flex-layout-grid gap-y-md [--flex-grid-min:23ch]">
+                    <div class="form__row form__row--label-overlay basis-full">
+                      <label
+                        for="bank-name"
+                        class="font-bold"
+                        >Bank Name</label
+                      >
+                      <input
+                        type="text"
+                        id="bank-name"
+                        name="bank-name"
+                        placeholder="Bank Name"
+                        required
+                        data-test="Bank Name"
+                      />
+                    </div>
+                    <div
+                      class="form__row form__row--label-overlay @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
+                    >
+                      <label
+                        for="bank-acc-no"
+                        class="font-bold"
+                        >Account Number</label
+                      >
+                      <input
+                        type="text"
+                        id="bank-acc-no"
+                        name="bank-acc-no"
+                        :pattern="validation_config.bank_acc_no.pattern"
+                        :placeholder="validation_config.bank_acc_no.placeholder"
+                        :minlength="validation_config.bank_acc_no.min"
+                        :maxlength="validation_config.bank_acc_no.max"
+                        :inputmode="validation_config.bank_acc_no.inputmode"
+                        required
+                        data-test="12345678"
+                      />
+                    </div>
+                    <div
+                      class="form__row form__row--label-overlay @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))]"
+                    >
+                      <label for="vat" class="font-bold"
+                        >Sort Code</label
+                      >
+                      <input
+                        type="text"
+                        id="bank-sort-code"
+                        name="bank-sort-code"
+                        :pattern="validation_config.sortcode.pattern"
+                        :placeholder="validation_config.sortcode.placeholder"
+                        :minlength="validation_config.sortcode.min"
+                        :maxlength="validation_config.sortcode.max"
+                        :inputmode="validation_config.sortcode.inputmode"
+                        required
+                        data-test="12-34-56"
+                      />
+                    </div>
+                    <div
+                      class="form__row form__row--label-overlay basis-full @3xl:basis-[calc(67%-(var(--flex-grid-gap)/2))]"
+                    >
+                      <label
+                        for="bank-address"
+                        class="font-bold"
+                        >Bank Address</label
+                      >
+                      <textarea
+                        id="bank-address"
+                        name="bank-address"
+                        rows="4"
+                        placeholder="Bank address"
+                        required
+                        data-test="Bank address"
+                      ></textarea>
+                    </div>
+                    <div
+                      class="form__row form__row--label-overlay @3xl:basis-[calc(33%-(var(--flex-grid-gap)/2))] self-end"
+                    >
+                      <label
+                        for="bank-postcode"
+                        class="font-bold"
+                        >Post Code</label
+                      >
+                      <input
+                        type="text"
+                        id="bank-postcode"
+                        name="bank-postcode"
+                        :pattern="validation_config.postcode.pattern"
+                        placeholder="Postcode"
+                        required
+                        data-test="SW1A 1AA"
+                      />
+                    </div>
+                    <div class="form__row form__row--label-overlay self-end">
+                      <label
+                        for="bank-tel"
+                        class="font-bold"
+                        >Tel. No.</label
+                      >
+                      <input
+                        type="tel"
+                        id="bank-tel"
+                        name="bank-tel"
+                        :pattern="validation_config.tel.pattern"
+                        placeholder="Tel"
+                        data-test="0900 111222"
+                      />
+                    </div>
+                    <div
+                      class="basis-full flex-layout-grid flex [--flex-grid-min:8ch] @3xl:basis-[calc(50%-(var(--flex-grid-gap)/2))] @3xl:grow-0 gap-y-[calc(var(--layout-gap)/4)]"
+                    >
+                      <h3
+                        class="text-xs font-bold normal-case pl-[var(--text-frame-x)] pt-[var(--text-frame-y)] basis-full"
+                      >
+                        Member since
+                      </h3>
+                      <div class="form__row form__row--label-overlay">
+                        <label for="member-since-date" class="font-bold"
+                          >Day</label
+                        >
+                        <input
+                          type="text"
+                          id="member-since-date"
+                          name="member-since-date"
+                          :inputmode="validation_config.dd.inputmode"
+                          :pattern="validation_config.dd.pattern"
+                          :minlength="validation_config.dd.min"
+                          :placeholder="validation_config.dd.placeholder"
+                          class="w-full"
+                          data-test="01"
+                        />
+                      </div>
+                      <div class="form__row form__row--label-overlay">
+                        <label for="member-since-month" class="font-bold"
+                          >Month</label
+                        >
+                        <input
+                          type="text"
+                          id="member-since-month"
+                          name="member-since-month"
+                          :inputmode="validation_config.mm.inputmode"
+                          :pattern="validation_config.mm.pattern"
+                          :minlength="validation_config.mm.min"
+                          :placeholder="validation_config.mm.placeholder"
+                          class="w-full"
+                          data-test="01"
+                        />
+                      </div>
+                      <div class="form__row form__row--label-overlay">
+                        <label for="member-since-yr" class="font-bold"
+                          >Year</label
+                        >
+                        <input
+                          type="text"
+                          id="member-since-yr"
+                          name="member-since-yr"
+                          :inputmode="validation_config.yyyy.inputmode"
+                          :pattern="validation_config.yyyy.pattern"
+                          :minlength="validation_config.yyyy.min"
+                          :placeholder="validation_config.yyyy.placeholder"
+                          class="w-full"
+                          data-test="1980"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
               </section>
             </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-span-full sticky bottom-0 bg-[oklch(from_var(--root-bg)_l_c_h_/_0.98)] grid grid-cols-subgrid mt-lg z-3 border-t"
+      >
+        <div
+          class="flex col-start-2 col-end-2 justify-between py-xs max-w-screen-lg mx-auto w-full @container"
+        >
+          <div class="w-[5em]">
+            <button
+              class="button"
+              :class="step === 1 ? 'opacity-0' : ''"
+              :disabled="step === 1"
+              @click="goto('prev')"
+            >
+              Prev
+            </button>
+          </div>
+          <ul class="flex items-center gap-sm">
+            <template x-if="isDebug">
+              <li class="border inline-flex items-center rounded-full aspect-square justify-center text-sm w-8 font-bold" @click="prefillData()">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="currentColor" d="M10.5 1a.5.5 0 0 1 0 1c-.627 0-.957.2-1.155.479C9.122 2.79 9 3.289 9 4v7c0 .712.122 1.21.345 1.521c.198.278.528.479 1.155.479a.5.5 0 0 1 0 1c-.873 0-1.543-.3-1.97-.896l-.03-.05l-.03.05C8.043 13.7 7.373 14 6.5 14a.5.5 0 0 1 0-1c.627 0 .957-.2 1.155-.479C7.878 12.21 8 11.712 8 11V4c0-.712-.122-1.21-.345-1.521C7.457 2.2 7.127 2 6.5 2a.5.5 0 0 1 0-1c.873 0 1.543.3 1.97.896l.03.048l.03-.048C8.957 1.3 9.627 1 10.5 1M6 5H1v5h5v1H1l-.103-.005a1 1 0 0 1-.892-.893L0 10V5a1 1 0 0 1 .897-.995L1 4h5zm8.102-.995A1 1 0 0 1 15 5v5l-.005.102a1 1 0 0 1-.893.893L14 11h-3v-1h3V5h-3V4h3z"/></svg>                  
+                </span>
+              </li>
+            </template>
+            <template x-for="num in maxSteps">
+              <li
+                x-text="num"
+                :class="[step !== num ? 'border-transparent': '', num < step ? 'bg-tertiary' : '']"
+                class="@2xl:hidden border inline-flex items-center rounded-full aspect-square justify-center text-sm w-8 font-bold"
+              ></li>
+            </template>
+          </ul>
+          <div class="w-[5em]">
+            <button
+              class="button"
+              x-show="step < maxSteps"
+              :disabled="step === maxSteps"
+              @click="goto('next')"
+            >
+              Next
+            </button>
+            <button class="button" x-show="step === maxSteps" type="submit">
+              Submit
+            </button>
           </div>
         </div>
       </div>

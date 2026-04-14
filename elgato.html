@@ -4,12 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  <style>
-    @layer existing, override;
-    @import "./existing.css" layer(existing);
-    @import "./style.css" layer(override);
-    @import "./tailwind-output.css" layer(override);
-  </style>
+    <link rel="stylesheet" href="./styles/layer-setup-standalone.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
     </style>

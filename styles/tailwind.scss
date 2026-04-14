@@ -1,0 +1,65 @@
+@use "small-style/scss/theme/_index" as * with (
+  $baseResetRulesScopeClassName: '.new'
+);
+@use "small-style/scss/base/mixins/rules/props/_colors" as *;
+@use "small-style/scss/base/variables/components/forms" as *;
+@use "small-style/scss/base/mixins/rules/components/_forms" as *;
+@use "small-style/scss/base/mixins/rules/components/_layout" as *;
+@use "./base/mixins/rules/components/forms" as *;
+
+@import "./preflight-modified.css" layer(tw-base);
+@import "tailwindcss/theme.css" layer(tw);
+@import "tailwindcss/utilities.css" layer(tw);
+
+@source "../*.html";
+@source "../../**/*.html";
+@source "../../**/*.vue";
+@source "../../**/*.js";
+
+// @import "small-style/dist/style.css";
+@import "small-style/scss/index";
+
+@layer existing-overrides {
+  // @import url("existing-overrides.css");
+  @import "./site/existing-overrides/header";
+  @import "./site/existing-overrides/product-landing";
+  @import "./site/existing-overrides/popup";
+  @import "./site/existing-overrides/login";
+  @import "./site/existing-overrides/footer";
+}
+
+@layer base {
+    @import "./base/base";
+}
+
+@layer site {
+    @import "./site/site";
+}
+
+@layer site-props {
+    @import "./site/site-props";
+}
+
+@layer tw-base {
+  :root:is(#body, .c-footer, .unauthenticated) {
+    @import url("preflight-modified.css");
+  }
+}
+
+@layer tw {
+    @import "./site/tailwind/theme";
+}
+
+@utility flow--* {
+  --flow-space: --value(--spacing- *);
+  --flow-space: --spacing(--value(integer));
+}
+
+
+@utility fluid {
+    --fluid-min: calc(var(--font-size-min, var(--sm-px, 14)) * pow(var(--font-ratio-min, 1.2), var(--font-level, 0)));
+    --fluid-max: calc(var(--font-size-max, var(--font-size-base-px, 16)) * pow(var(--font-ratio-max, 1.5), var(--font-level, 0)));
+    --fluid-preferred: calc((var(--fluid-max) - var(--fluid-min)) / (var(--font-width-max, 1275) - var(--font-width-min, 375)));
+    --fluid-type: clamp((var(--fluid-min) / 16) * 1rem,((var(--fluid-min) / 16) * 1rem) - (((var(--fluid-preferred) * var(--font-width-min, 375)) / 16) * 1rem) + (var(--fluid-preferred) * var(--variable-unit, 100vi)),(var(--fluid-max) / 16) * 1rem);
+    font-size: var(--fluid-type);
+}

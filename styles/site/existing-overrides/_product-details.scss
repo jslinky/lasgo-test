@@ -1,0 +1,50 @@
+@layer existing-overrides {
+  @layer new {
+    .grid_16.product {
+      width: 100% !important;
+      margin: 0 !important;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .product {
+      .productInfo {
+        display: flex;
+        flex-basis: max(calc(100% - 230px), min(500px, 100%));
+        max-width: 1040px;
+        width: 100% !important;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .imageBlockWrap {
+        width: min(clamp(220px, 30vw, 440px), 100%) !important;
+        margin-right: auto !important;
+        margin-left: auto;
+      }
+
+      .productContentWrap {
+        width: auto !important;
+        min-width: min(270px, 100%);
+        margin-left: 0 !important;
+        max-width: calc(100% - (440px + 2rem));
+      }
+
+      .purchaseBlock {
+        width: min(220px, 100%);
+      }
+
+      .productImageWrapper {
+        > img {
+          max-width: 100% !important;
+          width: 100%;
+        }
+      }
+    }
+
+    .container_16:has(.product) {
+      width: min(calc(100% - 2rem), 1280px) !important;
+      margin-inline: auto;
+    }
+  }
+}
