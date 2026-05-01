@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-gb" class="authenticated">
   <head>
     <meta charset="utf-8" />
@@ -112,7 +112,7 @@
                   {
                     scrollTop: target.offset().top,
                   },
-                  800
+                  800,
                 );
                 return false;
               }
@@ -168,11 +168,11 @@
     <script>
       document.documentElement.setAttribute(
         "is-showing-discount",
-        gardners.settings.IsShowingDiscount
+        gardners.settings.IsShowingDiscount,
       ); //Set view first thing to hide pricing.
       document.documentElement.setAttribute(
         "is-pricing-vat-inclusive",
-        gardners.settings.IsPricingVatInclusive
+        gardners.settings.IsPricingVatInclusive,
       ); //Set VatView first thing to ide pricing.
     </script>
     <link
@@ -389,7 +389,7 @@
                                   <script>
                                     jQuery(function () {
                                       jQuery(
-                                        "#InactiveBaskets"
+                                        "#InactiveBaskets",
                                       ).kendoDropDownList({
                                         change:
                                           gardners.basket.common
@@ -1686,10 +1686,10 @@
 
           const modeCheckbox = document.querySelector("input#mode");
           const currentCSS = document.querySelector(
-            'head link[href*="siteCSS"]'
+            'head link[href*="siteCSS"]',
           );
           const currentLessCSS = document.querySelector(
-            'head link[href*="CssLess"]'
+            'head link[href*="CssLess"]',
           );
           const currentCSSPath = currentCSS
             ? currentCSS.getAttribute("href")
@@ -1815,26 +1815,31 @@
                     <p>
                       From our humble beginnings in London&#39;s Oxford Street,
                       our success has been achieved through the company&#39;s
-                      ability to diversify and identify new opportunities. As such
-                      we were well placed to take full advantage of this growth.
-                      We have also invested in the expansion of our Visual
-                      Entertainment and Merchandise divisions to meet a growing
-                      demand for fan-based physical products.
+                      ability to diversify and identify new opportunities. As
+                      such we were well placed to take full advantage of this
+                      growth. We have also invested in the expansion of our
+                      Visual Entertainment and Merchandise divisions to meet a
+                      growing demand for fan-based physical products.
                     </p>
-                  <p>
-                    <a
-                      class="button button--primary button--wide md:mx-auto min-w-max"
-                      href="#"
-                      >Find out more</a
-                    >
-                  </p>                  
+                    <p>
+                      <a
+                        class="button button--primary button--wide md:mx-auto min-w-max"
+                        href="#"
+                        >Find out more</a
+                      >
+                    </p>
                   </div>
                 </div>
                 <div
                   class="basis-[fit-content] md:content-end flex md:items-end md:justify-center flow--0"
                 >
-                  <div class="lasgo-artwork lg:absolute right-0 top-0 lg:-translate-y-[15%] scale-125">
-                    <svg viewBox="0 0 664 484" xmlns="http://www.w3.org/2000/svg">
+                  <div
+                    class="lasgo-artwork lg:absolute right-0 top-0 lg:-translate-y-[15%] scale-125"
+                  >
+                    <svg
+                      viewBox="0 0 664 484"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <defs>
                         <!-- A marker to be used as an arrowhead -->
                         <marker
@@ -1849,7 +1854,12 @@
                           <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
                         </marker>
                       </defs>
-                      <path fill="none" stroke="var(--color-brand-yellow)" d="M 368,150 L 368 120 Q 368 90 398 90 L 550 90" stroke-width="6"></path>
+                      <path
+                        fill="none"
+                        stroke="var(--color-brand-yellow)"
+                        d="M 368,150 L 368 120 Q 368 90 398 90 L 550 90"
+                        stroke-width="6"
+                      ></path>
                       <path
                         class="tee-line"
                         fill="none"
@@ -1857,7 +1867,13 @@
                         d="M 368,350 L 368 400 Q 368 430 398 430 L 500 430"
                         stroke-width="6"
                       ></path>
-                      <path class="cd-line" fill="none" stroke="orange" d="M 250,300 L 250 360 Q 250 390 220 390 L 100 390" stroke-width="6"></path>
+                      <path
+                        class="cd-line"
+                        fill="none"
+                        stroke="orange"
+                        d="M 250,300 L 250 360 Q 250 390 220 390 L 100 390"
+                        stroke-width="6"
+                      ></path>
                     </svg>
                     <div class="globe-logo">
                       <svg
@@ -2323,7 +2339,10 @@
                               </g>
                             </g>
                             <g id="center">
-                              <g id="Ellipse 41" filter="url(#filter0_d_844_732)">
+                              <g
+                                id="Ellipse 41"
+                                filter="url(#filter0_d_844_732)"
+                              >
                                 <circle
                                   cx="24.5"
                                   cy="24.5"
@@ -2756,16 +2775,15 @@
                       <div class="axis"></div>
                     </div>
                   </div>
-
-
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-
-        <div class="wrapper max-w-screen overflow-x-clip py-section-gap-3xl content-center min-h-[min(1000px,calc(100vh-var(--root-header-height)))]">
+        <div
+          class="wrapper max-w-screen overflow-x-clip py-section-gap-3xl content-center min-h-[min(1000px,calc(100vh-var(--root-header-height)))]"
+        >
           <div class="flow">
             <div class="flow flow--xl">
               <h2
@@ -2954,7 +2972,16 @@
           <div
             class="section-partnership layout-grid layout-grid--column-count [--column-count:2] gap-0 flow"
           >
-            <div><p>svg</p></div>
+            <div>
+              <div class="blob-container">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+
+
             <div class="contents">
               <div class="flow @4xl:pr-2xl @4xl:pb-xl mb-xl @4xl:mb-0">
                 <h2 class="heading fluid heading--underline heading-xl">
@@ -3058,7 +3085,29 @@
             </div>
           </div>
         </div>
-        <div class="wrapper py-section-gap">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              style="position: absolute"
+            >
+              <defs>
+                <filter id="plasma">
+                  <feGaussianBlur
+                    in="SourceGraphic"
+                    stdDeviation="20"
+                    result="blur"
+                  />
+                  <feColorMatrix
+                    in="blur"
+                    mode="matrix"
+                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -7"
+                    result="plasma"
+                  />
+                  <feBlend in="SourceGraphic" in2="plasma" />
+                </filter>
+              </defs>
+            </svg>        
+        <div class="wrapper py-section-gap z-10">
           <div class="flow">
             <h2 class="heading fluid heading--underline heading-xl">
               <span class="heading-xs text-default">Contact our sales team</span
@@ -3497,14 +3546,15 @@
     <script>
       // Title Case navigation menu items
       const navMenuLinks = document.querySelectorAll(
-        "#navMenu .navMenu > .primary > li > a"
+        "#navMenu .navMenu > .primary > li > a",
       );
       navMenuLinks.forEach((link) => {
         const text = link.textContent.trim();
         link.textContent = text
           .split(" ")
           .map(
-            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+            (word) =>
+              word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
           )
           .join(" ");
       });
@@ -3559,7 +3609,7 @@
               : document.body.classList.remove("hero-solid-bg");
           });
         },
-        { threshold: [0, 0.1, 0.2, 0.5, 0.8, 1], rootMargin: "-70px" }
+        { threshold: [0, 0.1, 0.2, 0.5, 0.8, 1], rootMargin: "-70px" },
       );
 
       if (hero) {
@@ -3572,7 +3622,7 @@
       ].filter(
         (link) =>
           link?.nextElementSibling &&
-          link?.nextElementSibling.classList.contains("megaMenu")
+          link?.nextElementSibling.classList.contains("megaMenu"),
       );
       mobileMenuLinks.forEach((link) => {
         link.addEventListener("click", (e) => {

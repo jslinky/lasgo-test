@@ -51,7 +51,7 @@
 @layer modifiers {
 
   .card .fluid {
-    --font-size: var(--heading-#{$size}-font-size-fluid-cq, min(var(--font-size-max, var(--font-size-base-px)), calc(var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw))));    
+    --font-size: min(var(--font-size-max, var(--font-size-base-px)), calc(var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw)));
   }  
 
   :where(

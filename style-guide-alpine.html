@@ -1,0 +1,269 @@
+[$WebPart(css)] [$WebPart(colours)]
+
+<div
+  class="wrapper flow"
+  x-data="{
+    init() {
+        const elements = document.querySelectorAll('[data-component]');
+        elements.forEach(el => {
+           if (el.dataset.processed) return;
+            const component = el.getAttribute('data-component');
+            el.classList.add('p-md');
+            const wrapper = document.createElement('div');
+            wrapper.className = 'border rounded-md';
+            el.parentNode.insertBefore(wrapper, el);
+            wrapper.appendChild(el);
+            const labelDiv = document.createElement('div');
+            labelDiv.className = 'px-md pb-sm pt-xs bg-grey-11 text-sm';
+            const p = document.createElement('p');
+            p.textContent = component;
+            labelDiv.appendChild(p);
+            wrapper.appendChild(labelDiv);
+            el.dataset.processed = 'true';
+        });
+        
+        // Handle component groups
+        const groups = document.querySelectorAll('[data-component-group]');
+        groups.forEach(group => {
+            if (group.querySelector('select')) return;
+            const components = group.querySelectorAll('[data-component]');
+            if (components.length > 0) {
+                const select = document.createElement('select');
+                select.setAttribute('x-model', 'selectedComponent');
+                components.forEach(comp => {
+                    const option = document.createElement('option');
+                    option.value = comp.getAttribute('data-component');
+                    option.textContent = comp.getAttribute('data-component');
+                    select.appendChild(option);
+                });
+                group.insertBefore(select, group.firstChild);
+                components.forEach(comp => {
+                    comp.setAttribute('x-show', 'selectedComponent === \'' + comp.getAttribute('data-component') + '\'');
+                });
+            }
+        });
+
+        // Handle cards
+        console.log('init() card scan:', document.querySelectorAll('article.card').length, 'article.card elements found');
+        const cards = document.querySelectorAll('article.card');
+        cards.forEach(card => {
+            const surface = card.getAttribute('data-surface') || '';
+            const cardColumnReverseOrder = card.getAttribute('data-card-column-reverse-order') || 'false';
+            const cardColumnTextAlign = card.getAttribute('data-card-column-text-align') || 'start';
+            const cardColumnJustify = card.getAttribute('data-card-column-justify') || 'start';
+            const cardColumnAlign = card.getAttribute('data-card-column-align') || 'start';
+            const cardColumnImageSelfAlign = card.getAttribute('data-card-column-image-self-align') || 'start';
+            const cardRowTextAlign = card.getAttribute('data-card-row-text-align') || 'start';
+            const cardRowJustify = card.getAttribute('data-card-row-justify') || 'start';
+            const cardRowAlign = card.getAttribute('data-card-row-align') || 'start';
+            const cardRowImageSelfAlign = card.getAttribute('data-card-row-image-self-align') || 'start';
+            const cardLayout = card.getAttribute('data-card-layout') || 'row';
+
+            const dataComponent = card.closest('[data-component]');
+
+            if (dataComponent) {
+              if (dataComponent.querySelector('[data-card-attr-controls]')) return;
+
+              const controlsWrapper = document.createElement('div');
+              controlsWrapper.className = 'flow flow--xs p-md border rounded-md';
+              controlsWrapper.setAttribute('data-card-attr-controls', 'true');
+
+              const controlsTitle = document.createElement('p');
+              controlsTitle.className = 'text-sm font-bold';
+              controlsTitle.textContent = 'Card data attributes';
+              controlsWrapper.appendChild(controlsTitle);
+
+              const surfaceSelect = createSelect('Surface', ['primary', 'secondary', 'tertiary', 'light', 'dark', 'grey'], surface, value => {
+                    card.setAttribute('data-surface', value);
+                });
+              controlsWrapper.appendChild(surfaceSelect);
+
+              const reverseOrderSelect = createSelect('Column reverse order', ['true', 'false'], cardColumnReverseOrder, value => {
+                    card.setAttribute('data-card-column-reverse-order', value);
+                });
+              controlsWrapper.appendChild(reverseOrderSelect);
+
+              const columnTextAlignSelect = createSelect('Column text align', ['start', 'center', 'end'], cardColumnTextAlign, value => {
+                    card.setAttribute('data-card-column-text-align', value);
+                });
+              controlsWrapper.appendChild(columnTextAlignSelect);
+
+              const columnJustifySelect = createSelect('Column justify', ['start', 'center', 'end', 'between', 'around'], cardColumnJustify, value => {
+                    card.setAttribute('data-card-column-justify', value);
+                });
+              controlsWrapper.appendChild(columnJustifySelect);
+
+              const columnAlignSelect = createSelect('Column align', ['start', 'center', 'end', 'stretch'], cardColumnAlign, value => {
+                    card.setAttribute('data-card-column-align', value);
+                });
+              controlsWrapper.appendChild(columnAlignSelect);
+
+              const columnImageAlignSelect = createSelect('Column image self align', ['start', 'center', 'end', 'stretch'], cardColumnImageSelfAlign, value => {
+                    card.setAttribute('data-card-column-image-self-align', value);
+                });
+              controlsWrapper.appendChild(columnImageAlignSelect);
+
+              const rowTextAlignSelect = createSelect('Row text align', ['start', 'center', 'end'], cardRowTextAlign, value => {
+                    card.setAttribute('data-card-row-text-align', value);
+                });
+              controlsWrapper.appendChild(rowTextAlignSelect);
+
+              const rowJustifySelect = createSelect('Row justify', ['start', 'center', 'end', 'between', 'around'], cardRowJustify, value => {
+                    card.setAttribute('data-card-row-justify', value);
+                });
+              controlsWrapper.appendChild(rowJustifySelect);
+
+              const rowAlignSelect = createSelect('Row align', ['start', 'center', 'end', 'stretch'], cardRowAlign, value => {
+                    card.setAttribute('data-card-row-align', value);
+                });
+              controlsWrapper.appendChild(rowAlignSelect);
+
+              const rowImageAlignSelect = createSelect('Row image self align', ['start', 'center', 'end', 'stretch'], cardRowImageSelfAlign, value => {
+                    card.setAttribute('data-card-row-image-self-align', value);
+                });
+              controlsWrapper.appendChild(rowImageAlignSelect);
+
+              const layoutSelect = createSelect('Layout', ['row', 'col', 'overlay', 'none'], cardLayout, value => {
+                    card.setAttribute('data-card-layout', value);
+                });
+              controlsWrapper.appendChild(layoutSelect);
+
+              dataComponent.appendChild(controlsWrapper);
+            }
+        });
+
+          function createSelect(title, options, value, onChange) {
+            const fieldWrapper = document.createElement('div');
+            fieldWrapper.className = 'flow flow--2xs';
+
+            const label = document.createElement('p');
+            label.className = 'text-sm';
+            label.textContent = title;
+
+            const select = document.createElement('select');
+            if (value !== undefined) {
+                select.value = value;
+            }
+            if (typeof onChange === 'function') {
+                select.addEventListener('change', event => {
+                    onChange(event.target.value);
+                });
+            }
+            options.forEach(opt => {
+                const option = document.createElement('option');
+                option.value = opt;
+                option.textContent = opt;
+                select.appendChild(option);
+            });
+              fieldWrapper.appendChild(label);
+              fieldWrapper.appendChild(select);
+              return fieldWrapper;
+        }
+    }
+}"
+  x-init="init()"
+>
+  <div class="flow flow--xs">
+    <div data-component="headingXs">
+      [#headingXs(@headingAs=h2,@headingColor=default,@headingTextAlign=start,@headingText=Heading
+      Xs,@fluid=true,@headingClasses=)]
+    </div>
+    <div data-component="headingSm">
+      [#headingSm(@headingAs=h3,@headingColor=default,@headingTextAlign=start,@headingText=Heading
+      Sm,@fluid=true,@headingClasses=)]
+    </div>
+    <div data-component="headingDefault">
+      [#headingDefault(@headingAs=h2,@headingColor=default,@headingTextAlign=start,@headingText=Heading
+      Default,@fluid=true,@headingClasses=)]
+    </div>
+    <div data-component="headingLg">
+      [#headingLg(@headingAs=h2,@headingColor=default,@headingTextAlign=start,@headingText=Heading
+      Lg,@fluid=true,@headingClasses=)]
+    </div>
+    <div data-component="headingXl">
+      [#headingXl(@headingAs=h2,@headingColor=default,@headingTextAlign=start,@headingText=Heading
+      Xl,@fluid=true,@headingClasses=)]
+    </div>
+    <div data-component="heading2xl">
+      [#heading2xl(@headingAs=h2,@headingColor=default,@headingTextAlign=start,@headingText=Heading
+      2xl,@fluid=true,@headingClasses=)]
+    </div>
+    <div data-component="heading3xl">
+      [#heading3xl(@headingAs=h2,@headingColor=default,@headingTextAlign=start,@headingText=Heading
+      3xl,@fluid=true,@headingClasses=)]
+    </div>
+  </div>
+  <div class="flow flow--xs">
+    <div data-component="headingXs">
+      [#headingXlTaglineUnderlineRounded(@headingAs=h2,@headingColor=default,@headingTextAlign=center,@headingText=Heading
+      Xl,@fluid=true,@headingClasses=,@taglineText=Tagline,@taglineColor=default,@underlineColor=default)]
+    </div>
+    <div data-component="headingXs">
+      [#headingXlTaglineLineAcrossUnderline(@headingAs=h2,@headingColor=default,@headingTextAlign=center,@headingText=Heading
+      Xl,@fluid=true,@headingClasses=a,@taglineText=Tagline,@taglineColor=default,@underlineColor=default)]
+    </div>
+    <div data-component="headingXs">
+      [#headingXlLineThroughUnderline(@headingAs=h2,@headingColor=default,@headingTextAlign=center,@headingText=Heading
+      Xl,@fluid=true,@headingClasses=,@underlineColor=default)]
+    </div>
+    <div data-component="headingXs">
+      [#headingXlUnderlineThin(@headingAs=h2,@headingColor=default,@headingTextAlign=center,@headingText=Heading
+      Xl,@fluid=true,@headingClasses=)]
+    </div>
+  </div>
+  <div class="flow flow--xs">
+    <div data-component-group="hero" x-data="{ selectedComponent: 'hero' }">
+      <div data-component="hero">
+        [#hero( @cardClasses=, @pictureClasses=, @bodyClasses=flow flow--md,
+        @contentClasses=flow flex-col, @captionClasses=flow, @taglineClasses=,
+        @titleClasses=, @subtitleClasses=, @contentSlotClasses=,
+        @ctasClasses=flow--xl, @titleAs=h2, @titleColor=, @titleSize=3xl,
+        @heroType=, @titleText=TitleText, @taglineText=taglineText,
+        @subTitleText=subTitleText, @contentSlot=, @picture=, @pictureAlt=,
+        @pictureSize=, @pictureRatio=, @pictureWide=, @pictureRatioWide=,
+        @pictureSizeWide=, @pictureCustom=, @ctaOneLabel=, @ctaOneHref=,
+        @ctaOneTarget=, @ctaOneRel=, @ctaOneClasses=, @ctaOneColor=,
+        @ctaOneType=, @ctaOneSize=, @ctaOneInverted=, @ctaTwoLabel=,
+        @ctaTwoHref=, @ctaTwoTarget=, @ctaTwoRel=, @ctaTwoClasses=,
+        @ctaTwoColor=, @ctaTwoType=, @ctaTwoSize=, @ctaTwoInverted=,
+        @ctaThreeLabel=, @ctaThreeHref=, @ctaThreeTarget=, @ctaThreeRel=,
+        @ctaThreeClasses=, @ctaThreeColor=, @ctaThreeType=, @ctaThreeSize=,
+        @ctaThreeInverted=, @titleTextAlign=, @taglineAs=h2, @taglineColor=,
+        @taglineSize=xs, @taglineTextAlign=, @subTitleAs=h2, @subTitleColor=,
+        @subTitleSize=, @subTitleTextAlign=, @surface=, @reverseDomOrder=false,
+        @fixedLayout=, @fluidType=, @reverseOrderColumn=, @textAlignmentColumn=,
+        @justifyContentColumn=, @alignItemsColumn=, @imageSelfAlignColumn=,
+        @reverseOrderRow=, @textAlignmentRow=, @justifyContentRow=,
+        @alignItemsRow=, @imageSelfAlignRow=, @cardContainerClasses=,
+        @radius=,@shadow=, @contentSizeColumnA=, @contentSizeColumnB=,
+        @contentSizeRowA=, @contentSizeRowB= )]
+      </div>
+      <div data-component="heroTwo">
+        [#hero( @cardClasses=, @pictureClasses=, @bodyClasses=flow flow--md,
+        @contentClasses=flow flex-col, @captionClasses=flow, @taglineClasses=,
+        @titleClasses=, @subtitleClasses=, @contentSlotClasses=,
+        @ctasClasses=flow--xl, @titleAs=h2, @titleColor=, @titleSize=3xl,
+        @heroType=, @titleText=TitleText, @taglineText=taglineText,
+        @subTitleText=subTitleText, @contentSlot=, @picture=, @pictureAlt=,
+        @pictureSize=, @pictureRatio=, @pictureWide=, @pictureRatioWide=,
+        @pictureSizeWide=, @pictureCustom=, @ctaOneLabel=, @ctaOneHref=,
+        @ctaOneTarget=, @ctaOneRel=, @ctaOneClasses=, @ctaOneColor=,
+        @ctaOneType=, @ctaOneSize=, @ctaOneInverted=, @ctaTwoLabel=,
+        @ctaTwoHref=, @ctaTwoTarget=, @ctaTwoRel=, @ctaTwoClasses=,
+        @ctaTwoColor=, @ctaTwoType=, @ctaTwoSize=, @ctaTwoInverted=,
+        @ctaThreeLabel=, @ctaThreeHref=, @ctaThreeTarget=, @ctaThreeRel=,
+        @ctaThreeClasses=, @ctaThreeColor=, @ctaThreeType=, @ctaThreeSize=,
+        @ctaThreeInverted=, @titleTextAlign=, @taglineAs=h2, @taglineColor=,
+        @taglineSize=xs, @taglineTextAlign=, @subTitleAs=h2, @subTitleColor=,
+        @subTitleSize=, @subTitleTextAlign=, @surface=, @reverseDomOrder=false,
+        @fixedLayout=, @fluidType=, @reverseOrderColumn=, @textAlignmentColumn=,
+        @justifyContentColumn=, @alignItemsColumn=, @imageSelfAlignColumn=,
+        @reverseOrderRow=, @textAlignmentRow=, @justifyContentRow=,
+        @alignItemsRow=, @imageSelfAlignRow=, @cardContainerClasses=,
+        @radius=,@shadow=, @contentSizeColumnA=, @contentSizeColumnB=,
+        @contentSizeRowA=, @contentSizeRowB= )]
+      </div>      
+    </div>
+  </div>
+</div>
+ 
