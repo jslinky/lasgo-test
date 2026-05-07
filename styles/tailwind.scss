@@ -16,8 +16,6 @@
 @source "../../**/*.vue";
 @source "../../**/*.js";
 
-<<<<<<< Updated upstream
-=======
 // Safelist classes
 @source inline("{@sm:,@md:,@lg:,}{col-span}-{1..6}");
 @source inline("{@sm:,@md:,@lg:,}{col-span}-{full}");
@@ -37,7 +35,6 @@
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-xl)]}");
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-2xl)]}");
 
->>>>>>> Stashed changes
 // @import "small-style/dist/style.css";
 @import "small-style/scss/index";
 

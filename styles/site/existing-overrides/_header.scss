@@ -542,29 +542,7 @@
     background-clip: text;
   }
 
-  .hero--expanded {
-    .card-picture {
-      mask: linear-gradient(
-        to bottom,
-        transparent 0%,
-        black 30%,
-        black,
-        transparent 90%
-      );
-      mask-position: center;
-      mask-size: cover;
-      img {
-        max-width: calc(var(--max-wrapper-width) * 1.5);
-        mask: linear-gradient(
-          90deg,
-          transparent 0%,
-          black 20%,
-          black,
-          transparent 80%
-        );
-      }
-    }
-  }
+
 
   :root {
     // --root-header-height: 73px;
