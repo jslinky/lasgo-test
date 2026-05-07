@@ -267,20 +267,6 @@
 }
 
 @layer new {
-  :root {
-    --hero-expanded-surface-color: var(--color-dark);
-    --hero-expanded-surface-mix-color: var(--color-primary);
-    --hero-expanded-nav-bg: oklch(
-      from
-        color-mix(
-          in oklab,
-          var(--hero-expanded-surface-mix-color),
-          var(--hero-expanded-surface-color) 70%
-        )
-        l c h / 1
-    );
-  }
-
   :is(
     #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li > a,
     #megaMenuHeaderLoggedOut
@@ -542,27 +528,6 @@
     background-clip: text;
   }
 
-
-
-  :root {
-    // --root-header-height: 73px;
-    // --root-nav-height: 30px;
-    --root-account-header-height: 32px;
-
-    --root-nav-mt: var(--space-sm);
-    --root-nav-height: 35px;
-    --root-header-height: 138px;
-    --root-header-mt: var(--space-xs);
-
-    @include respond-to(lg) {
-      --root-header-height: 50px;
-    }
-  }
-
-  html {
-    font-size: var(--font-size-base-px, 16px);
-  }
-
   :is(#accountHeader) {
     z-index: 1;
     max-width: 100%;
@@ -752,20 +717,6 @@
     #breadcrumb {
       display: none;
       margin-top: 0;
-    }
-  }
-
-  .hero--expanded {
-    --hero-expanded-outer-margin: clamp(0.25rem, 1vi, 1rem);
-    // --hero-expanded-outer-margin: 4px;
-    --hero-height: clamp(
-      520px,
-      calc(95dvh - (var(--header-height) + 50px)),
-      1000px
-    );
-    --hero-height-expanded: calc(var(--header-height) + var(--hero-height));
-    .card-body {
-      margin-top: calc(var(--root-header-height) + var(--root-nav-height));
     }
   }
 
@@ -1148,35 +1099,7 @@
     }
   }
 
-  #outerWrap:has(.hero--expanded) {
-    .hero--expanded {
-      --heading-3xl-font-size-max: calc(
-        var(--display-2xl-px) * var(--text-size-increment)
-      );
-      margin-inline: var(--hero-expanded-outer-margin);
-      margin-top: calc(-1px * 105);
-      @include respond-to(lg) {
-        margin-top: calc(
-          -1 *
-            (
-              var(--root-nav-mt) + var(--root-header-height) +
-                var(--root-nav-height) + var(--root-header-mt)
-            )
-        );
-      }
-      .card {
-        overflow: clip;
-      }
-    }
 
-    // &:has(.is-sticky) {
-    //   .hero {
-    //     margin-top: 0;
-    //   }
-    // }
-
-    // #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut ul.primary >li > a
-  }
 
   select#productType {
     border-radius: var(--radius) 0 0 var(--radius);

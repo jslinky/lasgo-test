@@ -1,5 +1,5 @@
 @use "small-style/scss/theme/_index" as * with (
-  $baseResetRulesScopeClassName: '.new'
+  $baseResetRulesScopeClassName: ".new"
 );
 @use "small-style/scss/base/mixins/rules/props/_colors" as *;
 @use "small-style/scss/base/variables/components/forms" as *;
@@ -46,24 +46,46 @@
   @import "./site/existing-overrides/login";
   @import "./site/existing-overrides/footer";
 
-  :where(.htmlBlock) {
-    background: transparent;
-  }  
+  @layer unset {
+    :where(.htmlBlock) {
+      background: transparent;
+    }
+  }
 
+  @layer new {
+    :root {
+      // --root-header-height: 73px;
+      // --root-nav-height: 30px;
+      --root-account-header-height: 32px;
+
+      --root-nav-mt: var(--space-sm);
+      --root-nav-height: 35px;
+      --root-header-height: 138px;
+      --root-header-mt: var(--space-xs);
+
+      @include respond-to(lg) {
+        --root-header-height: 50px;
+      }
+    }
+
+    html {
+      font-size: var(--font-size-base-px, 16px);
+    }
+  }
 }
 
 @layer base {
-    @import "./base/base";
+  @import "./base/base";
 }
 
 @layer site {
-    @import "./site/site";
-    // generate data-component as a seperate css file 
-    @import "./data-component";
+  @import "./site/site";
+  // generate data-component as a seperate css file
+  @import "./data-component";
 }
 
 @layer site-props {
-    @import "./site/site-props";
+  @import "./site/site-props";
 }
 
 @layer tw-base {
@@ -73,14 +95,13 @@
 }
 
 @layer tw {
-    @import "./site/tailwind/theme";
+  @import "./site/tailwind/theme";
 }
 
 @utility flow--* {
-  --flow-space: --value(--spacing- *);
+  --flow-space: --value(--spacing-*);
   --flow-space: --spacing(--value(integer));
 }
-
 
 // @utility fluid {
 //     --fluid-min: calc(var(--font-size-min, var(--sm-px, 14)) * pow(var(--font-ratio-min, 1.2), var(--font-level, 0)));
