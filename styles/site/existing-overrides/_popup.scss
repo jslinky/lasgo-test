@@ -1,34 +1,52 @@
 #k-window-createBasketPopup {
-    --heading-xs-text-transform: none;
-    --heading-xs-font-weight: 700;
+  --heading-xs-text-transform: none;
+  --heading-xs-font-weight: 700;
 }
 
 .selectExistingBasket {
-    form {
-        display: grid;
-        grid-template-columns: max-content 1fr max-content;
-        gap: var(--space-sm);
-        align-items: center;
-        font-size: var(--text-sm);
-    }
-    h6 {
-        grid-column: 1 / -1;
-    }
-    label {
-        white-space: nowrap;
-        width: fit-content;
-        font-weight: 600;
-    }
-    button {
-        display: flex;
-        align-items: center;
-        gap: var(--space-2xs);
-        align-self: stretch;
-    }
+  form {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    gap: var(--space-sm);
+    align-items: center;
+    font-size: var(--text-sm);
+  }
+  h6 {
+    grid-column: 1 / -1;
+  }
+  label {
+    white-space: nowrap;
+    width: fit-content;
+    font-weight: 600;
+  }
+  button {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    align-self: stretch;
+  }
 }
 
 .k-window-title {
-    font-size: var(--text-base);
-    font-weight: 600;
-    color: var(--root-fg);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--root-fg);
+}
+
+[data-role="popup"] {
+  padding: 0.125rem !important;
+  border-radius: var(--radius) !important;
+  font-size: var(--text-sm) !important;
+  box-shadow: none !important;
+  li {
+    padding-block: 0.125em !important;
+    border-radius: calc(var(--radius) - 0.125em) !important;
+    border: 1px solid transparent;
+    color: var(--color-primary);
+    &:hover {
+      background-color: var(--color-grey-11) !important;
+      border-color: var(--color-grey-10) !important;
+      padding-inline: 5px !important;
+    }
+  }
 }

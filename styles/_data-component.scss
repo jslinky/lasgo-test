@@ -1,0 +1,52 @@
+#body:has([data-component]) {
+  select {
+    border: 1px solid var(--field-border-color);
+    padding: 0.25em;
+    font-size: var(--text-xs);
+    width: min(100px, 100%);
+  }
+}
+
+.data-component {
+  display: grid;
+}
+
+.layout-grid .data-component {
+  margin: 0;
+}
+
+[data-component]:has(.card) {
+  position: relative;
+  .card {
+    anchor-name: --card;
+  }
+}
+
+[data-card-attr-controls] {
+  position: absolute;
+  top: anchor(--card top);
+  z-index: 1;
+  background: var(--root-bg);
+  right: anchor(--card end);
+  max-height: 100%;
+  overflow: auto;
+  width: 200px;
+  translate: 100%;
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+
+[data-component]:has(.hero) [data-card-attr-controls] {
+  display: block;
+}
+
+[data-component]:hover [data-card-attr-controls] {
+  translate: 0%;
+  opacity: 1;
+  pointer-events: all;
+}
+
+div:has(> [data-component]:is([style*="display: none"])) {
+  display: none;
+}

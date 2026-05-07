@@ -1,0 +1,217 @@
+body:has(.hero--expanded):has(#outerWrap) {
+  overflow: hidden;
+  #outerWrap {
+    scroll-snap-type: y proximity;
+    // animation-timeline: --scroll;
+    overflow: auto;
+    max-height: 100vh;
+    scroll-behavior: smooth;
+  }
+  #body {
+    display: contents;
+    > * {
+      scroll-snap-align: center;
+    }
+    .hero {
+      scroll-snap-align: center;
+    }
+    // .hero + * {
+    //   scroll-snap-align: start;
+    // }
+  }
+}
+
+.hero--expanded {
+  --variable-unit: calc(40vi + 60vb);
+  @container (min-width: 70ch) {
+    .card-picture {
+      transform: translateX(20%);
+    }
+  }
+}
+
+@keyframes backdropOpacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes shrinkHero {
+  // from {
+  //   max-height: 100vh;
+  // }
+  // to {
+  //   max-height: 200px;
+  // }
+  from {
+    // scale:1;
+    max-height: 100vh;
+  }
+  to {
+    // scale:0.5;
+    max-height: 0px;
+  }
+}
+
+.hero.hero--expanded {
+  height: 50vh;
+  position: sticky;
+  bottom: 0;
+}
+
+.hero--expanded .card {
+  // animation: shrinkHero linear both;
+  animation-timeline: scroll();
+  animation-range: 0 120vh;
+}
+
+.hero--expanded .card {
+  --card-backdrop-color-from-color: color-mix(
+    in oklab,
+    var(--color-primary),
+    var(--color-dark) 50%
+  );
+  --card-backdrop-color-to-color: color-mix(
+    in oklab,
+    var(--color-primary),
+    var(--color-dark) 50%
+  );
+  --card-backdrop-color-stop-from-opacity: 0.7;
+  --card-backdrop-color-stop-to-opacity: 0.7;
+  :is(.card-body__content, .card-picture) {
+    animation: backdropOpacity linear both;
+    animation-timeline: scroll();
+    animation-range: 0 60vh;
+  }
+}
+
+.hero--expanded .card-body {
+  width: min(100% - var(--wrapper-padding) * 2, var(--max-wrapper-width));
+  margin-inline: auto;
+  padding: 0;
+}
+
+.hero .card-body__content__caption :where(.heading:first-of-type + .heading) {
+  --text-transform: none;
+  --font-weight: 600;
+}
+
+.scanlines {
+  overflow: hidden;
+  position: relative;
+}
+.scanlines:before,
+.scanlines:after {
+  display: block;
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  mask: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 30%,
+    black,
+    transparent 90%
+  );
+  mask-position: center;
+  mask-size: cover;
+}
+.scanlines:before {
+  width: 100%;
+  height: 2px;
+  z-index: 2147483649;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0.75;
+  animation: scanline 6s linear infinite;
+}
+.scanlines:after {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2147483648;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.3) 51%
+  );
+  background-size: 100% 4px;
+  animation: scanlines 1s steps(60) infinite;
+}
+
+/* ANIMATE UNIQUE SCANLINE */
+@keyframes scanline {
+  0% {
+    transform: translate3d(0, 200000%, 0);
+  }
+}
+@keyframes scanlines {
+  0% {
+    background-position: 0 50%;
+  }
+}
+
+div.scanlines {
+  position: absolute;
+}
+
+:where(.layout-grid > .hero) {
+  grid-column: 1/-1;
+}
+
+.hero .card-picture:has(* + *) {
+  > *:first-child {
+    z-index: 1;
+  }
+  > *:not(source) + * {
+    position: absolute;
+    inset: 0;
+    object-fit: cover !important;
+    height: 100%;
+  }
+}
+
+:where(.card-picture source) {
+  position: absolute;
+}
+
+.hero:has(.card-picture > *:not(source) + *) {
+  .card-body {
+    z-index: 1;
+  }
+}
+
+:where(.hero .card) {
+  border-radius: 0;
+}
+
+:where(.hero .card):not([data-card-layout="col"]):has(
+    .card-picture:first-child
+  ) {
+  --card-top-row: 1fr;
+  --card-bottom-row: auto;
+}
+
+:where(.hero .card):not([data-card-layout="col"]):has(
+    .card-picture:first-child
+  ):is([data-card-row-reverse-order]) {
+  --card-top-row: auto;
+  --card-bottom-row: 1fr;
+}
+
+.hero .card:not([data-card-layout="col"]) {
+  @container (inline-size < 80ch) {
+    :is(
+      .card-body,
+      .card-body__content,
+      .card-body__content-slot,
+      .card-body__content-slot img,
+      .card-body__content-slot p:has(img)
+    ) {
+      height: 100%;
+    }
+  }
+}

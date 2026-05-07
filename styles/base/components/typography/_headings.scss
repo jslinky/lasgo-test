@@ -1,0 +1,78 @@
+:where(.heading--underline) {
+  --heading-underline-block-start: 0.25em;
+  --heading-underline-color: var(--color-brand-orange);
+  --heading-underline-border-radius: var(--radius);
+}
+
+.heading > span:last-of-type:not(:only-of-type) {
+  margin-block-start: 0.3em;
+  display: block;
+}
+
+.line-across {
+  display: flex;
+  place-items: center;
+}
+
+:where(.line-under:is(.heading--underline):has(> span:only-of-type))
+  > span:after {
+  all: unset;
+}
+
+.line-across:before,
+.line-across:after,
+.line-under:has(> span:only-of-type) > span:after {
+  content: "";
+  display: block;
+  border-top: 1px solid var(--field-border-color, inherit);
+  flex-grow: 1;
+  transform: translateY(-1px);
+}
+
+.line-across:before,
+.line-across:after {
+  margin: 0 1em;
+}
+
+.line-under:after,
+.line-under:is(.heading--underline):has(> span:only-of-type) > span:after {
+  margin: 0;
+}
+
+.line-across:before {
+  margin-left: 0;
+}
+
+.line-across:after {
+  margin-right: 0;
+}
+
+.line-across:is(.heading--underline):has(> span:only-of-type) {
+  place-items: start;
+}
+
+.line-across:is(.heading--underline):has(> span:only-of-type):before,
+.line-across:is(.heading--underline):has(> span:only-of-type):after {
+  margin-top: 1ch;
+}
+
+[class*="heading-"]:has(.line-across),
+[class*="heading-"].line-across {
+  text-align: center;
+  --heading-underline-margin-inline: auto;
+  span:after {
+    margin-inline: auto;
+  }
+}
+
+/* Expose as custom props */
+:is(.heading-xs, .heading-sm) {
+  --text-transform: none;
+  --font-weight: 700;
+}
+
+.line-across:before,
+.line-across:after,
+.line-under:has(> span:only-of-type) > span:after {
+  margin-top: 0.5em;
+}

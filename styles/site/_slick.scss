@@ -1,0 +1,100 @@
+.slick-dots {
+  background: transparent;
+}
+
+:where(.layout-grid.slick-slider) .slick-dots {
+  position: relative;
+}
+
+:where(.layout-grid.slick-slider) :is(.slick-list, .slick-dots) {
+  grid-column: 1/-1;
+}
+
+:is(.slick-next, .slick-prev) {
+  text-indent: -999em;
+  overflow: hidden;
+  width: 3rem;
+  &:before {
+    border: 1px solid var(--color-grey-10);
+    border-radius: var(--radius);
+    background-color: var(--color-grey-11);
+    background-color: oklch(from var(--color-grey-11) l c h / 0.85);
+    width: 3rem;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-size: 1.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.slick-dots {
+  container: none;
+}
+
+.slick-dots button {
+  font-size: 0;
+}
+
+@media (pointer: fine) {
+  :is(.slick-next, .slick-prev) {
+    opacity: 0;
+  }
+  .slick-slider:hover :is(.slick-next, .slick-prev) {
+    opacity: 1;
+  }
+}
+
+.slick-slider.col-span-full:has(.hero) {
+  .slick-next {
+    right: calc(50vw - min(var(--wrapper-width), 100%) / 2);
+  }
+  .slick-prev {
+    left: calc(50vw - min(var(--wrapper-width), 100%) / 2);
+  }
+}
+
+.slick-next:before {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.58984 16.58L13.1698 12L8.58984 7.41L9.99984 6L15.9998 12L9.99984 18L8.58984 16.58Z' fill='currentColor'/%3E%3C/svg%3E%0A");
+}
+
+.slick-prev:before {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.4102 16.58L10.8302 12L15.4102 7.41L14.0002 6L8.00016 12L14.0002 18L15.4102 16.58Z' fill='currentColor'/%3E%3C/svg%3E%0A");
+}
+
+.\@container.slick-slide:not(.hero) {
+  padding-inline: calc(var(--layout-grid-gap) / 2);
+}
+
+:root.new .slick-slide .card-picture img {
+  object-fit: contain;
+}
+
+[data-slick]:has(.card--full-details) {
+  aspect-ratio: 939/381;
+}
+
+.layout-grid.slick-slider .slick-list {
+  @container content-grid (max-width:645px) {
+    padding: 0 20% 0 0 !important;
+    overflow: visible;
+  }
+}
+
+.layout-grid.slick-slider .slick-slide > article.card--full-details {
+  .card-picture {
+    max-height: 200px;
+    margin-inline: auto;
+    img {
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+  @container content-grid (max-width:645px) {
+    max-width: 300px;
+    margin: 0 auto;
+    .card-picture {
+      max-height: 200px;
+    }
+  }
+}

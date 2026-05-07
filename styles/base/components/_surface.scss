@@ -1,0 +1,4 @@
+:root:is(.new) [data-surface="dark"] {
+  --surface-bg-color: var(--color-dark);
+  --surface-color: var(--color-dark-contrast);
+}

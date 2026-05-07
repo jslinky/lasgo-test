@@ -1,0 +1,89 @@
+/* https://css-irl.info/css-halftone-patterns/ */
+.section-latest-releases {
+  display: grid;
+  place-items: center;
+  position: relative;
+  scroll-margin-block-start: var(--space-5xl);
+  > *:not(.section-latest-releases__bg) {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    z-index: 1;
+  }
+  .section-latest-releases__bg {
+    z-index: 0;
+    mask-image: linear-gradient(
+      rgb(0 0 0 / 0) 0%,
+      rgb(0 0 0) 20%,
+      rgb(0 0 0) 80%,
+      rgb(0 0 0 / 0) 100%
+    );
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    &:after {
+      content: "";
+      display: block;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      mask: radial-gradient(circle at top left, black 20%, transparent 90%);
+      background: rgba(255, 255, 255, 1);
+      mask-size: 100%;
+      mask-repeat: no-repeat;
+    }
+    &:before {
+      content: "";
+      display: block;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      mask: radial-gradient(
+        circle at center,
+        black var(--dotSize),
+        transparent 0
+      );
+      mask-size: 1.3rem 1.3rem;
+      background-image: linear-gradient(
+        45deg,
+        var(--color-primary),
+        var(--color-brand-orange),
+        var(--color-brand-yellow),
+        var(--color-secondary)
+      );
+      /* grid-column: 1 / -1;
+                grid-row: 1 / -1; */
+      opacity: 1;
+      background-repeat: space;
+      --dotSize: 0.125rem;
+      --stop1: 3%;
+      --stop2: 45%;
+      position: absolute;
+    }
+  }
+}
+
+.halftone {
+  --dotSize: 0.25rem;
+  --stop1: 3%;
+  --stop2: 60%;
+}
+
+.halftone::after {
+  /* Cover our element */
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* Dotted background */
+  background-image: radial-gradient(
+    circle at center,
+    black var(--dotSize),
+    transparent 0
+  );
+  background-size: 1.3rem 1.3rem;
+  background-position:
+    0 0,
+    0.65rem 0.65rem;
+}

@@ -20,4 +20,68 @@
     @include textarea-select-rules();
 }
 
+:root:is(.new) :where(textarea) {
+  padding-inline: var(--input-text-frame-x, var(--text-frame-x));
+  padding-block: var(--input-text-frame-y, var(--text-frame-y));
+  outline: var(
+    --input-outline,
+    var(--input-outline-width, 1px) solid
+      var(--input-outline-color, var(--_outline-color))
+  );
+  --_color: var(--input-color, var(--color, CanvasText));
+  --_bg: var(--input-bg, Canvas);
+  --_fs: var(--input-fs, 1em);
+  --_outline-color: color-mix(in oklch, var(--_bg) 90%, black);
+  --_outline-color-focused: color-mix(
+    in oklch,
+    var(--input-outline-color, var(--_outline-color)) 90%,
+    black
+  );
+  background-color: var(--_bg);
+  color: var(--_color);
+  font-size: var(--_fs);
+}
 
+:root:is(.new) :where(input, textarea) {
+  border: 0;
+}
+
+:where(.button) {
+  text-decoration: none;
+}
+
+.form__row--label-overlay {
+  --text-frame-y: var(--input-fs);
+  --text-frame-x: calc(var(--text-frame-y) * var(--text-frame-ratio));
+  --label-fs: var(--text-xs);
+  --input-text-frame-y: calc(var(--text-frame-y) + var(--label-fs));
+  --input-fs: var(--font-size-base);
+  grid-template-rows: calc(var(--label-fs) + var(--space-3xs)) 1fr;
+  > * {
+    grid-column: 1/-1;
+  }
+  label {
+    z-index: 1;
+    margin-left: var(--text-frame-x);
+    margin-block-start: var(--space-3xs);
+    grid-row: 2/-1;
+    align-self: start;
+    font-size: var(--label-fs);
+    padding-block-start: 0;
+    + :is(input, textarea, select) {
+      grid-row: 2/-1;
+    }
+  }
+  :is(input, textarea) {
+    grid-row: 2/-1;
+    padding-block-end: var(--text-frame-y);
+    &:not(:focus, :focus-within) {
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+  &:has(input:is(:focus, :focus-within)) label {
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,76 @@
+@property --card-backdrop-color-stop-from-opacity {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0.7;
+}
+
+@property --card-backdrop-color-stop-to-opacity {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0.7;
+}
+
+.card-body__content__caption-subtitle {
+  -webkit-line-clamp: var(--line-clamp, 3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+:where(.card) {
+  overflow: clip;
+}
+
+.card-body__content__ctas.\*\:contents .button__text {
+  display: none;
+}
+
+.card-picture--contain {
+  object-fit: contain;
+}
+
+.card-picture--cover {
+  object-fit: cover;
+}
+
+.aspect-dvd {
+  --card-picture-aspect: 14/20;
+}
+
+.card--featured {
+  .card-picture[class*="contain"] {
+    padding-block: var(--card-body-padding-block);
+  }
+}
+
+.featured-products .card:not(:has(.card-picture)) {
+  --card-background-color: var(--color-grey-11);
+}
+
+@layer modifiers {
+
+  .card .fluid {
+    --font-size: var(--heading-#{$size}-font-size-fluid-cq, min(var(--font-size-max, var(--font-size-base-px)), calc(var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw))));    
+  }  
+
+  :where(
+    .card-body__content__ctas:has(.button:empty),
+    .card-body__content__ctas .button:empty
+  ) {
+    display: contents;
+  }
+
+  .card-body {
+    --card-body-padding-inline: clamp(
+      var(--space-sm),
+      min(6vmax, 6cqi),
+      var(--space-lg)
+    );
+    --card-body-padding-block: clamp(
+      var(--space-sm),
+      min(6vmax, 6cqi),
+      var(--space-lg)
+    );
+  }
+}

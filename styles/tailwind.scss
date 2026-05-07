@@ -16,6 +16,28 @@
 @source "../../**/*.vue";
 @source "../../**/*.js";
 
+<<<<<<< Updated upstream
+=======
+// Safelist classes
+@source inline("{@sm:,@md:,@lg:,}{col-span}-{1..6}");
+@source inline("{@sm:,@md:,@lg:,}{col-span}-{full}");
+@source inline("flex");
+@source inline("block");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{w}-{full,auto}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{absolute}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{relative}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--column-count:2]}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--column-count:3]}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--column-count:4]}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--column-count:6]}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-xs)]}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-sm)]}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-md)]}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-lg)]}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-xl)]}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-2xl)]}");
+
+>>>>>>> Stashed changes
 // @import "small-style/dist/style.css";
 @import "small-style/scss/index";
 
@@ -26,6 +48,11 @@
   @import "./site/existing-overrides/popup";
   @import "./site/existing-overrides/login";
   @import "./site/existing-overrides/footer";
+
+  :where(.htmlBlock) {
+    background: transparent;
+  }  
+
 }
 
 @layer base {
@@ -34,6 +61,8 @@
 
 @layer site {
     @import "./site/site";
+    // generate data-component as a seperate css file 
+    @import "./data-component";
 }
 
 @layer site-props {
@@ -56,10 +85,10 @@
 }
 
 
-@utility fluid {
-    --fluid-min: calc(var(--font-size-min, var(--sm-px, 14)) * pow(var(--font-ratio-min, 1.2), var(--font-level, 0)));
-    --fluid-max: calc(var(--font-size-max, var(--font-size-base-px, 16)) * pow(var(--font-ratio-max, 1.5), var(--font-level, 0)));
-    --fluid-preferred: calc((var(--fluid-max) - var(--fluid-min)) / (var(--font-width-max, 1275) - var(--font-width-min, 375)));
-    --fluid-type: clamp((var(--fluid-min) / 16) * 1rem,((var(--fluid-min) / 16) * 1rem) - (((var(--fluid-preferred) * var(--font-width-min, 375)) / 16) * 1rem) + (var(--fluid-preferred) * var(--variable-unit, 100vi)),(var(--fluid-max) / 16) * 1rem);
-    font-size: var(--fluid-type);
-}
+// @utility fluid {
+//     --fluid-min: calc(var(--font-size-min, var(--sm-px, 14)) * pow(var(--font-ratio-min, 1.2), var(--font-level, 0)));
+//     --fluid-max: calc(var(--font-size-max, var(--font-size-base-px, 16)) * pow(var(--font-ratio-max, 1.5), var(--font-level, 0)));
+//     --fluid-preferred: calc((var(--fluid-max) - var(--fluid-min)) / (var(--font-width-max, 1275) - var(--font-width-min, 375)));
+//     --fluid-type: clamp((var(--fluid-min) / 16) * 1rem,((var(--fluid-min) / 16) * 1rem) - (((var(--fluid-preferred) * var(--font-width-min, 375)) / 16) * 1rem) + (var(--fluid-preferred) * var(--variable-unit, 100vi)),(var(--fluid-max) / 16) * 1rem);
+//     font-size: var(--fluid-type);
+// }
