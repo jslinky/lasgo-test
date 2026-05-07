@@ -1,0 +1,189 @@
+@keyframes bounce-top {
+  to {
+    mask-position: 0 max(10cqh, 6rem);
+  }
+}
+
+@keyframes bounce-bottom {
+  to {
+    mask-position: 0 min(-10cqh, -6rem);
+  }
+}
+
+@keyframes bulb-one {
+  0% {
+    translate: 0% 0%;
+  }
+  25% {
+    translate: 0% -12%;
+  }
+  50% {
+    translate: 0% 0%;
+  }
+  75% {
+    translate: 0% 12%;
+  }
+}
+
+@keyframes bulb-two {
+  0% {
+    translate: 0% 0%;
+  }
+  25% {
+    translate: 0% 20%;
+  }
+  50% {
+    translate: 0% 0%;
+  }
+  75% {
+    translate: 0% -20%;
+  }
+}
+
+@keyframes bulb-three {
+  0% {
+    translate: 0% 0%;
+  }
+  25% {
+    translate: 0% 40%;
+  }
+  50% {
+    translate: 0% 0%;
+  }
+  75% {
+    translate: 0% -43%;
+  }
+}
+
+@keyframes bulb-four {
+  0% {
+    translate: 0% 0%;
+  }
+  25% {
+    translate: 0% -50%;
+  }
+  50% {
+    translate: 0% 0%;
+  }
+  75% {
+    translate: 0% 50%;
+  }
+}
+div:has(> .blob-container) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blob-container {
+  translate: 0 20%;
+  filter: url("#plasma");
+  --duration: 6000ms;
+  --easing: linear(
+    0,
+    0.137 4.2%,
+    0.909 16%,
+    1.045 19.6%,
+    1.12 23.6%,
+    1.129 29%,
+    1.017 42%,
+    0.985 49.8%,
+    1
+  );
+  --width: min(400px, 100%);
+  --height: 100%;
+  --blob-min-height: 450px;
+  --blob-block-end-min-height: 300px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: var(--width);
+  height: var(--height);
+  gap: 1rem;
+  place-items: center;
+  container-type: size;
+  > div {
+    width: 100%;
+    height: max(100%, var(--blob-min-height));
+    --delay: calc(sibling-index() * 800ms);
+    --bg: hsl(calc(360deg / sibling-count() * sibling-index()) 50% 50%);
+    --bg: #c8ebe9;
+    /*     background: var(--bg); */
+    position: relative;
+    &:nth-child(1) {
+      max-height: max(80%, var(--blob-min-height));
+      animation: bulb-one calc(var(--duration) * 3) calc(var(--delay) * 0.75)
+        var(--easing) infinite alternate;
+    }
+    &:nth-child(2) {
+      animation: bulb-two calc(var(--duration) * 3) calc(var(--delay) * 0.25)
+        var(--easing) infinite alternate;
+    }
+    &:nth-child(3) {
+      max-height: max(60%, var(--blob-min-height));
+      animation: bulb-three calc(var(--duration) * 3) calc(var(--delay) * 1.25)
+        var(--easing) infinite alternate;
+    }
+    &:nth-child(4) {
+      max-height: max(50%, var(--blob-min-height));
+      animation: bulb-four calc(var(--duration) * 3) calc(var(--delay) * 1.65)
+        var(--easing) infinite alternate;
+    }
+    &:before,
+    &:after {
+      content: "";
+      height: max(50%, 300px);
+      background: var(--bg);
+      width: 100%;
+      z-index: 10;
+      position: absolute;
+      top: 0;
+      mask-size: contain;
+      mask-repeat: no-repeat;
+    }
+    &:before {
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewbox='0 0 100 300' width='100' height='300'%3E%3Cpath d=' M 0,50 A 50,50 0 0 1 50,0 A 50,50 0 0 1 100,50 L 100 300 L 0 300 ' /%3E%3C/svg%3E");
+      mask-size: 100% max(100%, var(--blob-block-end-min-height));
+      mask-position: 0 0%;
+      animation: bounce-top var(--duration) var(--delay) var(--easing) infinite
+        alternate;
+    }
+    &:after {
+      top: auto;
+      bottom: 0;
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewbox='0 0 100 300' width='100' height='300'%3E%3Cpath d=' M 0,250 A 50,50 0 0 0 50,300 A 50,50 0 0 0 100,250 L 100 250 L 100 0 L 0 0 ' /%3E%3C/svg%3E");
+      mask-size: 100% max(100%, var(--blob-block-end-min-height));
+      mask-position: 0 0;
+      animation: bounce-bottom var(--duration) calc(var(--delay) * 1.65)
+        var(--easing) infinite alternate;
+    }
+  }
+}
+
+// @keyframes bulb-four {
+//   to {
+//     height: 60%;
+//     translate: -30% 30%;
+//   }
+// }
+
+// .container-two {
+//   > div {
+//     background: var(--bg);
+//     border-radius:4rem 4rem;
+//     &:before, &:after {
+//       display:none;
+//     }
+//     &:nth-child(3){
+//       animation: none;
+//     }
+//     &:nth-child(4){
+//       max-height:70%;
+//       height:100%;
+//       animation: bulb-four var(--duration) calc(var(--delay) * 1.65) var(--easing) infinite alternate;
+//     }
+//   }
+// }
+
+// svg {
+//   position:absolute;
+// }
