@@ -7934,71 +7934,71 @@
 }
 @layer existing-overrides {
   @layer unset {
-    #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu.ui-sortable:before, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu.ui-sortable:before, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu.ui-sortable:before, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu.ui-sortable:after, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu.ui-sortable:after, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu.ui-sortable:after {
+    :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu.ui-sortable:before, :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu.ui-sortable:before, :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu.ui-sortable:before, :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu.ui-sortable:after, :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu.ui-sortable:after, :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu.ui-sortable:after {
       all: unset;
     }
-    #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut > li ul.primary > li, #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut > li > ul.primary > li ul.primary > li {
+    :root:is(.unauthenticated.new) #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut > li ul.primary > li, :root:is(.unauthenticated.new) #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut > li > ul.primary > li ul.primary > li {
       all: unset;
     }
-    #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu ul.categories > li, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu ul.categories > li, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu ul.categories > li {
+    :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu ul.categories > li, :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu ul.categories > li, :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu ul.categories > li {
       width: 100%;
     }
-    #breadCrumb {
+    :root:is(.unauthenticated.new) #breadCrumb {
       display: none;
     }
-    :is(#mainHeader .headerMenu .headerMenuRight > li, #mainHeader .headerMenu .headerMenuRight a) {
+    :root:is(.unauthenticated.new) :is(#mainHeader .headerMenu .headerMenuRight > li, #mainHeader .headerMenu .headerMenuRight a) {
       all: unset;
     }
-    :is(#accountHeader, #mainHeader).clearfix:before, :is(#accountHeader, #mainHeader).clearfix:after, :is(#accountHeader, #mainHeader) .clearfix:before, :is(#accountHeader, #mainHeader) .clearfix:after {
+    :root:is(.unauthenticated.new) :is(#accountHeader, #mainHeader).clearfix:before, :root:is(.unauthenticated.new) :is(#accountHeader, #mainHeader).clearfix:after, :root:is(.unauthenticated.new) :is(#accountHeader, #mainHeader) .clearfix:before, :root:is(.unauthenticated.new) :is(#accountHeader, #mainHeader) .clearfix:after {
       all: unset;
     }
-    .stickyHeaderLoggedOut {
+    :root:is(.unauthenticated.new) .stickyHeaderLoggedOut {
       all: unset;
     }
-    :is(#accountHeader, #mainHeader) > div > div {
+    :root:is(.unauthenticated.new) :is(#accountHeader, #mainHeader) > div > div {
       all: unset;
     }
-    #mainHeader :is(.grid_3, .headerMenu) {
+    :root:is(.unauthenticated.new) #mainHeader :is(.grid_3, .headerMenu) {
       all: unset;
     }
-    :is(#accountHeader, #mainHeader) > div {
+    :root:is(.unauthenticated.new) :is(#accountHeader, #mainHeader) > div {
       width: min(100% - var(--wrapper-padding) * 2, var(--max-wrapper-width));
       margin-inline: auto;
     }
-    .grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12, .grid_13, .grid_14, .grid_15, .grid_16 {
+    :root:is(.unauthenticated.new) .grid_1, :root:is(.unauthenticated.new) .grid_2, :root:is(.unauthenticated.new) .grid_3, :root:is(.unauthenticated.new) .grid_4, :root:is(.unauthenticated.new) .grid_5, :root:is(.unauthenticated.new) .grid_6, :root:is(.unauthenticated.new) .grid_7, :root:is(.unauthenticated.new) .grid_8, :root:is(.unauthenticated.new) .grid_9, :root:is(.unauthenticated.new) .grid_10, :root:is(.unauthenticated.new) .grid_11, :root:is(.unauthenticated.new) .grid_12, :root:is(.unauthenticated.new) .grid_13, :root:is(.unauthenticated.new) .grid_14, :root:is(.unauthenticated.new) .grid_15, :root:is(.unauthenticated.new) .grid_16 {
       margin-left: 10px;
       margin-right: 10px;
     }
-    .container_16 {
+    :root:is(.unauthenticated.new) .container_16 {
       margin: 0 auto;
     }
-    .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.searchSection #SearchForm {
+    :root:is(.unauthenticated.new) .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.searchSection #SearchForm {
       margin: 0 !important;
     }
     @media only screen and (min-width: 64rem) {
-      .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.searchSection #SearchForm {
+      :root:is(.unauthenticated.new) .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.searchSection #SearchForm {
         margin: 0 0px 0 0 !important;
       }
     }
-    li.searchSection {
+    :root:is(.unauthenticated.new) li.searchSection {
       min-height: 40px;
       display: flex;
       position: relative;
     }
     @media only screen and (max-width: 63.9375rem) {
-      li.searchSection {
+      :root:is(.unauthenticated.new) li.searchSection {
         width: 100%;
       }
-      li.searchSection :is(#searchControls, .loggedInSearch, .loggedInSearch > span) {
+      :root:is(.unauthenticated.new) li.searchSection :is(#searchControls, .loggedInSearch, .loggedInSearch > span) {
         width: 100% !important;
       }
-      li.searchSection > form {
+      :root:is(.unauthenticated.new) li.searchSection > form {
         width: 100%;
         position: absolute;
         left: -65px;
       }
     }
-    .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.searchSection #SearchForm #search #searchControls .loggedInSearch input, .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.searchSection #SearchForm #search #searchControls .loggedOutSearch input {
+    :root:is(.unauthenticated.new) .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.searchSection #SearchForm #search #searchControls .loggedInSearch input, :root:is(.unauthenticated.new) .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.searchSection #SearchForm #search #searchControls .loggedOutSearch input {
       width: 100%;
       border-color: #fff;
       border-width: 0;
@@ -8009,14 +8009,14 @@
       border-top: 1px solid #b3b3b3;
       border-bottom: 1px solid #b3b3b3;
     }
-    #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary > li:after, #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary > li:after, #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary > li:after {
+    :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary > li:after, :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary > li:after, :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary > li:after {
       display: none;
     }
-    .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li {
+    :root:is(.unauthenticated.new) .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li {
       height: auto;
       padding-top: 0;
     }
-    .basketDropdown {
+    :root:is(.unauthenticated.new) .basketDropdown {
       border-color: transparent;
       font-size: 11px;
     }

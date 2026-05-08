@@ -1,268 +1,270 @@
 // @layer existing-overrides {
 @layer unset {
-  #megaMenuHeader
-    #navWrapper
-    .navinner
-    > ul.loggedIn
-    > li
-    ul.primary
-    .megaMenu.ui-sortable:before,
-  #megaMenuHeader
-    #navWrapper
-    .navinner
-    > ul.loggedIn
-    > li
-    > .editWebPartContainer
-    ul.primary
-    .megaMenu.ui-sortable:before,
-  #megaMenuHeader
-    #navWrapper
-    .navinner
-    > ul.loggedIn
-    ul.primary
-    > li
-    ul.primary
-    .megaMenu.ui-sortable:before,
-  #megaMenuHeader
-    #navWrapper
-    .navinner
-    > ul.loggedIn
-    > li
-    ul.primary
-    .megaMenu.ui-sortable:after,
-  #megaMenuHeader
-    #navWrapper
-    .navinner
-    > ul.loggedIn
-    > li
-    > .editWebPartContainer
-    ul.primary
-    .megaMenu.ui-sortable:after,
-  #megaMenuHeader
-    #navWrapper
-    .navinner
-    > ul.loggedIn
-    ul.primary
-    > li
-    ul.primary
-    .megaMenu.ui-sortable:after {
-    all: unset;
-  }
-
-  #megaMenuHeaderLoggedOut
-    #navMenu
-    .navInner
-    > ul.loggedOut
-    > li
-    ul.primary
-    > li,
-  #megaMenuHeaderLoggedOut
-    #navMenu
-    .navInner
-    > ul.loggedOut
-    > li
-    > ul.primary
-    > li
-    ul.primary
-    > li {
-    all: unset;
-  }
-
-  #megaMenuHeader
-    #navWrapper
-    .navinner
-    > ul.loggedIn
-    > li
-    ul.primary
-    .megaMenu
-    ul.categories
-    > li,
-  #megaMenuHeader
-    #navWrapper
-    .navinner
-    > ul.loggedIn
-    > li
-    > .editWebPartContainer
-    ul.primary
-    .megaMenu
-    ul.categories
-    > li,
-  #megaMenuHeader
-    #navWrapper
-    .navinner
-    > ul.loggedIn
-    ul.primary
-    > li
-    ul.primary
-    .megaMenu
-    ul.categories
-    > li {
-    width: 100%;
-  }
-
-  #breadCrumb {
-    display: none;
-  }
-
-  :is(
-    #mainHeader .headerMenu .headerMenuRight > li,
-    #mainHeader .headerMenu .headerMenuRight a
-  ) {
-    all: unset;
-  }
-
-  :is(#accountHeader, #mainHeader).clearfix,
-  :is(#accountHeader, #mainHeader) .clearfix {
-    &:before,
-    &:after {
+  :root:is(.unauthenticated.new) {
+    #megaMenuHeader
+      #navWrapper
+      .navinner
+      > ul.loggedIn
+      > li
+      ul.primary
+      .megaMenu.ui-sortable:before,
+    #megaMenuHeader
+      #navWrapper
+      .navinner
+      > ul.loggedIn
+      > li
+      > .editWebPartContainer
+      ul.primary
+      .megaMenu.ui-sortable:before,
+    #megaMenuHeader
+      #navWrapper
+      .navinner
+      > ul.loggedIn
+      ul.primary
+      > li
+      ul.primary
+      .megaMenu.ui-sortable:before,
+    #megaMenuHeader
+      #navWrapper
+      .navinner
+      > ul.loggedIn
+      > li
+      ul.primary
+      .megaMenu.ui-sortable:after,
+    #megaMenuHeader
+      #navWrapper
+      .navinner
+      > ul.loggedIn
+      > li
+      > .editWebPartContainer
+      ul.primary
+      .megaMenu.ui-sortable:after,
+    #megaMenuHeader
+      #navWrapper
+      .navinner
+      > ul.loggedIn
+      ul.primary
+      > li
+      ul.primary
+      .megaMenu.ui-sortable:after {
       all: unset;
     }
-  }
 
-  .stickyHeaderLoggedOut {
-    all: unset;
-  }
-
-  :is(#accountHeader, #mainHeader) {
-    // > div,
-    > div > div {
+    #megaMenuHeaderLoggedOut
+      #navMenu
+      .navInner
+      > ul.loggedOut
+      > li
+      ul.primary
+      > li,
+    #megaMenuHeaderLoggedOut
+      #navMenu
+      .navInner
+      > ul.loggedOut
+      > li
+      > ul.primary
+      > li
+      ul.primary
+      > li {
       all: unset;
     }
-  }
 
-  #mainHeader {
-    :is(.grid_3, .headerMenu) {
-      all: unset;
-    }
-  }
-
-  :is(#accountHeader, #mainHeader) > div {
-    width: min(100% - var(--wrapper-padding) * 2, var(--max-wrapper-width));
-    margin-inline: auto;
-  }
-
-  .grid_1,
-  .grid_2,
-  .grid_3,
-  .grid_4,
-  .grid_5,
-  .grid_6,
-  .grid_7,
-  .grid_8,
-  .grid_9,
-  .grid_10,
-  .grid_11,
-  .grid_12,
-  .grid_13,
-  .grid_14,
-  .grid_15,
-  .grid_16 {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  .container_16 {
-    margin: 0 auto;
-  }
-
-  .stickyHeader
-    #barHeader
-    #bar-Wrapper
-    .bar-inner
-    > ul
-    > li.searchSection
-    #SearchForm {
-    margin: 0 !important;
-    @include respond-to(lg) {
-      margin: 0 0px 0 0 !important;
-    }
-  }
-
-  li.searchSection {
-    min-height: 40px;
-    display: flex;
-    position: relative;
-    // @media (max-width: 700px) {
-    @include respond-to(lg-and-down) {
+    #megaMenuHeader
+      #navWrapper
+      .navinner
+      > ul.loggedIn
+      > li
+      ul.primary
+      .megaMenu
+      ul.categories
+      > li,
+    #megaMenuHeader
+      #navWrapper
+      .navinner
+      > ul.loggedIn
+      > li
+      > .editWebPartContainer
+      ul.primary
+      .megaMenu
+      ul.categories
+      > li,
+    #megaMenuHeader
+      #navWrapper
+      .navinner
+      > ul.loggedIn
+      ul.primary
+      > li
+      ul.primary
+      .megaMenu
+      ul.categories
+      > li {
       width: 100%;
-      :is(#searchControls, .loggedInSearch, .loggedInSearch > span) {
-        width: 100% !important;
-      }
-      > form {
-        width: 100%;
-        position: absolute;
-        left: -65px;
+    }
+
+    #breadCrumb {
+      display: none;
+    }
+
+    :is(
+      #mainHeader .headerMenu .headerMenuRight > li,
+      #mainHeader .headerMenu .headerMenuRight a
+    ) {
+      all: unset;
+    }
+
+    :is(#accountHeader, #mainHeader).clearfix,
+    :is(#accountHeader, #mainHeader) .clearfix {
+      &:before,
+      &:after {
+        all: unset;
       }
     }
-  }
 
-  .stickyHeader
-    #barHeader
-    #bar-Wrapper
-    .bar-inner
-    > ul
-    > li.searchSection
-    #SearchForm
-    #search
-    #searchControls
-    .loggedInSearch
-    input,
-  .stickyHeader
-    #barHeader
-    #bar-Wrapper
-    .bar-inner
-    > ul
-    > li.searchSection
-    #SearchForm
-    #search
-    #searchControls
-    .loggedOutSearch
-    input {
-    width: 100%;
-    border-color: #fff;
-    border-width: 0;
-    height: 33px;
-    padding: 0.177em 0;
-    text-indent: 0.33em;
-    border-left: 1px solid #b3b3b3;
-    border-top: 1px solid #b3b3b3;
-    border-bottom: 1px solid #b3b3b3;
-  }
+    .stickyHeaderLoggedOut {
+      all: unset;
+    }
 
-  #megaMenuHeader
-    #navWrapper
-    .navinner
-    > ul.loggedIn
-    > li
-    ul.primary
-    > li:after,
-  #megaMenuHeader
-    #navWrapper
-    .navinner
-    > ul.loggedIn
-    > li
-    > .editWebPartContainer
-    ul.primary
-    > li:after,
-  #megaMenuHeader
-    #navWrapper
-    .navinner
-    > ul.loggedIn
-    ul.primary
-    > li
-    ul.primary
-    > li:after {
-    display: none;
-  }
+    :is(#accountHeader, #mainHeader) {
+      // > div,
+      > div > div {
+        all: unset;
+      }
+    }
 
-  .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li {
-    height: auto;
-    padding-top: 0;
-  }
+    #mainHeader {
+      :is(.grid_3, .headerMenu) {
+        all: unset;
+      }
+    }
 
-  .basketDropdown {
-    border-color: transparent;
-    font-size: 11px;
+    :is(#accountHeader, #mainHeader) > div {
+      width: min(100% - var(--wrapper-padding) * 2, var(--max-wrapper-width));
+      margin-inline: auto;
+    }
+
+    .grid_1,
+    .grid_2,
+    .grid_3,
+    .grid_4,
+    .grid_5,
+    .grid_6,
+    .grid_7,
+    .grid_8,
+    .grid_9,
+    .grid_10,
+    .grid_11,
+    .grid_12,
+    .grid_13,
+    .grid_14,
+    .grid_15,
+    .grid_16 {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .container_16 {
+      margin: 0 auto;
+    }
+
+    .stickyHeader
+      #barHeader
+      #bar-Wrapper
+      .bar-inner
+      > ul
+      > li.searchSection
+      #SearchForm {
+      margin: 0 !important;
+      @include respond-to(lg) {
+        margin: 0 0px 0 0 !important;
+      }
+    }
+
+    li.searchSection {
+      min-height: 40px;
+      display: flex;
+      position: relative;
+      // @media (max-width: 700px) {
+      @include respond-to(lg-and-down) {
+        width: 100%;
+        :is(#searchControls, .loggedInSearch, .loggedInSearch > span) {
+          width: 100% !important;
+        }
+        > form {
+          width: 100%;
+          position: absolute;
+          left: -65px;
+        }
+      }
+    }
+
+    .stickyHeader
+      #barHeader
+      #bar-Wrapper
+      .bar-inner
+      > ul
+      > li.searchSection
+      #SearchForm
+      #search
+      #searchControls
+      .loggedInSearch
+      input,
+    .stickyHeader
+      #barHeader
+      #bar-Wrapper
+      .bar-inner
+      > ul
+      > li.searchSection
+      #SearchForm
+      #search
+      #searchControls
+      .loggedOutSearch
+      input {
+      width: 100%;
+      border-color: #fff;
+      border-width: 0;
+      height: 33px;
+      padding: 0.177em 0;
+      text-indent: 0.33em;
+      border-left: 1px solid #b3b3b3;
+      border-top: 1px solid #b3b3b3;
+      border-bottom: 1px solid #b3b3b3;
+    }
+
+    #megaMenuHeader
+      #navWrapper
+      .navinner
+      > ul.loggedIn
+      > li
+      ul.primary
+      > li:after,
+    #megaMenuHeader
+      #navWrapper
+      .navinner
+      > ul.loggedIn
+      > li
+      > .editWebPartContainer
+      ul.primary
+      > li:after,
+    #megaMenuHeader
+      #navWrapper
+      .navinner
+      > ul.loggedIn
+      ul.primary
+      > li
+      ul.primary
+      > li:after {
+      display: none;
+    }
+
+    .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li {
+      height: auto;
+      padding-top: 0;
+    }
+
+    .basketDropdown {
+      border-color: transparent;
+      font-size: 11px;
+    }
   }
 }
 
