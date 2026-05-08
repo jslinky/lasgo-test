@@ -1,11 +1,13 @@
 /*! tailwindcss v4.1.14 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer tw-base {
-  :where(*, ::after, ::before, ::backdrop, ::file-selector-button) {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0 solid;
+  :where(#body) {
+    :where(*, ::after, ::before, ::backdrop, ::file-selector-button) {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: 0 solid;
+    }
   }
   html, :host {
     line-height: 1.5;
@@ -29,10 +31,12 @@
     font-size: inherit;
     font-weight: inherit;
   }
-  a {
-    color: inherit;
-    -webkit-text-decoration: inherit;
-    text-decoration: inherit;
+  :where(.unauthenticated.new, .authenticated.new #body) {
+    a {
+      color: inherit;
+      -webkit-text-decoration: inherit;
+      text-decoration: inherit;
+    }
   }
   b, strong {
     font-weight: bolder;

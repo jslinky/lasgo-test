@@ -3,17 +3,19 @@
   2. Remove default margins and padding
   3. Reset all borders.
 */
-
-:where(*,
-::after,
-::before,
-::backdrop,
-::file-selector-button) {
-  box-sizing: border-box; /* 1 */
-  margin: 0; /* 2 */
-  padding: 0; /* 2 */
-  border: 0 solid; /* 3 */
+:where(#body) {
+  :where(*,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button) {
+    box-sizing: border-box; /* 1 */
+    margin: 0; /* 2 */
+    padding: 0; /* 2 */
+    border: 0 solid; /* 3 */
+  }
 }
+
 
 /*
   1. Use a consistent sensible line-height in all browsers.
@@ -84,11 +86,13 @@ h6 {
   Reset links to optimize for opt-in styling instead of opt-out.
 */
 
-a {
-  color: inherit;
-  -webkit-text-decoration: inherit;
-  text-decoration: inherit;
-}
+:where(.unauthenticated.new, .authenticated.new #body) {
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+} 
 
 /*
   Add the correct font weight in Edge and Safari.
