@@ -4007,6 +4007,7 @@
       height: 35px;
       z-index: -1;
       position: absolute;
+      pointer-events: none;
     }
     :root:is(.unauthenticated.new) .barinner > ul.loggedin {
       height: var(--root-header-height);
@@ -4540,9 +4541,6 @@
       :root:is(.unauthenticated.new) #outerWrap.nav-open {
         --nav-translate-x: 0%;
       }
-    }
-    :root:is(.unauthenticated.new) body.hero-not-in-view:has(.hero--expanded) .sticky-wrapper:before {
-      background: var(--root-bg);
     }
     @media (hover) and (pointer: fine) and (min-width: 64rem) {
       :root:is(.unauthenticated.new) a + .megaMenu {

@@ -786,6 +786,7 @@
       height: 35px;
       z-index: -1;
       position: absolute;
+      pointer-events: none;
     }
 
     .barinner > ul.loggedin {
@@ -1507,7 +1508,8 @@
 
     body.hero-not-in-view:has(.hero--expanded) {
       .sticky-wrapper:before {
-        background: var(--root-bg);
+        // put this back in when loggedIn header is included
+        // background: var(--root-bg);        
       }
     }
 
