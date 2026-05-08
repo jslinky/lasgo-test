@@ -10232,6 +10232,26 @@
     :where(.authenticated.new) #breadCrumb + #body {
       margin-top: 30px;
     }
+    :where(.authenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu ul.categories li.category .group-label, :where(.authenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li > .editWebPartContainer ul.primary .megaMenu ul.categories li.category .group-label, :where(.authenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li ul.primary .megaMenu ul.categories li.category .group-label {
+      font-size: 16px;
+      color: #004f59;
+      font-weight: normal;
+      text-transform: none;
+      font-family: "Source Sans Pro", Arial, sans-serif;
+    }
+    :where(.authenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li > a {
+      text-transform: uppercase;
+    }
+    :where(.authenticated.new) .sticky-wrapper, :where(.authenticated.new) #accountHeader {
+      font-size: 14px;
+      font-family: "Source Sans Pro", Arial, sans-serif;
+    }
+    :where(.authenticated.new) .loggedInSearch > span {
+      width: 100% !important;
+    }
+    :where(.authenticated.new) .loggedInSearch > span > input {
+      height: 2rem !important;
+    }
   }
   @layer new {
     :root {

@@ -55,10 +55,68 @@
       #breadCrumb {
         display: none;
         + #body {
-          margin-top:30px;
+          margin-top: 30px;
+        }
+      }
+      #megaMenuHeader
+        #navWrapper
+        .navinner
+        > ul.loggedIn
+        > li
+        ul.primary
+        .megaMenu
+        ul.categories
+        li.category
+        .group-label,
+      #megaMenuHeader
+        #navWrapper
+        .navinner
+        > ul.loggedIn
+        > li
+        > .editWebPartContainer
+        ul.primary
+        .megaMenu
+        ul.categories
+        li.category
+        .group-label,
+      #megaMenuHeader
+        #navWrapper
+        .navinner
+        > ul.loggedIn
+        ul.primary
+        > li
+        ul.primary
+        .megaMenu
+        ul.categories
+        li.category
+        .group-label {
+        font-size: 16px;
+        color: #004f59;
+        font-weight: normal;
+        text-transform:none;
+        font-family: 'Source Sans Pro', Arial, sans-serif;
+      }
+      #megaMenuHeader
+        #navWrapper
+        .navinner
+        > ul.loggedIn
+        ul.primary
+        > li > a {
+          text-transform: uppercase;
+        }
+      .sticky-wrapper, #accountHeader {
+        font-size: 14px;
+        font-family: 'Source Sans Pro', Arial, sans-serif;
+      }
+      .loggedInSearch > span {
+        width:100%!important;
+        > input {
+          height:2rem!important;
         }
       }
     }
+
+
 
   }
 
