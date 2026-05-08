@@ -8030,6 +8030,10 @@
     }
   }
   @layer new {
+    #outerWrap {
+      display: flex;
+      flex-direction: column;
+    }
     @media only screen and (min-width: 64rem) {
       :root:is(.unauthenticated.new) :is(#megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li > a, #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut ul.primary > li > a) {
         color: #fff;
@@ -8219,10 +8223,6 @@
     }
     :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn .advancedSearchNavigation #advancedSearch {
       z-index: -1;
-    }
-    :root:is(.unauthenticated.new) #outerWrap {
-      display: flex;
-      flex-direction: column;
     }
     :root:is(.unauthenticated.new) :is(.stickyHeader, .sticky-wrapper > .sticky-wrapper, .stickyHeaderLoggedOut) {
       display: contents;

@@ -269,6 +269,11 @@
 }
 
 @layer new {
+  #outerWrap {
+    display: flex;
+    flex-direction: column;
+  }
+
   :root:is(.unauthenticated.new) {
     :is(
       #megaMenuHeader #navWrapper .navinner > ul.loggedIn ul.primary > li > a,
@@ -625,11 +630,6 @@
         background: var(--color-primary);
       }
       z-index: -1;
-    }
-
-    #outerWrap {
-      display: flex;
-      flex-direction: column;
     }
 
     :is(
