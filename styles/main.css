@@ -8253,6 +8253,7 @@
     :root:is(.unauthenticated.new) .navMenu {
       display: flex;
       align-items: center;
+      display: none;
     }
     :root:is(.unauthenticated.new) .loggedOut .navMenu {
       anchor-name: --nav-menu;
@@ -8530,6 +8531,7 @@
       display: flex;
       align-items: center;
       height: 100%;
+      cursor: pointer;
     }
     @media only screen and (min-width: 64rem) {
       :root:is(.unauthenticated.new) .headerMenuRight a {
@@ -8942,9 +8944,18 @@
         :root:is(.unauthenticated.new) :is(.headerMenuRight > li > a, #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut ul.primary > li > a) {
           color: var(--color-primary);
         }
-        :root:is(.unauthenticated.new) body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(.headerMenuRight > li > a, #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut ul.primary > li > a) {
+        :root:is(.unauthenticated.new) body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(.headerMenuRight > li > a, .headerMenuLeft a, #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut ul.primary > li > a) {
           color: var(--color-light);
         }
+      }
+      @media only screen and (min-width: 64rem) and (hover) and (pointer: fine) {
+        :root:is(.unauthenticated.new) body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(.headerMenuRight > li > a, .headerMenuLeft a, #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut ul.primary > li > a):hover {
+          background: linear-gradient(45deg, var(--color-brand-orange), var(--color-brand-yellow));
+          background-clip: text;
+          color: transparent;
+        }
+      }
+      @media only screen and (min-width: 64rem) {
         :root:is(.unauthenticated.new) body.hero-not-in-view #outerWrap:has(.hero--expanded) #mainHeader {
           width: 100%;
           box-shadow: 0 5px 2px 0px var(--color-grey-10);
@@ -8971,6 +8982,19 @@
       flex-direction: column;
       justify-content: end;
       align-items: flex-end;
+    }
+    :root:is(.unauthenticated.new) .headerMenu > .loggedOut {
+      display: flex;
+      align-items: center;
+    }
+    :root:is(.unauthenticated.new) .headerMenu .headerMenuLeft {
+      padding-top: 0;
+      margin-left: 0;
+      margin-right: var(--space-xs);
+    }
+    :root:is(.unauthenticated.new) .headerMenu .headerMenuLeft a {
+      color: var(--color-primary);
+      font-weight: 600;
     }
     html.authenticated.new #outerWrap:has(.hero--expanded) .stickyHeader {
       grid-template-rows: 1fr 1fr;
