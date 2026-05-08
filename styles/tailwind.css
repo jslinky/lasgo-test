@@ -5877,6 +5877,12 @@
     :where(.htmlBlock) {
       background: transparent;
     }
+    :where(.authenticated.new) #breadCrumb {
+      display: none;
+    }
+    :where(.authenticated.new) #breadCrumb + #body {
+      margin-top: 30px;
+    }
   }
   @layer new {
     :root {
