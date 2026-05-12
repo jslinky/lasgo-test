@@ -230,19 +230,19 @@ div.scanlines {
   --card-bottom-row: 1fr;
 }
 
-.hero .card:not([data-card-layout="col"]) {
-  @container (inline-size < 80ch) {
-    :is(
-      .card-body,
-      .card-body__content,
-      .card-body__content-slot,
-      .card-body__content-slot img,
-      .card-body__content-slot p:has(img)
-    ) {
-      height: 100%;
-    }
-  }
-}
+// .hero .card:not([data-card-layout="col"]) {
+//   @container (inline-size < 80ch) {
+//     :is(
+//       .card-body,
+//       .card-body__content,
+//       .card-body__content-slot,
+//       .card-body__content-slot img,
+//       .card-body__content-slot p:has(img)
+//     ) {
+//       height: 100%;
+//     }
+//   }
+// }
 
 .hero--expanded {
   .card-picture {
@@ -294,8 +294,17 @@ div.scanlines {
         var(--display-2xl-px) * var(--text-size-increment)
       );
       margin-inline: var(--hero-expanded-outer-margin);
-      margin-top: calc(-1px * 105);
-      @include respond-to(lg) {
+      // margin-top: calc(-1px * 105);
+      // @include respond-to(lg) {
+      //   margin-top: calc(
+      //     -1 *
+      //       (
+      //         var(--root-nav-mt) + var(--root-header-height) +
+      //           var(--root-nav-height) + var(--root-header-mt)
+      //       )
+      //   );
+      // }
+
         margin-top: calc(
           -1 *
             (
@@ -303,7 +312,7 @@ div.scanlines {
                 var(--root-nav-height) + var(--root-header-mt)
             )
         );
-      }
+
       .card {
         overflow: clip;
       }

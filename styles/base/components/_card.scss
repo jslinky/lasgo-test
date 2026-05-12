@@ -1,12 +1,12 @@
 @property --card-backdrop-color-stop-from-opacity {
   syntax: "<number>";
-  inherits: false;
+  inherits: true;
   initial-value: 0.7;
 }
 
 @property --card-backdrop-color-stop-to-opacity {
   syntax: "<number>";
-  inherits: false;
+  inherits: true;
   initial-value: 0.7;
 }
 

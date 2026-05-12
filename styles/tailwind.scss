@@ -35,6 +35,11 @@
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-xl)]}");
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-2xl)]}");
 
+/// Disable new header for loggedIn users in current production
+/// TODO: Remove when ready to launch new header
+$disableNewHeaderLoggedIn: true;
+$disableNewHeaderLoggedInSelector: unquote(':root:is(.unauthenticated.new)');
+
 // @import "small-style/dist/style.css";
 @import "small-style/scss/index";
 
@@ -122,18 +127,7 @@
 
   @layer new {
     :root {
-      // --root-header-height: 73px;
-      // --root-nav-height: 30px;
-      --root-account-header-height: 32px;
 
-      --root-nav-mt: var(--space-sm);
-      --root-nav-height: 35px;
-      --root-header-height: 138px;
-      --root-header-mt: var(--space-xs);
-
-      @include respond-to(lg) {
-        --root-header-height: 50px;
-      }
     }
 
     html {

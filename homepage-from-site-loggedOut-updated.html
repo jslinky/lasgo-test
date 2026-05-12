@@ -341,7 +341,7 @@
         </script>
         <section class="hero @container hero--expanded">
           <article
-            class="card [--card-left-col:fit-content]"
+            class="card [--card-left-col:fit-content] [--card-backdrop-color-stop-to-opacity:0.4]"
             data-surface="dark"
             data-card-column-reverse-order="true"
             data-card-column-text-align="start"
@@ -1214,9 +1214,9 @@
       const observerHero = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           !entry.isIntersecting ? document.body.classList.add('hero-not-in-view') : document.body.classList.remove('hero-not-in-view')
-          entry.intersectionRatio < 0.8 ? document.body.classList.add('hero-solid-bg') : document.body.classList.remove('hero-solid-bg')
+          entry.intersectionRatio < 0.7 ? document.body.classList.add('hero-solid-bg') : document.body.classList.remove('hero-solid-bg')
         });
-      }, { threshold: [0, 0.1, 0.2, 0.5, 0.8, 1], rootMargin: '-70px' });
+      }, { threshold: [0, 0.1, 0.2, 0.5, 0.8, 1], rootMargin: '-50px' });
 
       if(hero) {
         observerHero.observe(hero.el);
