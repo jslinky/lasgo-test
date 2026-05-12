@@ -1,7 +1,36 @@
+// underline animation
+@property --underline-progress {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 12px;
+}
+
+@keyframes underlineGrow {
+  from {
+    --underline-progress: 12px;
+  }
+  to {
+    --underline-progress: 160px;
+  }
+}
+
 :where(.heading--underline) {
   --heading-underline-block-start: 0.25em;
   --heading-underline-color: var(--color-brand-orange);
   --heading-underline-border-radius: var(--radius);
+  animation: underlineGrow forwards;
+  animation-timeline: view();
+  animation-range: 25% 50%;
+  animation-timing-function: linear(
+    0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%, 0.938 16.7%, 1.017,
+    1.077, 1.121, 1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%, 1.129 32.8%,
+    1.051 39.6%, 1.017 43.1%, 0.991, 0.977 51%, 0.974 53.8%, 0.975 57.1%,
+    0.997 69.8%, 1.003 76.9%, 1.004 83.8%, 1
+  );
+  --heading-underline-width: min(
+    var(--underline-progress, 0px),
+    calc(100% - 2rem)
+  );  
 }
 
 .heading > span:last-of-type:not(:only-of-type) {
@@ -12,6 +41,7 @@
 .line-across {
   display: flex;
   place-items: center;
+  column-gap: 1em;
 }
 
 :where(.line-under:is(.heading--underline):has(> span:only-of-type))
@@ -29,22 +59,9 @@
   transform: translateY(-1px);
 }
 
-.line-across:before,
-.line-across:after {
-  margin: 0 1em;
-}
-
 .line-under:after,
 .line-under:is(.heading--underline):has(> span:only-of-type) > span:after {
   margin: 0;
-}
-
-.line-across:before {
-  margin-left: 0;
-}
-
-.line-across:after {
-  margin-right: 0;
 }
 
 .line-across:is(.heading--underline):has(> span:only-of-type) {
@@ -76,3 +93,4 @@
 .line-under:has(> span:only-of-type) > span:after {
   margin-top: 0.5em;
 }
+

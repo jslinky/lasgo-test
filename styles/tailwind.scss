@@ -178,3 +178,12 @@
 //     --fluid-type: clamp((var(--fluid-min) / 16) * 1rem,((var(--fluid-min) / 16) * 1rem) - (((var(--fluid-preferred) * var(--font-width-min, 375)) / 16) * 1rem) + (var(--fluid-preferred) * var(--variable-unit, 100vi)),(var(--fluid-max) / 16) * 1rem);
 //     font-size: var(--fluid-type);
 // }
+
+@utility lg-squircle {
+  border-radius: calc(var(--radius) * 3);
+  overflow: clip;
+  @supports (corner-shape: squircle) {
+    corner-shape: squircle;
+    border-radius: calc(var(--radius) * 5);
+  }  
+}

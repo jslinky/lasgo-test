@@ -74,3 +74,57 @@
     );
   }
 }
+
+:is(.card:has(.overlay-expand), .overlay-expand) {
+  --overlay-contracted-size: 3.5em;
+  .card-picture {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 0.2s ease-in-out;
+    img {
+      transition: scale 0.3s ease-in-out;
+    }
+  }
+  &:is(:hover) {
+    /* .card-picture {
+            transition-delay: 0.1s;            
+        } */
+  }
+}
+
+.overlay-expand {
+  &:before {
+    transition:
+      clip-path 0.3s ease-in-out,
+      background 0.3s ease-in-out;
+    content: "";
+    clip-path: inset(
+      calc(100% - var(--overlay-contracted-size))
+        calc(100% - var(--overlay-contracted-size)) 0 0
+    );
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary);
+    z-index: -1;
+    /* mask: linear-gradient(to right, black 0%, black 80%); */
+  }
+  &:hover {
+    &:before {
+      background: color-mix(in oklch, var(--color-primary) 100%, transparent);
+      clip-path: inset(0 0 0 0);
+      /* mask: linear-gradient(to right, transparent 0%, black 80%); */
+    }
+  }
+}
+
+.card:has(.overlay-expand) {
+  &:hover {
+    .card-picture {
+      clip-path: inset(0 0 calc(var(--overlay-contracted-size)) 0);
+      img {
+        scale: 1.1;
+      }
+    }
+  }
+}

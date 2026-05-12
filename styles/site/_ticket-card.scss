@@ -98,3 +98,23 @@ div:has(> .ticket-card) .card {
   padding-block: var(--spacing-section-gap);
   min-height: auto;
 }
+
+@supports (corner-shape: squircle) {
+  .ticket-card {
+    mask: none;
+  }
+  :is(.ticket-card, .ticket-card .card-picture) {
+    corner-shape: scoop;
+    border-radius: calc(var(--radius) * 3);
+  }
+  .ticket-card .card-picture {
+    box-shadow: 0 0 0 1px var(--color-light);
+    height: 100%;
+  }
+  .ticket-card .card-body {
+    background: transparent;
+  }
+  .ticket-card_block-border {
+    display: none;
+  }
+}
