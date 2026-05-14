@@ -7939,6 +7939,10 @@
   --flow-space: --value(--spacing-*);
   --flow-space: --spacing(--value(integer));
 }
+@utility fluid-cq {
+  --font-size: var(--default-font-size-fluid-cq, min(var(--font-size-max, var(--font-size-base)), calc(var(--font-size-min, var(--sm)) + var(--font-fluid-cq-variance, 0.5cqw))));
+  font-size: var(--font-size);
+}
 @utility lg-squircle {
   border-radius: calc(var(--radius) * 3);
   overflow: clip;

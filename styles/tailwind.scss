@@ -5,6 +5,7 @@
 @use "small-style/scss/base/variables/components/forms" as *;
 @use "small-style/scss/base/mixins/rules/components/_forms" as *;
 @use "small-style/scss/base/mixins/rules/components/_layout" as *;
+@use "small-style/scss/base/mixins/rules/components/typography/_fluid-type" as *;
 @use "./base/mixins/rules/components/forms" as *;
 
 @import "./preflight-modified.css" layer(tw-base);
@@ -165,6 +166,10 @@ $disableNewHeaderLoggedInSelector: unquote(':root:is(.unauthenticated.new)');
 //     --fluid-type: clamp((var(--fluid-min) / 16) * 1rem,((var(--fluid-min) / 16) * 1rem) - (((var(--fluid-preferred) * var(--font-width-min, 375)) / 16) * 1rem) + (var(--fluid-preferred) * var(--variable-unit, 100vi)),(var(--fluid-max) / 16) * 1rem);
 //     font-size: var(--fluid-type);
 // }
+
+@utility fluid-cq {
+    @include fluid-type-cq();
+}
 
 @utility lg-squircle {
   border-radius: calc(var(--radius) * 3);
