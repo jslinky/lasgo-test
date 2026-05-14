@@ -216,33 +216,34 @@ div.scanlines {
   border-radius: 0;
 }
 
-:where(.hero .card):not([data-card-layout="col"]):has(
-    .card-picture:first-child
-  ) {
-  --card-top-row: 1fr;
-  --card-bottom-row: auto;
-}
-
-:where(.hero .card):not([data-card-layout="col"]):has(
-    .card-picture:first-child
-  ):is([data-card-row-reverse-order]) {
-  --card-top-row: auto;
-  --card-bottom-row: 1fr;
-}
-
-// .hero .card:not([data-card-layout="col"]) {
-//   @container (inline-size < 80ch) {
-//     :is(
-//       .card-body,
-//       .card-body__content,
-//       .card-body__content-slot,
-//       .card-body__content-slot img,
-//       .card-body__content-slot p:has(img)
-//     ) {
-//       height: 100%;
-//     }
-//   }
+// TEMP REMOVAL BECAUSE layer order is overriding the data attr modifiers in the card component
+// :where(.hero .card):not([data-card-layout="col"]):has(
+//     .card-picture:first-child
+//   ) {
+//   --card-top-row: 1fr;
+//   --card-bottom-row: auto;
 // }
+
+// :where(.hero .card):not([data-card-layout="col"]):has(
+//     .card-picture:first-child
+//   ):is([data-card-row-reverse-order]) {
+//   --card-top-row: auto;
+//   --card-bottom-row: 1fr;
+// }
+
+.hero .card:not([data-card-layout="col"]):not([data-card-layout="overlay"]) {
+  @container (inline-size < 80ch) {
+    :is(
+      .card-body,
+      .card-body__content,
+      .card-body__content-slot,
+      .card-body__content-slot img,
+      .card-body__content-slot p:has(img)
+    ) {
+      height: 100%;
+    }
+  }
+}
 
 .hero--expanded {
   .card-picture {
