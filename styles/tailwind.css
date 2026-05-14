@@ -13,16 +13,9 @@
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{w}-{full,auto}");
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{absolute}");
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{relative}");
-@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--column-count:2]}");
-@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--column-count:3]}");
-@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--column-count:4]}");
-@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--column-count:6]}");
-@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-xs)]}");
-@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-sm)]}");
-@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-md)]}");
-@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-lg)]}");
-@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-xl)]}");
-@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:var(--space-2xl)]}");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}[--column-count:{1..6}]");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:{var(--space-xs), var(--space-sm), var(--space-md), var(--space-lg), var(--space-xl), var(--space-2xl)}]}");
+@source inline("[{--card-backdrop-color-stop-to-opacity,--card-backdrop-color-stop-from-opacity}:{0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,0}]");
 @layer tw-base, base, site, tw, site-props, existing-overrides;
 @layer base {
   @layer reset, props, components;
@@ -563,6 +556,10 @@
       (var(--fluid-max) / 16) * 1rem
     );
     font-size: var(--fluid-type);
+  }
+  :root:is(.new) :where(.fluid-cq) {
+    --font-size: var(--default-font-size-fluid-cq, min(var(--font-size-max, var(--font-size-base)), calc(var(--font-size-min, var(--sm)) + var(--font-fluid-cq-variance, 0.5cqw))));
+    font-size: var(--font-size);
   }
   /* calculations */
   :root:is(.new) .wrapper {
@@ -6499,13 +6496,14 @@
   :where(.hero .card) {
     border-radius: 0;
   }
-  :where(.hero .card):not([data-card-layout=col]):has(.card-picture:first-child) {
-    --card-top-row: 1fr;
-    --card-bottom-row: auto;
-  }
-  :where(.hero .card):not([data-card-layout=col]):has(.card-picture:first-child):is([data-card-row-reverse-order]) {
-    --card-top-row: auto;
-    --card-bottom-row: 1fr;
+  @container (inline-size < 80ch) {
+    .hero .card:not([data-card-layout=col]):not([data-card-layout=overlay]) :is(.card-body,
+    .card-body__content,
+    .card-body__content-slot,
+    .card-body__content-slot img,
+    .card-body__content-slot p:has(img)) {
+      height: 100%;
+    }
   }
   .hero--expanded .card-picture {
     mask: linear-gradient(to bottom, transparent 0%, black 30%, black, transparent 90%);
@@ -7949,5 +7947,3 @@
     border-radius: calc(var(--radius) * 5);
   }
 }
-
-/*# sourceMappingURL=tailwind.css.map */

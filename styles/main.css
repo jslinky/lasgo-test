@@ -2225,8 +2225,71 @@
   .\[--card-auto-row\:max-content\] {
     --card-auto-row: max-content;
   }
+  .\[--card-backdrop-color-stop-from-opacity\:0\.1\] {
+    --card-backdrop-color-stop-from-opacity: 0.1;
+  }
+  .\[--card-backdrop-color-stop-from-opacity\:0\.2\] {
+    --card-backdrop-color-stop-from-opacity: 0.2;
+  }
+  .\[--card-backdrop-color-stop-from-opacity\:0\.3\] {
+    --card-backdrop-color-stop-from-opacity: 0.3;
+  }
+  .\[--card-backdrop-color-stop-from-opacity\:0\.4\] {
+    --card-backdrop-color-stop-from-opacity: 0.4;
+  }
+  .\[--card-backdrop-color-stop-from-opacity\:0\.5\] {
+    --card-backdrop-color-stop-from-opacity: 0.5;
+  }
+  .\[--card-backdrop-color-stop-from-opacity\:0\.6\] {
+    --card-backdrop-color-stop-from-opacity: 0.6;
+  }
+  .\[--card-backdrop-color-stop-from-opacity\:0\.7\] {
+    --card-backdrop-color-stop-from-opacity: 0.7;
+  }
+  .\[--card-backdrop-color-stop-from-opacity\:0\.8\] {
+    --card-backdrop-color-stop-from-opacity: 0.8;
+  }
+  .\[--card-backdrop-color-stop-from-opacity\:0\.9\] {
+    --card-backdrop-color-stop-from-opacity: 0.9;
+  }
+  .\[--card-backdrop-color-stop-from-opacity\:0\] {
+    --card-backdrop-color-stop-from-opacity: 0;
+  }
+  .\[--card-backdrop-color-stop-from-opacity\:1\] {
+    --card-backdrop-color-stop-from-opacity: 1;
+  }
+  .\[--card-backdrop-color-stop-to-opacity\:0\.1\] {
+    --card-backdrop-color-stop-to-opacity: 0.1;
+  }
+  .\[--card-backdrop-color-stop-to-opacity\:0\.2\] {
+    --card-backdrop-color-stop-to-opacity: 0.2;
+  }
+  .\[--card-backdrop-color-stop-to-opacity\:0\.3\] {
+    --card-backdrop-color-stop-to-opacity: 0.3;
+  }
   .\[--card-backdrop-color-stop-to-opacity\:0\.4\] {
     --card-backdrop-color-stop-to-opacity: 0.4;
+  }
+  .\[--card-backdrop-color-stop-to-opacity\:0\.5\] {
+    --card-backdrop-color-stop-to-opacity: 0.5;
+  }
+  .\[--card-backdrop-color-stop-to-opacity\:0\.6\] {
+    --card-backdrop-color-stop-to-opacity: 0.6;
+  }
+  .\[--card-backdrop-color-stop-to-opacity\:0\.7\] {
+    --card-backdrop-color-stop-to-opacity: 0.7;
+  }
+  .\[--card-backdrop-color-stop-to-opacity\:0\.8\] {
+    --card-backdrop-color-stop-to-opacity: 0.8;
+  }
+  .\[--card-backdrop-color-stop-to-opacity\:0\.9\] {
+    --card-backdrop-color-stop-to-opacity: 0.9;
+  }
+  .\[--card-backdrop-color-stop-to-opacity\:0\] {
+    --card-backdrop-color-stop-to-opacity: 0;
+  }
+  .\[--card-backdrop-color-stop-to-opacity\:1\] {
+    --card-backdrop-color-stop-to-opacity: 1;
   }
   .\[--card-body-padding-block\:0\] {
     --card-body-padding-block: 0;
@@ -2342,6 +2405,9 @@
   .\[--color-tertiary\:var\(--color-brand-green-light\)\] {
     --color-tertiary: var(--color-brand-green-light);
   }
+  .\[--column-count\:1\] {
+    --column-count: 1;
+  }
   .\[--column-count\:2\] {
     --column-count: 2;
   }
@@ -2350,6 +2416,9 @@
   }
   .\[--column-count\:4\] {
     --column-count: 4;
+  }
+  .\[--column-count\:5\] {
+    --column-count: 5;
   }
   .\[--column-count\:6\] {
     --column-count: 6;
@@ -2402,23 +2471,29 @@
   .\[--flex-grid-min\:min\(calc\(50vw-\(var\(--flex-grid-gap\)\*2\)\)\,31\.8ch\)\] {
     --flex-grid-min: min(calc(50vw - (var(--flex-grid-gap) * 2)), 31.8ch);
   }
+  .\[--flow-space\:\ var\(--space-2xl\)\] {
+    --flow-space:  var(--space-2xl);
+  }
+  .\[--flow-space\:\ var\(--space-lg\)\] {
+    --flow-space:  var(--space-lg);
+  }
+  .\[--flow-space\:\ var\(--space-md\)\] {
+    --flow-space:  var(--space-md);
+  }
+  .\[--flow-space\:\ var\(--space-sm\)\] {
+    --flow-space:  var(--space-sm);
+  }
+  .\[--flow-space\:\ var\(--space-xl\)\] {
+    --flow-space:  var(--space-xl);
+  }
   .\[--flow-space\:0\] {
     --flow-space: 0;
   }
   .\[--flow-space\:calc\(var\(--spacing-section-gap\)\*2\)\] {
     --flow-space: calc(var(--spacing-section-gap) * 2);
   }
-  .\[--flow-space\:var\(--space-2xl\)\] {
-    --flow-space: var(--space-2xl);
-  }
   .\[--flow-space\:var\(--space-lg\)\] {
     --flow-space: var(--space-lg);
-  }
-  .\[--flow-space\:var\(--space-md\)\] {
-    --flow-space: var(--space-md);
-  }
-  .\[--flow-space\:var\(--space-sm\)\] {
-    --flow-space: var(--space-sm);
   }
   .\[--flow-space\:var\(--space-xl\)\] {
     --flow-space: var(--space-xl);
@@ -3578,6 +3653,11 @@
       padding-inline: var(--spacing-2xl);
     }
   }
+  .\@md\:\[--column-count\:1\] {
+    @container (width >= 28rem) {
+      --column-count: 1;
+    }
+  }
   .\@md\:\[--column-count\:2\] {
     @container (width >= 28rem) {
       --column-count: 2;
@@ -3593,34 +3673,39 @@
       --column-count: 4;
     }
   }
+  .\@md\:\[--column-count\:5\] {
+    @container (width >= 28rem) {
+      --column-count: 5;
+    }
+  }
   .\@md\:\[--column-count\:6\] {
     @container (width >= 28rem) {
       --column-count: 6;
     }
   }
-  .\@md\:\[--flow-space\:var\(--space-2xl\)\] {
+  .\@md\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 28rem) {
-      --flow-space: var(--space-2xl);
+      --flow-space:  var(--space-2xl);
     }
   }
-  .\@md\:\[--flow-space\:var\(--space-lg\)\] {
+  .\@md\:\[--flow-space\:\ var\(--space-lg\)\] {
     @container (width >= 28rem) {
-      --flow-space: var(--space-lg);
+      --flow-space:  var(--space-lg);
     }
   }
-  .\@md\:\[--flow-space\:var\(--space-md\)\] {
+  .\@md\:\[--flow-space\:\ var\(--space-md\)\] {
     @container (width >= 28rem) {
-      --flow-space: var(--space-md);
+      --flow-space:  var(--space-md);
     }
   }
-  .\@md\:\[--flow-space\:var\(--space-sm\)\] {
+  .\@md\:\[--flow-space\:\ var\(--space-sm\)\] {
     @container (width >= 28rem) {
-      --flow-space: var(--space-sm);
+      --flow-space:  var(--space-sm);
     }
   }
-  .\@md\:\[--flow-space\:var\(--space-xl\)\] {
+  .\@md\:\[--flow-space\:\ var\(--space-xl\)\] {
     @container (width >= 28rem) {
-      --flow-space: var(--space-xl);
+      --flow-space:  var(--space-xl);
     }
   }
   .\@md\:\[--flow-space\:var\(--space-xs\)\] {
@@ -3705,6 +3790,11 @@
       padding-right: calc(var(--spacing) * 0);
     }
   }
+  .\@lg\:\[--column-count\:1\] {
+    @container (width >= 32rem) {
+      --column-count: 1;
+    }
+  }
   .\@lg\:\[--column-count\:2\] {
     @container (width >= 32rem) {
       --column-count: 2;
@@ -3720,34 +3810,39 @@
       --column-count: 4;
     }
   }
+  .\@lg\:\[--column-count\:5\] {
+    @container (width >= 32rem) {
+      --column-count: 5;
+    }
+  }
   .\@lg\:\[--column-count\:6\] {
     @container (width >= 32rem) {
       --column-count: 6;
     }
   }
-  .\@lg\:\[--flow-space\:var\(--space-2xl\)\] {
+  .\@lg\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 32rem) {
-      --flow-space: var(--space-2xl);
+      --flow-space:  var(--space-2xl);
     }
   }
-  .\@lg\:\[--flow-space\:var\(--space-lg\)\] {
+  .\@lg\:\[--flow-space\:\ var\(--space-lg\)\] {
     @container (width >= 32rem) {
-      --flow-space: var(--space-lg);
+      --flow-space:  var(--space-lg);
     }
   }
-  .\@lg\:\[--flow-space\:var\(--space-md\)\] {
+  .\@lg\:\[--flow-space\:\ var\(--space-md\)\] {
     @container (width >= 32rem) {
-      --flow-space: var(--space-md);
+      --flow-space:  var(--space-md);
     }
   }
-  .\@lg\:\[--flow-space\:var\(--space-sm\)\] {
+  .\@lg\:\[--flow-space\:\ var\(--space-sm\)\] {
     @container (width >= 32rem) {
-      --flow-space: var(--space-sm);
+      --flow-space:  var(--space-sm);
     }
   }
-  .\@lg\:\[--flow-space\:var\(--space-xl\)\] {
+  .\@lg\:\[--flow-space\:\ var\(--space-xl\)\] {
     @container (width >= 32rem) {
-      --flow-space: var(--space-xl);
+      --flow-space:  var(--space-xl);
     }
   }
   .\@lg\:\[--flow-space\:var\(--space-xs\)\] {
@@ -3808,6 +3903,11 @@
       border-right-width: 1px;
     }
   }
+  .\@xl\:\[--column-count\:1\] {
+    @container (width >= 36rem) {
+      --column-count: 1;
+    }
+  }
   .\@xl\:\[--column-count\:2\] {
     @container (width >= 36rem) {
       --column-count: 2;
@@ -3823,34 +3923,39 @@
       --column-count: 4;
     }
   }
+  .\@xl\:\[--column-count\:5\] {
+    @container (width >= 36rem) {
+      --column-count: 5;
+    }
+  }
   .\@xl\:\[--column-count\:6\] {
     @container (width >= 36rem) {
       --column-count: 6;
     }
   }
-  .\@xl\:\[--flow-space\:var\(--space-2xl\)\] {
+  .\@xl\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 36rem) {
-      --flow-space: var(--space-2xl);
+      --flow-space:  var(--space-2xl);
     }
   }
-  .\@xl\:\[--flow-space\:var\(--space-lg\)\] {
+  .\@xl\:\[--flow-space\:\ var\(--space-lg\)\] {
     @container (width >= 36rem) {
-      --flow-space: var(--space-lg);
+      --flow-space:  var(--space-lg);
     }
   }
-  .\@xl\:\[--flow-space\:var\(--space-md\)\] {
+  .\@xl\:\[--flow-space\:\ var\(--space-md\)\] {
     @container (width >= 36rem) {
-      --flow-space: var(--space-md);
+      --flow-space:  var(--space-md);
     }
   }
-  .\@xl\:\[--flow-space\:var\(--space-sm\)\] {
+  .\@xl\:\[--flow-space\:\ var\(--space-sm\)\] {
     @container (width >= 36rem) {
-      --flow-space: var(--space-sm);
+      --flow-space:  var(--space-sm);
     }
   }
-  .\@xl\:\[--flow-space\:var\(--space-xl\)\] {
+  .\@xl\:\[--flow-space\:\ var\(--space-xl\)\] {
     @container (width >= 36rem) {
-      --flow-space: var(--space-xl);
+      --flow-space:  var(--space-xl);
     }
   }
   .\@xl\:\[--flow-space\:var\(--space-xs\)\] {
@@ -3915,6 +4020,11 @@
       padding-right: calc(var(--spacing) * 0);
     }
   }
+  .\@2xl\:\[--column-count\:1\] {
+    @container (width >= 42rem) {
+      --column-count: 1;
+    }
+  }
   .\@2xl\:\[--column-count\:2\] {
     @container (width >= 42rem) {
       --column-count: 2;
@@ -3930,34 +4040,39 @@
       --column-count: 4;
     }
   }
+  .\@2xl\:\[--column-count\:5\] {
+    @container (width >= 42rem) {
+      --column-count: 5;
+    }
+  }
   .\@2xl\:\[--column-count\:6\] {
     @container (width >= 42rem) {
       --column-count: 6;
     }
   }
-  .\@2xl\:\[--flow-space\:var\(--space-2xl\)\] {
+  .\@2xl\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 42rem) {
-      --flow-space: var(--space-2xl);
+      --flow-space:  var(--space-2xl);
     }
   }
-  .\@2xl\:\[--flow-space\:var\(--space-lg\)\] {
+  .\@2xl\:\[--flow-space\:\ var\(--space-lg\)\] {
     @container (width >= 42rem) {
-      --flow-space: var(--space-lg);
+      --flow-space:  var(--space-lg);
     }
   }
-  .\@2xl\:\[--flow-space\:var\(--space-md\)\] {
+  .\@2xl\:\[--flow-space\:\ var\(--space-md\)\] {
     @container (width >= 42rem) {
-      --flow-space: var(--space-md);
+      --flow-space:  var(--space-md);
     }
   }
-  .\@2xl\:\[--flow-space\:var\(--space-sm\)\] {
+  .\@2xl\:\[--flow-space\:\ var\(--space-sm\)\] {
     @container (width >= 42rem) {
-      --flow-space: var(--space-sm);
+      --flow-space:  var(--space-sm);
     }
   }
-  .\@2xl\:\[--flow-space\:var\(--space-xl\)\] {
+  .\@2xl\:\[--flow-space\:\ var\(--space-xl\)\] {
     @container (width >= 42rem) {
-      --flow-space: var(--space-xl);
+      --flow-space:  var(--space-xl);
     }
   }
   .\@2xl\:\[--flow-space\:var\(--space-xs\)\] {
@@ -4030,6 +4145,11 @@
       columns: 2;
     }
   }
+  .\@3xl\:\[--column-count\:1\] {
+    @container (width >= 48rem) {
+      --column-count: 1;
+    }
+  }
   .\@3xl\:\[--column-count\:2\] {
     @container (width >= 48rem) {
       --column-count: 2;
@@ -4045,34 +4165,39 @@
       --column-count: 4;
     }
   }
+  .\@3xl\:\[--column-count\:5\] {
+    @container (width >= 48rem) {
+      --column-count: 5;
+    }
+  }
   .\@3xl\:\[--column-count\:6\] {
     @container (width >= 48rem) {
       --column-count: 6;
     }
   }
-  .\@3xl\:\[--flow-space\:var\(--space-2xl\)\] {
+  .\@3xl\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 48rem) {
-      --flow-space: var(--space-2xl);
+      --flow-space:  var(--space-2xl);
     }
   }
-  .\@3xl\:\[--flow-space\:var\(--space-lg\)\] {
+  .\@3xl\:\[--flow-space\:\ var\(--space-lg\)\] {
     @container (width >= 48rem) {
-      --flow-space: var(--space-lg);
+      --flow-space:  var(--space-lg);
     }
   }
-  .\@3xl\:\[--flow-space\:var\(--space-md\)\] {
+  .\@3xl\:\[--flow-space\:\ var\(--space-md\)\] {
     @container (width >= 48rem) {
-      --flow-space: var(--space-md);
+      --flow-space:  var(--space-md);
     }
   }
-  .\@3xl\:\[--flow-space\:var\(--space-sm\)\] {
+  .\@3xl\:\[--flow-space\:\ var\(--space-sm\)\] {
     @container (width >= 48rem) {
-      --flow-space: var(--space-sm);
+      --flow-space:  var(--space-sm);
     }
   }
-  .\@3xl\:\[--flow-space\:var\(--space-xl\)\] {
+  .\@3xl\:\[--flow-space\:\ var\(--space-xl\)\] {
     @container (width >= 48rem) {
-      --flow-space: var(--space-xl);
+      --flow-space:  var(--space-xl);
     }
   }
   .\@3xl\:\[--flow-space\:var\(--space-xs\)\] {
@@ -4146,6 +4271,11 @@
       --card-two-columns: 1fr;
     }
   }
+  .\@4xl\:\[--column-count\:1\] {
+    @container (width >= 56rem) {
+      --column-count: 1;
+    }
+  }
   .\@4xl\:\[--column-count\:2\] {
     @container (width >= 56rem) {
       --column-count: 2;
@@ -4161,34 +4291,39 @@
       --column-count: 4;
     }
   }
+  .\@4xl\:\[--column-count\:5\] {
+    @container (width >= 56rem) {
+      --column-count: 5;
+    }
+  }
   .\@4xl\:\[--column-count\:6\] {
     @container (width >= 56rem) {
       --column-count: 6;
     }
   }
-  .\@4xl\:\[--flow-space\:var\(--space-2xl\)\] {
+  .\@4xl\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 56rem) {
-      --flow-space: var(--space-2xl);
+      --flow-space:  var(--space-2xl);
     }
   }
-  .\@4xl\:\[--flow-space\:var\(--space-lg\)\] {
+  .\@4xl\:\[--flow-space\:\ var\(--space-lg\)\] {
     @container (width >= 56rem) {
-      --flow-space: var(--space-lg);
+      --flow-space:  var(--space-lg);
     }
   }
-  .\@4xl\:\[--flow-space\:var\(--space-md\)\] {
+  .\@4xl\:\[--flow-space\:\ var\(--space-md\)\] {
     @container (width >= 56rem) {
-      --flow-space: var(--space-md);
+      --flow-space:  var(--space-md);
     }
   }
-  .\@4xl\:\[--flow-space\:var\(--space-sm\)\] {
+  .\@4xl\:\[--flow-space\:\ var\(--space-sm\)\] {
     @container (width >= 56rem) {
-      --flow-space: var(--space-sm);
+      --flow-space:  var(--space-sm);
     }
   }
-  .\@4xl\:\[--flow-space\:var\(--space-xl\)\] {
+  .\@4xl\:\[--flow-space\:\ var\(--space-xl\)\] {
     @container (width >= 56rem) {
-      --flow-space: var(--space-xl);
+      --flow-space:  var(--space-xl);
     }
   }
   .\@4xl\:\[--flow-space\:var\(--space-xs\)\] {
@@ -4265,6 +4400,11 @@
       --card-two-columns: min(450px, 40%) 1fr;
     }
   }
+  .\@5xl\:\[--column-count\:1\] {
+    @container (width >= 64rem) {
+      --column-count: 1;
+    }
+  }
   .\@5xl\:\[--column-count\:2\] {
     @container (width >= 64rem) {
       --column-count: 2;
@@ -4280,34 +4420,39 @@
       --column-count: 4;
     }
   }
+  .\@5xl\:\[--column-count\:5\] {
+    @container (width >= 64rem) {
+      --column-count: 5;
+    }
+  }
   .\@5xl\:\[--column-count\:6\] {
     @container (width >= 64rem) {
       --column-count: 6;
     }
   }
-  .\@5xl\:\[--flow-space\:var\(--space-2xl\)\] {
+  .\@5xl\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 64rem) {
-      --flow-space: var(--space-2xl);
+      --flow-space:  var(--space-2xl);
     }
   }
-  .\@5xl\:\[--flow-space\:var\(--space-lg\)\] {
+  .\@5xl\:\[--flow-space\:\ var\(--space-lg\)\] {
     @container (width >= 64rem) {
-      --flow-space: var(--space-lg);
+      --flow-space:  var(--space-lg);
     }
   }
-  .\@5xl\:\[--flow-space\:var\(--space-md\)\] {
+  .\@5xl\:\[--flow-space\:\ var\(--space-md\)\] {
     @container (width >= 64rem) {
-      --flow-space: var(--space-md);
+      --flow-space:  var(--space-md);
     }
   }
-  .\@5xl\:\[--flow-space\:var\(--space-sm\)\] {
+  .\@5xl\:\[--flow-space\:\ var\(--space-sm\)\] {
     @container (width >= 64rem) {
-      --flow-space: var(--space-sm);
+      --flow-space:  var(--space-sm);
     }
   }
-  .\@5xl\:\[--flow-space\:var\(--space-xl\)\] {
+  .\@5xl\:\[--flow-space\:\ var\(--space-xl\)\] {
     @container (width >= 64rem) {
-      --flow-space: var(--space-xl);
+      --flow-space:  var(--space-xl);
     }
   }
   .\@5xl\:\[--flow-space\:var\(--space-xs\)\] {
@@ -4340,6 +4485,11 @@
       width: 100%;
     }
   }
+  .\@6xl\:\[--column-count\:1\] {
+    @container (width >= 72rem) {
+      --column-count: 1;
+    }
+  }
   .\@6xl\:\[--column-count\:2\] {
     @container (width >= 72rem) {
       --column-count: 2;
@@ -4355,34 +4505,39 @@
       --column-count: 4;
     }
   }
+  .\@6xl\:\[--column-count\:5\] {
+    @container (width >= 72rem) {
+      --column-count: 5;
+    }
+  }
   .\@6xl\:\[--column-count\:6\] {
     @container (width >= 72rem) {
       --column-count: 6;
     }
   }
-  .\@6xl\:\[--flow-space\:var\(--space-2xl\)\] {
+  .\@6xl\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 72rem) {
-      --flow-space: var(--space-2xl);
+      --flow-space:  var(--space-2xl);
     }
   }
-  .\@6xl\:\[--flow-space\:var\(--space-lg\)\] {
+  .\@6xl\:\[--flow-space\:\ var\(--space-lg\)\] {
     @container (width >= 72rem) {
-      --flow-space: var(--space-lg);
+      --flow-space:  var(--space-lg);
     }
   }
-  .\@6xl\:\[--flow-space\:var\(--space-md\)\] {
+  .\@6xl\:\[--flow-space\:\ var\(--space-md\)\] {
     @container (width >= 72rem) {
-      --flow-space: var(--space-md);
+      --flow-space:  var(--space-md);
     }
   }
-  .\@6xl\:\[--flow-space\:var\(--space-sm\)\] {
+  .\@6xl\:\[--flow-space\:\ var\(--space-sm\)\] {
     @container (width >= 72rem) {
-      --flow-space: var(--space-sm);
+      --flow-space:  var(--space-sm);
     }
   }
-  .\@6xl\:\[--flow-space\:var\(--space-xl\)\] {
+  .\@6xl\:\[--flow-space\:\ var\(--space-xl\)\] {
     @container (width >= 72rem) {
-      --flow-space: var(--space-xl);
+      --flow-space:  var(--space-xl);
     }
   }
   .\@6xl\:\[--flow-space\:var\(--space-xs\)\] {
@@ -4864,6 +5019,10 @@
       (var(--fluid-max) / 16) * 1rem
     );
     font-size: var(--fluid-type);
+  }
+  :root:is(.new) :where(.fluid-cq) {
+    --font-size: var(--default-font-size-fluid-cq, min(var(--font-size-max, var(--font-size-base)), calc(var(--font-size-min, var(--sm)) + var(--font-fluid-cq-variance, 0.5cqw))));
+    font-size: var(--font-size);
   }
   :root:is(.new) .wrapper {
     --max-wrapper-width: calc(var(--root-max-wrapper-width, 1200) * 1px);
@@ -10875,13 +11034,10 @@
   :where(.hero .card) {
     border-radius: 0;
   }
-  :where(.hero .card):not([data-card-layout=col]):has(.card-picture:first-child) {
-    --card-top-row: 1fr;
-    --card-bottom-row: auto;
-  }
-  :where(.hero .card):not([data-card-layout=col]):has(.card-picture:first-child):is([data-card-row-reverse-order]) {
-    --card-top-row: auto;
-    --card-bottom-row: 1fr;
+  @container (inline-size < 80ch) {
+    .hero .card:not([data-card-layout=col]):not([data-card-layout=overlay]) :is(.card-body, .card-body__content, .card-body__content-slot, .card-body__content-slot img, .card-body__content-slot p:has(img)) {
+      height: 100%;
+    }
   }
   .hero--expanded .card-picture {
     mask: linear-gradient(to bottom, transparent 0%, black 30%, black, transparent 90%);
