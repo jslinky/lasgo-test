@@ -1863,6 +1863,10 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
+  .fluid-cq {
+    --font-size: var(--default-font-size-fluid-cq, min(var(--font-size-max, var(--font-size-base)), calc(var(--font-size-min, var(--sm)) + var(--font-fluid-cq-variance, 0.5cqw))));
+    font-size: var(--font-size);
+  }
   .text-\[2\.5em\] {
     font-size: 2.5em;
   }

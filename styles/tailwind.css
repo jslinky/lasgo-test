@@ -16,6 +16,7 @@
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}[--column-count:{1..6}]");
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:{var(--space-xs), var(--space-sm), var(--space-md), var(--space-lg), var(--space-xl), var(--space-2xl)}]}");
 @source inline("[{--card-backdrop-color-stop-to-opacity,--card-backdrop-color-stop-from-opacity}:{0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,0}]");
+@source inline("fluid-cq");
 @layer tw-base, base, site, tw, site-props, existing-overrides;
 @layer base {
   @layer reset, props, components;
