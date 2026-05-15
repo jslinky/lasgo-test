@@ -127,6 +127,10 @@ body:has(.hero--expanded):has(#outerWrap) {
 //   --font-weight: 600;
 // }
 
+.slick-slider:has(.hero) .slick-dots {
+  bottom: var(--spacing-md);
+}
+
 .scanlines {
   overflow: hidden;
   position: relative;

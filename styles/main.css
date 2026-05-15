@@ -10969,6 +10969,9 @@
     margin-inline: auto;
     padding: 0;
   }
+  .slick-slider:has(.hero) .slick-dots {
+    bottom: var(--spacing-md);
+  }
   .scanlines {
     overflow: hidden;
     position: relative;
