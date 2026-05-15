@@ -122,10 +122,10 @@ body:has(.hero--expanded):has(#outerWrap) {
   padding: 0;
 }
 
-.hero .card-body__content__caption :where(.heading:first-of-type + .heading) {
-  --text-transform: none;
-  --font-weight: 600;
-}
+// .hero .card-body__content__caption :where(.heading:first-of-type + .heading) {
+//   --text-transform: none;
+//   --font-weight: 600;
+// }
 
 .scanlines {
   overflow: hidden;
