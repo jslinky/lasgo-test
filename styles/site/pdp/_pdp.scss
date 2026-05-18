@@ -126,7 +126,11 @@
 }
 
 .content-grid__aside {
-  --aside-sticky-top: 105px;
+  @if $disableNewHeaderLoggedIn {
+    --aside-sticky-top: 75px;
+  } @else {
+    --aside-sticky-top: 105px;
+  }
 }
 
 @media (min-width: 960px) {

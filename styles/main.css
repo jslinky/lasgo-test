@@ -11928,7 +11928,7 @@
     }
   }
   .content-grid__aside {
-    --aside-sticky-top: 105px;
+    --aside-sticky-top: 75px;
   }
   @media (min-width: 960px) {
     .content-grid__aside {
