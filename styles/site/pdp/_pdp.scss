@@ -7,9 +7,12 @@
 
 .content-grid {
   --layout-column-min: 9.45ch;
-  --column-count: 8;
+  --column-count: 6;
   container-type: inline-size;
   container-name: content-grid;
+  @media (min-width: 715px) {
+    --column-count: 8;
+   }
 }
 
 .content-grid_full {
