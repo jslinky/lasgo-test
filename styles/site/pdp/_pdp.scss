@@ -6,13 +6,13 @@
 }
 
 .content-grid {
-  --layout-column-min: 9.45ch;
-  --column-count: 6;
+  --layout-column-min: 8.8ch;
+  --column-count: 8;
   container-type: inline-size;
   container-name: content-grid;
-  @media (min-width: 715px) {
-    --column-count: 8;
-   }
+  // @media (min-width: 715px) {
+  //   --column-count: 8;
+  //  }
 }
 
 .content-grid_full {
@@ -20,7 +20,7 @@
   grid-template-columns: subgrid;
   container: none;
   // @container content-grid (min-width: #{$contentGridFullLgBp}) {
-  @container content-grid (min-width: 80ch) {
+  @container content-grid (min-width: #{$contentGridFullLgBp}) {
     grid-column: 1/-1;
   }
   &:is(nav) {

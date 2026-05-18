@@ -1938,6 +1938,9 @@
   .text-wrap {
     text-wrap: wrap;
   }
+  .wrap-normal {
+    overflow-wrap: normal;
+  }
   .text-dark {
     color: var(--color-dark);
   }
@@ -2137,6 +2140,10 @@
   }
   .shadow-md {
     --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-sm {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .ring-3 {
@@ -2710,6 +2717,11 @@
       border-width: 0;
     }
   }
+  .\*\:absolute {
+    :is(& > *) {
+      position: absolute;
+    }
+  }
   .\*\:col-span-full {
     :is(& > *) {
       grid-column: 1 / -1;
@@ -2763,6 +2775,16 @@
   .\*\:aspect-3\/2 {
     :is(& > *) {
       aspect-ratio: 3/2;
+    }
+  }
+  .\*\:aspect-4\/3 {
+    :is(& > *) {
+      aspect-ratio: 4/3;
+    }
+  }
+  .\*\:aspect-16\/9 {
+    :is(& > *) {
+      aspect-ratio: 16/9;
     }
   }
   .\*\:aspect-\[16\/6\] {
@@ -3637,6 +3659,11 @@
       grid-column: 1 / -1;
     }
   }
+  .\@md\:aspect-1\/1 {
+    @container (width >= 28rem) {
+      aspect-ratio: 1/1;
+    }
+  }
   .\@md\:aspect-16\/9 {
     @container (width >= 28rem) {
       aspect-ratio: 16/9;
@@ -3715,6 +3742,13 @@
   .\@md\:\[--flow-space\:var\(--space-xs\)\] {
     @container (width >= 28rem) {
       --flow-space: var(--space-xs);
+    }
+  }
+  .\@md\:\*\:aspect-1\/1 {
+    @container (width >= 28rem) {
+      :is(& > *) {
+        aspect-ratio: 1/1;
+      }
     }
   }
   .\@md\:\*\:aspect-16\/9 {
@@ -3852,6 +3886,13 @@
   .\@lg\:\[--flow-space\:var\(--space-xs\)\] {
     @container (width >= 32rem) {
       --flow-space: var(--space-xs);
+    }
+  }
+  .\@lg\:\*\:relative {
+    @container (width >= 32rem) {
+      :is(& > *) {
+        position: relative;
+      }
     }
   }
   .\@xl\:absolute {
@@ -11775,15 +11816,10 @@
     }
   }
   .content-grid {
-    --layout-column-min: 9.45ch;
-    --column-count: 6;
+    --layout-column-min: 8.8ch;
+    --column-count: 8;
     container-type: inline-size;
     container-name: content-grid;
-  }
-  @media (min-width: 715px) {
-    .content-grid {
-      --column-count: 8;
-    }
   }
   .content-grid_full {
     display: grid;
