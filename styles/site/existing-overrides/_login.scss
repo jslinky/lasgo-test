@@ -320,4 +320,5 @@
 .container_16:has(.accountHolderWrap) {
   width: min(var(--max-wrapper-width), 100%);
   display: block;
+  margin-inline:auto;
 }

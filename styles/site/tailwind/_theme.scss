@@ -58,4 +58,17 @@
     --spacing-section-gap-3xl: calc(var(--spacing-section-gap-2xl) * var(--space-increment));
     --spacing-huge: 3rem;
     --radius-default: var(--radius);    
+    --container-ch-3xs: #{$container-3xs-ch};
+    --container-ch-2xs: #{$container-2xs-ch};
+    --container-ch-xs: #{$container-xs-ch};
+    --container-ch-sm: #{$container-sm-ch};
+    --container-ch-md: #{$container-md-ch};
+    --container-ch-lg: #{$container-lg-ch};
+    --container-ch-xl: #{$container-xl-ch};
+    --container-ch-2xl: #{$container-2xl-ch};
+    --container-ch-3xl: #{$container-3xl-ch};
+    --container-ch-4xl: #{$container-4xl-ch};
+    --container-ch-5xl: #{$container-5xl-ch};
+    --container-ch-6xl: #{$container-6xl-ch};
+    --container-ch-7xl: #{$container-7xl-ch};
   }

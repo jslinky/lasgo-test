@@ -28,13 +28,13 @@
       }
     }
 
-    @container content-grid (max-width: 899px) {
+    @container content-grid (max-width: $contentGridFullLgBp) {
       .collapse-title {
         margin-inline: calc(var(--layout-gap) * -1);
       }
     }
 
-    @container content-grid (min-width: 900px) {
+    @container content-grid (min-width: #{$contentGridFullLgBp}) {
       .collapse-icon-slot {
         display: flex;
       }
@@ -44,7 +44,7 @@
       }
     }
 
-    @container content-grid (min-width: 900px) {
+    @container content-grid (min-width: #{$contentGridFullLgBp}) {
       .collapse-icon-slot {
         display: flex;
       }
@@ -246,15 +246,15 @@
     all: unset;
     --purchase-block-bg: color-mix(in oklab, var(--color-grey-11), white 20%);
     display: grid;
-    @container content-grid (max-width: 799px) {
+    @container content-grid (max-width: #{$proxy800pxBp} - math.div(1, 16) ) {
       grid-auto-rows: 200px auto auto;
     }
-    @container content-grid (min-width: 800px) {
+    @container content-grid (min-width: #{$proxy800pxBp}) {
       grid-auto-flow: column;
       grid-column: 1/-1;
       grid-auto-columns: 120px auto auto auto max-content;
     }
-    @container content-grid (min-width: 900px) {
+    @container content-grid (min-width: #{$contentGridFullLgBp}) {
       grid-template-columns: subgrid;
       &:before {
         content: "";
@@ -290,7 +290,7 @@
       padding-block: var(--space-sm);
       display: flex;
       align-items: center;
-      @container content-grid (min-width: 800px) {
+      @container content-grid (min-width: #{$proxy800pxBp}) {
         align-items: flex-start;
       }
       img {
@@ -380,7 +380,7 @@
       minmax(calc(50% - var(--layout-gap)), 1fr)
         minmax(calc(50% - var(--layout-gap)), 1fr)
     );
-    @container content-grid (max-width: 799px) {
+    @container content-grid (max-width: #{$proxy800pxBp - math.div(1, 16) }) {
       // gap: var(--layout-gap);
       width: calc(100vw - var(--layout-gap));
       margin-inline: calc((-50vw + 50%) + (var(--layout-gap) / 2));
@@ -395,7 +395,7 @@
         min-height: max(280px, 370px - 10vw);
       }
     }
-    @container content-grid (min-width: 900px) {
+    @container content-grid (min-width: #{$contentGridFullLgBp}) {
       grid-column: span 6;
       grid-template-columns: subgrid;
     }
@@ -413,7 +413,7 @@
     gap: var(--spacing-xs);
     border-bottom: 1px solid
       color-mix(in oklab, var(--purchase-block-bg), var(--color-dark) 12%);
-    @container content-grid (min-width: 800px) {
+    @container content-grid (min-width: #{$proxy800pxBp}) {
       border-bottom: 0;
       display: grid;
       grid-column: span 2;
@@ -652,7 +652,7 @@
     display: flex;
     flex-direction: column;
     padding-block: var(--space-sm);
-    @container content-grid (min-width: 800px) {
+    @container content-grid (min-width: #{$proxy800pxBp}) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-column: span 3;
@@ -675,7 +675,7 @@
     grid-column: 1/-1;
     display: grid;
     padding-block-start: var(--space-xs);
-    @container content-grid (min-width: 900px) {
+    @container content-grid (min-width: #{$contentGridFullLgBp}) {
       grid-template-columns: subgrid;
     }
   }
