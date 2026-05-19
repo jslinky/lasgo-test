@@ -154,7 +154,6 @@ body:has(.accountHolderWrap) {
 
   .socials {
     grid-column: 1 / 1;
-    background: red;
     height: 20px;
     opacity: 1;
     grid-row: 3/3;
@@ -256,6 +255,11 @@ body:has(.accountHolderWrap) {
   /// forms styling
   :is(input, textarea, select) {
     @include input-textarea-select-rules();
+    // --background: red;
+    // content: 'justin';
+    background-color: var(--_bg)!important;
+    color: var(--_color)!important;
+    font-size: var(--_fs)!important;
   }
   :is(input:not([type="radio"]):not([type="checkbox"])) {
     @include input-text-rules();

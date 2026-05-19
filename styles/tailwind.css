@@ -5564,7 +5564,6 @@
   }
   .accountHolderWrap .socials {
     grid-column: 1/1;
-    background: red;
     height: 20px;
     opacity: 1;
     grid-row: 3/3;
@@ -5697,6 +5696,11 @@
     .accountHolderWrap :is(input, textarea, select):is([minlength], [pattern], [required]):user-valid {
       --input-outline-color: green;
     }
+  }
+  .accountHolderWrap :is(input, textarea, select) {
+    background-color: var(--_bg) !important;
+    color: var(--_color) !important;
+    font-size: var(--_fs) !important;
   }
   .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])) {
     padding-inline: var(--input-text-frame-x, var(--text-frame-x));
