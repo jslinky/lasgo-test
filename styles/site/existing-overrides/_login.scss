@@ -1,6 +1,8 @@
 body:has(.accountHolderWrap) {
   @include respond-to(lg-and-down) {
-    min-height: 100dvh;
+    .accountHolderWrap {
+      min-height: 100dvh;
+    }
     --root-bg: var(--color-primary);
     #mainHeader #logo a {
       background-color: var(--color-light);
@@ -17,7 +19,7 @@ body:has(.accountHolderWrap) {
   --heading-default-color: currentColor;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: min-content min-content;
   background: var(--color-primary);
   color: var(--color-primary-contrast);
   overflow: clip;

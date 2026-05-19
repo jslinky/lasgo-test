@@ -5380,8 +5380,10 @@
     padding-inline: 5px !important;
   }
   @media only screen and (max-width: 63.9375rem) {
-    body:has(.accountHolderWrap) {
+    body:has(.accountHolderWrap) .accountHolderWrap {
       min-height: 100dvh;
+    }
+    body:has(.accountHolderWrap) {
       --root-bg: var(--color-primary);
     }
     body:has(.accountHolderWrap) #mainHeader #logo a {
@@ -5397,7 +5399,7 @@
     --heading-default-color: currentColor;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: min-content min-content;
     background: var(--color-primary);
     color: var(--color-primary-contrast);
     overflow: clip;
