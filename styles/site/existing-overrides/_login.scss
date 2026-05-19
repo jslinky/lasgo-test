@@ -262,7 +262,10 @@ body:has(.accountHolderWrap) {
     font-size: var(--_fs)!important;
   }
   :is(input:not([type="radio"]):not([type="checkbox"])) {
-    @include input-text-rules();
+    // @include input-text-rules();
+    @each $key, $value in $input-text-rules {
+      #{$key}: $value!important;
+    }    
   }
   input:is([type="radio"], [type="checkbox"]) {
     @include input-box-rules();

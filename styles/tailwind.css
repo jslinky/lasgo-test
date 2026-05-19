@@ -5703,10 +5703,10 @@
     font-size: var(--_fs) !important;
   }
   .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])) {
-    padding-inline: var(--input-text-frame-x, var(--text-frame-x));
-    padding-block: var(--input-text-frame-y, var(--text-frame-y));
-    outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
-    border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius)));
+    padding-inline: var(--input-text-frame-x, var(--text-frame-x)) !important;
+    padding-block: var(--input-text-frame-y, var(--text-frame-y)) !important;
+    outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color))) !important;
+    border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius))) !important;
   }
   .accountHolderWrap input:is([type=radio], [type=checkbox]) {
     accent-color: var(--input-accent-color, var(--accent-color, initial));
