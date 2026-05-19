@@ -1706,6 +1706,10 @@
 
   :root:is(.unauthenticated.new) {
 
+    #sticky-wrapper {
+      display:none;
+    }
+
     #mainHeader > div > div {
       column-gap: var(--space-lg);
     }
