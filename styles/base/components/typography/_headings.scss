@@ -34,7 +34,7 @@
 }
 
 .heading > span:last-of-type:not(:only-of-type) {
-  margin-block-start: 0.3em;
+  margin-block-start: 0.2em;
   display: block;
 }
 
@@ -92,5 +92,19 @@
 .line-across:after,
 .line-under:has(> span:only-of-type) > span:after {
   margin-top: 0.5em;
+}
+
+.heading-3xl.fluid-cq {
+--heading-3xl-font-size-min: var(--display-sm);
+--heading-3xl-font-size-max: var(--display-2xl);
+--heading-3xl-font-fluid-cq-variance: 2cqi;
+}
+
+.heading-sm.fluid-cq {
+    --heading-sm-font-size-min: var(--sm);
+}
+
+.heading-xs.fluid-cq {
+    --font-size-min: var(--xs);
 }
 

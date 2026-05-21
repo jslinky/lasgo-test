@@ -1,0 +1,54 @@
+@layer components.base {
+  .list-decimal {
+    --flow-space: var(--space-xl);
+    counter-reset: parentCounter;
+    > li {
+      counter-increment: parentCounter;
+      > ol {
+        --flow-space: var(--space-md);
+        list-style-position: inside;
+        counter-reset: childCounter;
+        > li {
+          counter-increment: childCounter;
+          &:before {
+            content: "";
+            display: inline-block;
+            margin-right: var(--space-xs);
+          }
+          &::marker {
+            content: counter(parentCounter) "." counter(childCounter);
+            font-weight: 600;
+          }
+          > ol {
+            counter-reset: grandChildCounter;
+            list-style-position: inside;
+            > li {
+              counter-increment: grandChildCounter;
+              &:before {
+                content: "." counter(grandChildCounter);
+                display: inline-block;
+                margin-right: var(--space-xs);
+                font-weight: 600;
+              }
+              &::marker {
+                content: counter(parentCounter) "." counter(childCounter);
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  :is(
+    .list-decimal > li + li,
+    .list-decimal > li > * + *,
+    .list-decimal > li > ol > li + li,
+    .list-decimal > li > ol > li:first-of-type,
+    .list-decimal > li > ol > li > ol > li + li,
+    .list-decimal > li > ol > li > ol > li:first-of-type
+  ) {
+    margin-block-start: var(--flow-space, 1rem);
+  }
+}

@@ -20,26 +20,18 @@
     @include textarea-select-rules();
 }
 
-:root:is(.new) :where(textarea) {
-  padding-inline: var(--input-text-frame-x, var(--text-frame-x));
-  padding-block: var(--input-text-frame-y, var(--text-frame-y));
-  outline: var(
-    --input-outline,
-    var(--input-outline-width, 1px) solid
-      var(--input-outline-color, var(--_outline-color))
-  );
-  --_color: var(--input-color, var(--color, CanvasText));
-  --_bg: var(--input-bg, Canvas);
-  --_fs: var(--input-fs, 1em);
-  --_outline-color: color-mix(in oklch, var(--_bg) 90%, black);
-  --_outline-color-focused: color-mix(
-    in oklch,
-    var(--input-outline-color, var(--_outline-color)) 90%,
-    black
-  );
-  background-color: var(--_bg);
-  color: var(--_color);
-  font-size: var(--_fs);
+:root:is(.new) :where(textarea, select) {
+  @include input-base-rules();
+  @include input-text-rules();
+}
+
+:root:is(.new) :where(select) {
+  border:none;  
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.58 8.59009L12 13.1701L7.41 8.59009L6 10.0001L12 16.0001L18 10.0001L16.58 8.59009Z' fill='black'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: center right var(--space-xs);
+  background-size: 1.2rem;
 }
 
 :root:is(.new) :where(input, textarea) {

@@ -1,7 +1,23 @@
 @layer components {
-    @import "./components/buttons";
-    @import "components/card";
-    @import "components/forms"; 
-    @import "components/typography/headings";
-    @import "./components/surface";
+  @import "./components/buttons";
+  @import "components/card";
+  @import "components/forms";
+  @import "components/typography/headings";
+  @import "./components/surface";
+
+  :where(.textSection) {
+    max-width: 65ch;
+    p {
+      font-size: inherit;
+    }
+  }
+
+  :where(.textSection > * + *) {
+    margin-block-start: var(--flow-space, 1rem);
+  }
+
+  :where(.collapse-icon-slot) {
+    row-gap: 0;
+    flex-basis: 100%;
+  }
 }

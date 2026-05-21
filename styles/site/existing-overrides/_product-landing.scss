@@ -4,6 +4,10 @@
     display: none !important;
   }
 
+  #facetList .filter-state-uparrow {
+    background-image: none;
+  }  
+
   .content-grid__aside {
     container-type: scroll-state;
     container-name: sticky-aside;

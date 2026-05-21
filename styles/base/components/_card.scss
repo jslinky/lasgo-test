@@ -10,49 +10,72 @@
   initial-value: 0.7;
 }
 
-.card-body__content__caption-subtitle {
-  -webkit-line-clamp: var(--line-clamp, 3);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-}
+@layer base {
+  .card-body__content__caption-subtitle {
+    -webkit-line-clamp: var(--line-clamp, 3);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
 
-:where(.card) {
-  overflow: clip;
-}
+  :where(.card) {
+    overflow: clip;
+  }
 
-.card-body__content__ctas.\*\:contents .button__text {
-  display: none;
-}
+  .card-body__content__ctas.\*\:contents .button__text {
+    display: none;
+  }
 
-.card-picture--contain {
-  object-fit: contain;
-}
+  .card-picture--contain {
+    object-fit: contain;
+  }
 
-.card-picture--cover {
-  object-fit: cover;
-}
+  .card-picture--cover {
+    object-fit: cover;
+  }
 
-.aspect-dvd {
-  --card-picture-aspect: 14/20;
-}
+  .aspect-dvd {
+    --card-picture-aspect: 14/20;
+  }
 
-.card--featured {
-  .card-picture[class*="contain"] {
-    padding-block: var(--card-body-padding-block);
+  .card--featured {
+    .card-picture[class*="contain"] {
+      padding-block: var(--card-body-padding-block);
+    }
+  }
+
+  .featured-products .card:not(:has(.card-picture)) {
+    --card-background-color: var(--color-grey-11);
+  }
+
+  .card-picture:has(* + *) > *:not(source) + * {
+    position: absolute;
+    inset: 0;
+    object-fit: cover !important;
+    height: 100%;
+  }
+
+  .card:has(.card-picture > * + *) .card-picture > img:last-child {
+    z-index: 0;
+    aspect-ratio: auto;
+  }
+
+  .card:has(.card-picture > * + *)
+    :is(.card-body, .card-picture > img:first-child) {
+    z-index: 1;
   }
 }
 
-.featured-products .card:not(:has(.card-picture)) {
-  --card-background-color: var(--color-grey-11);
-}
-
 @layer modifiers {
-
   .card .fluid {
-    --font-size: min(var(--font-size-max, var(--font-size-base-px)), calc(var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw)));
-  }  
+    --font-size: min(
+      var(--font-size-max, var(--font-size-base-px)),
+      calc(
+        var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw)
+      )
+    );
+  }
 
   :where(
     .card-body__content__ctas:has(.button:empty),

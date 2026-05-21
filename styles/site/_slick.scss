@@ -98,3 +98,21 @@
     }
   }
 }
+
+:where(.layout-grid.slick-slider) {
+    .slick-slide .card {
+        aspect-ratio: 1 / 1;
+        max-height:300px;
+        margin-inline: auto;
+    }
+    &:has(.card-picture.aspect-dvd) {
+        .slick-slide .card {
+            aspect-ratio: 14 / 20;
+        }
+    }
+}
+
+.slick-slider:has(.hero) {
+   padding-bottom: 3rem;
+}
+
