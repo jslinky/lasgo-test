@@ -14,7 +14,7 @@
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{absolute}");
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{relative}");
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}[--column-count:{1..6}]");
-@source inline("{sm:md:,lg:,xl:,@md:,@lg:,@xl:,@2xl:,@4xl:,@5xl:,@6xl:,}{pt,pb,py,pl,pr,px,mt,mb,my,ml,mr,mx}-{md,lg,xl,2xl,3xl,4xl,5xl,6xl,layout-gap,section-gap,section-gap-lg,section-gap-xl,section-gap-2xl,section-gap-3xl}");
+@source inline("{sm:md:,lg:,xl:,@md:,@lg:,@xl:,@2xl:,@4xl:,@5xl:,@6xl:,}{pt,pb,py,pl,pr,px,mt,mb,my,ml,mr,mx}-{xs,sm,md,lg,xl,2xl,3xl,4xl,5xl,6xl,layout-gap,section-gap,section-gap-lg,section-gap-xl,section-gap-2xl,section-gap-3xl}");
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:{var(--space-xs), var(--space-sm), var(--space-md), var(--space-lg), var(--space-xl), var(--space-2xl)}]}");
 @source inline("[{--card-backdrop-color-stop-to-opacity,--card-backdrop-color-stop-from-opacity}:{0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,0}]");
 @source inline("fluid-cq");
@@ -4706,7 +4706,7 @@
       display: none !important;
     }
     #facetList .filter-state-uparrow {
-      background-image: none;
+      background: none !important;
     }
     .content-grid__aside {
       container-type: scroll-state;
@@ -6223,6 +6223,10 @@
         --input-outline-color: green;
       }
     }
+    :where(input, textarea, select):not([class*=k-]),
+    *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]) {
+      border: 0;
+    }
     :where(input):not([class*=k-]):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]),
     *:not([class*=k-]) > input:is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]):not([class*=k-]) {
       padding-inline: var(--input-text-frame-x, var(--text-frame-x));
@@ -6248,7 +6252,8 @@
         border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius)));
       }
     }
-    :root:is(.new) :where(textarea, select) {
+    :where(input):not([class*=k-]):is(textarea, select),
+    *:not([class*=k-]) > input:is(textarea, select) {
       --_color: var(--input-color, var(--color, CanvasText));
       --_bg: var(--input-bg, Canvas);
       --_fs: var(--input-fs, 1em);
@@ -6262,7 +6267,8 @@
       outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
       border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius)));
     }
-    :root:is(.new) :where(select) {
+    :where(input):not([class*=k-]):is(select),
+    *:not([class*=k-]) > input:is(select) {
       border: none;
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.58 8.59009L12 13.1701L7.41 8.59009L6 10.0001L12 16.0001L18 10.0001L16.58 8.59009Z' fill='black'/%3E%3C/svg%3E%0A");
@@ -6270,10 +6276,7 @@
       background-position: center right var(--space-xs);
       background-size: 1.2rem;
     }
-    :root:is(.new) :where(input, textarea) {
-      border: 0;
-    }
-    :where(.button) {
+    :root:is(.new) :where(.button) {
       text-decoration: none;
     }
     .form__row--label-overlay {
@@ -6389,7 +6392,7 @@
     .heading-3xl.fluid-cq {
       --heading-3xl-font-size-min: var(--display-sm);
       --heading-3xl-font-size-max: var(--display-2xl);
-      --heading-3xl-font-fluid-cq-variance: 2cqi;
+      --heading-3xl-font-fluid-cq-variance: 4cqi;
     }
     .heading-sm.fluid-cq {
       --heading-sm-font-size-min: var(--sm);
