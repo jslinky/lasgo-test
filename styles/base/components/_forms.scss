@@ -3,6 +3,7 @@
 :where(input, textarea, select):not([class*="k-"]),
 *:not([class*="k-"]) > :is(input, textarea, select):not([class*="k-"]) {
     @include input-textarea-select-rules();   
+    border: 0;
 }
 
 :where(input):not([class*="k-"]):is(#{$input-text-selectors}),
@@ -18,14 +19,12 @@
 :where(input):not([class*="k-"]):is(textarea, select),
 *:not([class*="k-"]) > input:is(textarea, select) {
     @include textarea-select-rules();
+    @include input-base-rules();
+    @include input-text-rules();    
 }
 
-:root:is(.new) :where(textarea, select) {
-  @include input-base-rules();
-  @include input-text-rules();
-}
-
-:root:is(.new) :where(select) {
+:where(input):not([class*="k-"]):is(select),
+*:not([class*="k-"]) > input:is(select) {
   border:none;  
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.58 8.59009L12 13.1701L7.41 8.59009L6 10.0001L12 16.0001L18 10.0001L16.58 8.59009Z' fill='black'/%3E%3C/svg%3E%0A");
@@ -34,12 +33,14 @@
   background-size: 1.2rem;
 }
 
-:root:is(.new) :where(input, textarea) {
-  border: 0;
-}
+// :root:is(.new) :where(input, textarea) {
+//   border: 0;
+// }
 
-:where(.button) {
-  text-decoration: none;
+:root:is(.new) {
+  :where(.button) {
+    text-decoration: none;
+  }
 }
 
 .form__row--label-overlay {
