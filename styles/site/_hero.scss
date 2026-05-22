@@ -223,17 +223,17 @@ div.scanlines {
 // TEMP REMOVAL BECAUSE layer order is overriding the data attr modifiers in the card component
 
 .hero .card:not([data-card-layout="col"]):not([data-card-layout="overlay"]) {
-   @container (inline-size < 80ch) {
-     :is(
-       .card-body,
-       .card-body__content,
-       .card-body__content-slot,
-       .card-body__content-slot img,
-       .card-body__content-slot p:has(img)
-     ) {
-       height: 100%;
-     }
-   }
+  @container (inline-size < 80ch) {
+    :is(
+      .card-body,
+      .card-body__content,
+      .card-body__content-slot,
+      .card-body__content-slot img,
+      .card-body__content-slot p:has(img)
+    ) {
+      height: 100%;
+    }
+  }
 }
 
 .hero .card:not([data-card-layout="col"]):not([data-card-layout="overlay"]) {
@@ -294,43 +294,51 @@ div.scanlines {
   }
 }
 
-  #outerWrap:has(.hero--expanded) {
-    .hero--expanded {
-        &:has(.heading-3xl:not(.fluid-cq)) {
-          --heading-3xl-font-size-max: calc(
-            var(--display-2xl-px) * var(--text-size-increment)
-          );
-        }
-      margin-inline: var(--hero-expanded-outer-margin);
-      // margin-top: calc(-1px * 105);
-      // @include respond-to(lg) {
-      //   margin-top: calc(
-      //     -1 *
-      //       (
-      //         var(--root-nav-mt) + var(--root-header-height) +
-      //           var(--root-nav-height) + var(--root-header-mt)
-      //       )
-      //   );
-      // }
-
-        margin-top: calc(
-          -1 *
-            (
-              var(--root-nav-mt) + var(--root-header-height) +
-                var(--root-nav-height) + var(--root-header-mt)
-            )
-        );
-
-      .card {
-        overflow: clip;
-      }
+#outerWrap:has(.hero--expanded) {
+  .hero--expanded {
+    &:has(.heading-3xl:not(.fluid-cq)) {
+      --heading-3xl-font-size-max: calc(
+        var(--display-2xl-px) * var(--text-size-increment)
+      );
     }
-
-    // &:has(.is-sticky) {
-    //   .hero {
-    //     margin-top: 0;
-    //   }
+    margin-inline: var(--hero-expanded-outer-margin);
+    // margin-top: calc(-1px * 105);
+    // @include respond-to(lg) {
+    //   margin-top: calc(
+    //     -1 *
+    //       (
+    //         var(--root-nav-mt) + var(--root-header-height) +
+    //           var(--root-nav-height) + var(--root-header-mt)
+    //       )
+    //   );
     // }
 
-    // #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut ul.primary >li > a
+    margin-top: calc(
+      -1 *
+        (
+          var(--root-nav-mt) + var(--root-header-height) +
+            var(--root-nav-height) + var(--root-header-mt)
+        )
+    );
+
+    .card {
+      overflow: clip;
+    }
   }
+
+  // &:has(.is-sticky) {
+  //   .hero {
+  //     margin-top: 0;
+  //   }
+  // }
+
+  // #megaMenuHeaderLoggedOut #navMenu .navInner > ul.loggedOut ul.primary >li > a
+}
+
+.hero {
+  @each $key, $value in $heading-sizes {
+    .heading-#{$key}.fluid-cq {
+      --heading-#{$key}-font-fluid-cq-variance: 4cqi;
+    }
+  }
+}

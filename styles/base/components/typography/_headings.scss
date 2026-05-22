@@ -22,15 +22,37 @@
   animation-timeline: view();
   animation-range: 25% 50%;
   animation-timing-function: linear(
-    0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%, 0.938 16.7%, 1.017,
-    1.077, 1.121, 1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%, 1.129 32.8%,
-    1.051 39.6%, 1.017 43.1%, 0.991, 0.977 51%, 0.974 53.8%, 0.975 57.1%,
-    0.997 69.8%, 1.003 76.9%, 1.004 83.8%, 1
+    0,
+    0.009,
+    0.035 2.1%,
+    0.141,
+    0.281 6.7%,
+    0.723 12.9%,
+    0.938 16.7%,
+    1.017,
+    1.077,
+    1.121,
+    1.149 24.3%,
+    1.159,
+    1.163,
+    1.161,
+    1.154 29.9%,
+    1.129 32.8%,
+    1.051 39.6%,
+    1.017 43.1%,
+    0.991,
+    0.977 51%,
+    0.974 53.8%,
+    0.975 57.1%,
+    0.997 69.8%,
+    1.003 76.9%,
+    1.004 83.8%,
+    1
   );
   --heading-underline-width: min(
     var(--underline-progress, 0px),
     calc(100% - 2rem)
-  );  
+  );
 }
 
 .heading > span:last-of-type:not(:only-of-type) {
@@ -95,16 +117,26 @@
 }
 
 .heading-3xl.fluid-cq {
---heading-3xl-font-size-min: var(--display-sm);
---heading-3xl-font-size-max: var(--display-2xl);
---heading-3xl-font-fluid-cq-variance: 4cqi;
+  --heading-3xl-font-size-min: var(--display-sm);
+  --heading-3xl-font-size-max: var(--display-lg);
+  --heading-3xl-font-fluid-cq-variance: 4cqi;
+}
+
+@each $key, $value in $heading-sizes {
+  .heading-#{$key}.fluid-cq {
+    --heading-#{$key}-font-size-min: var(--#{map-get($value, "font-size-min")});
+    --heading-#{$key}-font-size-max: var(--#{map-get($value, "font-size-max")});
+    --heading-#{$key}-font-fluid-cq-variance: #{map-get($value, "font-fluid-cq-variance")};
+  }
+  // @debug "Processing heading size: #{$key}";
+  // @debug "Font size min: #{map-get($value, 'font-size-min')}";
+  // @debug "Font size max: #{map-get($value, 'font-size-max')}";
 }
 
 .heading-sm.fluid-cq {
-    --heading-sm-font-size-min: var(--sm);
+  --heading-sm-font-size-min: var(--sm);
 }
 
 .heading-xs.fluid-cq {
-    --font-size-min: var(--xs);
+  --font-size-min: var(--xs);
 }
-

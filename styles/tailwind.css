@@ -6392,8 +6392,43 @@
     }
     .heading-3xl.fluid-cq {
       --heading-3xl-font-size-min: var(--display-sm);
-      --heading-3xl-font-size-max: var(--display-2xl);
+      --heading-3xl-font-size-max: var(--display-lg);
       --heading-3xl-font-fluid-cq-variance: 4cqi;
+    }
+    .heading-3xl.fluid-cq {
+      --heading-3xl-font-size-min: var(--display-md);
+      --heading-3xl-font-size-max: var(--display-lg);
+      --heading-3xl-font-fluid-cq-variance: 0.75cqw;
+    }
+    .heading-2xl.fluid-cq {
+      --heading-2xl-font-size-min: var(--display-sm);
+      --heading-2xl-font-size-max: var(--display-md);
+      --heading-2xl-font-fluid-cq-variance: 0.75cqw;
+    }
+    .heading-xl.fluid-cq {
+      --heading-xl-font-size-min: var(--display-xs);
+      --heading-xl-font-size-max: var(--display-sm);
+      --heading-xl-font-fluid-cq-variance: 0.75cqw;
+    }
+    .heading-lg.fluid-cq {
+      --heading-lg-font-size-min: var(--xl);
+      --heading-lg-font-size-max: var(--display-xs);
+      --heading-lg-font-fluid-cq-variance: 0.75cqw;
+    }
+    .heading-default.fluid-cq {
+      --heading-default-font-size-min: var(--lg);
+      --heading-default-font-size-max: var(--xl);
+      --heading-default-font-fluid-cq-variance: 0.75cqw;
+    }
+    .heading-sm.fluid-cq {
+      --heading-sm-font-size-min: var(--md);
+      --heading-sm-font-size-max: var(--lg);
+      --heading-sm-font-fluid-cq-variance: 0.75cqw;
+    }
+    .heading-xs.fluid-cq {
+      --heading-xs-font-size-min: var(--sm);
+      --heading-xs-font-size-max: var(--md);
+      --heading-xs-font-fluid-cq-variance: 0.75cqw;
     }
     .heading-sm.fluid-cq {
       --heading-sm-font-size-min: var(--sm);
@@ -6651,6 +6686,27 @@
   }
   #outerWrap:has(.hero--expanded) .hero--expanded .card {
     overflow: clip;
+  }
+  .hero .heading-3xl.fluid-cq {
+    --heading-3xl-font-fluid-cq-variance: 4cqi;
+  }
+  .hero .heading-2xl.fluid-cq {
+    --heading-2xl-font-fluid-cq-variance: 4cqi;
+  }
+  .hero .heading-xl.fluid-cq {
+    --heading-xl-font-fluid-cq-variance: 4cqi;
+  }
+  .hero .heading-lg.fluid-cq {
+    --heading-lg-font-fluid-cq-variance: 4cqi;
+  }
+  .hero .heading-default.fluid-cq {
+    --heading-default-font-fluid-cq-variance: 4cqi;
+  }
+  .hero .heading-sm.fluid-cq {
+    --heading-sm-font-fluid-cq-variance: 4cqi;
+  }
+  .hero .heading-xs.fluid-cq {
+    --heading-xs-font-fluid-cq-variance: 4cqi;
   }
   .lasgo-artwork {
     --track-size: min(1.5cqmin, 0.85rem);
