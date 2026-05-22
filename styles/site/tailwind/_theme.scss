@@ -71,4 +71,9 @@
     --container-ch-5xl: #{$container-5xl-ch};
     --container-ch-6xl: #{$container-6xl-ch};
     --container-ch-7xl: #{$container-7xl-ch};
+
+    --text-display-xs: var(--display-xs);
+    --text-display-sm: var(--display-sm);
+    --text-display-md: var(--display-md);
+    --text-display-lg: var(--display-lg);
   }

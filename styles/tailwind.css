@@ -21,6 +21,7 @@
 @source inline("[--flex-grid-min:25ch]");
 @source inline("{font}-{bold,semibold}");
 @source inline("{lg:}{bg}-{transparent}");
+@source inline("[{--heading-3xl-font-size-max,--heading-3xl-font-size-min,--heading-2xl-font-size-max,--heading-2xl-font-size-min,--heading-xl-font-size-max,--heading-xl-font-size-min}:{var(--display-xs),var(--display-sm),var(--display-md),var(--display-2xl)}]");
 @layer tw-base, base, site, tw, site-props, existing-overrides;
 @layer base {
   @layer reset, props, components;
@@ -8172,6 +8173,10 @@
     --container-ch-5xl: 104ch;
     --container-ch-6xl: 112ch;
     --container-ch-7xl: 120ch;
+    --text-display-xs: var(--display-xs);
+    --text-display-sm: var(--display-sm);
+    --text-display-md: var(--display-md);
+    --text-display-lg: var(--display-lg);
   }
 }
 @utility flow--* {

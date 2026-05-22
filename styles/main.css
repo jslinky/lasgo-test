@@ -2951,8 +2951,56 @@
   .\[--gap\:var\(--spacing-2xl\)\] {
     --gap: var(--spacing-2xl);
   }
+  .\[--heading-2xl-font-size-max\:var\(--display-2xl\)\] {
+    --heading-2xl-font-size-max: var(--display-2xl);
+  }
+  .\[--heading-2xl-font-size-max\:var\(--display-md\)\] {
+    --heading-2xl-font-size-max: var(--display-md);
+  }
+  .\[--heading-2xl-font-size-max\:var\(--display-sm\)\] {
+    --heading-2xl-font-size-max: var(--display-sm);
+  }
+  .\[--heading-2xl-font-size-max\:var\(--display-xs\)\] {
+    --heading-2xl-font-size-max: var(--display-xs);
+  }
+  .\[--heading-2xl-font-size-min\:var\(--display-2xl\)\] {
+    --heading-2xl-font-size-min: var(--display-2xl);
+  }
+  .\[--heading-2xl-font-size-min\:var\(--display-md\)\] {
+    --heading-2xl-font-size-min: var(--display-md);
+  }
+  .\[--heading-2xl-font-size-min\:var\(--display-sm\)\] {
+    --heading-2xl-font-size-min: var(--display-sm);
+  }
+  .\[--heading-2xl-font-size-min\:var\(--display-xs\)\] {
+    --heading-2xl-font-size-min: var(--display-xs);
+  }
+  .\[--heading-3xl-font-size-max\:var\(--display-2xl\)\] {
+    --heading-3xl-font-size-max: var(--display-2xl);
+  }
+  .\[--heading-3xl-font-size-max\:var\(--display-md\)\] {
+    --heading-3xl-font-size-max: var(--display-md);
+  }
+  .\[--heading-3xl-font-size-max\:var\(--display-sm\)\] {
+    --heading-3xl-font-size-max: var(--display-sm);
+  }
   .\[--heading-3xl-font-size-max\:var\(--display-xl-px\)\] {
     --heading-3xl-font-size-max: var(--display-xl-px);
+  }
+  .\[--heading-3xl-font-size-max\:var\(--display-xs\)\] {
+    --heading-3xl-font-size-max: var(--display-xs);
+  }
+  .\[--heading-3xl-font-size-min\:var\(--display-2xl\)\] {
+    --heading-3xl-font-size-min: var(--display-2xl);
+  }
+  .\[--heading-3xl-font-size-min\:var\(--display-md\)\] {
+    --heading-3xl-font-size-min: var(--display-md);
+  }
+  .\[--heading-3xl-font-size-min\:var\(--display-sm\)\] {
+    --heading-3xl-font-size-min: var(--display-sm);
+  }
+  .\[--heading-3xl-font-size-min\:var\(--display-xs\)\] {
+    --heading-3xl-font-size-min: var(--display-xs);
   }
   .\[--heading-underline-color\:var\(--color-brand-orange\)\] {
     --heading-underline-color: var(--color-brand-orange);
@@ -2962,6 +3010,30 @@
   }
   .\[--heading-underline-color\:var\(--color-primary-light\)\] {
     --heading-underline-color: var(--color-primary-light);
+  }
+  .\[--heading-xl-font-size-max\:var\(--display-2xl\)\] {
+    --heading-xl-font-size-max: var(--display-2xl);
+  }
+  .\[--heading-xl-font-size-max\:var\(--display-md\)\] {
+    --heading-xl-font-size-max: var(--display-md);
+  }
+  .\[--heading-xl-font-size-max\:var\(--display-sm\)\] {
+    --heading-xl-font-size-max: var(--display-sm);
+  }
+  .\[--heading-xl-font-size-max\:var\(--display-xs\)\] {
+    --heading-xl-font-size-max: var(--display-xs);
+  }
+  .\[--heading-xl-font-size-min\:var\(--display-2xl\)\] {
+    --heading-xl-font-size-min: var(--display-2xl);
+  }
+  .\[--heading-xl-font-size-min\:var\(--display-md\)\] {
+    --heading-xl-font-size-min: var(--display-md);
+  }
+  .\[--heading-xl-font-size-min\:var\(--display-sm\)\] {
+    --heading-xl-font-size-min: var(--display-sm);
+  }
+  .\[--heading-xl-font-size-min\:var\(--display-xs\)\] {
+    --heading-xl-font-size-min: var(--display-xs);
   }
   .\[--input-bg\:var\(--color-grey-11\)\] {
     --input-bg: var(--color-grey-11);
