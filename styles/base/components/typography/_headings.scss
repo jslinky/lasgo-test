@@ -116,12 +116,8 @@
   margin-top: 0.5em;
 }
 
-.heading-3xl.fluid-cq {
-  --heading-3xl-font-size-min: var(--display-sm);
-  --heading-3xl-font-size-max: var(--display-lg);
-  --heading-3xl-font-fluid-cq-variance: 4cqi;
-}
 
+/// Need to add this in small-styles
 @each $key, $value in $heading-sizes {
   .heading-#{$key}.fluid-cq {
     --heading-#{$key}-font-size-min: var(--#{map-get($value, "font-size-min")});

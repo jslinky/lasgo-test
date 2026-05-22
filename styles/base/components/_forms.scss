@@ -1,7 +1,7 @@
 @include layout-rules();
 
-:where(input, textarea, select):not([class*="k-"]),
-*:not([class*="k-"]) > :is(input, textarea, select):not([class*="k-"]) {
+:where(input, textarea, select):not([class*="k-"]):not(#productType),
+*:not([class*="k-"]) > :is(input, textarea, select):not([class*="k-"]):not(#productType) {
     @include input-textarea-select-rules();   
     border: 0;
 }
@@ -16,15 +16,15 @@
     @include input-box-rules();
 }
 
-:where(input):not([class*="k-"]):is(textarea, select),
-*:not([class*="k-"]) > input:is(textarea, select) {
+:where(textarea, select):not([class*="k-"]):not(#productType),
+*:not([class*="k-"]) > :is(textarea, select):not(#productType) {
     @include textarea-select-rules();
     @include input-base-rules();
     @include input-text-rules();    
 }
 
-:where(input):not([class*="k-"]):is(select),
-*:not([class*="k-"]) > input:is(select) {
+:where(select):not([class*="k-"]):not(#productType),
+*:not([class*="k-"]) > :is(select):not(#productType) {
   border:none;  
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.58 8.59009L12 13.1701L7.41 8.59009L6 10.0001L12 16.0001L18 10.0001L16.58 8.59009Z' fill='black'/%3E%3C/svg%3E%0A");

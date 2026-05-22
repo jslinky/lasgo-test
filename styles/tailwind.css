@@ -6178,8 +6178,8 @@
       }
     }
     @layer base {
-      :where(input, textarea, select):not([class*=k-]),
-      *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]) {
+      :where(input, textarea, select):not([class*=k-]):not(#productType),
+      *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):not(#productType) {
         --_color: var(--input-color, var(--color, CanvasText));
         --_bg: var(--input-bg, Canvas);
         --_fs: var(--input-fs, 1em);
@@ -6191,41 +6191,41 @@
       }
     }
     @layer modifiers {
-      :where(input, textarea, select):not([class*=k-]) .input--sm,
-      *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]) .input--sm {
+      :where(input, textarea, select):not([class*=k-]):not(#productType) .input--sm,
+      *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):not(#productType) .input--sm {
         font-size: var(--sm);
       }
-      :where(input, textarea, select):not([class*=k-]) .input--lg,
-      *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]) .input--lg {
+      :where(input, textarea, select):not([class*=k-]):not(#productType) .input--lg,
+      *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):not(#productType) .input--lg {
         font-size: var(--lg);
       }
     }
     @layer states {
-      :where(input, textarea, select):not([class*=k-]):focus-within,
-      *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):focus-within {
+      :where(input, textarea, select):not([class*=k-]):not(#productType):focus-within,
+      *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):not(#productType):focus-within {
         outline-color: var(--input-outline-color-focused, var(--_outline-color-focused));
       }
       @container style(--eager:true) {
-        :where(input, textarea, select):not([class*=k-]):is([minlength], [pattern], [required]):invalid:not(:placeholder-shown),
-        *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):is([minlength], [pattern], [required]):invalid:not(:placeholder-shown) {
+        :where(input, textarea, select):not([class*=k-]):not(#productType):is([minlength], [pattern], [required]):invalid:not(:placeholder-shown),
+        *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):not(#productType):is([minlength], [pattern], [required]):invalid:not(:placeholder-shown) {
           --input-outline-color: red;
         }
-        :where(input, textarea, select):not([class*=k-]):is([minlength], [pattern], [required]):valid,
-        *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):is([minlength], [pattern], [required]):valid {
+        :where(input, textarea, select):not([class*=k-]):not(#productType):is([minlength], [pattern], [required]):valid,
+        *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):not(#productType):is([minlength], [pattern], [required]):valid {
           --input-outline-color: green;
         }
       }
-      :where(input, textarea, select):not([class*=k-]):is([minlength], [pattern], [required]):user-invalid:not(:placeholder-shown),
-      *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):is([minlength], [pattern], [required]):user-invalid:not(:placeholder-shown) {
+      :where(input, textarea, select):not([class*=k-]):not(#productType):is([minlength], [pattern], [required]):user-invalid:not(:placeholder-shown),
+      *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):not(#productType):is([minlength], [pattern], [required]):user-invalid:not(:placeholder-shown) {
         --input-outline-color: red;
       }
-      :where(input, textarea, select):not([class*=k-]):is([minlength], [pattern], [required]):user-valid,
-      *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):is([minlength], [pattern], [required]):user-valid {
+      :where(input, textarea, select):not([class*=k-]):not(#productType):is([minlength], [pattern], [required]):user-valid,
+      *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):not(#productType):is([minlength], [pattern], [required]):user-valid {
         --input-outline-color: green;
       }
     }
-    :where(input, textarea, select):not([class*=k-]),
-    *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]) {
+    :where(input, textarea, select):not([class*=k-]):not(#productType),
+    *:not([class*=k-]) > :is(input, textarea, select):not([class*=k-]):not(#productType) {
       border: 0;
     }
     :where(input):not([class*=k-]):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]),
@@ -6245,16 +6245,16 @@
       border-radius: var(--input-box-radius, max(var(--input-box-max-radius, 0.5rem), var(--radius)));
     }
     @layer base {
-      :where(input):not([class*=k-]):is(textarea, select),
-      *:not([class*=k-]) > input:is(textarea, select) {
+      :where(textarea, select):not([class*=k-]):not(#productType),
+      *:not([class*=k-]) > :is(textarea, select):not(#productType) {
         padding-inline: var(--input-text-frame-x, var(--text-frame-x));
         padding-block: var(--input-text-frame-y, var(--text-frame-y));
         outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
         border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius)));
       }
     }
-    :where(input):not([class*=k-]):is(textarea, select),
-    *:not([class*=k-]) > input:is(textarea, select) {
+    :where(textarea, select):not([class*=k-]):not(#productType),
+    *:not([class*=k-]) > :is(textarea, select):not(#productType) {
       --_color: var(--input-color, var(--color, CanvasText));
       --_bg: var(--input-bg, Canvas);
       --_fs: var(--input-fs, 1em);
@@ -6268,8 +6268,8 @@
       outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
       border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius)));
     }
-    :where(input):not([class*=k-]):is(select),
-    *:not([class*=k-]) > input:is(select) {
+    :where(select):not([class*=k-]):not(#productType),
+    *:not([class*=k-]) > :is(select):not(#productType) {
       border: none;
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.58 8.59009L12 13.1701L7.41 8.59009L6 10.0001L12 16.0001L18 10.0001L16.58 8.59009Z' fill='black'/%3E%3C/svg%3E%0A");
@@ -6389,11 +6389,6 @@
     .line-across:after,
     .line-under:has(> span:only-of-type) > span:after {
       margin-top: 0.5em;
-    }
-    .heading-3xl.fluid-cq {
-      --heading-3xl-font-size-min: var(--display-sm);
-      --heading-3xl-font-size-max: var(--display-lg);
-      --heading-3xl-font-fluid-cq-variance: 4cqi;
     }
     .heading-3xl.fluid-cq {
       --heading-3xl-font-size-min: var(--display-md);
