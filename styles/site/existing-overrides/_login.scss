@@ -5,7 +5,7 @@ body:has(.accountHolderWrap) {
     }
     --root-bg: var(--color-primary);
     #mainHeader {
-      background: transparent;
+      background: var(--color-primary);
     }
     #mainHeader #logo a {
       background-color: var(--color-light);

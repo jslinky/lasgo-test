@@ -20428,7 +20428,7 @@
       --root-bg: var(--color-primary);
     }
     body:has(.accountHolderWrap) #mainHeader {
-      background: transparent;
+      background: var(--color-primary);
     }
     body:has(.accountHolderWrap) #mainHeader #logo a {
       background-color: var(--color-light);
