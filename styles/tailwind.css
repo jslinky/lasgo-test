@@ -4703,53 +4703,81 @@
     }
   }
   @layer new {
+    :is(.container_16:has(.searchResultsWrapper)) {
+      --grid-wrapper-columns: var(--start-col, var(--wrapper-inline)) var(--center-col, 1fr) var(--end-col, var(--wrapper-inline));
+      display: grid;
+      grid-template-columns: var(--grid-wrapper-columns);
+      max-width: 100vw;
+    }
+    :is(.container_16:has(.searchResultsWrapper) > .grid_16) {
+      --layout-column-min: 8.8ch;
+      --column-count: 8;
+      container-type: inline-size;
+      container-name: content-grid;
+      --layout-grid-min: var(--layout-column-min, 30ch);
+      --layout-grid-gap: var(--layout-gap, 1rem);
+      --layout-grid-template-columns: repeat(var(--layout-grid-auto-repeat, auto-fit), minmax(min(100%, var(--layout-column-min, 30ch)), 1fr));
+      display: grid;
+      grid-template-columns: var(--layout-grid-template-columns);
+      gap: var(--layout-grid-gap);
+      --column-count: 4;
+      --breakpoint: calc(var(--layout-grid-min, var(--layout-column-min, 30ch)) * var(--column-count, 4) + var(--layout-grid-gap, var(--layout-gap, 1rem)) * (var(--column-count, 4) - 1));
+      --column-size: calc(100% / var(--column-count, 4) - var(--layout-grid-gap, var(--layout-gap, 1rem)));
+      --layout-grid-template-columns: repeat(
+        var(--layout-grid-auto-repeat, auto-fit),
+        minmax(
+          min(max(var(--column-size), (100% - var(--breakpoint)) * -999), 100%),
+          1fr
+        )
+      );
+    }
     :where(.hideInclusiveVat) {
       display: none !important;
     }
     #facetList .filter-state-uparrow {
       background: none !important;
     }
-    .content-grid__aside {
+    :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) {
       container-type: scroll-state;
       container-name: sticky-aside;
     }
-    .content-grid__aside .collapse-icon-slot {
+    :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-icon-slot {
       display: grid;
       grid-template-columns: max-content 1fr;
     }
-    .content-grid__aside .collapse-content {
+    :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-content {
       overflow: hidden;
     }
-    .content-grid__aside .collapse-icon {
+    :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-icon {
       grid-row: span 2;
     }
-    .content-grid__aside .collapse-title {
+    :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-title {
       padding-block: var(--space-sm);
     }
     @container sticky-aside scroll-state(stuck: top) {
-      .content-grid__aside .collapse-title {
+      :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-title {
         box-shadow: 0 2px 0px 0 var(--color-secondary);
       }
     }
     @container content-grid (max-width: $contentGridFullLgBp) {
-      .content-grid__aside .collapse-title {
+      :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-title {
         margin-inline: calc(var(--layout-gap) * -1);
       }
     }
     @container content-grid (min-width: 80ch) {
-      .content-grid__aside .collapse-icon-slot {
+      :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-icon-slot {
         display: flex;
       }
-      .content-grid__aside .collapse-icon {
+      :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-icon {
         grid-row: auto;
         display: none;
       }
     }
     @container content-grid (min-width: 80ch) {
-      .content-grid__aside .collapse-icon-slot {
+      :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-icon-slot {
         display: flex;
       }
-      .content-grid__aside .collapse-icon {
+      :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-icon {
         grid-row: auto;
         display: none;
       }
@@ -5045,7 +5073,7 @@
         }      
       }
     } */
-    .searchResultsWrapper {
+    :is(.searchResultsWrapper) {
       display: grid;
       /* grid-template-columns: subgrid; */
       container: none;
@@ -5054,28 +5082,28 @@
       grid-template-columns: repeat(auto-fill, minmax(calc(50% - var(--layout-gap)), 1fr) minmax(calc(50% - var(--layout-gap)), 1fr));
     }
     @container content-grid (max-width: 47.9375rem) {
-      .searchResultsWrapper {
+      :is(.searchResultsWrapper) {
         width: calc(100vw - var(--layout-gap));
         margin-inline: calc(-50vw + 50% + var(--layout-gap) / 2);
       }
-      .searchResultsWrapper .resultItem {
+      :is(.searchResultsWrapper) .resultItem {
         border-top: 1px solid var(--color-secondary);
       }
-      .searchResultsWrapper .resultItem:nth-child(2n) {
+      :is(.searchResultsWrapper) .resultItem:nth-child(2n) {
         box-shadow: -1px 0 0 0 var(--color-secondary);
       }
-      .searchResultsWrapper .productData {
+      :is(.searchResultsWrapper) .productData {
         padding-inline: var(--layout-gap);
         min-height: max(280px, 370px - 10vw);
       }
     }
     @container content-grid (min-width: 80ch) {
-      .searchResultsWrapper {
+      :is(.searchResultsWrapper) {
         grid-column: span 6;
         grid-template-columns: subgrid;
       }
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock {
       all: unset;
       width: auto;
       background: var(--purchase-block-bg);
@@ -5088,7 +5116,7 @@
       border-bottom: 1px solid color-mix(in oklab, var(--purchase-block-bg), var(--color-dark) 12%);
     }
     @container content-grid (min-width: 48rem) {
-      .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock {
+      :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock {
         border-bottom: 0;
         display: grid;
         grid-column: span 2;
@@ -5098,16 +5126,16 @@
     .purchaseBlock .addToBasket {
       width: 100%;
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .basket {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .basket {
       display: contents;
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .basket div:last-child {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .basket div:last-child {
       grid-column: 2/2;
       grid-row: 4/4;
       align-content: flex-end;
     }
     @container content-grid (min-width: 1200px) {
-      .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .basket div:last-child {
+      :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .basket div:last-child {
         grid-row: 3/3;
       }
     }
@@ -5127,19 +5155,19 @@
         var(--color-dark) 2%
       );
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing {
       grid-row: 2/2;
       grid-column: 1/-1;
       align-content: end;
       font-size: var(--text-sm);
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing .youPay {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing .youPay {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
     }
     @container content-grid (min-width: 1200px) {
-      .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing .youPay {
+      :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing .youPay {
         justify-content: flex-end;
       }
     }
@@ -5209,20 +5237,20 @@
       border: 1px solid color-mix(in oklab, var(--input-outline-color), var(--color-dark) 6%);
       padding: 0.25em;
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing p.youPay span,
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing p.loggedOut span,
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing p.youPay label span,
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing p.loggedOut label span,
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing p.youPay label,
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing p.loggedOut label {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing p.youPay span,
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing p.loggedOut span,
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing p.youPay label span,
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing p.loggedOut label span,
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing p.youPay label,
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing p.loggedOut label {
       font-size: var(--text-sm);
       display: flex;
       justify-content: flex-end;
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing p.youPay span.exVAT,
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing p.loggedOut span.exVAT,
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing p.youPay span.incVAT,
-    .searchResultsWrapper .searchResults ul li.resultItem .purchaseBlock .pricing p.loggedOut span.incVAT {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing p.youPay span.exVAT,
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing p.loggedOut span.exVAT,
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing p.youPay span.incVAT,
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .purchaseBlock .pricing p.loggedOut span.incVAT {
       margin-left: 2px;
     }
     .searchResults .resultItem .productData {
@@ -5238,7 +5266,7 @@
         grid-column: span 3;
       }
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .productData .availability {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .productData .availability {
       grid-column: 1/-1;
       font-weight: 700;
       color: var(--color-primary);
@@ -5254,32 +5282,32 @@
         grid-template-columns: subgrid;
       }
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .productData .biblioData ul {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .productData .biblioData ul {
       all: unset;
       display: contents;
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .productData .biblioData ul li:not(:has(span)) {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .productData .biblioData ul li:not(:has(span)) {
       grid-column: 1/-1;
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .productData .biblioData ul li:not(:has(span)) ~ li:has(span) {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .productData .biblioData ul li:not(:has(span)) ~ li:has(span) {
       margin-top: var(--space-sm);
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .productData .biblioData ul li span {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .productData .biblioData ul li span {
       font-weight: 900;
       display: inline-block;
       margin-right: calc(var(--space-xs) / 2);
     }
-    .searchResultsWrapper .searchResults .pager .actionLinks ul {
+    :is(.searchResultsWrapper) .searchResults .pager .actionLinks ul {
       font-size: var(--text-xs);
       padding: 0;
     }
-    .searchResultsWrapper .searchResults ul li.resultItem .productData .availability .icon-text {
+    :is(.searchResultsWrapper) .searchResults ul li.resultItem .productData .availability .icon-text {
       font-size: var(--text-xs);
     }
-    .searchResultsWrapper .searchResults .pager ul li.pagerOptions ul li.pagerLinks ul {
+    :is(.searchResultsWrapper) .searchResults .pager ul li.pagerOptions ul li.pagerLinks ul {
       display: flex;
     }
-    .searchResultsWrapper .searchResults .pager ul li.pagerOptions ul li.pagerLinks ul li {
+    :is(.searchResultsWrapper) .searchResults .pager ul li.pagerOptions ul li.pagerLinks ul li {
       --pag-size: 2em;
       all: unset;
       aspect-ratio: 1/1;
@@ -5292,10 +5320,10 @@
       align-items: center;
       border-radius: var(--radius);
     }
-    .searchResultsWrapper .searchResults .pager ul li.pagerOptions ul li.pagerLinks ul li.pageselected {
+    :is(.searchResultsWrapper) .searchResults .pager ul li.pagerOptions ul li.pagerLinks ul li.pageselected {
       background-color: var(--color-secondary);
     }
-    .searchResultsWrapper .searchResults .pager ul li.pagerOptions a:not(.k-pager-nav) {
+    :is(.searchResultsWrapper) .searchResults .pager ul li.pagerOptions a:not(.k-pager-nav) {
       all: unset;
       width: 100%;
       height: 100%;
@@ -7471,9 +7499,6 @@
     z-index: 1;
     height: auto;
   }
-  .content-grid__aside #filterMenu {
-    padding-top: 0;
-  }
   @container content-grid (max-width:80ch) {
     .content-grid__aside {
       width: 100vw;
@@ -7482,6 +7507,18 @@
       padding-inline: 0;
       padding-inline-start: var(--wrapper-inline);
     }
+  }
+  @container content-grid (min-width:80ch) {
+    .content-grid__aside {
+      --aside-height: auto;
+      position: relative;
+      grid-column: span 2;
+    }
+  }
+  .content-grid__aside #filterMenu {
+    padding-top: 0;
+  }
+  @container content-grid (max-width:80ch) {
     .content-grid__aside .collapse-content {
       padding-top: var(--spacing-sm);
       padding-right: 1rem;
@@ -7498,13 +7535,6 @@
       position: sticky;
       top: 0;
       z-index: 1;
-    }
-  }
-  @container content-grid (min-width:80ch) {
-    .content-grid__aside {
-      --aside-height: auto;
-      position: relative;
-      grid-column: span 2;
     }
   }
   :where(.content-grid_full > :where(.heading, section)) {

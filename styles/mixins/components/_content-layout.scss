@@ -1,0 +1,49 @@
+$contentGridFullLgBp: 80ch !default;
+
+@mixin content-grid-rules() {
+  --layout-column-min: 8.8ch;
+  --column-count: 8;
+  container-type: inline-size;
+  container-name: content-grid;    
+}
+
+@mixin content-grid__full-rules() {
+  display: grid;
+  grid-template-columns: subgrid;
+  container: none;
+  @container content-grid (min-width: #{$contentGridFullLgBp}) {
+    grid-column: 1/-1;
+  }  
+}
+
+@mixin content-grid__main-rules() {
+  display: grid;
+  grid-template-columns: subgrid;
+  container: none;
+  align-content: start;
+  grid-column: 1/-1;
+  @container content-grid (min-width:#{$contentGridFullLgBp}) {
+    grid-column: span 8;
+  }
+}
+
+@mixin content-grid__aside-rules() {
+  --aside-height: calc(50dvh - var(--aside-sticky-top, 0px));
+  position: sticky;
+  top: var(--aside-sticky-top, 0);
+  background: var(--root-bg);
+  z-index: 1;
+  height: auto;  
+  @container content-grid (max-width:#{$contentGridFullLgBp}) {
+    width: 100vw;
+    grid-column: 1/-1;
+    margin-inline: calc(var(--wrapper-inline) * -1);
+    padding-inline: 0;
+    padding-inline-start: var(--wrapper-inline);
+  }  
+  @container content-grid (min-width:#{$contentGridFullLgBp}) {
+    --aside-height: auto;
+    position: relative;
+    grid-column: span 2;
+  }  
+}

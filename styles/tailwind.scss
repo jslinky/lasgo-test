@@ -1,4 +1,5 @@
 @use "sass:math";
+$contentGridFullLgBpValue: 80ch;
 @use "small-style/scss/theme/_index" as * with (
   $baseResetRulesScopeClassName: ".new"
 );
@@ -9,6 +10,9 @@
 @use "small-style/scss/base/mixins/rules/components/_layout" as *;
 @use "small-style/scss/base/mixins/rules/components/typography/_fluid-type" as *;
 @use "./base/mixins/rules/components/forms" as *;
+@use "./mixins/components/content-layout" as * with (
+  $contentGridFullLgBp: $contentGridFullLgBpValue
+);
 
 @import "./preflight-modified.css" layer(tw-base);
 @import "tailwindcss/theme.css" layer(tw);
@@ -44,7 +48,7 @@ $disableNewHeaderLoggedIn: true;
 $disableNewHeaderLoggedInSelector: unquote(':root:is(.unauthenticated.new)');
 
 //// Content Grid Layout
-$contentGridFullLgBp: 80ch;
+$contentGridFullLgBp: $contentGridFullLgBpValue;
 $proxy800pxBp: $breakpoint-md;
 
 // @import "small-style/dist/style.css";
