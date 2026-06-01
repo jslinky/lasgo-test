@@ -4,6 +4,9 @@ body:has(.accountHolderWrap) {
       min-height: 100dvh;
     }
     --root-bg: var(--color-primary);
+    #mainHeader {
+      background: transparent;
+    }
     #mainHeader #logo a {
       background-color: var(--color-light);
     }
