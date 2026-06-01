@@ -4710,10 +4710,6 @@
       max-width: 100vw;
     }
     :is(.container_16:has(.searchResultsWrapper) > .grid_16) {
-      --layout-column-min: 8.8ch;
-      --column-count: 8;
-      container-type: inline-size;
-      container-name: content-grid;
       --layout-grid-min: var(--layout-column-min, 30ch);
       --layout-grid-gap: var(--layout-gap, 1rem);
       --layout-grid-template-columns: repeat(var(--layout-grid-auto-repeat, auto-fit), minmax(min(100%, var(--layout-column-min, 30ch)), 1fr));
@@ -4730,6 +4726,10 @@
           1fr
         )
       );
+      --layout-column-min: 8.8ch;
+      --column-count: 8;
+      container-type: inline-size;
+      container-name: content-grid;
     }
     :where(.hideInclusiveVat) {
       display: none !important;

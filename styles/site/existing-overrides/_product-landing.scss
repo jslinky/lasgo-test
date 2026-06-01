@@ -13,9 +13,9 @@ $contentAreaSelector: '.searchResultsWrapper';
   }
 
   :is(#{$layoutGridSelector}) {
-    @include content-grid-rules();
     @include layout-grid();
     @include layout-grid-column-count();
+    @include content-grid-rules();
   }
 
   ////
