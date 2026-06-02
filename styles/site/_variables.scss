@@ -1,0 +1,17 @@
+@use "small-style/scss/base/variables/breakpoints" as bp;
+
+$contentGridFullLgBpValue: 80ch;
+
+/// Disable new header for loggedIn users in current production
+/// TODO: Remove when ready to launch new header
+$disableNewHeaderLoggedIn: true;
+$disableNewHeaderLoggedInSelector: unquote(':root:is(.unauthenticated.new)');
+
+//// Content Grid Layout
+$proxy800pxBp: bp.$breakpoint-md;
+
+/// Search results page variables
+$wrapperSelector: '.container_16:has(.searchResultsWrapper)';
+$layoutGridSelector: '.container_16:has(.searchResultsWrapper) > .grid_16';
+$asideSelector: '.content-grid__aside, #{$layoutGridSelector} > .grid_4';
+$contentAreaSelector: '.searchResultsWrapper';

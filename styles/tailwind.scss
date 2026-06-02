@@ -1,5 +1,4 @@
 @use "sass:math";
-$contentGridFullLgBpValue: 80ch;
 @use "small-style/scss/theme/_index" as * with (
   $baseResetRulesScopeClassName: ".new"
 );
@@ -10,6 +9,9 @@ $contentGridFullLgBpValue: 80ch;
 @use "small-style/scss/base/mixins/rules/components/_layout" as *;
 @use "small-style/scss/base/mixins/rules/components/typography/_fluid-type" as *;
 @use "./base/mixins/rules/components/forms" as *;
+
+@use "./site/variables" as *;
+
 @use "./mixins/components/content-layout" as * with (
   $contentGridFullLgBp: $contentGridFullLgBpValue
 );
@@ -42,14 +44,7 @@ $contentGridFullLgBpValue: 80ch;
 @source inline("[{--heading-3xl-font-size-max,--heading-3xl-font-size-min,--heading-2xl-font-size-max,--heading-2xl-font-size-min,--heading-xl-font-size-max,--heading-xl-font-size-min}:{var(--display-xs),var(--display-sm),var(--display-md),var(--display-2xl)}]");
 
 
-/// Disable new header for loggedIn users in current production
-/// TODO: Remove when ready to launch new header
-$disableNewHeaderLoggedIn: true;
-$disableNewHeaderLoggedInSelector: unquote(':root:is(.unauthenticated.new)');
 
-//// Content Grid Layout
-$contentGridFullLgBp: $contentGridFullLgBpValue;
-$proxy800pxBp: $breakpoint-md;
 
 // @import "small-style/dist/style.css";
 @import "small-style/scss/index";

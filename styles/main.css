@@ -19737,6 +19737,7 @@
       display: grid;
       grid-template-columns: var(--grid-wrapper-columns);
       max-width: 100vw;
+      width: 100vw;
     }
     :is(.container_16:has(.searchResultsWrapper) > .grid_16) {
       --layout-grid-min: var(--layout-column-min, 30ch);
@@ -19759,6 +19760,7 @@
       --column-count: 8;
       container-type: inline-size;
       container-name: content-grid;
+      grid-column: 2/2;
     }
     :where(.hideInclusiveVat) {
       display: none !important;
@@ -19769,6 +19771,7 @@
     :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) {
       container-type: scroll-state;
       container-name: sticky-aside;
+      width: 100%;
     }
     :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-icon-slot {
       display: grid;
@@ -22495,7 +22498,7 @@
       grid-column: span 6;
     }
   }
-  .content-grid__aside {
+  :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) {
     --aside-height: calc(50dvh - var(--aside-sticky-top, 0px));
     position: sticky;
     top: var(--aside-sticky-top, 0);
@@ -22504,7 +22507,7 @@
     height: auto;
   }
   @container content-grid (max-width:80ch) {
-    .content-grid__aside {
+    :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) {
       width: 100vw;
       grid-column: 1/-1;
       margin-inline: calc(var(--wrapper-inline) * -1);
@@ -22513,29 +22516,29 @@
     }
   }
   @container content-grid (min-width:80ch) {
-    .content-grid__aside {
+    :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) {
       --aside-height: auto;
       position: relative;
       grid-column: span 2;
     }
   }
-  .content-grid__aside #filterMenu {
+  :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) #filterMenu {
     padding-top: 0;
   }
   @container content-grid (max-width:80ch) {
-    .content-grid__aside .collapse-content {
+    :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-content {
       padding-top: var(--spacing-sm);
       padding-right: 1rem;
     }
-    .content-grid__aside .formDetails {
+    :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .formDetails {
       padding-right: var(--layout-gap);
     }
-    .content-grid__aside #filterMenu {
+    :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) #filterMenu {
       overflow-y: auto;
       max-height: var(--aside-height);
       overscroll-behavior-block: contain;
     }
-    .content-grid__aside .facetHeading {
+    :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .facetHeading {
       position: sticky;
       top: 0;
       z-index: 1;

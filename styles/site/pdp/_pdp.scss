@@ -32,7 +32,7 @@
   }
 }
 
-.content-grid__aside {
+:is(#{$asideSelector}) {
   @include content-grid__aside-rules();
   #filterMenu {
     padding-top: 0;

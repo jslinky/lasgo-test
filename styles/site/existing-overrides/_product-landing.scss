@@ -1,10 +1,4 @@
 // @layer existing-overrides {
-
-$wrapperSelector: '.container_16:has(.searchResultsWrapper)';
-$layoutGridSelector: '.container_16:has(.searchResultsWrapper) > .grid_16';
-$asideSelector: '.content-grid__aside, #{$layoutGridSelector} > .grid_4';
-$contentAreaSelector: '.searchResultsWrapper';
-
 @layer new {
 
   ////
