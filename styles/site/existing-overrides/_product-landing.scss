@@ -10,12 +10,14 @@ $contentAreaSelector: '.searchResultsWrapper';
   ////
   :is(#{$wrapperSelector}) {
     @include wrapper-grid();
+    width: 100vw;
   }
 
   :is(#{$layoutGridSelector}) {
     @include layout-grid();
     @include layout-grid-column-count();
     @include content-grid-rules();
+    grid-column: 2/2;
   }
 
   ////
@@ -31,6 +33,7 @@ $contentAreaSelector: '.searchResultsWrapper';
   :is(#{$asideSelector}) {
     container-type: scroll-state;
     container-name: sticky-aside;
+    width:100%;
     .collapse-icon-slot {
       display: grid;
       grid-template-columns: max-content 1fr;
