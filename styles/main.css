@@ -19762,6 +19762,9 @@
       container-name: content-grid;
       grid-column: 2/2;
     }
+    :is(.container_16:has(.searchResultsWrapper), .container_16:has(.searchResultsWrapper) > .grid_16).clearfix:before {
+      display: none;
+    }
     :where(.hideInclusiveVat) {
       display: none !important;
     }
