@@ -4974,6 +4974,7 @@
         height: 100%;
         position: absolute;
         inset: 0;
+        pointer-events: none;
       }
       .searchResults > ul > li:after {
         content: "";
