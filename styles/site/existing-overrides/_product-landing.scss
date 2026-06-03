@@ -838,6 +838,8 @@
       min(var(--radius), var(--button-max-radius, var(--radius)))
     );
     font-weight: var(--button-font-weight, normal);
+    align-items: center;
+    gap: var(--spacing);
   }
 
   .btn-primary {

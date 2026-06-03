@@ -5361,6 +5361,8 @@
       padding: var(--button-padding-block-start, var(--text-frame-y)) var(--button-padding-inline-end, var(--text-frame-x)) var(--button-padding-block-end, var(--text-frame-y)) var(--button-padding-inline-start, var(--text-frame-x));
       border-radius: var(--button-border-radius, min(var(--radius), var(--button-max-radius, var(--radius))));
       font-weight: var(--button-font-weight, normal);
+      align-items: center;
+      gap: var(--spacing);
     }
     .btn-primary {
       --button-color: var(--color-primary);
@@ -5401,6 +5403,22 @@
       margin-left: 0 !important;
       max-width: calc(100% - (440px + 2rem));
     }
+    .product .productContentWrap .titleContributor > h1 {
+      --font-size-min: var(--lg-px);
+      --font-size-max: var(--xl-px);
+      --font-fluid-cq-variance: 0.75cqw;
+      --font-size: min(var(--font-size-max, var(--font-size-base-px)), var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw));
+    }
+    .product .productContentWrap .titleContributor > h2 {
+      --font-size-min: var(--sm-px);
+      --font-size-max: var(--md-px);
+      --font-fluid-cq-variance: 0.75cqw;
+      --font-size: min(var(--font-size-max, var(--font-size-base-px)), var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw));
+    }
+    .product .productContentWrap .productData > ul > li + li {
+      margin-block-start: var(--flow-space, 1em);
+      --flow-space: var(--spacing-sm);
+    }
     .product .purchaseBlock {
       width: min(220px, 100%);
     }
@@ -5411,6 +5429,31 @@
     .container_16:has(.product) {
       width: min(100% - 2rem, 1280px) !important;
       margin-inline: auto;
+    }
+    .productData > ul {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+    }
+    .productData > ul > li {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: subgrid;
+    }
+    .productData > ul .listItem {
+      display: grid;
+      grid-template-columns: subgrid;
+    }
+    .productData > ul .listItem > ul {
+      display: contents;
+    }
+    .productData > ul .listItem > ul > li {
+      grid-row: 1/-1;
+    }
+    .productData > ul .listItem > ul > li:nth-child(1) {
+      grid-column: 1/1;
+    }
+    .productData > ul .listItem > ul > li:nth-child(2) {
+      grid-column: 2/2;
     }
   }
   #k-window-createBasketPopup {
