@@ -8,16 +8,19 @@
 
 @layer new {
   .grid_16.product {
-    width: 100% !important;
-    margin: 0 !important;
+    width: 100%;
+    margin-inline: 0;
     display: flex;
     flex-wrap: wrap;
+    margin-block: var(--spacing-section-gap);
+    gap: 2rem;
+    justify-content: center;
   }
 
   .product {
     .productInfo {
       display: flex;
-      flex-basis: max(calc(100% - 230px), min(500px, 100%));
+      flex-basis: max(calc(100% - 230px + 2rem), min(500px, 100%));
       max-width: 1040px;
       width: 100% !important;
       flex-wrap: wrap;
@@ -31,9 +34,10 @@
     }
 
     .productContentWrap {
-      width: auto !important;
+      width: auto;
       min-width: min(270px, 100%);
-      margin-left: 0 !important;
+      margin-left: auto;
+      margin-right: auto;
       max-width: calc(100% - (440px + 2rem));
     }
 
@@ -92,6 +96,117 @@
           grid-column: 2/2;
         }
       }
+    }
+  }
+
+  #productListContainer {
+    .centred {
+      display: grid;
+      grid-template-columns: 1fr min-content;
+    }
+    .baskets {
+      > span {
+        width: 100%;
+        height: 100%;
+        > span {
+          height: calc(100% - 2px);
+          display: flex;
+          align-items: center;
+          border-start-start-radius: var(--radius) !important;
+          border-end-start-radius: var(--radius) !important;
+          padding-inline: var(--text-frame-x) !important;
+        }
+      }
+      + button {
+        /*                 add small button mixin here */
+        border-start-start-radius: 0;
+        border-end-start-radius: 0;
+      }
+    }
+  }
+
+  :where(button):has(.icon) {
+    gap: var(--spacing);
+  }
+
+  :is(
+    .placeOrder,
+    .quantityInBasketContainer,
+    .basketSelector,
+    .productContent,
+    .titleContributor
+  ) {
+    > * + * {
+      margin-block-start: var(--flow-space, 1em);
+    }
+  }
+
+  :is(.placeOrder, .basketSelector) {
+    --flow-space: var(--spacing-sm);
+  }
+
+  .titleContributor {
+    --flow-space: var(--spacing-1);
+    margin-block-start: var(--spacing-md);
+    h1 {
+      --color: var(--color-primary);
+    }
+    h2 {
+      --flow-space: var(--spacing-xs);
+      --text-transform: normal-case;
+    }
+  }
+
+  :is(
+    .product
+      .productInfo
+      .productContentWrap
+      .productData
+      ul
+      li
+      span:first-child,
+    .product
+      .productInfo
+      .productContentWrap
+      .productData
+      ul
+      li.listItem
+      ul
+      li:first-child
+  ) {
+    width: auto;
+  }
+
+  :is(
+    .productData > ul .listItem > ul > li:nth-child(1),
+    .productData > ul > li:not(.listItem) span:nth-child(1)
+  ) {
+    font-weight: 700;
+  }
+
+  .productData > ul > li > div {
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-columns: subgrid;
+  }
+
+  :is(
+    .productData > ul > li > div > ul,
+    .productData > ul > li > div > ul > li
+  ) {
+    display: contents;
+  }
+
+  .refQty {
+    display: grid;
+    grid-template-columns: min-content 5ch min-content 1fr;
+    gap: var(--spacing-xs);
+    align-items: center;
+    span {
+      width: 100%;
+    }
+    &:before {
+      display: none;
     }
   }
 }

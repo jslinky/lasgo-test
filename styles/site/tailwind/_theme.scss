@@ -1,79 +1,114 @@
-  @theme {
-    @if $useTailwindForColorOutput {
-      @include generateTailwindColors();
-      @include generateTailwindSurfaceText();
-    }    
-
-    --color-brand-yellow: oklch(
-      var(--color-brand-yellow-l) var(--color-brand-yellow-c)
-        var(--color-brand-yellow-h)
-    );
-    --color-brand-yellow-contrast: oklch(
-      from var(--color, var(--color-brand-yellow))
-        clamp(
-          var(
-            --color-brand-yellow-contrast-lightest-text,
-            var(--contrast-lightest-text, 0)
-          ),
-          (l / var(--contrast-threshold, 0.623) - 1) * -infinity,
-          var(
-            --color-brand-yellow-contrast-darkest-text,
-            var(--contrast-darkest-text, 1)
-          )
-        )
-        0 h
-    );
-
-    --color-primary-light: oklch(
-      var(--color-primary-light-l) var(--color-primary-light-c)
-        var(--color-primary-light-h)
-    );
-
-    --color-tertiary-light: color-mix(
-      in oklab,
-      var(--color-tertiary),
-      white 65%
-    );    
-
-    --color-root-fg-muted: var(--root-fg-muted);
-    
-    --spacing-3xs: var(--space-3xs);
-    --spacing-2xs: var(--space-2xs);
-    --spacing-xs: var(--space-xs);
-    --spacing-sm: var(--space-sm);
-    --spacing-md: var(--space-md);
-    --spacing-lg: var(--space-lg);
-    --spacing-xl: var(--space-xl);
-    --spacing-2xl: var(--space-2xl);
-    --spacing-3xl: var(--space-3xl);
-    --spacing-4xl: var(--space-4xl);
-    --spacing-5xl: var(--space-5xl);
-    --spacing-6xl: var(--space-6xl);
-    /* Move below into frame and register as props */
-    --spacing-layout-gap: var(--layout-gap);
-    --spacing-section-gap: calc(var(--layout-gap) * 2);
-    --spacing-section-gap-lg: calc(var(--spacing-section-gap) * var(--space-increment));
-    --spacing-section-gap-xl: calc(var(--spacing-section-gap-lg) * var(--space-increment));
-    --spacing-section-gap-2xl: calc(var(--spacing-section-gap-xl) * var(--space-increment));
-    --spacing-section-gap-3xl: calc(var(--spacing-section-gap-2xl) * var(--space-increment));
-    --spacing-huge: 3rem;
-    --radius-default: var(--radius);    
-    --container-ch-3xs: #{$container-3xs-ch};
-    --container-ch-2xs: #{$container-2xs-ch};
-    --container-ch-xs: #{$container-xs-ch};
-    --container-ch-sm: #{$container-sm-ch};
-    --container-ch-md: #{$container-md-ch};
-    --container-ch-lg: #{$container-lg-ch};
-    --container-ch-xl: #{$container-xl-ch};
-    --container-ch-2xl: #{$container-2xl-ch};
-    --container-ch-3xl: #{$container-3xl-ch};
-    --container-ch-4xl: #{$container-4xl-ch};
-    --container-ch-5xl: #{$container-5xl-ch};
-    --container-ch-6xl: #{$container-6xl-ch};
-    --container-ch-7xl: #{$container-7xl-ch};
-
-    --text-display-xs: var(--display-xs);
-    --text-display-sm: var(--display-sm);
-    --text-display-md: var(--display-md);
-    --text-display-lg: var(--display-lg);
+@theme {
+  @if $useTailwindForColorOutput {
+    @include generateTailwindColors();
+    @include generateTailwindSurfaceText();
   }
+
+  --container-ch-3xs: #{$container-3xs-ch};
+  --container-ch-2xs: #{$container-2xs-ch};
+  --container-ch-xs: #{$container-xs-ch};
+  --container-ch-sm: #{$container-sm-ch};
+  --container-ch-md: #{$container-md-ch};
+  --container-ch-lg: #{$container-lg-ch};
+  --container-ch-xl: #{$container-xl-ch};
+  --container-ch-2xl: #{$container-2xl-ch};
+  --container-ch-3xl: #{$container-3xl-ch};
+  --container-ch-4xl: #{$container-4xl-ch};
+  --container-ch-5xl: #{$container-5xl-ch};
+  --container-ch-6xl: #{$container-6xl-ch};
+  --container-ch-7xl: #{$container-7xl-ch};
+}
+
+@theme static {
+  --text-display-xs: var(--display-xs);
+  --text-display-sm: var(--display-sm);
+  --text-display-md: var(--display-md);
+  --text-display-lg: var(--display-lg);
+
+  --spacing-3xs: var(--space-3xs);
+  --spacing-2xs: var(--space-2xs);
+  --spacing-xs: var(--space-xs);
+  --spacing-sm: var(--space-sm);
+  --spacing-md: var(--space-md);
+  --spacing-lg: var(--space-lg);
+  --spacing-xl: var(--space-xl);
+  --spacing-2xl: var(--space-2xl);
+  --spacing-3xl: var(--space-3xl);
+  --spacing-4xl: var(--space-4xl);
+  --spacing-5xl: var(--space-5xl);
+  --spacing-6xl: var(--space-6xl);
+  /* Move below into frame and register as props */
+  --spacing-layout-gap: var(--layout-gap);
+  --spacing-section-gap: calc(var(--layout-gap) * 2);
+  --spacing-section-gap-lg: calc(
+    var(--spacing-section-gap) * var(--space-increment)
+  );
+  --spacing-section-gap-xl: calc(
+    var(--spacing-section-gap-lg) * var(--space-increment)
+  );
+  --spacing-section-gap-2xl: calc(
+    var(--spacing-section-gap-xl) * var(--space-increment)
+  );
+  --spacing-section-gap-3xl: calc(
+    var(--spacing-section-gap-2xl) * var(--space-increment)
+  );
+  --spacing-huge: 3rem;
+  --radius-default: var(--radius);
+
+  --color-root-fg: var(--root-fg);
+  --color-root-fg-muted: var(--root-fg-muted);
+
+  --color-primary: oklch(
+    var(--color-primary-l) var(--color-primary-c) var(--color-primary-h)
+  );
+
+  --color-brand-orange: oklch(
+    var(--color-brand-orange-l) var(--color-brand-orange-c)
+      var(--color-brand-orange-h)
+  );
+
+  --color-brand-red: oklch(
+    var(--color-brand-red-l) var(--color-brand-red-c) var(--color-brand-red-h)
+  );
+
+  $color-brand-orange-contrast: generateColorContrast(
+    "color-brand-orange",
+    var(--color-brand-orange-l),
+    var(--color-brand-orange-c),
+    var(--color-brand-orange-h)
+  );
+
+  --color-brand-orange-contrast: #{$color-brand-orange-contrast};
+
+  --color-brand-yellow: oklch(
+    var(--color-brand-yellow-l) var(--color-brand-yellow-c)
+      var(--color-brand-yellow-h)
+  );
+
+  $color-brand-yellow-contrast: generateColorContrast(
+    "color-brand-yellow",
+    var(--color-brand-yellow-l),
+    var(--color-brand-yellow-c),
+    var(--color-brand-yellow-h)
+  );
+
+  --color-brand-yellow-contrast: #{$color-brand-yellow-contrast};
+
+  --color-primary-light: oklch(
+    var(--color-primary-light-l) var(--color-primary-light-c)
+      var(--color-primary-light-h)
+  );
+
+  $color-primary-light-contrast: generateColorContrast(
+    "color-primary-light",
+    var(--color-primary-light-l),
+    var(--color-primary-light-c),
+    var(--color-primary-light-h)
+  );
+
+  --color-primary-light-contrast: #{$color-primary-light-contrast};
+
+  --color-tertiary-light: color-mix(in oklab, var(--color-tertiary), white 65%);
+
+  --color-root-fg-muted: var(--root-fg-muted);
+}

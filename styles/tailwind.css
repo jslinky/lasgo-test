@@ -1319,6 +1319,170 @@
       );
     }
   }
+  @layer base {
+    :root:is(.new) [data-surface=primary-light] {
+      --surface-bg-color: var(--color-primary-light);
+      --surface-color: var(--color-primary-light-contrast);
+    }
+    :root:is(.new) [data-surface=primary-light] :where(.button, .ss-button):not(:is(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey)) {
+      --button-color: var(--color-primary-light);
+      --button-color-contrast: var(--color-primary-light-contrast);
+    }
+    :root:is(.new) [data-surface=primary-light] :where(.button, .ss-button):not(:is(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey)):hover {
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-hover, var(--_button-inverted-border-hover));
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-primary-light-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-primary-light-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-primary-light-hover, var(--_button-inverted-border-hover));
+    }
+    :root:is(.new) [data-surface=primary-light] :where(.button, .ss-button):not(:is(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey)):focus {
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-focus, var(--_button-inverted-border-focus));
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-primary-light-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-primary-light-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-primary-light-focus, var(--_button-inverted-border-focus));
+    }
+    :root:is(.new) [data-surface=primary-light] :where(.button, .ss-button).button--outline {
+      --button-color: var(--surface-color);
+      --button-background-color: transparent;
+      --button-border-color: var(
+        --button-color
+      );
+    }
+  }
+  @layer base {
+    :root:is(.new) [data-surface=brand-orange] {
+      --surface-bg-color: var(--color-brand-orange);
+      --surface-color: var(--color-brand-orange-contrast);
+    }
+    :root:is(.new) [data-surface=brand-orange] :where(.button, .ss-button):not(:is(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey)) {
+      --button-color: var(--color-brand-orange);
+      --button-color-contrast: var(--color-brand-orange-contrast);
+    }
+    :root:is(.new) [data-surface=brand-orange] :where(.button, .ss-button):not(:is(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey)):hover {
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-hover, var(--_button-inverted-border-hover));
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-brand-orange-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-brand-orange-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-brand-orange-hover, var(--_button-inverted-border-hover));
+    }
+    :root:is(.new) [data-surface=brand-orange] :where(.button, .ss-button):not(:is(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey)):focus {
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-focus, var(--_button-inverted-border-focus));
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-brand-orange-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-brand-orange-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-brand-orange-focus, var(--_button-inverted-border-focus));
+    }
+    :root:is(.new) [data-surface=brand-orange] :where(.button, .ss-button).button--outline {
+      --button-color: var(--surface-color);
+      --button-background-color: transparent;
+      --button-border-color: var(
+        --button-color
+      );
+    }
+  }
+  @layer base {
+    :root:is(.new) [data-surface=brand-red] {
+      --surface-bg-color: var(--color-brand-red);
+      --surface-color: var(--color-brand-red-contrast);
+    }
+    :root:is(.new) [data-surface=brand-red] :where(.button, .ss-button):not(:is(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey)) {
+      --button-color: var(--color-brand-red);
+      --button-color-contrast: var(--color-brand-red-contrast);
+    }
+    :root:is(.new) [data-surface=brand-red] :where(.button, .ss-button):not(:is(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey)):hover {
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-hover, var(--_button-inverted-border-hover));
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-brand-red-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-brand-red-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-brand-red-hover, var(--_button-inverted-border-hover));
+    }
+    :root:is(.new) [data-surface=brand-red] :where(.button, .ss-button):not(:is(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey)):focus {
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-focus, var(--_button-inverted-border-focus));
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-brand-red-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-brand-red-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-brand-red-focus, var(--_button-inverted-border-focus));
+    }
+    :root:is(.new) [data-surface=brand-red] :where(.button, .ss-button).button--outline {
+      --button-color: var(--surface-color);
+      --button-background-color: transparent;
+      --button-border-color: var(
+        --button-color
+      );
+    }
+  }
+  @layer base {
+    :root:is(.new) [data-surface=brand-yellow] {
+      --surface-bg-color: var(--color-brand-yellow);
+      --surface-color: var(--color-brand-yellow-contrast);
+    }
+    :root:is(.new) [data-surface=brand-yellow] :where(.button, .ss-button):not(:is(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey)) {
+      --button-color: var(--color-brand-yellow);
+      --button-color-contrast: var(--color-brand-yellow-contrast);
+    }
+    :root:is(.new) [data-surface=brand-yellow] :where(.button, .ss-button):not(:is(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey)):hover {
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-hover, var(--_button-inverted-border-hover));
+      --_button-inverted-bg-hover: color-mix(in oklab, var(--button-color), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-hover: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-hover-depth, 1) * 10%) var(--button-bg-hover-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-brand-yellow-hover, var(--_button-inverted-bg-hover));
+      --button-fg: var(--button-inverted-fg-brand-yellow-hover, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-brand-yellow-hover, var(--_button-inverted-border-hover));
+    }
+    :root:is(.new) [data-surface=brand-yellow] :where(.button, .ss-button):not(:is(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey)):focus {
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-focus, var(--_button-inverted-border-focus));
+      --_button-inverted-bg-focus: color-mix(in oklab, var(--button-color), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --_button-inverted-border-focus: color-mix(in oklab, var(--button-bg), calc(var(--button-bg-focus-depth, 1) * 10%) var(--button-bg-focus-color-mix, oklch(from var(--button-color) clamp(0, (l / 0.623 - 1) * -infinity, 1) 0 h)) );
+      --button-bg: var(--button-inverted-bg-brand-yellow-focus, var(--_button-inverted-bg-focus));
+      --button-fg: var(--button-inverted-fg-brand-yellow-focus, var(--button-color-contrast));
+      --button-border: var(--button-inverted-border-brand-yellow-focus, var(--_button-inverted-border-focus));
+    }
+    :root:is(.new) [data-surface=brand-yellow] :where(.button, .ss-button).button--outline {
+      --button-color: var(--surface-color);
+      --button-background-color: transparent;
+      --button-border-color: var(
+        --button-color
+      );
+    }
+  }
   :root:is(.new) :where([class*=border]):not(.button, .ss-button) {
     border-color: var(--field-border-color, var(--color-grey-10, #d1d5db));
   }
@@ -5379,14 +5543,17 @@
   }
   @layer new {
     .grid_16.product {
-      width: 100% !important;
-      margin: 0 !important;
+      width: 100%;
+      margin-inline: 0;
       display: flex;
       flex-wrap: wrap;
+      margin-block: var(--spacing-section-gap);
+      gap: 2rem;
+      justify-content: center;
     }
     .product .productInfo {
       display: flex;
-      flex-basis: max(100% - 230px, min(500px, 100%));
+      flex-basis: max(100% - 230px + 2rem, min(500px, 100%));
       max-width: 1040px;
       width: 100% !important;
       flex-wrap: wrap;
@@ -5398,22 +5565,23 @@
       margin-left: auto;
     }
     .product .productContentWrap {
-      width: auto !important;
+      width: auto;
       min-width: min(270px, 100%);
-      margin-left: 0 !important;
+      margin-left: auto;
+      margin-right: auto;
       max-width: calc(100% - (440px + 2rem));
     }
     .product .productContentWrap .titleContributor > h1 {
-      --font-size-min: var(--lg-px);
-      --font-size-max: var(--xl-px);
+      --font-size-min: var(--lg);
+      --font-size-max: var(--xl);
       --font-fluid-cq-variance: 0.75cqw;
-      --font-size: min(var(--font-size-max, var(--font-size-base-px)), var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw));
+      --font-size: min(var(--font-size-max, var(--font-size-base)), var(--font-size-min, var(--sm)) + var(--font-fluid-cq-variance, 3cqw));
     }
     .product .productContentWrap .titleContributor > h2 {
-      --font-size-min: var(--sm-px);
-      --font-size-max: var(--md-px);
+      --font-size-min: var(--sm);
+      --font-size-max: var(--md);
       --font-fluid-cq-variance: 0.75cqw;
-      --font-size: min(var(--font-size-max, var(--font-size-base-px)), var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw));
+      --font-size: min(var(--font-size-max, var(--font-size-base)), var(--font-size-min, var(--sm)) + var(--font-fluid-cq-variance, 3cqw));
     }
     .product .productContentWrap .productData > ul > li + li {
       margin-block-start: var(--flow-space, 1em);
@@ -5454,6 +5622,360 @@
     }
     .productData > ul .listItem > ul > li:nth-child(2) {
       grid-column: 2/2;
+    }
+    #productListContainer .centred {
+      display: grid;
+      grid-template-columns: 1fr min-content;
+    }
+    #productListContainer .baskets > span {
+      width: 100%;
+      height: 100%;
+    }
+    #productListContainer .baskets > span > span {
+      height: calc(100% - 2px);
+      display: flex;
+      align-items: center;
+      border-start-start-radius: var(--radius) !important;
+      border-end-start-radius: var(--radius) !important;
+      padding-inline: var(--text-frame-x) !important;
+    }
+    #productListContainer .baskets + button {
+      /*                 add small button mixin here */
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+    }
+    :where(button):has(.icon) {
+      gap: var(--spacing);
+    }
+    :is(.placeOrder,
+    .quantityInBasketContainer,
+    .basketSelector,
+    .productContent,
+    .titleContributor) > * + * {
+      margin-block-start: var(--flow-space, 1em);
+    }
+    :is(.placeOrder, .basketSelector) {
+      --flow-space: var(--spacing-sm);
+    }
+    .titleContributor {
+      --flow-space: var(--spacing-1);
+      margin-block-start: var(--spacing-md);
+    }
+    .titleContributor h1 {
+      --color: var(--color-primary);
+    }
+    .titleContributor h2 {
+      --flow-space: var(--spacing-xs);
+      --text-transform: normal-case;
+    }
+    :is(.product .productInfo .productContentWrap .productData ul li span:first-child,
+    .product .productInfo .productContentWrap .productData ul li.listItem ul li:first-child) {
+      width: auto;
+    }
+    :is(.productData > ul .listItem > ul > li:nth-child(1),
+    .productData > ul > li:not(.listItem) span:nth-child(1)) {
+      font-weight: 700;
+    }
+    .productData > ul > li > div {
+      display: grid;
+      grid-column: 1/-1;
+      grid-template-columns: subgrid;
+    }
+    :is(.productData > ul > li > div > ul,
+    .productData > ul > li > div > ul > li) {
+      display: contents;
+    }
+    .refQty {
+      display: grid;
+      grid-template-columns: min-content 5ch min-content 1fr;
+      gap: var(--spacing-xs);
+      align-items: center;
+    }
+    .refQty span {
+      width: 100%;
+    }
+    .refQty:before {
+      display: none;
+    }
+  }
+  @layer new {
+    #stockOrderBasket {
+      margin-block: var(--spacing-section-gap);
+      margin-inline: auto;
+    }
+    .basketHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-inline: var(--text-frame-x);
+      padding-block: var(--text-frame-y);
+      gap: var(--spacing-md);
+    }
+    td.colTitle {
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+    td.colRef > input {
+      width: 100% !important;
+    }
+    .basketHeader #pageHeader {
+      --font-size-min: var(--lg);
+      --font-size-max: var(--xl);
+      --font-fluid-cq-variance: 0.75cqw;
+      --color: var(--color-primary-contrast);
+      --font-size: min(
+        var(--font-size-max, var(--font-size-base-px)),
+        var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw)
+      );
+      /* unset */
+      bottom: unset;
+      left: unset;
+    }
+    .basketHeader .importEanControls {
+      /* unset */
+      top: unset;
+    }
+    :is(.basketHeader #butEditName, .basketHeader .importEanControls button) {
+      all: unset;
+      color: var(--color-primary-contrast);
+    }
+    .basketTable:not(.basketSummary) thead tr {
+      border-bottom: 1px solid var(--field-border-color);
+      background: var(--color-grey-11);
+    }
+    .basketTable:not(.basketSummary) tbody tr + tr {
+      border-top: 1px solid var(--field-border-color);
+    }
+    .basketTable:not(.basketSummary) tbody td {
+      border-width: 0px !important;
+    }
+    .basketTable {
+      font-family: var(--font-family-heading);
+      font-size: var(--text-sm);
+    }
+    @media (min-width: 1000px) {
+      .basketTable :is(th, td) {
+        padding-inline: var(--spacing-xs);
+      }
+      .basketTable thead th {
+        padding-block: var(--text-frame-y);
+      }
+      .basketTable thead tr > th:first-of-type {
+        vertical-align: top;
+      }
+    }
+    @media (max-width: 1000px) {
+      .basketTable#basketGrid {
+        --inline-layout: min(120px, 100%) 1fr;
+        background-color: #c2c2c2 !important;
+        width: calc(100vw - 16px) !important;
+        max-width: 1260px !important;
+        margin-inline: auto;
+      }
+      .basketTable#basketGrid td:not(.colSelect) {
+        padding-block: 4px !important;
+        border: 0 !important;
+      }
+      .basketTable#basketGrid thead {
+        display: none;
+      }
+      .basketTable#basketGrid tbody {
+        width: calc(100vw - 16px);
+        max-width: 1260px;
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        container-type: inline-size;
+      }
+      .basketTable#basketGrid tbody tr {
+        width: 100%;
+      }
+      @container (width > 600px) {
+        .basketTable#basketGrid tbody tr {
+          width: calc(50% - 1px);
+        }
+      }
+      .basketTable#basketGrid tbody tr {
+        background: #fff;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .basketTable#basketGrid tbody td {
+        width: fit-content !important;
+        flex-basis: 100%;
+        border: none;
+        text-align: left !important;
+      }
+      .basketTable#basketGrid tbody,
+      .basketTable#basketGrid tbody tr,
+      .basketTable#basketGrid tbody td {
+        display: flex;
+        column-gap: 2px;
+      }
+      .basketPage {
+        padding: 0 !important;
+        overflow: visible !important;
+      }
+      #basketGridWrapper {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      #stockOrderBasket {
+        width: 100% !important;
+      }
+      .grid_16.layoutContent {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      td.colEAN {
+        order: 99;
+        border: 0 !important;
+        align-items: baseline;
+        gap: 0.5rem;
+        padding-bottom: 0.75rem !important;
+      }
+      td.colEAN:before {
+        content: "EAN/Barcode";
+        display: inline-block;
+        font-weight: bold;
+      }
+      td.colSelect {
+        padding: 0 !important;
+      }
+      td.colTitle {
+        order: 1;
+        background-color: #f2f2f2;
+        padding-bottom: 0.75rem !important;
+        flex-direction: column;
+      }
+      td.colTitle:before {
+        content: "Title";
+        display: inline-block;
+        font-weight: bold;
+        font-size: 14px;
+      }
+      td.colTitle {
+        font-size: 18px;
+      }
+      @container (width > 300px) {
+        td:is(.colArtist,
+        .colFormat,
+        .colRef,
+        .colWeight,
+        .colQty,
+        .colStock,
+        .colYouPay,
+        .colEAN) {
+          max-width: calc(50% - 1.5rem) !important;
+        }
+      }
+      td:is(.colArtist,
+      .colFormat,
+      .colRef,
+      .colWeight,
+      .colQty,
+      .colStock,
+      .colYouPay,
+      .colEAN) {
+        text-align: left !important;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      td:is(.colArtist,
+      .colFormat,
+      .colRef,
+      .colWeight,
+      .colQty,
+      .colStock,
+      .colYouPay,
+      .colEAN):before {
+        display: inline-block;
+        font-weight: bold;
+        flex-basis: min(120px, 100%);
+        text-align: left;
+      }
+      td.colArtist {
+        order: 2;
+      }
+      td.colArtist:before {
+        content: "Artist";
+      }
+      td.colFormat {
+        order: 3;
+      }
+      td.colFormat:before {
+        content: "Format";
+      }
+      td.colRef {
+        order: 4;
+      }
+      td.colRef:before {
+        content: "Ref";
+      }
+      td.colWeight {
+        order: 6;
+      }
+      td.colWeight:before {
+        content: "Indicative Weight*";
+      }
+      td.colQty {
+        order: 5;
+      }
+      td.colQty:before {
+        content: "Qty";
+      }
+      .table.basketTable .colQty .quantity {
+        width: min(60px, 100%) !important;
+      }
+      td.colStock {
+        order: 8;
+      }
+      td.colStock:before {
+        content: "Availability";
+      }
+      td.colYouPay {
+        order: 7;
+      }
+      td.colYouPay:before {
+        content: "Unit price";
+      }
+      td.colSelect {
+        all: unset;
+        display: contents;
+        border: 0 !important;
+      }
+      td.colSelect input[type=checkbox] {
+        /*         position: relative; */
+      }
+      td.colSelect label {
+        display: none;
+      }
+      .jacketPreviewIcon {
+        max-width: fit-content;
+      }
+    }
+    .basketPage table.basketSummary {
+      width: 100%;
+    }
+    @media (min-width: 1000px) {
+      .basketPage table.basketSummary {
+        width: 75%;
+      }
+    }
+    .basketTotals {
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 1000px) {
+      .basketTotals {
+        margin-inline: 2rem;
+      }
+    }
+    .basketPage .gridOptionsWrapper {
+      display: none;
     }
   }
   #k-window-createBasketPopup {
@@ -6120,6 +6642,9 @@
   @layer new {
     html {
       font-size: var(--font-size-base-px, 16px);
+    }
+    .card-body__content__caption-tagline[data-surface] {
+      width: fit-content;
     }
   }
 }
@@ -7997,9 +8522,6 @@
     --color-primary-l: 0.3835;
     --color-primary-c: 0.0679;
     --color-primary-h: 215.42;
-    --color-primary: oklch(
-      var(--color-primary-l) var(--color-primary-c) var(--color-primary-h)
-    );
     --color-secondary-l: 0.9144;
     --color-secondary-c: 0.0366;
     --color-secondary-h: 192.29;
@@ -8012,21 +8534,9 @@
     --color-brand-yellow-l: 0.8928;
     --color-brand-yellow-c: 0.1343;
     --color-brand-yellow-h: 98.86;
-    --color-brand-yellow-contrast: oklch(
-      from var(--color, var(--color-brand-yellow))
-        clamp(
-          var(
-            --color-brand-yellow-contrast-lightest-text,
-            var(--contrast-lightest-text, 0)
-          ),
-          (l / var(--contrast-threshold, 0.623) - 1) * -infinity,
-          var(
-            --color-brand-yellow-contrast-darkest-text,
-            var(--contrast-darkest-text, 1)
-          )
-        )
-        0 h
-    );
+    --color-brand-red-l: 0.6493;
+    --color-brand-red-c: 0.1225;
+    --color-brand-red-h: 20.36;
     --color-contrast: oklch(
       from var(--color, inherit)
         clamp(
@@ -8039,10 +8549,6 @@
     --color-brand-orange-l: 0.7966;
     --color-brand-orange-c: 0.1125;
     --color-brand-orange-h: 59.9;
-    --color-brand-orange: oklch(
-      var(--color-brand-orange-l) var(--color-brand-orange-c)
-        var(--color-brand-orange-h)
-    );
     --color-primary-light-l: 0.7048;
     --color-primary-light-c: 0.0799;
     --color-primary-light-h: 191.32;
@@ -8282,35 +8788,25 @@
     --color-dark-contrast-muted: oklch(from var(--color, var(--color-dark)) clamp(var(--color-dark-contrast-muted-lightest-text, var(--contrast-muted-lightest-text, 0)), (l / var(--contrast-threshold, 0.623) - 1) * -infinity, var(--color-dark-contrast-muted-darkest-text, var(--contrast-muted-darkest-text, 1))) c h);
     --color-light-contrast: oklch(from var(--color, var(--color-light)) clamp(var(--color-light-contrast-lightest-text, var(--contrast-lightest-text, 0)), (l / var(--contrast-threshold, 0.623) - 1) * -infinity, var(--color-light-contrast-darkest-text, var(--contrast-darkest-text, 1))) 0 h);
     --color-light-contrast-muted: oklch(from var(--color, var(--color-light)) clamp(var(--color-light-contrast-muted-lightest-text, var(--contrast-muted-lightest-text, 0)), (l / var(--contrast-threshold, 0.623) - 1) * -infinity, var(--color-light-contrast-muted-darkest-text, var(--contrast-muted-darkest-text, 1))) c h);
-    --color-brand-yellow: oklch(
-      var(--color-brand-yellow-l) var(--color-brand-yellow-c)
-        var(--color-brand-yellow-h)
-    );
-    --color-brand-yellow-contrast: oklch(
-      from var(--color, var(--color-brand-yellow))
-        clamp(
-          var(
-            --color-brand-yellow-contrast-lightest-text,
-            var(--contrast-lightest-text, 0)
-          ),
-          (l / var(--contrast-threshold, 0.623) - 1) * -infinity,
-          var(
-            --color-brand-yellow-contrast-darkest-text,
-            var(--contrast-darkest-text, 1)
-          )
-        )
-        0 h
-    );
-    --color-primary-light: oklch(
-      var(--color-primary-light-l) var(--color-primary-light-c)
-        var(--color-primary-light-h)
-    );
-    --color-tertiary-light: color-mix(
-      in oklab,
-      var(--color-tertiary),
-      white 65%
-    );
-    --color-root-fg-muted: var(--root-fg-muted);
+    --container-ch-3xs: 32ch;
+    --container-ch-2xs: 36ch;
+    --container-ch-xs: 40ch;
+    --container-ch-sm: 48ch;
+    --container-ch-md: 56ch;
+    --container-ch-lg: 64ch;
+    --container-ch-xl: 72ch;
+    --container-ch-2xl: 80ch;
+    --container-ch-3xl: 88ch;
+    --container-ch-4xl: 96ch;
+    --container-ch-5xl: 104ch;
+    --container-ch-6xl: 112ch;
+    --container-ch-7xl: 120ch;
+  }
+  @theme static {
+    --text-display-xs: var(--display-xs);
+    --text-display-sm: var(--display-sm);
+    --text-display-md: var(--display-md);
+    --text-display-lg: var(--display-lg);
     --spacing-3xs: var(--space-3xs);
     --spacing-2xs: var(--space-2xs);
     --spacing-xs: var(--space-xs);
@@ -8326,29 +8822,45 @@
     /* Move below into frame and register as props */
     --spacing-layout-gap: var(--layout-gap);
     --spacing-section-gap: calc(var(--layout-gap) * 2);
-    --spacing-section-gap-lg: calc(var(--spacing-section-gap) * var(--space-increment));
-    --spacing-section-gap-xl: calc(var(--spacing-section-gap-lg) * var(--space-increment));
-    --spacing-section-gap-2xl: calc(var(--spacing-section-gap-xl) * var(--space-increment));
-    --spacing-section-gap-3xl: calc(var(--spacing-section-gap-2xl) * var(--space-increment));
+    --spacing-section-gap-lg: calc(
+      var(--spacing-section-gap) * var(--space-increment)
+    );
+    --spacing-section-gap-xl: calc(
+      var(--spacing-section-gap-lg) * var(--space-increment)
+    );
+    --spacing-section-gap-2xl: calc(
+      var(--spacing-section-gap-xl) * var(--space-increment)
+    );
+    --spacing-section-gap-3xl: calc(
+      var(--spacing-section-gap-2xl) * var(--space-increment)
+    );
     --spacing-huge: 3rem;
     --radius-default: var(--radius);
-    --container-ch-3xs: 32ch;
-    --container-ch-2xs: 36ch;
-    --container-ch-xs: 40ch;
-    --container-ch-sm: 48ch;
-    --container-ch-md: 56ch;
-    --container-ch-lg: 64ch;
-    --container-ch-xl: 72ch;
-    --container-ch-2xl: 80ch;
-    --container-ch-3xl: 88ch;
-    --container-ch-4xl: 96ch;
-    --container-ch-5xl: 104ch;
-    --container-ch-6xl: 112ch;
-    --container-ch-7xl: 120ch;
-    --text-display-xs: var(--display-xs);
-    --text-display-sm: var(--display-sm);
-    --text-display-md: var(--display-md);
-    --text-display-lg: var(--display-lg);
+    --color-root-fg: var(--root-fg);
+    --color-root-fg-muted: var(--root-fg-muted);
+    --color-primary: oklch(
+      var(--color-primary-l) var(--color-primary-c) var(--color-primary-h)
+    );
+    --color-brand-orange: oklch(
+      var(--color-brand-orange-l) var(--color-brand-orange-c)
+        var(--color-brand-orange-h)
+    );
+    --color-brand-red: oklch(
+      var(--color-brand-red-l) var(--color-brand-red-c) var(--color-brand-red-h)
+    );
+    --color-brand-orange-contrast: oklch(from oklch(var(--color-brand-orange-l) var(--color-brand-orange-c) var(--color-brand-orange-h)) clamp(var(--color-brand-orange-contrast-lightest-text, var(--contrast-lightest-text, 0)), (l / var(--contrast-threshold, 0.623) - 1) * -infinity, var(--color-brand-orange-contrast-darkest-text, var(--contrast-darkest-text, 1))) 0 h);
+    --color-brand-yellow: oklch(
+      var(--color-brand-yellow-l) var(--color-brand-yellow-c)
+        var(--color-brand-yellow-h)
+    );
+    --color-brand-yellow-contrast: oklch(from oklch(var(--color-brand-yellow-l) var(--color-brand-yellow-c) var(--color-brand-yellow-h)) clamp(var(--color-brand-yellow-contrast-lightest-text, var(--contrast-lightest-text, 0)), (l / var(--contrast-threshold, 0.623) - 1) * -infinity, var(--color-brand-yellow-contrast-darkest-text, var(--contrast-darkest-text, 1))) 0 h);
+    --color-primary-light: oklch(
+      var(--color-primary-light-l) var(--color-primary-light-c)
+        var(--color-primary-light-h)
+    );
+    --color-primary-light-contrast: oklch(from oklch(var(--color-primary-light-l) var(--color-primary-light-c) var(--color-primary-light-h)) clamp(var(--color-primary-light-contrast-lightest-text, var(--contrast-lightest-text, 0)), (l / var(--contrast-threshold, 0.623) - 1) * -infinity, var(--color-primary-light-contrast-darkest-text, var(--contrast-darkest-text, 1))) 0 h);
+    --color-tertiary-light: color-mix(in oklab, var(--color-tertiary), white 65%);
+    --color-root-fg-muted: var(--root-fg-muted);
   }
 }
 @utility flow--* {

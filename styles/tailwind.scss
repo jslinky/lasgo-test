@@ -1,6 +1,7 @@
 @use "sass:math";
 @use "small-style/scss/theme/_index" as * with (
-  $baseResetRulesScopeClassName: ".new"
+  $baseResetRulesScopeClassName: ".new",
+  $surface-colors: "primary" "secondary" "tertiary" "grey" "dark" "light" "primary-light" "brand-orange" "brand-red" "brand-yellow",
 );
 @use "small-style/scss/base/mixins/rules/props/_colors" as *;
 @use "small-style/scss/base/variables/components/forms" as *;
@@ -43,9 +44,6 @@
 @source inline("{lg:}{bg}-{transparent}");
 @source inline("[{--heading-3xl-font-size-max,--heading-3xl-font-size-min,--heading-2xl-font-size-max,--heading-2xl-font-size-min,--heading-xl-font-size-max,--heading-xl-font-size-min}:{var(--display-xs),var(--display-sm),var(--display-md),var(--display-2xl)}]");
 
-
-
-
 // @import "small-style/dist/style.css";
 @import "small-style/scss/index";
 
@@ -54,6 +52,7 @@
   @import "./site/existing-overrides/header";
   @import "./site/existing-overrides/product-landing";
   @import "./site/existing-overrides/product-details";
+  @import "./site/existing-overrides/basket";
   @import "./site/existing-overrides/popup";
   @import "./site/existing-overrides/login";
   @import "./site/existing-overrides/footer";
@@ -131,13 +130,15 @@
   }
 
   @layer new {
-    :root {
-
-    }
 
     html {
       font-size: var(--font-size-base-px, 16px);
     }
+
+    .card-body__content__caption-tagline[data-surface] {
+      width: fit-content;
+    }
+
   }
 }
 

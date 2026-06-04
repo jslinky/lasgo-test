@@ -3,9 +3,7 @@
     --color-primary-l: 0.3835;
     --color-primary-c: 0.0679;
     --color-primary-h: 215.42;
-    --color-primary: oklch(
-      var(--color-primary-l) var(--color-primary-c) var(--color-primary-h)
-    );
+
     --color-secondary-l: 0.9144;
     --color-secondary-c: 0.0366;
     --color-secondary-h: 192.29;
@@ -20,21 +18,9 @@
     --color-brand-yellow-c: 0.1343;
     --color-brand-yellow-h: 98.86;
 
-    --color-brand-yellow-contrast: oklch(
-      from var(--color, var(--color-brand-yellow))
-        clamp(
-          var(
-            --color-brand-yellow-contrast-lightest-text,
-            var(--contrast-lightest-text, 0)
-          ),
-          (l / var(--contrast-threshold, 0.623) - 1) * -infinity,
-          var(
-            --color-brand-yellow-contrast-darkest-text,
-            var(--contrast-darkest-text, 1)
-          )
-        )
-        0 h
-    );
+    --color-brand-red-l: 0.6493;
+    --color-brand-red-c: 0.1225;
+    --color-brand-red-h: 20.36;
 
     --color-contrast: oklch(
       from var(--color, inherit)
@@ -49,10 +35,7 @@
     --color-brand-orange-l: 0.7966;
     --color-brand-orange-c: 0.1125;
     --color-brand-orange-h: 59.9;
-    --color-brand-orange: oklch(
-      var(--color-brand-orange-l) var(--color-brand-orange-c)
-        var(--color-brand-orange-h)
-    );
+
     --color-primary-light-l: 0.7048;
     --color-primary-light-c: 0.0799;
     --color-primary-light-h: 191.32;
