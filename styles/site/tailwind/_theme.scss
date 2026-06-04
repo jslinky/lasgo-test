@@ -71,6 +71,15 @@
     var(--color-brand-red-l) var(--color-brand-red-c) var(--color-brand-red-h)
   );
 
+  $color-brand-red-contrast: generateColorContrast(
+    "color-brand-red",
+    var(--color-brand-red-l),
+    var(--color-brand-red-c),
+    var(--color-brand-red-h)
+  );
+
+  --color-brand-red-contrast: #{$color-brand-red-contrast};
+
   $color-brand-orange-contrast: generateColorContrast(
     "color-brand-orange",
     var(--color-brand-orange-l),

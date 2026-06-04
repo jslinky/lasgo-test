@@ -8848,6 +8848,7 @@
     --color-brand-red: oklch(
       var(--color-brand-red-l) var(--color-brand-red-c) var(--color-brand-red-h)
     );
+    --color-brand-red-contrast: oklch(from oklch(var(--color-brand-red-l) var(--color-brand-red-c) var(--color-brand-red-h)) clamp(var(--color-brand-red-contrast-lightest-text, var(--contrast-lightest-text, 0)), (l / var(--contrast-threshold, 0.623) - 1) * -infinity, var(--color-brand-red-contrast-darkest-text, var(--contrast-darkest-text, 1))) 0 h);
     --color-brand-orange-contrast: oklch(from oklch(var(--color-brand-orange-l) var(--color-brand-orange-c) var(--color-brand-orange-h)) clamp(var(--color-brand-orange-contrast-lightest-text, var(--contrast-lightest-text, 0)), (l / var(--contrast-threshold, 0.623) - 1) * -infinity, var(--color-brand-orange-contrast-darkest-text, var(--contrast-darkest-text, 1))) 0 h);
     --color-brand-yellow: oklch(
       var(--color-brand-yellow-l) var(--color-brand-yellow-c)
