@@ -135,13 +135,6 @@
       font-size: var(--font-size-base-px, 16px);
     }
 
-    .card-body__content__caption-tagline[data-surface] {
-      width: fit-content;
-      line-height:1;
-      border-radius: var(--radius);
-      padding: var(--space-3xs) var(--text-frame-x);
-    }
-
   }
 }
 
@@ -157,6 +150,15 @@
 
 @layer site-props {
   @import "./site/site-props";
+
+  // overrding template tw class - slighty hack but meh
+  .card-body__content__caption-tagline[data-surface] {
+    width: fit-content;
+    line-height:1;
+    border-radius: var(--radius);
+    padding: var(--space-3xs) var(--text-frame-x);
+  }
+
 }
 
 @layer tw-base {
