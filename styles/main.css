@@ -23566,7 +23566,7 @@
     --root-nav-height: 35px;
     --root-header-height: 138px;
     --root-header-mt: var(--space-xs);
-    --color-threshold: 0.7;
+    --contrast-threshold: 0.7;
   }
   :root.unauthenticated {
     --root-header-height: 50px;
