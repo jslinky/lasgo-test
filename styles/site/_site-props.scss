@@ -103,6 +103,8 @@
       --root-header-height: 138px;
       --root-header-mt: var(--space-xs);
 
+      --color-threshold: 0.7;
+
       /// Logged out homepage adjustments
       &.unauthenticated {
         // --root-header-mt: 0px;
