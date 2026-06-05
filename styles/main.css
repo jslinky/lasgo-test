@@ -21657,6 +21657,9 @@
     }
     .card-body__content__caption-tagline[data-surface] {
       width: fit-content;
+      line-height: 1;
+      border-radius: var(--radius);
+      padding: var(--space-3xs) var(--text-frame-x);
     }
   }
 }
