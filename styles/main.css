@@ -2811,11 +2811,29 @@
   .\[--card-padding-inline\:var\(--layout-gap\)\] {
     --card-padding-inline: var(--layout-gap);
   }
+  .\[--card-picture-aspect\:1\/1\] {
+    --card-picture-aspect: 1/1;
+  }
+  .\[--card-picture-aspect\:2\/1\] {
+    --card-picture-aspect: 2/1;
+  }
+  .\[--card-picture-aspect\:3\/2\] {
+    --card-picture-aspect: 3/2;
+  }
+  .\[--card-picture-aspect\:4\/3\] {
+    --card-picture-aspect: 4/3;
+  }
+  .\[--card-picture-aspect\:16\/9\] {
+    --card-picture-aspect: 16/9;
+  }
   .\[--card-picture-aspect\:618\/168\] {
     --card-picture-aspect: 618/168;
   }
   .\[--card-picture-aspect\:1260\/250\] {
     --card-picture-aspect: 1260/250;
+  }
+  .\[--card-picture-aspect\:none\] {
+    --card-picture-aspect: none;
   }
   .\[--card-radius\:0\] {
     --card-radius: 0;
@@ -8426,6 +8444,36 @@
       padding-left: var(--spacing-xs);
     }
   }
+  .\@md\:\[--card-picture-aspect\:1\/1\] {
+    @container (width >= 28rem) {
+      --card-picture-aspect: 1/1;
+    }
+  }
+  .\@md\:\[--card-picture-aspect\:2\/1\] {
+    @container (width >= 28rem) {
+      --card-picture-aspect: 2/1;
+    }
+  }
+  .\@md\:\[--card-picture-aspect\:3\/2\] {
+    @container (width >= 28rem) {
+      --card-picture-aspect: 3/2;
+    }
+  }
+  .\@md\:\[--card-picture-aspect\:4\/3\] {
+    @container (width >= 28rem) {
+      --card-picture-aspect: 4/3;
+    }
+  }
+  .\@md\:\[--card-picture-aspect\:16\/9\] {
+    @container (width >= 28rem) {
+      --card-picture-aspect: 16/9;
+    }
+  }
+  .\@md\:\[--card-picture-aspect\:none\] {
+    @container (width >= 28rem) {
+      --card-picture-aspect: none;
+    }
+  }
   .\@md\:\[--column-count\:1\] {
     @container (width >= 28rem) {
       --column-count: 1;
@@ -9530,6 +9578,36 @@
       padding-left: var(--spacing-xs);
     }
   }
+  .\@lg\:\[--card-picture-aspect\:1\/1\] {
+    @container (width >= 32rem) {
+      --card-picture-aspect: 1/1;
+    }
+  }
+  .\@lg\:\[--card-picture-aspect\:2\/1\] {
+    @container (width >= 32rem) {
+      --card-picture-aspect: 2/1;
+    }
+  }
+  .\@lg\:\[--card-picture-aspect\:3\/2\] {
+    @container (width >= 32rem) {
+      --card-picture-aspect: 3/2;
+    }
+  }
+  .\@lg\:\[--card-picture-aspect\:4\/3\] {
+    @container (width >= 32rem) {
+      --card-picture-aspect: 4/3;
+    }
+  }
+  .\@lg\:\[--card-picture-aspect\:16\/9\] {
+    @container (width >= 32rem) {
+      --card-picture-aspect: 16/9;
+    }
+  }
+  .\@lg\:\[--card-picture-aspect\:none\] {
+    @container (width >= 32rem) {
+      --card-picture-aspect: none;
+    }
+  }
   .\@lg\:\[--column-count\:1\] {
     @container (width >= 32rem) {
       --column-count: 1;
@@ -10610,6 +10688,36 @@
       padding-left: var(--spacing-xs);
     }
   }
+  .\@xl\:\[--card-picture-aspect\:1\/1\] {
+    @container (width >= 36rem) {
+      --card-picture-aspect: 1/1;
+    }
+  }
+  .\@xl\:\[--card-picture-aspect\:2\/1\] {
+    @container (width >= 36rem) {
+      --card-picture-aspect: 2/1;
+    }
+  }
+  .\@xl\:\[--card-picture-aspect\:3\/2\] {
+    @container (width >= 36rem) {
+      --card-picture-aspect: 3/2;
+    }
+  }
+  .\@xl\:\[--card-picture-aspect\:4\/3\] {
+    @container (width >= 36rem) {
+      --card-picture-aspect: 4/3;
+    }
+  }
+  .\@xl\:\[--card-picture-aspect\:16\/9\] {
+    @container (width >= 36rem) {
+      --card-picture-aspect: 16/9;
+    }
+  }
+  .\@xl\:\[--card-picture-aspect\:none\] {
+    @container (width >= 36rem) {
+      --card-picture-aspect: none;
+    }
+  }
   .\@xl\:\[--column-count\:1\] {
     @container (width >= 36rem) {
       --column-count: 1;
@@ -11687,6 +11795,36 @@
       padding-left: var(--spacing-xs);
     }
   }
+  .\@2xl\:\[--card-picture-aspect\:1\/1\] {
+    @container (width >= 42rem) {
+      --card-picture-aspect: 1/1;
+    }
+  }
+  .\@2xl\:\[--card-picture-aspect\:2\/1\] {
+    @container (width >= 42rem) {
+      --card-picture-aspect: 2/1;
+    }
+  }
+  .\@2xl\:\[--card-picture-aspect\:3\/2\] {
+    @container (width >= 42rem) {
+      --card-picture-aspect: 3/2;
+    }
+  }
+  .\@2xl\:\[--card-picture-aspect\:4\/3\] {
+    @container (width >= 42rem) {
+      --card-picture-aspect: 4/3;
+    }
+  }
+  .\@2xl\:\[--card-picture-aspect\:16\/9\] {
+    @container (width >= 42rem) {
+      --card-picture-aspect: 16/9;
+    }
+  }
+  .\@2xl\:\[--card-picture-aspect\:none\] {
+    @container (width >= 42rem) {
+      --card-picture-aspect: none;
+    }
+  }
   .\@2xl\:\[--column-count\:1\] {
     @container (width >= 42rem) {
       --column-count: 1;
@@ -11810,6 +11948,36 @@
   .\@3xl\:columns-2 {
     @container (width >= 48rem) {
       columns: 2;
+    }
+  }
+  .\@3xl\:\[--card-picture-aspect\:1\/1\] {
+    @container (width >= 48rem) {
+      --card-picture-aspect: 1/1;
+    }
+  }
+  .\@3xl\:\[--card-picture-aspect\:2\/1\] {
+    @container (width >= 48rem) {
+      --card-picture-aspect: 2/1;
+    }
+  }
+  .\@3xl\:\[--card-picture-aspect\:3\/2\] {
+    @container (width >= 48rem) {
+      --card-picture-aspect: 3/2;
+    }
+  }
+  .\@3xl\:\[--card-picture-aspect\:4\/3\] {
+    @container (width >= 48rem) {
+      --card-picture-aspect: 4/3;
+    }
+  }
+  .\@3xl\:\[--card-picture-aspect\:16\/9\] {
+    @container (width >= 48rem) {
+      --card-picture-aspect: 16/9;
+    }
+  }
+  .\@3xl\:\[--card-picture-aspect\:none\] {
+    @container (width >= 48rem) {
+      --card-picture-aspect: none;
     }
   }
   .\@3xl\:\[--column-count\:1\] {
@@ -12881,6 +13049,36 @@
   .\@4xl\:pl-xs {
     @container (width >= 56rem) {
       padding-left: var(--spacing-xs);
+    }
+  }
+  .\@4xl\:\[--card-picture-aspect\:1\/1\] {
+    @container (width >= 56rem) {
+      --card-picture-aspect: 1/1;
+    }
+  }
+  .\@4xl\:\[--card-picture-aspect\:2\/1\] {
+    @container (width >= 56rem) {
+      --card-picture-aspect: 2/1;
+    }
+  }
+  .\@4xl\:\[--card-picture-aspect\:3\/2\] {
+    @container (width >= 56rem) {
+      --card-picture-aspect: 3/2;
+    }
+  }
+  .\@4xl\:\[--card-picture-aspect\:4\/3\] {
+    @container (width >= 56rem) {
+      --card-picture-aspect: 4/3;
+    }
+  }
+  .\@4xl\:\[--card-picture-aspect\:16\/9\] {
+    @container (width >= 56rem) {
+      --card-picture-aspect: 16/9;
+    }
+  }
+  .\@4xl\:\[--card-picture-aspect\:none\] {
+    @container (width >= 56rem) {
+      --card-picture-aspect: none;
     }
   }
   .\@4xl\:\[--card-two-columns\:1fr\] {
@@ -13967,6 +14165,36 @@
       --card-columns: var(--card-two-columns);
     }
   }
+  .\@5xl\:\[--card-picture-aspect\:1\/1\] {
+    @container (width >= 64rem) {
+      --card-picture-aspect: 1/1;
+    }
+  }
+  .\@5xl\:\[--card-picture-aspect\:2\/1\] {
+    @container (width >= 64rem) {
+      --card-picture-aspect: 2/1;
+    }
+  }
+  .\@5xl\:\[--card-picture-aspect\:3\/2\] {
+    @container (width >= 64rem) {
+      --card-picture-aspect: 3/2;
+    }
+  }
+  .\@5xl\:\[--card-picture-aspect\:4\/3\] {
+    @container (width >= 64rem) {
+      --card-picture-aspect: 4/3;
+    }
+  }
+  .\@5xl\:\[--card-picture-aspect\:16\/9\] {
+    @container (width >= 64rem) {
+      --card-picture-aspect: 16/9;
+    }
+  }
+  .\@5xl\:\[--card-picture-aspect\:none\] {
+    @container (width >= 64rem) {
+      --card-picture-aspect: none;
+    }
+  }
   .\@5xl\:\[--card-two-columns\:calc\(\(var\(--wrapper-width\)\/2\)-\(var\(--layout-gap\)\*1\.2\)\)_1fr\] {
     @container (width >= 64rem) {
       --card-two-columns: calc((var(--wrapper-width) / 2) - (var(--layout-gap) * 1.2)) 1fr;
@@ -15020,6 +15248,36 @@
   .\@6xl\:pl-xs {
     @container (width >= 72rem) {
       padding-left: var(--spacing-xs);
+    }
+  }
+  .\@6xl\:\[--card-picture-aspect\:1\/1\] {
+    @container (width >= 72rem) {
+      --card-picture-aspect: 1/1;
+    }
+  }
+  .\@6xl\:\[--card-picture-aspect\:2\/1\] {
+    @container (width >= 72rem) {
+      --card-picture-aspect: 2/1;
+    }
+  }
+  .\@6xl\:\[--card-picture-aspect\:3\/2\] {
+    @container (width >= 72rem) {
+      --card-picture-aspect: 3/2;
+    }
+  }
+  .\@6xl\:\[--card-picture-aspect\:4\/3\] {
+    @container (width >= 72rem) {
+      --card-picture-aspect: 4/3;
+    }
+  }
+  .\@6xl\:\[--card-picture-aspect\:16\/9\] {
+    @container (width >= 72rem) {
+      --card-picture-aspect: 16/9;
+    }
+  }
+  .\@6xl\:\[--card-picture-aspect\:none\] {
+    @container (width >= 72rem) {
+      --card-picture-aspect: none;
     }
   }
   .\@6xl\:\[--column-count\:1\] {
@@ -23321,6 +23579,9 @@
       overflow: visible;
     }
   }
+  .layout-grid.slick-slider .slick-slide > article.card--full-details {
+    overflow: visible;
+  }
   .layout-grid.slick-slider .slick-slide > article.card--full-details .card-picture {
     max-height: 200px;
     margin-inline: auto;
@@ -23466,6 +23727,11 @@
   .card-body__content__caption-tagline span {
     z-index: 2;
     position: relative;
+  }
+  :where(.heading) + .textSection {
+    margin-inline: auto;
+    margin-block-start: var(--space-xs);
+    grid-column: 1/-1;
   }
   @layer components.modifiers {
     .card:has(.card-body__content__caption-subtitle.fluid-cq) {

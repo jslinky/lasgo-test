@@ -93,6 +93,12 @@
   }
 }
 
+:where(.heading) + .textSection {
+  margin-inline: auto;
+  margin-block-start: var(--space-xs);
+  grid-column: 1/-1;
+}
+
 @layer components.modifiers {
   .card:has(.card-body__content__caption-subtitle.fluid-cq) {
     --font-size-min: var(--xs);

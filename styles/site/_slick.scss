@@ -82,6 +82,7 @@
 }
 
 .layout-grid.slick-slider .slick-slide > article.card--full-details {
+  overflow: visible;
   .card-picture {
     max-height: 200px;
     margin-inline: auto;
