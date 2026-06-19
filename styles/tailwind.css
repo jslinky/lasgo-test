@@ -6706,7 +6706,7 @@
           )
         );
       }
-      :is(:not(.hero > .card)) .card-body__content__caption:before {
+      :is(:not(.hero > .card)) .card-body__content__caption-tagline:before {
         display: none;
       }
       :where(.card[data-card-layout=overlay]) .card-body {
