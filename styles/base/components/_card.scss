@@ -216,6 +216,21 @@
         max-width: min(100%, 100cqw);
         max-height: 240px;
         width: 100%;
+        .card-body__content {
+          opacity:0;
+          transform: translateY(20%);
+          transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .card-picture {
+          img {
+            height:100%;
+            position: absolute;
+            top:0;
+            object-position: top;
+            width: min(50%, 50cqw);
+            right:0;
+          }
+        }
         .card-body__content-slot img {
           max-height: 20cqh;
         }
@@ -228,6 +243,14 @@
 
       > div:hover {
         max-height: 300px;
+        .card-picture {
+          img:nth-child(2) {
+            left:auto;
+            scale:1.2;
+            filter:blur(20px) brightness(0.75);            
+            mask: var(--column-expand-img-mask, linear-gradient(to right, transparent 0%, transparent 20%, black 100%));
+          } 
+        }
       }
       &:has(> div:is(:nth-child(1)):hover) {
         @container (inline-size >= #{$container-lg}) {
@@ -262,74 +285,6 @@
       .card-picture {
         max-width: min(100%, 100cqw);
       }      
-    }
-
-    &[class*="@lg:[--column-count:6]"] {
-      // @container (inline-size >= #{$container-lg}) {
-      //   transition: 300ms;
-      //   transition-delay: 50ms;
-      //   --col-1: var(--column-size-one, 1fr);
-      //   --col-2: var(--column-size-two, 1fr);
-      //   --col-3: var(--column-size-three, 1fr);
-      //   --col-4: var(--column-size-four, 1fr);
-      //   --col-5: var(--column-size-five, 1fr);
-      //   --col-6: var(--column-size-six, 1fr);
-      //   // --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3)
-      //   //   var(--col-4) var(--col-5) var(--col-6);
-      //   align-items: center;
-      // }
-      // :where(.card) {
-      //   aspect-ratio: 9/16;
-      //   background: grey;
-      //   max-width: min(100%, 100cqw);
-      //   max-height: 240px;
-      //   width: 100%;
-      //   .card-body__content-slot img {
-      //     max-height: 20cqh;
-      //   }
-      //   &:has(.card-body__content-slot img) {
-      //     .card-picture img {
-      //       filter: blur(3px);
-      //     }
-      //   }
-      // }
-
-      // > div:hover {
-      //   max-height: 300px;
-      // }
-      // &:has(> div:is(:nth-child(1)):hover) {
-      //   @container (inline-size >= #{$container-lg}) {
-      //     --column-size-one: 5fr;
-      //   }
-      // }
-      // &:has(> div:is(:nth-child(2)):hover) {
-      //   @container (inline-size >= #{$container-lg}) {
-      //     --column-size-two: 5fr;
-      //   }
-      // }
-      // &:has(> div:is(:nth-child(3)):hover) {
-      //   @container (inline-size >= #{$container-lg}) {
-      //     --column-size-three: 5fr;
-      //   }
-      // }
-      // &:has(> div:is(:nth-child(4)):hover) {
-      //   @container (inline-size >= #{$container-lg}) {
-      //     --column-size-four: 5fr;
-      //   }
-      // }
-      // &:has(> div:is(:nth-child(5)):hover) {
-      //   @container (inline-size >= #{$container-lg}) {
-      //     --column-size-five: 5fr;
-      //   }
-      // }
-      // &:has(> div:is(:nth-child(6)):hover) {
-      //   @container (inline-size >= #{$container-lg}) {
-      //     --column-size-six: 5fr;
-      //   }
-      // }
-      // .card-picture {
-      //   max-width: min(100%, 100cqw);
-      // }
     }
   }
 }

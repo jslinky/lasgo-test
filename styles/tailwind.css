@@ -6814,6 +6814,19 @@
         max-height: 240px;
         width: 100%;
       }
+      :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-body__content {
+        opacity: 0;
+        transform: translateY(20%);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      }
+      :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-picture img {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        object-position: top;
+        width: min(50%, 50cqw);
+        right: 0;
+      }
       :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-body__content-slot img {
         max-height: 20cqh;
       }
@@ -6822,6 +6835,12 @@
       }
       :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover {
         max-height: 300px;
+      }
+      :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover .card-picture img:nth-child(2) {
+        left: auto;
+        scale: 1.2;
+        filter: blur(20px) brightness(0.75);
+        mask: var(--column-expand-img-mask, linear-gradient(to right, transparent 0%, transparent 20%, black 100%));
       }
       @container (inline-size >= 32rem) {
         :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(1)):hover) {
