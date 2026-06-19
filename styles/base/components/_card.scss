@@ -77,7 +77,7 @@
     );
   }
 
-  :is:not(.hero > .card) .card-body__content__caption:before {
+  :is(:not(.hero > .card)) .card-body__content__caption:before {
     display: none;
   }
 
