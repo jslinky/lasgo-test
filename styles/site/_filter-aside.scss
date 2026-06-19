@@ -1,0 +1,64 @@
+.filter-tab-nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+   padding-left: var(--space-xs);
+  z-index: 10;
+}
+@include respond-to(md) {
+  .filter-tab-nav {
+    flex-direction: row;
+  }
+}
+.filter-tab {
+  position: relative;
+  padding: calc(var(--space-xs) /2) var(--text-frame-x);
+  margin-left: 0;
+  margin-bottom: -8px;
+  background: var(--color-grey-11);
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  box-shadow: 0 1px 0px 0 var(--color-grey-10);
+}
+@include respond-to(md) {
+  .filter-tab {
+    margin-left: -0.5em;
+    margin-bottom: -1px;
+  }
+}
+.filter-tab {
+  cursor: pointer;
+  z-index: 1;
+}
+.filter-tab:first-child {
+  margin-left: 0;
+}
+.filter-tab:hover {
+  background: var(--color-secondary);
+  z-index: 3;
+}
+.filter-tab.active {
+  background: #fff;
+   box-shadow: 1px 0px 0px var(--color-primary), 1px 0px 0px var(--color-primary) inset, 0px 1px 0px var(--color-primary) inset;
+  z-index: 3;
+}
+.filter-panels {
+  position: relative;
+}
+.filter-panel {
+  display: none;
+  background: #fff;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+.filter-panel.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}

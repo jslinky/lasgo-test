@@ -1,3 +1,15 @@
+@keyframes expandCard {
+  0% {
+    overflow: clip;
+  }
+  25% {
+    overflow: visible;
+  }
+  100% {
+    overflow: visible;
+  }
+}
+
 .featured-products {
   display: grid;
   place-items: stretch;
@@ -16,6 +28,38 @@
     grid-row: 2 / 3;
   }
   /* } */
+  > div:nth-child(1) {
+    .card-picture {
+      transform-origin: center;
+      transition: scale 100ms linear(0, 0.5 25% 75%, 1);
+    }
+  }
+  .card-picture {
+    overflow: clip;
+    border-radius: var(--radius);
+  }
+  .card-body:before {
+    transition: scale 100ms linear(0, 0.5 25% 75%, 1);
+  }
+  .card:hover {
+    animation: expandCard 100ms linear(0, 0.5 25% 75%, 1) forwards;
+
+    .card-picture {
+      z-index: 2;
+      scale: 1.05;
+    }
+    .card-body {
+      z-index: 3;
+      &:before {
+        background: oklch(from var(--color-dark) l c h / 0.2);
+        transform-origin: center;
+        border-radius: var(--radius);
+        animation: expandCard 100ms linear(0, 0.5 25% 75%, 1) forwards;
+
+        filter: blur(21px);
+      }
+    }
+  }
 }
 
 /* Featured products to use subgrid on landing pages - check if bp need adjusting */

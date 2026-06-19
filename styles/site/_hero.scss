@@ -342,3 +342,7 @@ div.scanlines {
     }
   }
 }
+
+.hero--expanded .card-body__content__caption-title.fluid-cq {
+  --heading-3xl-font-size-max: var(--display-2xl);
+}

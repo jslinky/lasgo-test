@@ -2883,6 +2883,12 @@
   .\[--column-count\:6\] {
     --column-count: 6;
   }
+  .\[--column-count\:7\] {
+    --column-count: 7;
+  }
+  .\[--column-count\:8\] {
+    --column-count: 8;
+  }
   .\[--current-bg\:var\(--color-primary\)\] {
     --current-bg: var(--color-primary);
   }
@@ -8489,6 +8495,16 @@
       --column-count: 6;
     }
   }
+  .\@md\:\[--column-count\:7\] {
+    @container (width >= 28rem) {
+      --column-count: 7;
+    }
+  }
+  .\@md\:\[--column-count\:8\] {
+    @container (width >= 28rem) {
+      --column-count: 8;
+    }
+  }
   .\@md\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 28rem) {
       --flow-space:  var(--space-2xl);
@@ -9623,6 +9639,16 @@
       --column-count: 6;
     }
   }
+  .\@lg\:\[--column-count\:7\] {
+    @container (width >= 32rem) {
+      --column-count: 7;
+    }
+  }
+  .\@lg\:\[--column-count\:8\] {
+    @container (width >= 32rem) {
+      --column-count: 8;
+    }
+  }
   .\@lg\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 32rem) {
       --flow-space:  var(--space-2xl);
@@ -10733,6 +10759,16 @@
       --column-count: 6;
     }
   }
+  .\@xl\:\[--column-count\:7\] {
+    @container (width >= 36rem) {
+      --column-count: 7;
+    }
+  }
+  .\@xl\:\[--column-count\:8\] {
+    @container (width >= 36rem) {
+      --column-count: 8;
+    }
+  }
   .\@xl\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 36rem) {
       --flow-space:  var(--space-2xl);
@@ -11840,6 +11876,16 @@
       --column-count: 6;
     }
   }
+  .\@2xl\:\[--column-count\:7\] {
+    @container (width >= 42rem) {
+      --column-count: 7;
+    }
+  }
+  .\@2xl\:\[--column-count\:8\] {
+    @container (width >= 42rem) {
+      --column-count: 8;
+    }
+  }
   .\@2xl\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 42rem) {
       --flow-space:  var(--space-2xl);
@@ -11993,6 +12039,16 @@
   .\@3xl\:\[--column-count\:6\] {
     @container (width >= 48rem) {
       --column-count: 6;
+    }
+  }
+  .\@3xl\:\[--column-count\:7\] {
+    @container (width >= 48rem) {
+      --column-count: 7;
+    }
+  }
+  .\@3xl\:\[--column-count\:8\] {
+    @container (width >= 48rem) {
+      --column-count: 8;
     }
   }
   .\@3xl\:\[--flow-space\:\ var\(--space-2xl\)\] {
@@ -13099,6 +13155,16 @@
   .\@4xl\:\[--column-count\:6\] {
     @container (width >= 56rem) {
       --column-count: 6;
+    }
+  }
+  .\@4xl\:\[--column-count\:7\] {
+    @container (width >= 56rem) {
+      --column-count: 7;
+    }
+  }
+  .\@4xl\:\[--column-count\:8\] {
+    @container (width >= 56rem) {
+      --column-count: 8;
     }
   }
   .\@4xl\:\[--flow-space\:\ var\(--space-2xl\)\] {
@@ -14220,6 +14286,16 @@
       --column-count: 6;
     }
   }
+  .\@5xl\:\[--column-count\:7\] {
+    @container (width >= 64rem) {
+      --column-count: 7;
+    }
+  }
+  .\@5xl\:\[--column-count\:8\] {
+    @container (width >= 64rem) {
+      --column-count: 8;
+    }
+  }
   .\@5xl\:\[--flow-space\:\ var\(--space-2xl\)\] {
     @container (width >= 64rem) {
       --flow-space:  var(--space-2xl);
@@ -15293,6 +15369,16 @@
   .\@6xl\:\[--column-count\:6\] {
     @container (width >= 72rem) {
       --column-count: 6;
+    }
+  }
+  .\@6xl\:\[--column-count\:7\] {
+    @container (width >= 72rem) {
+      --column-count: 7;
+    }
+  }
+  .\@6xl\:\[--column-count\:8\] {
+    @container (width >= 72rem) {
+      --column-count: 8;
     }
   }
   .\@6xl\:\[--flow-space\:\ var\(--space-2xl\)\] {

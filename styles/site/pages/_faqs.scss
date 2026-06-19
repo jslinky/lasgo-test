@@ -1,0 +1,7 @@
+.faq-heading-first {
+  ~ .c-collapse {
+    + .c-collapse {
+      --flow-space: var(--space-xs);
+    }
+  }
+}

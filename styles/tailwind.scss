@@ -1,7 +1,9 @@
 @use "sass:math";
-@use "small-style/scss/theme/_index" as * with (
-  $baseResetRulesScopeClassName: ".new",
+@use "small-style/scss/index" as * with (
+  $baseResetRulesScopeClassName: ":root:is(.new) :is(#body, .c-footer) *",
   $surface-colors: "primary" "secondary" "tertiary" "grey" "dark" "light" "primary-light" "brand-orange" "brand-red" "brand-yellow",
+  $include-forms: false,
+  $button-selectors: '.button, .ss-button'
 );
 @use "small-style/scss/base/mixins/rules/props/_colors" as *;
 @use "small-style/scss/base/variables/components/forms" as *;
@@ -34,7 +36,7 @@
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{w}-{full,auto}");
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{absolute}");
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{relative}");
-@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}[--column-count:{1..6}]");
+@source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}[--column-count:{1..8}]");
 @source inline("{sm:md:,lg:,xl:,@md:,@lg:,@xl:,@2xl:,@4xl:,@5xl:,@6xl:,}{pt,pb,py,pl,pr,px,mt,mb,my,ml,mr,mx}-{xs,sm,md,lg,xl,2xl,3xl,4xl,5xl,6xl,layout-gap,section-gap,section-gap-lg,section-gap-xl,section-gap-2xl,section-gap-3xl}");
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}{[--flow-space:{var(--space-xs), var(--space-sm), var(--space-md), var(--space-lg), var(--space-xl), var(--space-2xl)}]}");
 @source inline("[{--card-backdrop-color-stop-to-opacity,--card-backdrop-color-stop-from-opacity}:{0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,0}]");
@@ -46,7 +48,6 @@
 @source inline("[{--heading-3xl-font-size-max,--heading-3xl-font-size-min,--heading-2xl-font-size-max,--heading-2xl-font-size-min,--heading-xl-font-size-max,--heading-xl-font-size-min}:{var(--display-xs),var(--display-sm),var(--display-md),var(--display-2xl)}]");
 
 // @import "small-style/dist/style.css";
-@import "small-style/scss/index";
 
 @layer existing-overrides {
   // @import url("existing-overrides.css");
@@ -151,14 +152,6 @@
 
 @layer site-props {
   @import "./site/site-props";
-
-  // overrding template tw class - slighty hack but meh
-  .card-body__content__caption-tagline[data-surface] {
-    width: fit-content;
-    line-height:1;
-    border-radius: var(--radius);
-    padding: var(--space-3xs) var(--text-frame-x);
-  }
 
 }
 
