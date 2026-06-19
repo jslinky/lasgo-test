@@ -22157,12 +22157,17 @@
         transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
       }
       :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-picture img {
+        width: 100%;
         height: 100%;
+      }
+      :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-picture img:first-child {
+        position: relative;
+      }
+      :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-picture img:nth-child(2) {
         position: absolute;
         top: 0;
-        object-position: top;
-        width: min(50%, 50cqw);
         right: 0;
+        object-fit: cover;
       }
       :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-body__content-slot img {
         max-height: 20cqh;
