@@ -249,6 +249,9 @@
       > div:hover {
         max-height: 300px;
         .card-picture {
+          img {
+            width: min(50%, 50cqw);
+          }
           img:nth-child(2) {            
             left:auto;
             scale:1.2;

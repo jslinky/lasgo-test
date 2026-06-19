@@ -6841,6 +6841,9 @@
       :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover {
         max-height: 300px;
       }
+      :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover .card-picture img {
+        width: min(50%, 50cqw);
+      }
       :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover .card-picture img:nth-child(2) {
         left: auto;
         scale: 1.2;
