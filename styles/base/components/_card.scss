@@ -77,6 +77,10 @@
     );
   }
 
+  :is:not(.hero > .card) .card-body__content__caption:before {
+    display: none;
+  }
+
   :where(.card[data-card-layout="overlay"]) .card-body {
     margin-inline: 0;
     margin-block: 0;
@@ -157,6 +161,7 @@
   }
 
   /// Card expand on hover
+  @include output-rules-with-scope() {
   :is(.layout-grid--column-count-expand) {
 
     @for $i from 1 through 6 {
@@ -213,36 +218,42 @@
           height:100%;
         }
       }
-      :where(.card) {
-        aspect-ratio: 9/16;
-        background: grey;
-        max-width: min(100%, 100cqw);
-        max-height: 240px;
-        width: 100%;
-        .card-body__content {
-          opacity:0;
-          transform: translateY(20%);
-          transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      :where(.card) {        
+        @container content-grid (inline-size >= #{$container-lg}) {
+          aspect-ratio: 9/16;
+          max-width: min(100%, 100cqw);
+          max-height: 240px;
+          width: 100%;
+          .card-body__content {
+            opacity:0;
+            transform: translateY(20%);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            &:not(:has(.card-body__content__caption)) {
+              display: none;
+            }
+          }
         }
+        
         .card-picture {
+          --card-picture-aspect: none;
           img {
               width: 100%;
               height: 100%;         
-              transition: width 0.15s ease-in-out, height 0.15s ease-in-out;   
+              // transition: width 0.15s ease-in-out, height 0.15s ease-in-out;   
               &:nth-child(1) {
                 object-position: right;
               }
-            &:is(&:nth-child(3)) {
+            &:is(&:nth-child(1)) {
               position: relative;
-              opacity:0;
+              margin-inline: auto 0;
             }
-            &:is(&:nth-child(2), &:nth-child(1)) {
+            &:is(&:nth-child(2)) {
               position: absolute;
               top:0;
               right:0;
               object-fit: cover;
             }
-            &:nth-child(3) {
+            &:nth-child(1) {
               width:100%;
             }
           }
@@ -256,8 +267,13 @@
           }
         }
       }      
+      @container content-grid (inline-size >= #{$container-lg}) {
       > div:hover {
         max-height: 300px;
+        .card-body__content {
+          opacity:1;
+          transform: translateY(0);
+        }        
         .card-picture {
           img:is(:nth-child(2), :nth-child(1)) {
             width: min(65%, 65cqw);
@@ -272,6 +288,7 @@
           } 
         }
       }
+    }
       &:has(> div:is(:nth-child(1)):hover) {
         @container (inline-size >= #{$container-lg}) {
           --column-size-one: 5fr;
@@ -308,4 +325,5 @@
     }
 
   }
+}
 }
