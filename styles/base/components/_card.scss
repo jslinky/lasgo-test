@@ -101,129 +101,129 @@
       var(--space-lg)
     );
   }
-}
 
-:is(.card:has(.overlay-expand), .overlay-expand) {
-  --overlay-contracted-size: 3.5em;
-  .card-picture {
-    clip-path: inset(0 0 0 0);
-    transition: clip-path 0.2s ease-in-out;
-    img {
-      transition: scale 0.3s ease-in-out;
+  :is(.card:has(.overlay-expand), .overlay-expand) {
+    --overlay-contracted-size: 3.5em;
+    .card-picture {
+      clip-path: inset(0 0 0 0);
+      transition: clip-path 0.2s ease-in-out;
+      img {
+        transition: scale 0.3s ease-in-out;
+      }
     }
-  }
-  &:is(:hover) {
-    /* .card-picture {
+    &:is(:hover) {
+      /* .card-picture {
             transition-delay: 0.1s;            
         } */
+    }
   }
-}
 
-.overlay-expand {
-  &:before {
-    transition:
-      clip-path 0.3s ease-in-out,
-      background 0.3s ease-in-out;
-    content: "";
-    clip-path: inset(
-      calc(100% - var(--overlay-contracted-size))
-        calc(100% - var(--overlay-contracted-size)) 0 0
-    );
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color-primary);
-    z-index: -1;
-    /* mask: linear-gradient(to right, black 0%, black 80%); */
-  }
-  &:hover {
+  .overlay-expand {
     &:before {
-      background: color-mix(in oklch, var(--color-primary) 100%, transparent);
-      clip-path: inset(0 0 0 0);
-      /* mask: linear-gradient(to right, transparent 0%, black 80%); */
-    }
-  }
-}
-
-.card:has(.overlay-expand) {
-  &:hover {
-    .card-picture {
-      clip-path: inset(0 0 calc(var(--overlay-contracted-size)) 0);
-      img {
-        scale: 1.1;
-      }
-    }
-  }
-}
-
-/// Card expand on hover
-:is(.layout-grid--column-count-expand) {
-  &[class*="@lg:[--column-count:6]"] {
-    @container (inline-size >= #{$container-lg}) {
-      transition: 300ms;
-      transition-delay: 50ms;
-      --col-1: var(--column-size-one, 1fr);
-      --col-2: var(--column-size-two, 1fr);
-      --col-3: var(--column-size-three, 1fr);
-      --col-4: var(--column-size-four, 1fr);
-      --col-5: var(--column-size-five, 1fr);
-      --col-6: var(--column-size-six, 1fr);
-      --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3)
-        var(--col-4) var(--col-5) var(--col-6);
-      align-items: center;
-    }
-    :where(.card) {
-      aspect-ratio: 9/16;
-      background: grey;
-      max-width: min(100%, 100cqw);
-      max-height: 240px;
+      transition:
+        clip-path 0.3s ease-in-out,
+        background 0.3s ease-in-out;
+      content: "";
+      clip-path: inset(
+        calc(100% - var(--overlay-contracted-size))
+          calc(100% - var(--overlay-contracted-size)) 0 0
+      );
+      position: absolute;
+      inset: 0;
       width: 100%;
-      .card-body__content-slot img {
-        max-height: 20cqh;
+      height: 100%;
+      background: var(--color-primary);
+      z-index: -1;
+      /* mask: linear-gradient(to right, black 0%, black 80%); */
+    }
+    &:hover {
+      &:before {
+        background: color-mix(in oklch, var(--color-primary) 100%, transparent);
+        clip-path: inset(0 0 0 0);
+        /* mask: linear-gradient(to right, transparent 0%, black 80%); */
       }
-      &:has(.card-body__content-slot img) {
-        .card-picture img {
-          filter: blur(3px);
+    }
+  }
+
+  .card:has(.overlay-expand) {
+    &:hover {
+      .card-picture {
+        clip-path: inset(0 0 calc(var(--overlay-contracted-size)) 0);
+        img {
+          scale: 1.1;
         }
       }
     }
+  }
 
-    > div:hover {
-      max-height: 300px;
-    }
-    &:has(> div:is(:nth-child(1)):hover) {
+  /// Card expand on hover
+  :is(.layout-grid--column-count-expand) {
+    &[class*="@lg:[--column-count:6]"] {
       @container (inline-size >= #{$container-lg}) {
-        --column-size-one: 5fr;
+        transition: 300ms;
+        transition-delay: 50ms;
+        --col-1: var(--column-size-one, 1fr);
+        --col-2: var(--column-size-two, 1fr);
+        --col-3: var(--column-size-three, 1fr);
+        --col-4: var(--column-size-four, 1fr);
+        --col-5: var(--column-size-five, 1fr);
+        --col-6: var(--column-size-six, 1fr);
+        --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3)
+          var(--col-4) var(--col-5) var(--col-6);
+        align-items: center;
       }
-    }
-    &:has(> div:is(:nth-child(2)):hover) {
-      @container (inline-size >= #{$container-lg}) {
-        --column-size-two: 5fr;
+      :where(.card) {
+        aspect-ratio: 9/16;
+        background: grey;
+        max-width: min(100%, 100cqw);
+        max-height: 240px;
+        width: 100%;
+        .card-body__content-slot img {
+          max-height: 20cqh;
+        }
+        &:has(.card-body__content-slot img) {
+          .card-picture img {
+            filter: blur(3px);
+          }
+        }
       }
-    }
-    &:has(> div:is(:nth-child(3)):hover) {
-      @container (inline-size >= #{$container-lg}) {
-        --column-size-three: 5fr;
+
+      > div:hover {
+        max-height: 300px;
       }
-    }
-    &:has(> div:is(:nth-child(4)):hover) {
-      @container (inline-size >= #{$container-lg}) {
-        --column-size-four: 5fr;
+      &:has(> div:is(:nth-child(1)):hover) {
+        @container (inline-size >= #{$container-lg}) {
+          --column-size-one: 5fr;
+        }
       }
-    }
-    &:has(> div:is(:nth-child(5)):hover) {
-      @container (inline-size >= #{$container-lg}) {
-        --column-size-five: 5fr;
+      &:has(> div:is(:nth-child(2)):hover) {
+        @container (inline-size >= #{$container-lg}) {
+          --column-size-two: 5fr;
+        }
       }
-    }
-    &:has(> div:is(:nth-child(6)):hover) {
-      @container (inline-size >= #{$container-lg}) {
-        --column-size-six: 5fr;
+      &:has(> div:is(:nth-child(3)):hover) {
+        @container (inline-size >= #{$container-lg}) {
+          --column-size-three: 5fr;
+        }
       }
-    }
-    .card-picture {
-      max-width: min(100%, 100cqw);
+      &:has(> div:is(:nth-child(4)):hover) {
+        @container (inline-size >= #{$container-lg}) {
+          --column-size-four: 5fr;
+        }
+      }
+      &:has(> div:is(:nth-child(5)):hover) {
+        @container (inline-size >= #{$container-lg}) {
+          --column-size-five: 5fr;
+        }
+      }
+      &:has(> div:is(:nth-child(6)):hover) {
+        @container (inline-size >= #{$container-lg}) {
+          --column-size-six: 5fr;
+        }
+      }
+      .card-picture {
+        max-width: min(100%, 100cqw);
+      }
     }
   }
 }
