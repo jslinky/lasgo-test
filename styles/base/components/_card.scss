@@ -158,7 +158,45 @@
 
   /// Card expand on hover
   :is(.layout-grid--column-count-expand) {
-    &[class*="@lg:[--column-count:6]"] {
+
+    @for $i from 1 through 6 {
+      &[class*="@lg:[--column-count:#{$i}]"] {
+        @container (inline-size >= #{$container-lg}) {          
+          @if $i == 1 {
+            &:has(> div:only-child) {
+              --layout-grid-template-columns: var(--col-1);
+            }
+          }
+          @else if $i == 2 {
+            &:has(> div:nth-last-child(2)) {
+              --layout-grid-template-columns: var(--col-1) var(--col-2);
+            }
+          }
+          @else if $i == 3 {
+            &:has(> div:nth-last-child(3)) {
+              --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3);
+            }
+          }
+          @else if $i == 4 {
+            &:has(> div:nth-last-child(4)) {
+              --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3) var(--col-4);
+            }
+          }
+          @else if $i == 5 {
+            &:has(> div:nth-last-child(5)) {
+              --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3) var(--col-4) var(--col-5);
+            }
+          }
+          @else if $i == 6 {
+            &:has(> div:nth-last-child(6)) {
+              --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3) var(--col-4) var(--col-5) var(--col-6);
+            }
+          }
+        }
+      }
+    }
+
+    &:is([class*="@lg:[--column-count:"]) {
       @container (inline-size >= #{$container-lg}) {
         transition: 300ms;
         transition-delay: 50ms;
@@ -168,8 +206,8 @@
         --col-4: var(--column-size-four, 1fr);
         --col-5: var(--column-size-five, 1fr);
         --col-6: var(--column-size-six, 1fr);
-        --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3)
-          var(--col-4) var(--col-5) var(--col-6);
+        // --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3)
+        //   var(--col-4) var(--col-5) var(--col-6);
         align-items: center;
       }
       :where(.card) {
@@ -223,7 +261,75 @@
       }
       .card-picture {
         max-width: min(100%, 100cqw);
-      }
+      }      
+    }
+
+    &[class*="@lg:[--column-count:6]"] {
+      // @container (inline-size >= #{$container-lg}) {
+      //   transition: 300ms;
+      //   transition-delay: 50ms;
+      //   --col-1: var(--column-size-one, 1fr);
+      //   --col-2: var(--column-size-two, 1fr);
+      //   --col-3: var(--column-size-three, 1fr);
+      //   --col-4: var(--column-size-four, 1fr);
+      //   --col-5: var(--column-size-five, 1fr);
+      //   --col-6: var(--column-size-six, 1fr);
+      //   // --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3)
+      //   //   var(--col-4) var(--col-5) var(--col-6);
+      //   align-items: center;
+      // }
+      // :where(.card) {
+      //   aspect-ratio: 9/16;
+      //   background: grey;
+      //   max-width: min(100%, 100cqw);
+      //   max-height: 240px;
+      //   width: 100%;
+      //   .card-body__content-slot img {
+      //     max-height: 20cqh;
+      //   }
+      //   &:has(.card-body__content-slot img) {
+      //     .card-picture img {
+      //       filter: blur(3px);
+      //     }
+      //   }
+      // }
+
+      // > div:hover {
+      //   max-height: 300px;
+      // }
+      // &:has(> div:is(:nth-child(1)):hover) {
+      //   @container (inline-size >= #{$container-lg}) {
+      //     --column-size-one: 5fr;
+      //   }
+      // }
+      // &:has(> div:is(:nth-child(2)):hover) {
+      //   @container (inline-size >= #{$container-lg}) {
+      //     --column-size-two: 5fr;
+      //   }
+      // }
+      // &:has(> div:is(:nth-child(3)):hover) {
+      //   @container (inline-size >= #{$container-lg}) {
+      //     --column-size-three: 5fr;
+      //   }
+      // }
+      // &:has(> div:is(:nth-child(4)):hover) {
+      //   @container (inline-size >= #{$container-lg}) {
+      //     --column-size-four: 5fr;
+      //   }
+      // }
+      // &:has(> div:is(:nth-child(5)):hover) {
+      //   @container (inline-size >= #{$container-lg}) {
+      //     --column-size-five: 5fr;
+      //   }
+      // }
+      // &:has(> div:is(:nth-child(6)):hover) {
+      //   @container (inline-size >= #{$container-lg}) {
+      //     --column-size-six: 5fr;
+      //   }
+      // }
+      // .card-picture {
+      //   max-width: min(100%, 100cqw);
+      // }
     }
   }
 }

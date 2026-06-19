@@ -22102,7 +22102,37 @@
         scale: 1.1;
       }
       @container (inline-size >= 32rem) {
-        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"] {
+        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:1]"]:has(> div:only-child) {
+          --layout-grid-template-columns: var(--col-1);
+        }
+      }
+      @container (inline-size >= 32rem) {
+        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:2]"]:has(> div:nth-last-child(2)) {
+          --layout-grid-template-columns: var(--col-1) var(--col-2);
+        }
+      }
+      @container (inline-size >= 32rem) {
+        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:3]"]:has(> div:nth-last-child(3)) {
+          --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3);
+        }
+      }
+      @container (inline-size >= 32rem) {
+        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:4]"]:has(> div:nth-last-child(4)) {
+          --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3) var(--col-4);
+        }
+      }
+      @container (inline-size >= 32rem) {
+        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:5]"]:has(> div:nth-last-child(5)) {
+          --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3) var(--col-4) var(--col-5);
+        }
+      }
+      @container (inline-size >= 32rem) {
+        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"]:has(> div:nth-last-child(6)) {
+          --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3) var(--col-4) var(--col-5) var(--col-6);
+        }
+      }
+      @container (inline-size >= 32rem) {
+        :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) {
           transition: 300ms;
           transition-delay: 50ms;
           --col-1: var(--column-size-one, 1fr);
@@ -22111,58 +22141,56 @@
           --col-4: var(--column-size-four, 1fr);
           --col-5: var(--column-size-five, 1fr);
           --col-6: var(--column-size-six, 1fr);
-          --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3)
-            var(--col-4) var(--col-5) var(--col-6);
           align-items: center;
         }
       }
-      :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"] :where(.card) {
+      :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) {
         aspect-ratio: 9/16;
         background: grey;
         max-width: min(100%, 100cqw);
         max-height: 240px;
         width: 100%;
       }
-      :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"] :where(.card) .card-body__content-slot img {
+      :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-body__content-slot img {
         max-height: 20cqh;
       }
-      :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"] :where(.card):has(.card-body__content-slot img) .card-picture img {
+      :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card):has(.card-body__content-slot img) .card-picture img {
         filter: blur(3px);
       }
-      :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"] > div:hover {
+      :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover {
         max-height: 300px;
       }
       @container (inline-size >= 32rem) {
-        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"]:has(> div:is(:nth-child(1)):hover) {
+        :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(1)):hover) {
           --column-size-one: 5fr;
         }
       }
       @container (inline-size >= 32rem) {
-        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"]:has(> div:is(:nth-child(2)):hover) {
+        :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(2)):hover) {
           --column-size-two: 5fr;
         }
       }
       @container (inline-size >= 32rem) {
-        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"]:has(> div:is(:nth-child(3)):hover) {
+        :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(3)):hover) {
           --column-size-three: 5fr;
         }
       }
       @container (inline-size >= 32rem) {
-        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"]:has(> div:is(:nth-child(4)):hover) {
+        :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(4)):hover) {
           --column-size-four: 5fr;
         }
       }
       @container (inline-size >= 32rem) {
-        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"]:has(> div:is(:nth-child(5)):hover) {
+        :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(5)):hover) {
           --column-size-five: 5fr;
         }
       }
       @container (inline-size >= 32rem) {
-        :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"]:has(> div:is(:nth-child(6)):hover) {
+        :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(6)):hover) {
           --column-size-six: 5fr;
         }
       }
-      :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"] .card-picture {
+      :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) .card-picture {
         max-width: min(100%, 100cqw);
       }
     }
