@@ -209,6 +209,9 @@
         // --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3)
         //   var(--col-4) var(--col-5) var(--col-6);
         align-items: center;
+        > div:has(> .card) {
+          height:100%;
+        }
       }
       :where(.card) {
         aspect-ratio: 9/16;
@@ -224,15 +227,23 @@
         .card-picture {
           img {
               width: 100%;
-              height: 100%;            
-            &:first-child {
+              height: 100%;         
+              transition: width 0.15s ease-in-out, height 0.15s ease-in-out;   
+              &:nth-child(1) {
+                object-position: right;
+              }
+            &:is(&:nth-child(3)) {
               position: relative;
+              opacity:0;
             }
-            &:nth-child(2) {
+            &:is(&:nth-child(2), &:nth-child(1)) {
               position: absolute;
               top:0;
               right:0;
               object-fit: cover;
+            }
+            &:nth-child(3) {
+              width:100%;
             }
           }
         }
@@ -244,19 +255,20 @@
             filter: blur(3px);
           }
         }
-      }
-
+      }      
       > div:hover {
         max-height: 300px;
         .card-picture {
-          img {
-            width: min(50%, 50cqw);
+          img:is(:nth-child(2), :nth-child(1)) {
+            width: min(65%, 65cqw);
+          }
+          img:nth-child(1) {
+            mask: var(--column-expand-img-mask, linear-gradient(to right, transparent 0%, transparent 20%, black 100%));            
           }
           img:nth-child(2) {            
             left:auto;
             scale:1.2;
-            filter:blur(20px) brightness(0.75);            
-            mask: var(--column-expand-img-mask, linear-gradient(to right, transparent 0%, transparent 20%, black 100%));
+            filter:blur(20px) brightness(0.75);                        
           } 
         }
       }
