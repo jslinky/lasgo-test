@@ -6,6 +6,10 @@
     min-height: 100vh;
 }
 
+#{$card} {
+    transform: rotatey(calc(var(--i) * var(--ba))) translatez(calc(-1 * (0.875 * var(--w) + 0.875em) / tan(0.65 * var(--ba))));    
+}
+
 #{$card} > div {
     height:100%;
 }
