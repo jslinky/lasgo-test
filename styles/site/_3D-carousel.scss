@@ -9,3 +9,7 @@
 #{$card} > div {
     height:100%;
 }
+
+#{$card} .card {
+    display: flex;
+}

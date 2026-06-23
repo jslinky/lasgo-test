@@ -24119,6 +24119,9 @@
   .carousel-3d-scene__card > div {
     height: 100%;
   }
+  .carousel-3d-scene__card .card {
+    display: flex;
+  }
   .carousel-item {
     width: min((min(100vw - var(--wrapper-padding) * 2, var(--max-wrapper-width)) - var(--wrapper-padding) / 2) / var(--items-to-show, 4), 70vw);
   }
