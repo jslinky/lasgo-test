@@ -8776,6 +8776,54 @@
     opacity: 1;
     transform: translateY(0);
   }
+  /* ====== Relevant CSS ====== */
+  .carousel-3d-scene, .carousel-3d-scene__container {
+    display: grid;
+  }
+  .carousel-3d-scene {
+    /* prevent scrollbars */
+    overflow: hidden;
+    /* for 3D look; smaller = more extreme effect */
+    perspective: 35em;
+    mask: linear-gradient(90deg, rgba(0, 0, 0, 0), red 20% 80%, rgba(0, 0, 0, 0));
+  }
+  .carousel-3d-scene__container {
+    place-self: center;
+    /* don't flatten 3D transformed children 
+     * of this parent having its own 3D transform */
+    transform-style: preserve-3d;
+    animation: ry 32s linear infinite;
+  }
+  /* simplest y axis rotation */
+  /* simplest y axis rotation */
+  @keyframes ry {
+    to {
+      rotate: y 1turn;
+    }
+  }
+  .carousel-3d-scene__card {
+    /* base card width, you may change this */
+    --w: 17.5em;
+    /* compute base angle corresponding to a card */
+    --ba: 1turn/var(--n); /* in the future: sibling-count() */
+    grid-area: 1/1;
+    width: var(--w);
+    aspect-ratio: 7/10;
+    object-fit: cover;
+    border-radius: 1.5em;
+    /* don't want to see back of cards in front of screen plane */
+    backface-visibility: hidden;
+    /* need to use a transform chain here, cannot use separate 
+     * rotate & translate properties because they'd be applied 
+     * in wrong order (translate, then rotate) for what we need */
+    transform: rotatey(calc(var(--i) * var(--ba))) translatez(calc(-1 * (0.5 * var(--w) + 0.5em) / tan(0.5 * var(--ba))));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-3d-scene__container {
+      animation-duration: 128s;
+    }
+  }
+  /* ====== General page prettifying and layout ====== */
   /* TEMP - remove when tw integrated */
   .carousel-item {
     width: min((min(100vw - var(--wrapper-padding) * 2, var(--max-wrapper-width)) - var(--wrapper-padding) / 2) / var(--items-to-show, 4), 70vw);
