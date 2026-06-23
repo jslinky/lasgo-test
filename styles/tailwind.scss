@@ -46,6 +46,7 @@
 @source inline("{font}-{bold,semibold}");
 @source inline("{lg:}{bg}-{transparent}");
 @source inline("[{--heading-3xl-font-size-max,--heading-3xl-font-size-min,--heading-2xl-font-size-max,--heading-2xl-font-size-min,--heading-xl-font-size-max,--heading-xl-font-size-min}:{var(--display-xs),var(--display-sm),var(--display-md),var(--display-2xl)}]");
+@source inline("{w}-{screen,sm,md,lg,xl,2xl,max-wrapper-width}");
 
 // @import "small-style/dist/style.css";
 

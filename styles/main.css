@@ -1070,6 +1070,9 @@
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
+  .w-2xl {
+    width: var(--spacing-2xl);
+  }
   .w-4 {
     width: calc(var(--spacing) * 4);
   }
@@ -1139,8 +1142,20 @@
   .w-full\! {
     width: 100% !important;
   }
+  .w-lg {
+    width: var(--spacing-lg);
+  }
+  .w-md {
+    width: var(--spacing-md);
+  }
   .w-screen {
     width: 100vw;
+  }
+  .w-sm {
+    width: var(--spacing-sm);
+  }
+  .w-xl {
+    width: var(--spacing-xl);
   }
   .max-w-11\/12 {
     max-width: calc(11/12 * 100%);
