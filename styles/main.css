@@ -1070,9 +1070,6 @@
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
-  .w-2xl {
-    width: var(--spacing-2xl);
-  }
   .w-4 {
     width: calc(var(--spacing) * 4);
   }
@@ -1142,20 +1139,11 @@
   .w-full\! {
     width: 100% !important;
   }
-  .w-lg {
-    width: var(--spacing-lg);
-  }
-  .w-md {
-    width: var(--spacing-md);
-  }
   .w-screen {
     width: 100vw;
   }
-  .w-sm {
-    width: var(--spacing-sm);
-  }
-  .w-xl {
-    width: var(--spacing-xl);
+  .max-w-2xl {
+    max-width: var(--spacing-2xl);
   }
   .max-w-11\/12 {
     max-width: calc(11/12 * 100%);
@@ -1226,6 +1214,12 @@
   .max-w-full {
     max-width: 100%;
   }
+  .max-w-lg {
+    max-width: var(--spacing-lg);
+  }
+  .max-w-md {
+    max-width: var(--spacing-md);
+  }
   .max-w-prose {
     max-width: 65ch;
   }
@@ -1246,6 +1240,12 @@
   }
   .max-w-screen-xl {
     max-width: var(--breakpoint-xl);
+  }
+  .max-w-sm {
+    max-width: var(--spacing-sm);
+  }
+  .max-w-xl {
+    max-width: var(--spacing-xl);
   }
   .min-w-1\/2 {
     min-width: calc(1/2 * 100%);
