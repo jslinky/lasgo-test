@@ -24111,6 +24111,14 @@
       animation-duration: 128s;
     }
   }
+  .carousel-3d-scene {
+    width: 100vw;
+    margin-inline: calc(-50vw + 50%);
+    min-height: 100vh;
+  }
+  .carousel-3d-scene__card > div {
+    height: 100%;
+  }
   .carousel-item {
     width: min((min(100vw - var(--wrapper-padding) * 2, var(--max-wrapper-width)) - var(--wrapper-padding) / 2) / var(--items-to-show, 4), 70vw);
   }

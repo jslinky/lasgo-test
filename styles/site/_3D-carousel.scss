@@ -1,1 +1,11 @@
 @import "small-style/scss/extra/rules/components/carousel-3D";
+
+#{$scene} {
+    width:100vw;
+    margin-inline: calc(-50vw + 50%);
+    min-height: 100vh;
+}
+
+#{$card} > div {
+    height:100%;
+}
