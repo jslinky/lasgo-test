@@ -22038,8 +22038,8 @@
       @container ctas (inline-size > 300px) {
         .button:only-of-type {
           --button-padding-inline-wide: clamp(var(--text-frame-x), 10vw, calc(var(--text-frame-x) * 3));
-          --button-padding--inline-start: var(--button-padding-inline-wide);
-          --button-padding--inline-end: var(--button-padding-inline-wide);
+          --button-padding-inline-start: var(--button-padding-inline-wide);
+          --button-padding-inline-end: var(--button-padding-inline-wide);
         }
       }
       .card-body__content__ctas.\*\:contents .button__text {
