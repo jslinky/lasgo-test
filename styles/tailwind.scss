@@ -3,7 +3,8 @@
   $baseResetRulesScopeClassName: ":root:is(.new) :is(#body, .c-footer) *",
   $surface-colors: "primary" "secondary" "tertiary" "grey" "dark" "light" "primary-light" "brand-orange" "brand-red" "brand-yellow",
   $include-forms: false,
-  $button-selectors: '.button, .ss-button'
+  $button-selectors: '.button, .ss-button',
+  $colorIncludes: 'primary' 'secondary' 'tertiary' 'dark' 'light' 'grey' 'brand-orange' 'brand-red' 'brand-yellow',
 );
 @use "small-style/scss/base/mixins/rules/props/_colors" as *;
 @use "small-style/scss/base/variables/components/forms" as *;
