@@ -317,11 +317,11 @@
             .card-body__content-slot img {
               max-height: 20cqh;
             }
-            &:has(.card-body__content-slot img) {
-              .card-picture img {
-                filter: blur(3px);
-              }
-            }
+            // &:has(.card-body__content-slot img) {
+            //   .card-picture img {
+            //     filter: blur(3px);
+            //   }
+            // }
           }
         }
         @container content-grid (inline-size >= #{$container-lg}) {

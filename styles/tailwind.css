@@ -6905,9 +6905,6 @@
         :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-body__content-slot img {
           max-height: 20cqh;
         }
-        :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card):has(.card-body__content-slot img) .card-picture img {
-          filter: blur(3px);
-        }
       }
       @container content-grid (inline-size >= 32rem) {
         @media (hover) and (pointer: fine) {
