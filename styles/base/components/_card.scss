@@ -268,15 +268,21 @@
             max-width: min(100%, 100cqw);
             width: 100%;
             .card-body__content {
-              opacity: 0;
-              transform: translateY(20%);
-              transition:
-                opacity 0.3s ease-in-out,
-                transform 0.3s ease-in-out;
-              &:not(:has(.card-body__content__caption)) {
-                display: none;
+              > *:not(.card-body__content-slot) {
+                opacity: 0;
+                transform: translateY(20%);
+                transition:
+                  opacity 0.3s ease-in-out,
+                  transform 0.3s ease-in-out;
               }
+              // &:not(:has(.card-body__content__caption)) {
+              //   display: none;
+              // }
             }
+          }
+
+          .card-picture {
+            transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
           }
 
           :is(.card-picture, .card-picture img) {
@@ -323,8 +329,10 @@
             > div:hover {
               max-height: var(--card-max-height);
               .card-body__content {
-                opacity: 1;
-                transform: translateY(0);
+                > *:not(.card-body__content-slot) {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
               }
               .card-picture {
                 img:is(:nth-child(2), :nth-child(1)) {

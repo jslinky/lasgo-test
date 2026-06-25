@@ -22223,14 +22223,14 @@
           max-width: min(100%, 100cqw);
           width: 100%;
         }
-        :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-body__content {
+        :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-body__content > *:not(.card-body__content-slot) {
           opacity: 0;
           transform: translateY(20%);
           transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
-        :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-body__content:not(:has(.card-body__content__caption)) {
-          display: none;
-        }
+      }
+      :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-picture {
+        transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
       }
       :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) :is(.card-picture, .card-picture img) {
         max-height: var(--card-max-height);
@@ -22271,7 +22271,7 @@
           :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover {
             max-height: var(--card-max-height);
           }
-          :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover .card-body__content {
+          :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover .card-body__content > *:not(.card-body__content-slot) {
             opacity: 1;
             transform: translateY(0);
           }
@@ -24369,6 +24369,8 @@
     --color-primary-light-l: 0.97;
     --color-primary-light-c: var(--color-primary-c);
     --color-primary-light-h: 191.32;
+    --color-dark-contrast: var(--color-light);
+    --color-light-contrast: var(--color-dark);
     --font-family-base: "Inter", sans-serif;
     --font-family-heading: var(--font-family-base);
     --font-heading-weight: 900;
