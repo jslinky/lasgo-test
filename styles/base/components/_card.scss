@@ -271,9 +271,12 @@
             max-width: min(100%, 100cqw);
             width: 100%;
             &:has(.card-body__content__ctas) {
+              .card-body__content-slot {
+                transition: transform 0.3s ease-in-out;
+              }
               &:not(:hover) {
                 .card-body__content-slot {
-                  transform: translateY(2em);
+                  transform: translateY(4em);
                 }
               }              
             }
