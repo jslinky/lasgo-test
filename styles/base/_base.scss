@@ -20,4 +20,9 @@
     row-gap: 0;
     flex-basis: 100%;
   }
+
+  :where([class*="*:border"]):not(.button, .ss-button) {
+    border-color: var(--field-border-color, var(--color-grey-10, #d1d5db));
+  }  
+
 }

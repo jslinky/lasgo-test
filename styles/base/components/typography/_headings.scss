@@ -60,6 +60,10 @@
   display: block;
 }
 
+.heading > span:nth-last-of-type(2).text-default {
+  font-size: var(--font-size-base);
+}
+
 .line-across {
   display: flex;
   place-items: center;

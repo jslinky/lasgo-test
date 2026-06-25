@@ -36,8 +36,8 @@
   --color-brand-orange-c: 0.1125;
   --color-brand-orange-h: 59.9;
 
-  --color-primary-light-l: 0.7048;
-  --color-primary-light-c: 0.0799;
+  --color-primary-light-l: 0.97;
+  --color-primary-light-c: var(--color-primary-c);
   --color-primary-light-h: 191.32;
 
   --font-family-base: "Inter", sans-serif;
@@ -48,6 +48,7 @@
   --button-default-color: var(--color-grey-11);
   --button-default-color-contrast: var(--color-grey-11-contrast);
   --button-border-depth: 0.5;
+  --button-border-radius: calc(var(--radius) * 2);
   --button-font-weight: 700;
   --heading-2xl-text-transform: none;
   --heading-2xl-line-height: 1;

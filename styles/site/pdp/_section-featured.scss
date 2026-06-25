@@ -31,7 +31,10 @@
   > div:nth-child(1) {
     .card-picture {
       transform-origin: center;
-      transition: scale 100ms linear(0, 0.5 25% 75%, 1);
+      transition:
+        scale 100ms #{$ease-elastic-in-out-1},
+        opacity 100ms #{$ease-elastic-in-out-1},
+        box-shadow 100ms #{$ease-elastic-in-out-1};
     }
   }
 
@@ -73,27 +76,37 @@
   .card-picture {
     overflow: clip;
     border-radius: var(--radius);
+    box-shadow: 0 0 0 hsl(0deg 0% 0% / 0.3);
   }
   .card-body:before {
-    transition: scale 100ms linear(0, 0.5 25% 75%, 1);
+    transition: scale 100ms #{$ease-elastic-in-out-1};
   }
-  .card:hover {
-    animation: expandCard 100ms linear(0, 0.5 25% 75%, 1) forwards;
+  @media #{$mouse} {
+    .card:hover {
+      animation: expandCard 300ms #{$ease-elastic-in-out-1} forwards;
 
-    .card-picture {
-      z-index: 2;
-      scale: 1.05;
-    }
-    .card-body {
-      z-index: 3;
-      &:before {
-        background: oklch(from var(--color-dark) l c h / 0.2);
-        transform-origin: center;
-        border-radius: var(--radius);
-        animation: expandCard 100ms linear(0, 0.5 25% 75%, 1) forwards;
-
-        filter: blur(21px);
+      .card-picture {
+        z-index: 2;
+        scale: 1.05;
+        box-shadow: 6.3px 12.6px 12.6px hsl(0deg 0% 0% / 0.3);
       }
+      .card-body {
+        z-index: 3;
+        &:before {
+          background: oklch(from var(--color-dark) l c h / 0.2);
+          transform-origin: center;
+          border-radius: var(--radius);
+          animation: expandCard 100ms ease-in forwards;
+
+          filter: blur(21px);
+        }
+      }
+    }
+  }
+  @media #{$mouse} {
+    &:hover:has(> div:hover) > div:not(:hover) {
+      scale: 0.95;
+      opacity: 0.8;
     }
   }
 }
