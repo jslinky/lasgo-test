@@ -40,6 +40,9 @@
   --color-primary-light-c: var(--color-primary-c);
   --color-primary-light-h: 191.32;
 
+  --color-dark-contrast: var(--color-light);
+  --color-light-contrast: var(--color-dark);
+
   --font-family-base: "Inter", sans-serif;
   --font-family-heading: var(--font-family-base);
   --font-heading-weight: 900;
