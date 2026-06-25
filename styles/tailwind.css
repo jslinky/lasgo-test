@@ -6836,6 +6836,8 @@
       }
       :root:is(.new) :is(.layout-grid--column-count-expand) :where(.card) {
         --card-background-color: var(--color-dark);
+      }
+      :root:is(.new) :is(.layout-grid--column-count-expand) :where(.card) .card-body {
         --card-body-padding-inline: var(--space-2xs);
       }
       @container (inline-size >= 32rem) {
