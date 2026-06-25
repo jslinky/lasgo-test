@@ -6882,10 +6882,9 @@
           opacity: 0;
           transform: translateY(20%);
           transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-          transition-delay: 350ms;
         }
       }
-      :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-picture {
+      :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) :is(.card-picture, .card-picture img) {
         transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
       }
       :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) :is(.card-picture, .card-picture img) {
@@ -6927,6 +6926,7 @@
           :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover .card-body__content > *:not(.card-body__content-slot) {
             opacity: 1;
             transform: translateY(0);
+            transition-delay: 350ms;
           }
           :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover .card-picture img:is(:nth-child(2), :nth-child(1)) {
             width: min(65%, 65cqw);

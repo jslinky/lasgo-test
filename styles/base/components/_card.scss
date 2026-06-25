@@ -291,8 +291,7 @@
                 transform: translateY(20%);
                 transition:
                   opacity 0.3s ease-in-out,
-                  transform 0.3s ease-in-out;
-                  transition-delay: 350ms;
+                  transform 0.3s ease-in-out;                  
               }
               // &:not(:has(.card-body__content__caption)) {
               //   display: none;
@@ -300,7 +299,7 @@
             }
           }
 
-          .card-picture {
+          :is(.card-picture, .card-picture img) {
             transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
           }
 
@@ -351,6 +350,7 @@
                 > *:not(.card-body__content-slot) {
                   opacity: 1;
                   transform: translateY(0);
+                  transition-delay: 350ms;
                 }
               }
               .card-picture {
