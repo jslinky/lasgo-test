@@ -238,6 +238,7 @@
 
       :where(.card) {
         --card-background-color: var(--color-dark);
+        --card-body-padding-inline: var(--space-2xs);
       }
 
       &:is([class*="@lg:[--column-count:"]) {

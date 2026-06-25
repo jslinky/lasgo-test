@@ -22193,6 +22193,7 @@
       }
       :root:is(.new) :is(.layout-grid--column-count-expand) :where(.card) {
         --card-background-color: var(--color-dark);
+        --card-body-padding-inline: var(--space-2xs);
       }
       @container (inline-size >= 32rem) {
         :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) {
