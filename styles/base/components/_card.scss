@@ -270,6 +270,18 @@
             --card-max-height: var(--card-max-height-lg);
             max-width: min(100%, 100cqw);
             width: 100%;
+            &:has(.card-body__content__ctas) {
+              &:not(:hover) {
+                .card-body__content-slot {
+                  transform: translateY(2em);
+                }
+              }              
+            }
+            .card-body__content__ctas {
+              .button {
+                width: fit-content;
+              }
+            }
             .card-body__content {
               > *:not(.card-body__content-slot) {
                 opacity: 0;
@@ -277,6 +289,7 @@
                 transition:
                   opacity 0.3s ease-in-out,
                   transform 0.3s ease-in-out;
+                  transition-delay: 350ms;
               }
               // &:not(:has(.card-body__content__caption)) {
               //   display: none;
