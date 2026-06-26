@@ -1,3 +1,7 @@
+@use "small-style/scss/base/mixins/rules/components/buttons" as *;
+
 :where(.button) {
   text-decoration: none;
+  content: 'justin';
+  @include gen-button-color-variations(('brand-orange' 'brand-red' 'brand-yellow'));
 }

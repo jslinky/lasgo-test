@@ -4,6 +4,7 @@
   $surface-colors: "primary" "secondary" "tertiary" "grey" "dark" "light" "primary-light" "brand-orange" "brand-red" "brand-yellow",
   $include-forms: false,
   $button-selectors: '.button, .ss-button',
+  $colorNamePrefix: 'color-',  
   $colorIncludes: 'primary' 'secondary' 'tertiary' 'dark' 'light' 'grey' 'brand-orange' 'brand-red' 'brand-yellow',
 );
 @use "small-style/scss/base/mixins/rules/props/_colors" as *;

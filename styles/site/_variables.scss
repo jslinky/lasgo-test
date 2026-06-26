@@ -15,3 +15,5 @@ $wrapperSelector: '.container_16:has(.searchResultsWrapper)';
 $layoutGridSelector: '.container_16:has(.searchResultsWrapper) > .grid_16';
 $asideSelector: '.content-grid__aside, #{$layoutGridSelector} > .grid_4';
 $contentAreaSelector: '.searchResultsWrapper';
+
+$brand-orange: oklch(var(--color-brand-orange-l) var(--color-brand-orange-c) var(--color-brand-orange-h));
