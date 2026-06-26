@@ -358,11 +358,19 @@ div.scanlines {
       bottom: auto;
     }
     .card {
-      --card-top-row: 1fr;
-      --card-bottom-row: min-content;
+      &:not([class*="data-card-row-content-0"]) {
+        --card-top-row: 1fr;
+      }
+      &:not([class*="data-card-row-content-1"]) {
+        --card-bottom-row: min-content;
+      }
       &[data-card-row-reverse-order] {
-        --card-top-row: min-content;
+        &:not([class*="data-card-row-content-0"]) {
+          --card-top-row: min-content;
+        }
+        &:not([class*="data-card-row-content-1"]) {
         --card-bottom-row: 1fr;
+        }
         :where(.card-picture):not(:empty) :where(img) {
           top: auto;
           bottom: 0;

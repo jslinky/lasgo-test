@@ -7833,12 +7833,16 @@
       top: 0;
       bottom: auto;
     }
-    .hero.hero-test .card {
+    .hero.hero-test .card:not([class*=data-card-row-content-0]) {
       --card-top-row: 1fr;
+    }
+    .hero.hero-test .card:not([class*=data-card-row-content-1]) {
       --card-bottom-row: min-content;
     }
-    .hero.hero-test .card[data-card-row-reverse-order] {
+    .hero.hero-test .card[data-card-row-reverse-order]:not([class*=data-card-row-content-0]) {
       --card-top-row: min-content;
+    }
+    .hero.hero-test .card[data-card-row-reverse-order]:not([class*=data-card-row-content-1]) {
       --card-bottom-row: 1fr;
     }
     .hero.hero-test .card[data-card-row-reverse-order] :where(.card-picture):not(:empty) :where(img) {
