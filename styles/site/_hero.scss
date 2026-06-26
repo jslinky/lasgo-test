@@ -358,17 +358,17 @@ div.scanlines {
       bottom: auto;
     }
     .card {
-      &:not([data-card-row-content-0]) {
+      &:not([data-card-row-content-0-size]) {
         --card-top-row: 1fr;
       }
-      &:not([data-card-row-content-1]) {
+      &:not([data-card-row-content-1-size]) {
         --card-bottom-row: min-content;
       }
       &[data-card-row-reverse-order] {
-        &:not([data-card-row-content-0]) {
+        &:not([data-card-row-content-0-size]) {
           --card-top-row: min-content;
         }
-        &:not([data-card-row-content-1]) {
+        &:not([data-card-row-content-1-size]) {
         --card-bottom-row: 1fr;
         }
         :where(.card-picture):not(:empty) :where(img) {
