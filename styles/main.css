@@ -23305,7 +23305,7 @@
     --heading-3xl-font-size-max: var(--display-2xl);
   }
   .hero.hero-test {
-    container-type: size;
+    container-type: size !important;
   }
   @container (inline-size < 80ch) {
     .hero.hero-test :where(.card-picture):not(:empty) :where(img) {

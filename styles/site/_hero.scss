@@ -350,7 +350,7 @@ div.scanlines {
 ////// new hero experiment
 ///
 .hero.hero-test {
-  container-type: size;
+  container-type: size!important;
   @container (inline-size < 80ch) {
     :where(.card-picture):not(:empty) :where(img) {
       height: 100cqh;
