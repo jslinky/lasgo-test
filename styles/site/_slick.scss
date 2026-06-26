@@ -1,5 +1,7 @@
 .slick-dots {
   background: transparent;
+  width: 100%;
+  container: none;
 }
 
 :where(.layout-grid.slick-slider) .slick-dots {
@@ -26,10 +28,6 @@
     background-repeat: no-repeat;
     background-position: center;
   }
-}
-
-.slick-dots {
-  container: none;
 }
 
 .slick-dots button {

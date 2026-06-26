@@ -23304,6 +23304,27 @@
   .hero--expanded .card-body__content__caption-title.fluid-cq {
     --heading-3xl-font-size-max: var(--display-2xl);
   }
+  .hero.hero-test {
+    container-type: size;
+  }
+  @container (inline-size < 80ch) {
+    .hero.hero-test .card {
+      --card-top-row: 1fr;
+      --card-bottom-row: min-content;
+    }
+    .hero.hero-test .card-picture {
+      position: relative;
+      width: 100vw;
+      margin-inline: calc(-50vw + 50%);
+    }
+    .hero.hero-test .card-picture > img:first-of-type {
+      position: absolute;
+      height: 100%;
+    }
+    .hero.hero-test :where(.card-picture):not(:empty) :where(img) {
+      height: 100cqh;
+    }
+  }
   .lasgo-artwork {
     --track-size: min(1.5cqmin, 0.85rem);
     --spring-easing: linear(0, 0.0018, 0.0069 1.16%, 0.0262 2.32%, 0.0642, 0.1143 5.23%, 0.2244 7.84%, 0.5881 15.68%, 0.6933, 0.7839, 0.8591, 0.9191 26.13%, 0.9693, 1.0044 31.93%, 1.0234, 1.0358 36.58%, 1.0434 39.19%, 1.046 42.39%, 1.0446 44.71%, 1.0404 47.61%, 1.0118 61.84%, 1.0028 69.39%, 0.9981 80.42%, 0.9991 99.87%);
@@ -24335,6 +24356,8 @@
   }
   .slick-dots {
     background: transparent;
+    width: 100%;
+    container: none;
   }
   :where(.layout-grid.slick-slider) .slick-dots {
     position: relative;
@@ -24358,9 +24381,6 @@
     background-size: 1.5rem;
     background-repeat: no-repeat;
     background-position: center;
-  }
-  .slick-dots {
-    container: none;
   }
   .slick-dots button {
     font-size: 0;

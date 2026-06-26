@@ -346,3 +346,31 @@ div.scanlines {
 .hero--expanded .card-body__content__caption-title.fluid-cq {
   --heading-3xl-font-size-max: var(--display-2xl);
 }
+
+////// new hero experiment
+///
+.hero.hero-test {
+  container-type: size;
+  @container (inline-size < 80ch) {
+    .card {
+      --card-top-row: 1fr;
+      --card-bottom-row: min-content;
+    }
+    .card-picture {
+      position: relative;
+      width: 100vw;
+      margin-inline: calc(-50vw + 50%);      
+      > img {
+        &:first-of-type {
+          position: absolute;
+          height: 100%;
+        }
+      }
+    }
+    :where(.card-picture):not(:empty) :where(img) {
+      height: 100cqh;
+    }
+  }
+}
+
+
