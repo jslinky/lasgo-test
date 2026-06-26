@@ -352,7 +352,7 @@ div.scanlines {
 .hero {
   container-type: size!important;
   @container (inline-size < 80ch) {
-    :where(.card-picture):not(:empty) :where(img) {
+    .card-picture:not(:empty) :where(img) {
       height: 100cqh;
       top: 0;
       bottom: auto;
@@ -371,7 +371,7 @@ div.scanlines {
         &:not([data-card-row-content-1-size]) {
         --card-bottom-row: 1fr;
         }
-        :where(.card-picture):not(:empty) :where(img) {
+        .card-picture:not(:empty) :where(img) {
           top: auto;
           bottom: 0;
         }

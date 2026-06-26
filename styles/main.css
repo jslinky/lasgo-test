@@ -23308,7 +23308,7 @@
     container-type: size !important;
   }
   @container (inline-size < 80ch) {
-    .hero :where(.card-picture):not(:empty) :where(img) {
+    .hero .card-picture:not(:empty) :where(img) {
       height: 100cqh;
       top: 0;
       bottom: auto;
@@ -23325,7 +23325,7 @@
     .hero .card[data-card-row-reverse-order]:not([data-card-row-content-1-size]) {
       --card-bottom-row: 1fr;
     }
-    .hero .card[data-card-row-reverse-order] :where(.card-picture):not(:empty) :where(img) {
+    .hero .card[data-card-row-reverse-order] .card-picture:not(:empty) :where(img) {
       top: auto;
       bottom: 0;
     }
