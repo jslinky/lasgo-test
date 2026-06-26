@@ -352,14 +352,27 @@ div.scanlines {
 .hero.hero-test {
   container-type: size;
   @container (inline-size < 80ch) {
+    :where(.card-picture):not(:empty) :where(img) {
+      height: 100cqh;
+      top: 0;
+      bottom: auto;
+    }
     .card {
       --card-top-row: 1fr;
       --card-bottom-row: min-content;
+      &[data-card-row-reverse-order] {
+        --card-top-row: min-content;
+        --card-bottom-row: 1fr;
+        :where(.card-picture):not(:empty) :where(img) {
+          top: auto;
+          bottom: 0;
+        }
+      }
     }
     .card-picture {
       position: relative;
       width: 100vw;
-      margin-inline: calc(-50vw + 50%);      
+      margin-inline: calc(-50vw + 50%);
       > img {
         &:first-of-type {
           position: absolute;
@@ -367,10 +380,5 @@ div.scanlines {
         }
       }
     }
-    :where(.card-picture):not(:empty) :where(img) {
-      height: 100cqh;
-    }
   }
 }
-
-
