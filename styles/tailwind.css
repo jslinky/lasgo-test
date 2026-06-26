@@ -7824,37 +7824,37 @@
   .hero--expanded .card-body__content__caption-title.fluid-cq {
     --heading-3xl-font-size-max: var(--display-2xl);
   }
-  .hero.hero-test {
+  .hero {
     container-type: size !important;
   }
   @container (inline-size < 80ch) {
-    .hero.hero-test :where(.card-picture):not(:empty) :where(img) {
+    .hero :where(.card-picture):not(:empty) :where(img) {
       height: 100cqh;
       top: 0;
       bottom: auto;
     }
-    .hero.hero-test .card:not([data-card-row-content-0-size]) {
+    .hero .card:not([data-card-row-content-0-size]) {
       --card-top-row: 1fr;
     }
-    .hero.hero-test .card:not([data-card-row-content-1-size]) {
+    .hero .card:not([data-card-row-content-1-size]) {
       --card-bottom-row: min-content;
     }
-    .hero.hero-test .card[data-card-row-reverse-order]:not([data-card-row-content-0-size]) {
+    .hero .card[data-card-row-reverse-order]:not([data-card-row-content-0-size]) {
       --card-top-row: min-content;
     }
-    .hero.hero-test .card[data-card-row-reverse-order]:not([data-card-row-content-1-size]) {
+    .hero .card[data-card-row-reverse-order]:not([data-card-row-content-1-size]) {
       --card-bottom-row: 1fr;
     }
-    .hero.hero-test .card[data-card-row-reverse-order] :where(.card-picture):not(:empty) :where(img) {
+    .hero .card[data-card-row-reverse-order] :where(.card-picture):not(:empty) :where(img) {
       top: auto;
       bottom: 0;
     }
-    .hero.hero-test .card-picture {
+    .hero .card-picture {
       position: relative;
       width: 100vw;
       margin-inline: calc(-50vw + 50%);
     }
-    .hero.hero-test .card-picture > img:first-of-type {
+    .hero .card-picture > img:first-of-type {
       position: absolute;
       height: 100%;
     }

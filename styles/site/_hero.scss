@@ -347,9 +347,9 @@ div.scanlines {
   --heading-3xl-font-size-max: var(--display-2xl);
 }
 
-////// new hero experiment
+////// new hero mobile fixes
 ///
-.hero.hero-test {
+.hero {
   container-type: size!important;
   @container (inline-size < 80ch) {
     :where(.card-picture):not(:empty) :where(img) {
