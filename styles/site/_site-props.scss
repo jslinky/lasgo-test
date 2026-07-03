@@ -1,5 +1,5 @@
 :root {
-  --test: 1;
+  --line-height-base: 1.42; // reset to existing line-height. apply new line height to scoped styles
   // Colors
   --color-primary-l: 0.3835;
   --color-primary-c: 0.0679;

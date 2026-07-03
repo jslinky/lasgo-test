@@ -9295,6 +9295,9 @@
     display: flex;
   }
   /* TEMP - remove when tw integrated */
+  :root:is(.new) #body {
+    line-height: calc(var(--line-height-relative, 1.4em) + var(--line-height-fixed, 0.375rem));
+  }
   .carousel-item {
     width: min((min(100vw - var(--wrapper-padding) * 2, var(--max-wrapper-width)) - var(--wrapper-padding) / 2) / var(--items-to-show, 4), 70vw);
   }
@@ -9410,7 +9413,7 @@
 }
 @layer site-props {
   :root {
-    --test: 1;
+    --line-height-base: 1.42;
     --color-primary-l: 0.3835;
     --color-primary-c: 0.0679;
     --color-primary-h: 215.42;
