@@ -20,10 +20,15 @@
 }
 
 @theme static {
-  --text-display-xs: var(--display-xs);
-  --text-display-sm: var(--display-sm);
-  --text-display-md: var(--display-md);
-  --text-display-lg: var(--display-lg);
+
+  @each $key, $value in $font-size-list {
+    --text-#{$key}: var(--#{$key});
+  }
+
+  // --text-display-xs: var(--display-xs);
+  // --text-display-sm: var(--display-sm);
+  // --text-display-md: var(--display-md);
+  // --text-display-lg: var(--display-lg);
 
   --spacing-3xs: var(--space-3xs);
   --spacing-2xs: var(--space-2xs);

@@ -1,4 +1,5 @@
 :root {
+  --test: 1;
   // Colors
   --color-primary-l: 0.3835;
   --color-primary-c: 0.0679;
@@ -43,11 +44,12 @@
   --color-dark-contrast: var(--color-light);
   --color-light-contrast: var(--color-dark);
 
+  --color-heading: var(--color-dark);
   --font-family-base: "Inter", sans-serif;
   --font-family-heading: var(--font-family-base);
   --font-heading-weight: 900;
-  --root-fg: var(--color-dark-5);
-
+  --root-fg: var(--color-grey-5);
+  --root-fg-muted: var(--color-grey-6);
   --button-default-color: var(--color-grey-11);
   --button-default-color-contrast: var(--color-grey-11-contrast);
   --button-border-depth: 0.5;
@@ -60,8 +62,7 @@
 
   --color-grey-c: 0.01;
 
-  --root-fg: var(--color-dark);
-  --root-fg-muted: var(--color-grey-6);
+
 
   // Wrappers
   --root-max-wrapper-width: 1275;
@@ -94,7 +95,7 @@
   --unit-min: var(--unit-max, 1rem) / 1.5;
 
   // Hero
-  --hero-height: min(520px, 80vh);
+  --hero-height: min(460px, 80vh);
   --header-height: 169px;
   --hero-height-expanded: calc(var(--header-height) + var(--hero-height));
 

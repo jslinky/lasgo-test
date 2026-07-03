@@ -159,6 +159,7 @@
     'Noto Color Emoji';
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
+    --color-red-100: oklch(93.6% 0.032 17.717);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-sky-700: oklch(50% 0.134 242.749);
     --color-pink-900: oklch(40.8% 0.153 2.432);
@@ -175,15 +176,15 @@
     --breakpoint-lg: 64rem;
     --breakpoint-xl: 80rem;
     --breakpoint-2xl: 96rem;
-    --text-xs: 0.75rem;
+    --text-xs: var(--xs);
     --text-xs--line-height: calc(1 / 0.75);
-    --text-sm: 0.875rem;
+    --text-sm: var(--sm);
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
-    --text-lg: 1.125rem;
+    --text-lg: var(--lg);
     --text-lg--line-height: calc(1.75 / 1.125);
-    --text-xl: 1.25rem;
+    --text-xl: var(--xl);
     --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
@@ -319,10 +320,14 @@
     --color-tertiary-contrast: oklch(from var(--color, var(--color-tertiary)) clamp(var(--color-tertiary-contrast-lightest-text, var(--contrast-lightest-text, 0)), (l / var(--contrast-threshold, 0.623) - 1) * -infinity, var(--color-tertiary-contrast-darkest-text, var(--contrast-darkest-text, 1))) 0 h);
     --color-dark-contrast: oklch(from var(--color, var(--color-dark)) clamp(var(--color-dark-contrast-lightest-text, var(--contrast-lightest-text, 0)), (l / var(--contrast-threshold, 0.623) - 1) * -infinity, var(--color-dark-contrast-darkest-text, var(--contrast-darkest-text, 1))) 0 h);
     --color-light-contrast: oklch(from var(--color, var(--color-light)) clamp(var(--color-light-contrast-lightest-text, var(--contrast-lightest-text, 0)), (l / var(--contrast-threshold, 0.623) - 1) * -infinity, var(--color-light-contrast-darkest-text, var(--contrast-darkest-text, 1))) 0 h);
+    --text-xxs: var(--xxs);
+    --text-md: var(--md);
     --text-display-xs: var(--display-xs);
     --text-display-sm: var(--display-sm);
     --text-display-md: var(--display-md);
     --text-display-lg: var(--display-lg);
+    --text-display-xl: var(--display-xl);
+    --text-display-2xl: var(--display-2xl);
     --spacing-3xs: var(--space-3xs);
     --spacing-2xs: var(--space-2xs);
     --spacing-xs: var(--space-xs);
@@ -430,6 +435,9 @@
   }
   .top-1\/2 {
     top: calc(1/2 * 100%);
+  }
+  .top-1\/5 {
+    top: calc(1/5 * 100%);
   }
   .top-9 {
     top: calc(var(--spacing) * 9);
@@ -1759,6 +1767,9 @@
   }
   .bg-primary-11 {
     background-color: var(--color-primary-11);
+  }
+  .bg-red-100 {
+    background-color: var(--color-red-100);
   }
   .bg-secondary {
     background-color: var(--color-secondary);
@@ -8578,6 +8589,11 @@
   .\@lg\:relative {
     @container (width >= 32rem) {
       position: relative;
+    }
+  }
+  .\@lg\:bottom-md {
+    @container (width >= 32rem) {
+      bottom: var(--spacing-md);
     }
   }
   .\@lg\:col-span-1 {
@@ -15503,6 +15519,7 @@
     font-size: var(--font-size-base);
     color: var(--root-fg, var(--color-dark, #1d1d1d));
     background-color: var(--root-bg, var(--color-light, #fff));
+    line-height: var(--line-height-base, calc(var(--line-height-relative, 1.4em) + var(--line-height-fixed, 0.375rem)));
   }
   :root:is(.new) :where(a):not(.button, .ss-button) {
     text-decoration: none;
@@ -15624,7 +15641,7 @@
       text-transform: var(--text-transform);
       letter-spacing: var(--letter-spacing, normal);
       line-height: var(--line-height, inherit);
-      color: var(--color, var(--color-heading, var(--color-dark)));
+      color: var(--color, var(--color-heading, inherit));
       font-family: var(--font-family, var(--font-family-heading));
       font-weight: var(--font-weight, var(--font-heading-weight, 600));
     }
@@ -15679,7 +15696,7 @@
       --text-transform: var(--heading-2xl-text-transform, uppercase);
       --letter-spacing: var(--heading-2xl-letter-spacing, 0);
       --line-height: var(--heading-2xl-line-height, 1.2);
-      --color: var(--heading-2xl-color, inherit);
+      --color-heading: var(--heading-2xl-color, inherit);
       --font-family: var(--heading-2xl-font-family, var(--font-family-heading));
     }
     :root:is(.new) :where(h2), :root:is(.new) :is(.heading-xl) {
@@ -15712,7 +15729,7 @@
       --text-transform: var(--heading-xl-text-transform, uppercase);
       --letter-spacing: var(--heading-xl-letter-spacing, 0);
       --line-height: var(--heading-xl-line-height, 1.3);
-      --color: var(--heading-xl-color, inherit);
+      --color-heading: var(--heading-xl-color, inherit);
       --font-family: var(--heading-xl-font-family, var(--font-family-heading));
     }
     :root:is(.new) :where(h3), :root:is(.new) :is(.heading-lg) {
@@ -15745,7 +15762,7 @@
       --text-transform: var(--heading-lg-text-transform, uppercase);
       --letter-spacing: var(--heading-lg-letter-spacing, 0);
       --line-height: var(--heading-lg-line-height, 1.2);
-      --color: var(--heading-lg-color, inherit);
+      --color-heading: var(--heading-lg-color, inherit);
       --font-family: var(--heading-lg-font-family, var(--font-family-heading));
     }
     :root:is(.new) :where(h4), :root:is(.new) :is(.heading-default) {
@@ -15778,7 +15795,7 @@
       --text-transform: var(--heading-default-text-transform, uppercase);
       --letter-spacing: var(--heading-default-letter-spacing, 0);
       --line-height: var(--heading-default-line-height, 1.2);
-      --color: var(--heading-default-color, inherit);
+      --color-heading: var(--heading-default-color, inherit);
       --font-family: var(--heading-default-font-family, var(--font-family-heading));
     }
     :root:is(.new) :where(h5), :root:is(.new) :is(.heading-sm) {
@@ -15811,7 +15828,7 @@
       --text-transform: var(--heading-sm-text-transform, uppercase);
       --letter-spacing: var(--heading-sm-letter-spacing, normal);
       --line-height: var(--heading-sm-line-height, normal);
-      --color: var(--heading-sm-color, inherit);
+      --color-heading: var(--heading-sm-color, inherit);
       --font-family: var(--heading-sm-font-family, var(--font-family-heading));
     }
     :root:is(.new) :where(h6), :root:is(.new) :is(.heading-xs) {
@@ -15844,7 +15861,7 @@
       --text-transform: var(--heading-xs-text-transform, uppercase);
       --letter-spacing: var(--heading-xs-letter-spacing, normal);
       --line-height: var(--heading-xs-line-height, normal);
-      --color: var(--heading-xs-color, inherit);
+      --color-heading: var(--heading-xs-color, inherit);
       --font-family: var(--heading-xs-font-family, var(--font-family-heading));
     }
     :root:is(.new) :is(.heading-3xl) {
@@ -15877,7 +15894,7 @@
       --text-transform: var(--heading-3xl-text-transform, none);
       --letter-spacing: var(--heading-3xl-letter-spacing, normal);
       --line-height: var(--heading-3xl-line-height, normal);
-      --color: var(--heading-3xl-color, inherit);
+      --color-heading: var(--heading-3xl-color, inherit);
       --font-family: var(--heading-3xl-font-family, var(--font-family-heading));
     }
   }
@@ -22203,7 +22220,7 @@
     --text-transform: var(--heading-default-text-transform, none);
     --letter-spacing: var(--heading-default-letter-spacing, normal);
     --line-height: var(--heading-default-line-height, normal);
-    --color: var(--heading-default-color, inherit);
+    --color-heading: var(--heading-default-color, inherit);
     --font-family: var(--heading-default-font-family, var(--font-family-heading));
   }
   .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])) {
@@ -23146,7 +23163,7 @@
       var(--color-dark) 50%
     );
     }
-    --card-backdrop-color-stop-from-opacity: 0.7;
+    --card-backdrop-color-stop-from-opacity: 0.2;
     --card-backdrop-color-stop-to-opacity: 0.7;
   }
   .hero--expanded .card :is(.card-body__content, .card-picture) {
@@ -23338,6 +23355,84 @@
       position: absolute;
       height: 100%;
     }
+  }
+  .hero__cat-reveal {
+    --font-size: 3rem;
+    font-size: var(--font-size);
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-heading-weight);
+    color: var(--color-tertiary);
+    height: 3em;
+    overflow: hidden;
+    width: fit-content;
+    perspective: 1200px;
+    mask: linear-gradient(180deg, transparent, black 35%, black 65%, transparent);
+    transform-origin: right;
+  }
+  .hero__cat-reveal ul {
+    list-style: none;
+    display: grid;
+    grid-auto-rows: auto;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(calc((-100% + 1em) / var(--item-count, 4) * var(--slide-index, 0)));
+  }
+  .hero__cat-reveal ul.is-resetting {
+    transition: none;
+  }
+  .hero__cat-reveal li {
+    display: flex;
+    padding: 0;
+    height: 1em;
+    border: 0;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+    line-height: 1;
+    opacity: 0.3;
+    transform: rotateX(-20deg) scale(0.98);
+    transform-origin: center center;
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), opacity 220ms ease-out;
+  }
+  .hero__cat-reveal li:first-of-type {
+    margin-top: 1em;
+    position: relative;
+  }
+  .hero__cat-reveal li:first-of-type:before {
+    content: var(--last-item-text, "Consumer Electronics");
+    position: absolute;
+    right: 0;
+    opacity: 0.3;
+    transform: translateY(-100%) rotateX(-20deg) scale(0.98);
+  }
+  .hero__cat-reveal li:last-of-type:before {
+    content: var(--second-item-text, "Music");
+    position: absolute;
+    right: 0;
+    opacity: 0.3;
+    transform: translateY(100%) rotateX(-20deg) scale(0.98);
+  }
+  .hero__cat-reveal li.is-active {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+  .hero:has(.hero__cat-reveal) :where(.card-picture img) {
+    opacity: 0;
+    transition: opacity 100ms ease-out;
+  }
+  .hero:has(.hero__cat-reveal ul[style*="--slide-index: 0"]) .card-picture img:nth-of-type(1) {
+    opacity: 1;
+  }
+  .hero:has(.hero__cat-reveal ul[style*="--slide-index: 1"]) .card-picture img:nth-of-type(2) {
+    opacity: 1;
+  }
+  .hero:has(.hero__cat-reveal ul[style*="--slide-index: 2"]) .card-picture img:nth-of-type(3) {
+    opacity: 1;
+  }
+  .hero:has(.hero__cat-reveal ul[style*="--slide-index: 3"]) .card-picture img:nth-of-type(4) {
+    opacity: 1;
   }
   .lasgo-artwork {
     --track-size: min(1.5cqmin, 0.85rem);
@@ -24438,7 +24533,7 @@
     overflow: visible;
   }
   .layout-grid.slick-slider .slick-slide > article.card--full-details .card-picture {
-    max-height: 200px;
+    max-height: 235px;
     margin-inline: auto;
   }
   .layout-grid.slick-slider .slick-slide > article.card--full-details .card-picture img {
@@ -24451,7 +24546,7 @@
       margin: 0 auto;
     }
     .layout-grid.slick-slider .slick-slide > article.card--full-details .card-picture {
-      max-height: 200px;
+      max-height: 235px;
     }
   }
   :where(.layout-grid.slick-slider) .slick-slide .card {
@@ -24754,6 +24849,7 @@
 }
 @layer site-props {
   :root {
+    --test: 1;
     --color-primary-l: 0.3835;
     --color-primary-c: 0.0679;
     --color-primary-h: 215.42;
@@ -24786,10 +24882,12 @@
     --color-primary-light-h: 191.32;
     --color-dark-contrast: var(--color-light);
     --color-light-contrast: var(--color-dark);
+    --color-heading: var(--color-dark);
     --font-family-base: "Inter", sans-serif;
     --font-family-heading: var(--font-family-base);
     --font-heading-weight: 900;
-    --root-fg: var(--color-dark-5);
+    --root-fg: var(--color-grey-5);
+    --root-fg-muted: var(--color-grey-6);
     --button-default-color: var(--color-grey-11);
     --button-default-color-contrast: var(--color-grey-11-contrast);
     --button-border-depth: 0.5;
@@ -24800,8 +24898,6 @@
     --heading-3xl-line-height: 1;
     --heading-xl-line-height: 1;
     --color-grey-c: 0.01;
-    --root-fg: var(--color-dark);
-    --root-fg-muted: var(--color-grey-6);
     --root-max-wrapper-width: 1275;
     --max-wrapper-width: calc(var(--root-max-wrapper-width) * 1px);
     --wrapper-width: calc(
@@ -24822,7 +24918,7 @@
     --root-bg: #fff;
     --layout-gap: max(min(2vmax, var(--space-md)), var(--space-md, 1rem));
     --unit-min: var(--unit-max, 1rem) / 1.5;
-    --hero-height: min(520px, 80vh);
+    --hero-height: min(460px, 80vh);
     --header-height: 169px;
     --hero-height-expanded: calc(var(--header-height) + var(--hero-height));
     --root-account-header-height: 32px;

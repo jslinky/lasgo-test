@@ -107,7 +107,7 @@ body:has(.hero--expanded):has(#outerWrap) {
     var(--color-primary),
     var(--color-dark) 50%
   );
-  --card-backdrop-color-stop-from-opacity: 0.7;
+  --card-backdrop-color-stop-from-opacity: 0.2;
   --card-backdrop-color-stop-to-opacity: 0.7;
   :is(.card-body__content, .card-picture) {
     animation: backdropOpacity linear both;
@@ -350,7 +350,7 @@ div.scanlines {
 ////// new hero mobile fixes
 ///
 .hero {
-  container-type: size!important;
+  container-type: size !important;
   @container (inline-size < 80ch) {
     .card-picture:not(:empty) :where(img) {
       height: 100cqh;
@@ -369,7 +369,7 @@ div.scanlines {
           --card-top-row: min-content;
         }
         &:not([data-card-row-content-1-size]) {
-        --card-bottom-row: 1fr;
+          --card-bottom-row: 1fr;
         }
         .card-picture:not(:empty) :where(img) {
           top: auto;
@@ -389,4 +389,118 @@ div.scanlines {
       }
     }
   }
+}
+
+.hero__cat-reveal {
+  --font-size: 3rem;
+  font-size: var(--font-size);
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-heading-weight);
+  color: var(--color-tertiary);
+  height: 3em;
+  overflow: hidden;
+  width: fit-content;
+  perspective: 1200px;
+  mask: linear-gradient(180deg, transparent, black 35%, black 65%, transparent);  
+  transform-origin: right;
+  ul {
+    list-style: none;
+    display: grid;
+    grid-auto-rows: auto;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(
+      calc(((-100% + 1em) / var(--item-count, 4)) * var(--slide-index, 0))
+    );
+    &.is-resetting {
+      transition: none;
+    }
+  }
+  li {
+    display: flex;
+    padding: 0;
+    height: 1em;
+    border: 0;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+    line-height: 1;
+    opacity: 0.3;
+    transform: rotateX(-20deg) scale(0.98);
+    transform-origin: center center;
+    transition:
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 220ms ease-out;
+  }
+
+  li:first-of-type {
+    margin-top: 1em;
+    position:relative;
+    &:before {
+      content: var(--last-item-text, "Consumer Electronics");
+      position: absolute;
+      right:0;
+      opacity: 0.3;
+      transform: translateY(-100%) rotateX(-20deg) scale(0.98);
+    }
+  }
+
+  li:last-of-type {
+    &:before {
+      content: var(--second-item-text, "Music");
+      position: absolute;
+      right:0;
+      opacity: 0.3;
+      transform: translateY(100%) rotateX(-20deg) scale(0.98);
+    }
+  }
+
+  li.is-active {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+}
+
+
+.hero:has(.hero__cat-reveal) :where(.card-picture img) {
+    opacity:0;
+    transition: opacity 100ms ease-out;
+}
+
+.hero:has(.hero__cat-reveal ul[style*="--slide-index: 0"])
+.card-picture {
+    img {        
+        &:nth-of-type(1) {
+            opacity: 1;
+        }
+    }
+}
+
+.hero:has(.hero__cat-reveal ul[style*="--slide-index: 1"])
+.card-picture {
+    img {        
+        &:nth-of-type(2) {
+            opacity: 1;
+        }
+    }
+}
+
+.hero:has(.hero__cat-reveal ul[style*="--slide-index: 2"])
+.card-picture {
+    img {        
+        &:nth-of-type(3) {
+            opacity: 1;
+        }
+    }
+}
+
+.hero:has(.hero__cat-reveal ul[style*="--slide-index: 3"])
+.card-picture {
+    img {        
+        &:nth-of-type(4) {
+            opacity: 1;
+        }
+    }
 }
