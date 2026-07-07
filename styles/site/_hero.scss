@@ -292,6 +292,11 @@ div.scanlines {
     corner-shape: squircle;
     border-radius: calc(var(--radius) * 5);
   }
+  .card-picture {
+    width: min(1200px, 100%);
+    margin-inline: auto 0;
+    max-height: 100%;
+  }
 }
 
 #outerWrap:has(.hero--expanded) {

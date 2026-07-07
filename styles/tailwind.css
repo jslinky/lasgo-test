@@ -7789,6 +7789,11 @@
       border-radius: calc(var(--radius) * 5);
     }
   }
+  .hero--expanded .card-picture {
+    width: min(1200px, 100%);
+    margin-inline: auto 0;
+    max-height: 100%;
+  }
   #outerWrap:has(.hero--expanded) .hero--expanded:has(.heading-3xl:not(.fluid-cq)) {
     --heading-3xl-font-size-max: calc(
       var(--display-2xl-px) * var(--text-size-increment)
