@@ -35,7 +35,7 @@ body:has(.hero--expanded):has(#outerWrap) {
   }
 }
 
-.hero--expanded {
+.hero.hero--expanded {
   --variable-unit: calc(40vi + 60vb);
   min-height: var(--hero-height-expanded);
   @container (min-width: 70ch) {
@@ -295,7 +295,6 @@ div.scanlines {
   .card-picture {
     width: min(1200px, 100%);
     margin-inline: auto 0;
-    max-height: 100%;
   }
 }
 
@@ -397,7 +396,7 @@ div.scanlines {
 }
 
 .hero__cat-reveal {
-  --font-size: 3rem;
+  --font-size: clamp(2rem, 1rem + 3cqi, 3rem);
   font-size: var(--font-size);
   font-family: var(--font-family-heading);
   font-weight: var(--font-heading-weight);

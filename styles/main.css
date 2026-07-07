@@ -22522,7 +22522,6 @@
   @layer components {
     :where(.button) {
       text-decoration: none;
-      content: "justin";
     }
     :where(.button).button--brand-orange {
       --button-color: var(--color-brand-orange);
@@ -23238,12 +23237,12 @@
   body:has(.hero--expanded):has(#outerWrap) #body .hero {
     scroll-snap-align: center;
   }
-  .hero--expanded {
+  .hero.hero--expanded {
     --variable-unit: calc(40vi + 60vb);
     min-height: var(--hero-height-expanded);
   }
   @container (min-width: 70ch) {
-    .hero--expanded .card-picture {
+    .hero.hero--expanded .card-picture {
       max-height: var(--hero-height-expanded);
       transform: translateX(20%);
     }
@@ -23437,7 +23436,6 @@
   .hero--expanded .card-picture {
     width: min(1200px, 100%);
     margin-inline: auto 0;
-    max-height: 100%;
   }
   #outerWrap:has(.hero--expanded) .hero--expanded:has(.heading-3xl:not(.fluid-cq)) {
     --heading-3xl-font-size-max: calc(
@@ -23511,7 +23509,7 @@
     }
   }
   .hero__cat-reveal {
-    --font-size: 3rem;
+    --font-size: clamp(2rem, 1rem + 3cqi, 3rem);
     font-size: var(--font-size);
     font-family: var(--font-family-heading);
     font-weight: var(--font-heading-weight);
@@ -24730,6 +24728,10 @@
   }
   .faq-heading-first ~ .c-collapse + .c-collapse {
     --flow-space: var(--space-xs);
+  }
+  .c-home-ticket-block .heading {
+    --heading-xl-font-size-max: var(--display-md);
+    --heading-xl-font-size-min: var(--display-sm);
   }
   @layer components.base {
     .list-decimal {

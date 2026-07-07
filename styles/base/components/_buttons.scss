@@ -2,6 +2,5 @@
 
 :where(.button) {
   text-decoration: none;
-  content: 'justin';
   @include gen-button-color-variations(('brand-orange' 'brand-red' 'brand-yellow'));
 }
