@@ -24730,8 +24730,8 @@
     --flow-space: var(--space-xs);
   }
   .c-home-ticket-block .heading {
-    --heading-xl-font-size-max: var(--display-md);
-    --heading-xl-font-size-min: var(--display-sm);
+    --heading-xl-font-size-max: var(--display-md-px);
+    --heading-xl-font-size-min: var(--display-sm-px);
   }
   @layer components.base {
     .list-decimal {
