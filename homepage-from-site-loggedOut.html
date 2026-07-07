@@ -359,7 +359,7 @@
                 alt="Music"
               />          
               <img
-                src="./assets/merch-hero-bg_1x.webp"
+                src="./assets/merch-hero_1x.webp"
                 alt="Merchandise"
               />                
               <img
@@ -492,15 +492,58 @@
           </article>
         </section>
         <div
-          class="wrapper pb-section-gap pt-section-gap-3xl min-h-[min(800px,calc(100vh-var(--root-header-height)))] content-center"
+          class="wrapper pb-section-gap-xl pt-section-gap-3xl md:min-h-[min(800px,calc(100vh-var(--root-header-height)))] content-center"
         >
-          <div class="flow">
-            <h2 class="heading fluid heading--underline heading-xl">
+          <div class="relative flow grid grid-rows-[max-content_1fr] grid-cols-[1fr] *:row-span-full *:col-span-full row-x-5xl md:before:content-[''] md:before:w-[63vw] md:before:mx-[calc(-50vw+50%)] md:before:left-0 md:before:h-full md:before:bg-linear-to-r md:before:from-[var(--root-bg)] md:before:from-90% md:before:to-[transparent]  md:before:z-[1] md:before:block md:before:absolute">
+
+                <div class="c-marquee z-[-1] !row-start-3 !row-end-3 md:!row-start-1 md:!row-end-[-1]"
+                  x-data="{
+                    slides: ['dvd-slide.png', 'music-slide.png', 'merch-slide.png', 'electronics-slide.png']
+                  }"
+                >
+                <div class="flex wrap-none">
+                  <template x-for="group in 2">
+                    <div class="layout-grid w-[calc(200vw-(var(--layout-gap)/2))] md:w-[calc(100vw-(var(--layout-gap)/2))] shrink-0">
+                      <template
+                        x-for="(item, index) in slides"
+                        :key="`${item}-${index}`"
+                      >
+                      <div class="aspect-square z-[-2]">
+                        <img :src="`./assets/${item}`" alt="" />
+                      </div>
+                      </template>
+                    </div>
+                  </template>
+                </div>
+
+                  <!-- <template
+                    x-for="(item, index) in slides"
+                    :key="`${item}-${index}`"
+                  >
+                  <div class="aspect-square z-[-2]">
+                    <img :src="`./assets/${item}`" alt="" />
+                  </div>
+                  </template>                   -->
+                  <!-- <div class="aspect-square z-[-2]">
+                    <img src="./assets/dvd-slide.png" alt="" />
+                  </div>
+                  <div class="aspect-square z-[-2]">
+                    <img src="./assets/music-slide.png" alt="" />
+                  </div>
+                  <div class="aspect-square z-[-2]">
+                    <img src="./assets/merch-slide.png" alt="" />
+                  </div>
+                  <div class="aspect-square z-[-2]">
+                    <img src="./assets/electronics-slide.png" alt="" />
+                  </div> -->
+                </div>
+
+            <h2 class="heading fluid heading--underline heading-2xl uppercase row-end-1!">
               <span class="heading-xs text-default"
                 >Innovating UK entertainment supply</span
               ><span>What we do</span>
             </h2>
-            <div class="layout-grid flow [--layout-column-min:40ch]">
+            <div class="layout-grid flow [--layout-column-min:40ch] !row-start-2 !row-end-2 !col-start-1 !col-end-1">
               <div class="flow flex-auto">
                 <div class="max-w-prose flow">
                   <p class="text-lg font-bold">
@@ -523,13 +566,7 @@
               <div
                 class="basis-[fit-content] md:content-end flex md:items-end md:justify-center"
               >
-                <p>
-                  <a
-                    class="button button--primary button--wide md:mx-auto min-w-max"
-                    href="#"
-                    >Find out more</a
-                  >
-                </p>
+
               </div>
             </div>
           </div>

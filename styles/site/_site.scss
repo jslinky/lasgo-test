@@ -21,7 +21,9 @@
 /* TEMP - remove when tw integrated */
 :root:is(#{$scopeClassName}) {
   #body {
-    line-height: calc(var(--line-height-relative, 1.4em) + var(--line-height-fixed, 0.375rem));
+    line-height: calc(
+      var(--line-height-relative, 1.4em) + var(--line-height-fixed, 0.375rem)
+    );
   }
 }
 
@@ -111,5 +113,48 @@
   .card:has(.card-body__content__caption-subtitle.fluid-cq) {
     --font-size-min: var(--xs);
     --font-fluid-cq-variance: 1cqw;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translatex(0%);
+  }
+  to {
+    transform: translatex(-100%);
+  }
+}
+
+// div:has(> .c-marquee) {
+//   &:before {
+//     mask: radial-gradient(circle at 50%, black 50%, transparent 50%);
+//     mask-size: 1rem 1rem;
+//     mask-position: 50% 0;
+//   }
+// }
+
+div:has(> .c-marquee) {
+  &:after {
+    opacity: 0;
+  }
+}
+
+.c-marquee {
+  max-width: calc(100vw - var(--layout-gap));
+  overflow: clip;
+  margin-inline: calc(-50vw + 50%);
+  width: 100vw;
+  --layout-column-min: 20%;
+  > div > div {
+    animation: marquee 20s linear infinite;
+  }
+  ~ * {
+    z-index: 2;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: min(25vw, 300px);
   }
 }
