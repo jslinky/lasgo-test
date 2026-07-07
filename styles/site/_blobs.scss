@@ -158,6 +158,9 @@ div:has(> .blob-container) {
     }
   }
 }
+.footer-wrapper .blob-container {
+  filter:none;
+}
 
 // @keyframes bulb-four {
 //   to {

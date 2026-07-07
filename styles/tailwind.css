@@ -8441,6 +8441,9 @@
     mask-position: 0 0;
     animation: bounce-bottom var(--duration) calc(var(--delay) * 1.65) var(--easing) infinite alternate;
   }
+  .footer-wrapper .blob-container {
+    filter: none;
+  }
   /* https://css-irl.info/css-halftone-patterns/ */
   .section-latest-releases {
     display: grid;
@@ -8720,6 +8723,7 @@
       --aside-height: auto;
       position: relative;
       grid-column: span 2;
+      background: transparent;
     }
   }
   :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) #filterMenu {
