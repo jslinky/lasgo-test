@@ -1,6 +1,103 @@
 @use "small-style/scss/base/mixins/rules/components/buttons" as *;
+@use "../../site/variables" as site-vars;
 
 :where(.button) {
   text-decoration: none;
-  @include gen-button-color-variations(('brand-orange' 'brand-red' 'brand-yellow'));
+  @include gen-button-color-variations(
+    ("brand-orange" "brand-red" "brand-yellow")
+  );
+}
+
+$button-selectors: ();
+
+@each $item in site-vars.$colorIncludes {
+  $button-selectors: append($button-selectors, '.button--#{$item}', comma);
+}
+
+:is(.button--tertiary, .button--secondary, .button--light) {
+  --l-hover-bg-1: calc(l + 0.7);
+  --l-hover-bg-2: calc(l - 0.04);
+}
+
+.button:not(#{$button-selectors}):not(.button--outline) {
+  --l-hover-bg-1: calc(l + 0.2);
+  --l-hover-bg-2: calc(l - 0.02);
+}
+
+@supports (color:color-mix(in srgb, red 50%, blue 50%)) {
+:is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)) {
+  position: relative;
+  transition: border 200ms ease-in;
+  --button-bg-hover-depth: 0;
+  --button-border-color-mix: var(--button-color);  
+  --button-box-shadow-color-1: color-mix(oklch(from var(--button-color) calc(l - 0.4) c h), transparent 90%);
+  --button-box-shadow-color-2: color-mix(oklch(from var(--button-color) calc(l - 0.4) c h), transparent 80%);
+  --button-box-shadow-color-3: color-mix(oklch(from var(--button-color) calc(l - 0.4) c h), transparent 70%);
+  transition: box-shadow 200ms ease-in;
+  &:hover {
+    box-shadow: 0 21px 19px var(--button-box-shadow-color-1), 0 3px 6px var(--button-box-shadow-color-2), 0 1px 1px var(--button-box-shadow-color-3);
+  }
+  &:before {
+    content: "";
+    background:      
+      radial-gradient(
+        circle at 50%,
+        color-mix(
+          in oklch,
+          oklch(from var(--button-color) var(--l-hover-bg-1, calc(l + 0.4)) c h),
+          transparent 50%
+        ),
+        transparent
+      ),
+      oklch(from var(--button-color) var(--l-hover-bg-2, calc(l + 0.05)) c h);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    inset: 0;
+    border-radius: inherit;
+    left: 50%;
+    translate: -50% 0;
+    // background-repeat: no-repeat;
+    /* Default (rest) state */
+    scale: 0.5 0.5;
+    opacity: 0;
+
+    /* Transition all three properties */
+    transition:
+      scale 200ms ease-in,
+      opacity 150ms ease-in;
+  }
+
+  &:hover:before {
+    max-width: 100%;
+    scale: 1;
+    opacity: 1;
+  }
+
+  .button__text {
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        ellipse at 50%,
+        color-mix(in oklch, hsl(0 0 100 / 0.7), transparent 40%) 40%,
+        transparent 80%
+      );
+      background-size: min(2rem,20%) 12px;
+      opacity: 0;
+      transition: 200ms opacity 50ms ease-in-out;
+      background-repeat: no-repeat;
+    }
+    z-index: 1;
+  }
+
+  &:hover .button__text::after {
+    opacity: 1;
+  }
+
+}
+
+
 }

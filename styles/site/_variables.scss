@@ -1,5 +1,11 @@
 @use "small-style/scss/base/variables/breakpoints" as bp;
 
+$baseResetRulesScopeClassName: ":root:is(.new) :is(#body, .c-footer) *";
+$surface-colors: "primary" "secondary" "tertiary" "grey" "dark" "light" "primary-light" "brand-orange" "brand-red" "brand-yellow";
+$include-forms: false;
+$button-selectors: '.button, .ss-button';
+$color-name-prefix: 'color-';
+
 $contentGridFullLgBpValue: 80ch;
 
 /// Disable new header for loggedIn users in current production
@@ -17,3 +23,5 @@ $asideSelector: '.content-grid__aside, #{$layoutGridSelector} > .grid_4';
 $contentAreaSelector: '.searchResultsWrapper';
 
 $brand-orange: oklch(var(--color-brand-orange-l) var(--color-brand-orange-c) var(--color-brand-orange-h));
+
+$colorIncludes: 'primary' 'secondary' 'tertiary' 'dark' 'light' 'grey' 'brand-orange' 'brand-red' 'brand-yellow';

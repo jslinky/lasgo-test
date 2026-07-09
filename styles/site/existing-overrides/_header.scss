@@ -1,3 +1,6 @@
+@use "../variables" as site-vars;
+@use "small-style/scss/theme" as *;
+
 // @layer existing-overrides {
 @mixin header-unset-rules {
   #megaMenuHeader
@@ -1660,8 +1663,8 @@
 }
 
 @layer unset {
-  @if $disableNewHeaderLoggedIn {
-    #{$disableNewHeaderLoggedInSelector} {
+  @if site-vars.$disableNewHeaderLoggedIn {
+    #{site-vars.$disableNewHeaderLoggedInSelector} {
       @include header-unset-rules();
     }
   } @else {
@@ -1675,8 +1678,8 @@
     flex-direction: column;
   }
 
-  @if $disableNewHeaderLoggedIn {
-    #{$disableNewHeaderLoggedInSelector} {
+  @if site-vars.$disableNewHeaderLoggedIn {
+    #{site-vars.$disableNewHeaderLoggedInSelector} {
       @include header-new-rules();
     }
   } @else {

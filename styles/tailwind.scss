@@ -1,11 +1,13 @@
 @use "sass:math";
+@use "./site/variables" as site-vars;
+
 @use "small-style/scss/index" as * with (
-  $baseResetRulesScopeClassName: ":root:is(.new) :is(#body, .c-footer) *",
-  $surface-colors: "primary" "secondary" "tertiary" "grey" "dark" "light" "primary-light" "brand-orange" "brand-red" "brand-yellow",
-  $include-forms: false,
-  $button-selectors: '.button, .ss-button',
-  $colorNamePrefix: 'color-',  
-  $colorIncludes: 'primary' 'secondary' 'tertiary' 'dark' 'light' 'grey' 'brand-orange' 'brand-red' 'brand-yellow',
+  $baseResetRulesScopeClassName: site-vars.$baseResetRulesScopeClassName,
+  $surface-colors: site-vars.$surface-colors,
+  $include-forms: site-vars.$include-forms,
+  $button-selectors: site-vars.$button-selectors,
+  $colorNamePrefix: site-vars.$color-name-prefix,
+  $colorIncludes: site-vars.$colorIncludes,
 );
 @use "small-style/scss/base/mixins/rules/props/_colors" as *;
 @use "small-style/scss/base/variables/components/forms" as *;
@@ -15,10 +17,10 @@
 @use "small-style/scss/base/mixins/rules/components/typography/_fluid-type" as *;
 @use "./base/mixins/rules/components/forms" as *;
 
-@use "./site/variables" as *;
+
 
 @use "./mixins/components/content-layout" as * with (
-  $contentGridFullLgBp: $contentGridFullLgBpValue
+  $contentGridFullLgBp: site-vars.$contentGridFullLgBpValue
 );
 
 @import "./preflight-modified.css" layer(tw-base);

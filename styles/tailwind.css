@@ -5095,6 +5095,7 @@
       }
     }
   }
+  /* calculations */
   @layer new {
     :is(.container_16:has(.searchResultsWrapper)) {
       --grid-wrapper-columns: var(--start-col, var(--wrapper-inline)) var(--center-col, 1fr) var(--end-col, var(--wrapper-inline));
@@ -6895,6 +6896,67 @@
       --button-color-contrast: var(--color-brand-yellow-contrast);
       --button-fg: var(--button-fg-brand-yellow, var(--button-color-contrast));
       --button-bg: var(--button-bg-brand-yellow, var(--button-color));
+    }
+    :is(.button--tertiary, .button--secondary, .button--light) {
+      --l-hover-bg-1: calc(l + 0.7);
+      --l-hover-bg-2: calc(l - 0.04);
+    }
+    .button:not(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey, .button--brand-orange, .button--brand-red, .button--brand-yellow):not(.button--outline) {
+      --l-hover-bg-1: calc(l + 0.2);
+      --l-hover-bg-2: calc(l - 0.02);
+    }
+    @supports (color: color-mix(in srgb, red 50%, blue 50%)) {
+      :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)) {
+        position: relative;
+        transition: border 200ms ease-in;
+        --button-bg-hover-depth: 0;
+        --button-border-color-mix: var(--button-color);
+        --button-box-shadow-color-1: color-mix(oklch(from var(--button-color) calc(l - 0.4) c h), transparent 90%);
+        --button-box-shadow-color-2: color-mix(oklch(from var(--button-color) calc(l - 0.4) c h), transparent 80%);
+        --button-box-shadow-color-3: color-mix(oklch(from var(--button-color) calc(l - 0.4) c h), transparent 70%);
+        transition: box-shadow 200ms ease-in;
+      }
+      :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)):hover {
+        box-shadow: 0 21px 19px var(--button-box-shadow-color-1), 0 3px 6px var(--button-box-shadow-color-2), 0 1px 1px var(--button-box-shadow-color-3);
+      }
+      :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)):before {
+        content: "";
+        background: radial-gradient(circle at 50%, color-mix(in oklch, oklch(from var(--button-color) var(--l-hover-bg-1, calc(l + 0.4)) c h), transparent 50%), transparent), oklch(from var(--button-color) var(--l-hover-bg-2, calc(l + 0.05)) c h);
+        width: 100%;
+        position: absolute;
+        height: 100%;
+        inset: 0;
+        border-radius: inherit;
+        left: 50%;
+        translate: -50% 0;
+        /* Default (rest) state */
+        scale: 0.5 0.5;
+        opacity: 0;
+        /* Transition all three properties */
+        transition: scale 200ms ease-in, opacity 150ms ease-in;
+      }
+      :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)):hover:before {
+        max-width: 100%;
+        scale: 1;
+        opacity: 1;
+      }
+      :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)) .button__text::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: radial-gradient(ellipse at 50%, color-mix(in oklch, hsla(0, 0%, 100%, 0.7), transparent 40%) 40%, transparent 80%);
+        background-size: min(2rem, 20%) 12px;
+        opacity: 0;
+        transition: 200ms opacity 50ms ease-in-out;
+        background-repeat: no-repeat;
+      }
+      :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)) .button__text {
+        z-index: 1;
+      }
+      :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)):hover .button__text::after {
+        opacity: 1;
+      }
     }
     @property --card-backdrop-color-stop-from-opacity {
       syntax: "<number>";
