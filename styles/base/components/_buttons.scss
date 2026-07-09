@@ -107,6 +107,6 @@ $button-selectors: ();
  {
   .button:before,
   .button__text::after {
-    display: none;
+    background: none;
   }
 }
