@@ -22553,6 +22553,7 @@
       :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)) {
         position: relative;
         transition: border 200ms ease-in;
+        overflow: clip;
         --button-bg-hover-depth: 0;
         --button-border-color-mix: var(--button-color);
         --button-box-shadow-color-1: transparent;
@@ -22611,6 +22612,9 @@
       :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)):hover .button__text::after {
         opacity: 1;
       }
+    }
+    .card-body__content__ctas.contents .button:before, .card-body__content__ctas.contents .button__text::after {
+      display: none;
     }
     @property --card-backdrop-color-stop-from-opacity {
       syntax: "<number>";
