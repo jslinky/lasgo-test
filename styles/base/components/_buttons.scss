@@ -103,7 +103,8 @@ $button-selectors: ();
 
 }
 
-.card-body__content__ctas.contents {
+:is(.card-body__content:has(.card-body__content__ctas:only-child), .card-body__content__ctas.contents)
+ {
   .button:before,
   .button__text::after {
     display: none;

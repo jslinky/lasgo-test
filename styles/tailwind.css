@@ -6959,8 +6959,8 @@
         opacity: 1;
       }
     }
-    .card-body__content__ctas.contents .button:before,
-    .card-body__content__ctas.contents .button__text::after {
+    :is(.card-body__content:has(.card-body__content__ctas:only-child), .card-body__content__ctas.contents) .button:before,
+    :is(.card-body__content:has(.card-body__content__ctas:only-child), .card-body__content__ctas.contents) .button__text::after {
       display: none;
     }
     @property --card-backdrop-color-stop-from-opacity {
