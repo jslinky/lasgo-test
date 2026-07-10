@@ -132,6 +132,10 @@
       grid-column: span 4;
       grid-row: 2/2;
     }
+    // using media query here to override above because we don't have a container-type for the parent in existing markup
+    @include respond-to(md) {
+      grid-column: span 1;
+    }    
   }
 }
 

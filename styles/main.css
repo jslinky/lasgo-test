@@ -24653,6 +24653,11 @@
       grid-row: 2/2;
     }
   }
+  @media only screen and (min-width: 48rem) {
+    .content-grid_full > .content-grid:has(> .featured-products) > .featured-products > :is(div:nth-child(2), div:nth-child(3)) {
+      grid-column: span 1;
+    }
+  }
   @container content-grid (inline-size < 55ch) {
     .content-grid_full:is(.featured-products.featured-products--three-in-a-row) > div:first-of-type {
       opacity: 0.3;

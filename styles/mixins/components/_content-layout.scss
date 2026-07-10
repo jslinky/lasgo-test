@@ -5,6 +5,7 @@ $contentGridFullLgBp: 80ch !default;
 @mixin content-grid-rules() {
   --layout-column-min: 3ch;
   --column-count: 2;
+  // using media query here because we don't have a container-type for the parent in existing markup
   @include respond-to(md) {
     --layout-column-min: 8.8ch;
     --column-count: 8;    
