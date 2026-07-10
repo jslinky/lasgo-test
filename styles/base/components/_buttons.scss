@@ -25,6 +25,10 @@ $button-selectors: ();
   --l-hover-bg-2: calc(l - 0.02);
 }
 
+.button:not(#{$button-selectors}):not(.button--inverted) {
+  --button-fg: var(--color-primary-4);
+}
+
 @supports (color:color-mix(in srgb, red 50%, blue 50%)) {
   @media #{$mouse} {
     :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)) {

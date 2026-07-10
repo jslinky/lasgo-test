@@ -22549,6 +22549,9 @@
       --l-hover-bg-1: calc(l + 0.2);
       --l-hover-bg-2: calc(l - 0.02);
     }
+    .button:not(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey, .button--brand-orange, .button--brand-red, .button--brand-yellow):not(.button--inverted) {
+      --button-fg: var(--color-primary-4);
+    }
     @supports (color: color-mix(in srgb, red 50%, blue 50%)) {
       @media (hover) and (pointer: fine) {
         :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)) {
@@ -25168,7 +25171,7 @@
     --heading-2xl-line-height: 1;
     --heading-3xl-line-height: 1;
     --heading-xl-line-height: 1;
-    --color-grey-c: 0.01;
+    --color-grey-c: 0.02;
     --root-max-wrapper-width: 1275;
     --max-wrapper-width: calc(var(--root-max-wrapper-width) * 1px);
     --wrapper-width: calc(
