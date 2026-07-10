@@ -20790,8 +20790,16 @@
           1fr
         )
       );
-      --layout-column-min: 8.8ch;
-      --column-count: 8;
+      --layout-column-min: 3ch;
+      --column-count: 2;
+    }
+    @media only screen and (min-width: 48rem) {
+      :is(.container_16:has(.searchResultsWrapper) > .grid_16) {
+        --layout-column-min: 8.8ch;
+        --column-count: 8;
+      }
+    }
+    :is(.container_16:has(.searchResultsWrapper) > .grid_16) {
       container-type: inline-size;
       container-name: content-grid;
       grid-column: 2/2;
@@ -24358,8 +24366,16 @@
     }
   }
   .content-grid {
-    --layout-column-min: 8.8ch;
-    --column-count: 8;
+    --layout-column-min: 3ch;
+    --column-count: 2;
+  }
+  @media only screen and (min-width: 48rem) {
+    .content-grid {
+      --layout-column-min: 8.8ch;
+      --column-count: 8;
+    }
+  }
+  .content-grid {
     container-type: inline-size;
     container-name: content-grid;
   }
@@ -24367,11 +24383,7 @@
     display: grid;
     grid-template-columns: subgrid;
     container: none;
-  }
-  @container content-grid (min-width: 80ch) {
-    .content-grid_full {
-      grid-column: 1/-1;
-    }
+    grid-column: 1/-1;
   }
   @container content-grid (min-width:80ch) {
     .content-grid_full:is(nav) > a {
@@ -24705,6 +24717,9 @@
     transform: none;
     left: 0;
   }
+  .slick-dots li button:before {
+    color: var(--color-primary);
+  }
   :where(.layout-grid.slick-slider) .slick-dots {
     position: relative;
   }
@@ -24794,7 +24809,7 @@
   :where(.layout-grid.slick-slider):has(.card-picture.aspect-dvd) .slick-slide .card {
     aspect-ratio: 14/20;
   }
-  .slick-slider:has(.hero) {
+  [data-slick]:has(.hero) {
     margin-bottom: var(--spacing-md);
   }
   .c-about-us {
@@ -25171,7 +25186,7 @@
     --heading-2xl-line-height: 1;
     --heading-3xl-line-height: 1;
     --heading-xl-line-height: 1;
-    --color-grey-c: 0.02;
+    --color-grey-c: 0.01;
     --root-max-wrapper-width: 1275;
     --max-wrapper-width: calc(var(--root-max-wrapper-width) * 1px);
     --wrapper-width: calc(

@@ -7,6 +7,10 @@
   left:0;
 }
 
+.slick-dots li button:before {
+  color: var(--color-primary);
+}
+
 :where(.layout-grid.slick-slider) .slick-dots {
   position: relative;
 }
@@ -114,7 +118,7 @@
     }
 }
 
-.slick-slider:has(.hero) {
+[data-slick]:has(.hero) {
    margin-bottom: var(--spacing-md);
 }
 

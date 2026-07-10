@@ -1,8 +1,14 @@
+@use "small-style/scss/theme" as *;
+
 $contentGridFullLgBp: 80ch !default;
 
 @mixin content-grid-rules() {
-  --layout-column-min: 8.8ch;
-  --column-count: 8;
+  --layout-column-min: 3ch;
+  --column-count: 2;
+  @include respond-to(md) {
+    --layout-column-min: 8.8ch;
+    --column-count: 8;    
+  }
   container-type: inline-size;
   container-name: content-grid;    
 }
@@ -11,9 +17,10 @@ $contentGridFullLgBp: 80ch !default;
   display: grid;
   grid-template-columns: subgrid;
   container: none;
-  @container content-grid (min-width: #{$contentGridFullLgBp}) {
-    grid-column: 1/-1;
-  }  
+  grid-column: 1/-1;
+  // @container content-grid (min-width: #{$contentGridFullLgBp}) {
+  //   grid-column: 1/-1;
+  // }  
 }
 
 @mixin content-grid__main-rules() {
