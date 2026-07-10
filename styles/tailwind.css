@@ -6924,7 +6924,7 @@
         :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)):hover {
           box-shadow: 0 21px 19px var(--button-box-shadow-color-1), 0 3px 6px var(--button-box-shadow-color-2), 0 1px 1px var(--button-box-shadow-color-3);
         }
-        :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)):before {
+        :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)) .button__text:before {
           content: "";
           background: radial-gradient(circle at 50%, color-mix(in oklch, oklch(from var(--button-color) var(--l-hover-bg-1, calc(l + 0.4)) c h), transparent 50%), transparent), oklch(from var(--button-color) var(--l-hover-bg-2, calc(l + 0.05)) c h);
           width: 100%;
@@ -6937,10 +6937,11 @@
           /* Default (rest) state */
           scale: 0.5 0.5;
           opacity: 0;
+          z-index: -1;
           /* Transition all three properties */
           transition: scale 200ms ease-in, opacity 150ms ease-in;
         }
-        :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)):hover:before {
+        :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)):hover .button__text:before {
           max-width: 100%;
           scale: 1;
           opacity: 1;

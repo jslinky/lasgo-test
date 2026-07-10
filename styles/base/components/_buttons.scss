@@ -44,42 +44,52 @@ $button-selectors: ();
       &:hover {
         box-shadow: 0 21px 19px var(--button-box-shadow-color-1), 0 3px 6px var(--button-box-shadow-color-2), 0 1px 1px var(--button-box-shadow-color-3);
       }
-      &:before {
-        content: "";
-        background:      
-          radial-gradient(
-            circle at 50%,
-            color-mix(
-              in oklch,
-              oklch(from var(--button-color) var(--l-hover-bg-1, calc(l + 0.4)) c h),
-              transparent 50%
+
+      .button__text {
+        &:before {
+          content: "";
+          background:      
+            radial-gradient(
+              circle at 50%,
+              color-mix(
+                in oklch,
+                oklch(from var(--button-color) var(--l-hover-bg-1, calc(l + 0.4)) c h),
+                transparent 50%
+              ),
+              transparent
             ),
-            transparent
-          ),
-          oklch(from var(--button-color) var(--l-hover-bg-2, calc(l + 0.05)) c h);
-        width: 100%;
-        position: absolute;
-        height: 100%;
-        inset: 0;
-        border-radius: inherit;
-        left: 50%;
-        translate: -50% 0;
-        // background-repeat: no-repeat;
-        /* Default (rest) state */
-        scale: 0.5 0.5;
-        opacity: 0;
-  
-        /* Transition all three properties */
-        transition:
-          scale 200ms ease-in,
-          opacity 150ms ease-in;
+            oklch(from var(--button-color) var(--l-hover-bg-2, calc(l + 0.05)) c h);
+          width: 100%;
+          position: absolute;
+          height: 100%;
+          inset: 0;
+          border-radius: inherit;
+          left: 50%;
+          translate: -50% 0;
+          // background-repeat: no-repeat;
+          /* Default (rest) state */
+          scale: 0.5 0.5;
+          opacity: 0;
+          z-index: -1;
+    
+          /* Transition all three properties */
+          transition:
+            scale 200ms ease-in,
+            opacity 150ms ease-in;
+        }
       }
-  
-      &:hover:before {
+
+      &:hover .button__text:before {
         max-width: 100%;
         scale: 1;
         opacity: 1;
       }
+  
+      // &:hover:before {
+      //   max-width: 100%;
+      //   scale: 1;
+      //   opacity: 1;
+      // }
   
       .button__text {
         &::after {
