@@ -8739,6 +8739,9 @@
     container-type: inline-size;
     container-name: content-grid;
   }
+  .content-grid-container {
+    container: content-grid-container/inline-size;
+  }
   .content-grid-container > .content-grid {
     --layout-column-min: 3ch;
     --column-count: 2;

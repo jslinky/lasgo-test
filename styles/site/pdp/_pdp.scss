@@ -12,6 +12,10 @@
   @include content-grid-rules();
 }
 
+.content-grid-container {
+  container: content-grid-container / inline-size;
+} 
+
 .content-grid-container > .content-grid {
   @include content-grid-rules-has-container();
 }
