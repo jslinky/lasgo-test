@@ -7738,9 +7738,6 @@
     margin-inline: auto;
     padding: 0;
   }
-  .slick-slider:has(.hero) .slick-dots {
-    bottom: var(--spacing-md);
-  }
   .scanlines {
     overflow: hidden;
     position: relative;
@@ -9086,6 +9083,7 @@
     container: none;
     position: relative;
     transform: none;
+    left: 0;
   }
   :where(.layout-grid.slick-slider) .slick-dots {
     position: relative;
