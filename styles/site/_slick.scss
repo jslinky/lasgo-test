@@ -2,6 +2,8 @@
   background: transparent;
   width: 100%;
   container: none;
+  position: relative;
+  transform: none;
 }
 
 :where(.layout-grid.slick-slider) .slick-dots {
