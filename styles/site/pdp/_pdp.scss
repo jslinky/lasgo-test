@@ -12,6 +12,10 @@
   @include content-grid-rules();
 }
 
+.content-grid-container > .content-grid {
+  @include content-grid-rules-has-container();
+}
+
 .content-grid_full {
   @include content-grid__full-rules();
   &:is(nav) {

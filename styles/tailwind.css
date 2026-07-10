@@ -5120,16 +5120,8 @@
           1fr
         )
       );
-      --layout-column-min: 3ch;
-      --column-count: 2;
-    }
-    @media only screen and (min-width: 48rem) {
-      :is(.container_16:has(.searchResultsWrapper) > .grid_16) {
-        --layout-column-min: 8.8ch;
-        --column-count: 8;
-      }
-    }
-    :is(.container_16:has(.searchResultsWrapper) > .grid_16) {
+      --layout-column-min: 8.8ch;
+      --column-count: 8;
       container-type: inline-size;
       container-name: content-grid;
       grid-column: 2/2;
@@ -8742,18 +8734,20 @@
     }
   }
   .content-grid {
+    --layout-column-min: 8.8ch;
+    --column-count: 8;
+    container-type: inline-size;
+    container-name: content-grid;
+  }
+  .content-grid-container > .content-grid {
     --layout-column-min: 3ch;
     --column-count: 2;
   }
-  @media only screen and (min-width: 48rem) {
-    .content-grid {
+  @container content-grid-container (min-width: 80ch) {
+    .content-grid-container > .content-grid {
       --layout-column-min: 8.8ch;
       --column-count: 8;
     }
-  }
-  .content-grid {
-    container-type: inline-size;
-    container-name: content-grid;
   }
   .content-grid_full {
     display: grid;
@@ -9034,8 +9028,8 @@
       grid-row: 2/2;
     }
   }
-  @media only screen and (max-width: 47.9375rem) {
-    .content-grid_full > .content-grid:has(> .featured-products) > .featured-products > :is(div:nth-child(2), div:nth-child(3)) {
+  @container content-grid-container (max-width:55ch) {
+    .content-grid-container .content-grid_full > .content-grid:has(> .featured-products) {
       grid-column: span 1;
     }
   }

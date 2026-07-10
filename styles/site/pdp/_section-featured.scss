@@ -132,12 +132,14 @@
       grid-column: span 4;
       grid-row: 2/2;
     }
-    // using media query here to override above because we don't have a container-type for the parent in existing markup
-    @include respond-to(md-and-down) {
-      grid-column: span 1;
-    }    
   }
 }
+
+.content-grid-container .content-grid_full > .content-grid:has(> .featured-products) {
+  @container content-grid-container (max-width:55ch) {
+    grid-column: span 1;    
+  }
+} 
 
 .content-grid_full:is(.featured-products.featured-products--three-in-a-row) {
   @container content-grid (inline-size < 55ch) {

@@ -2,16 +2,27 @@
 
 $contentGridFullLgBp: 80ch !default;
 
-@mixin content-grid-rules() {
+@mixin content-grid-rules-sm() {
   --layout-column-min: 3ch;
-  --column-count: 2;
-  // using media query here because we don't have a container-type for the parent in existing markup
-  @include respond-to(md) {
+  --column-count: 2;  
+}
+
+@mixin content-grid-rules-lg() {
     --layout-column-min: 8.8ch;
     --column-count: 8;    
-  }
+}
+
+@mixin content-grid-rules() {
+  @include content-grid-rules-lg();
   container-type: inline-size;
   container-name: content-grid;    
+}
+
+@mixin content-grid-rules-has-container() {
+  @include content-grid-rules-sm();
+  @container content-grid-container (min-width: #{$contentGridFullLgBp}) {
+    @include content-grid-rules-lg();
+  }
 }
 
 @mixin content-grid__full-rules() {
