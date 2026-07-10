@@ -133,7 +133,7 @@
       grid-row: 2/2;
     }
     // using media query here to override above because we don't have a container-type for the parent in existing markup
-    @include respond-to(md) {
+    @include respond-to(md-and-down) {
       grid-column: span 1;
     }    
   }
