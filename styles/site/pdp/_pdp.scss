@@ -14,6 +14,7 @@
 
 .content-grid-container {
   container: content-grid-container / inline-size;
+  grid-column: 2/2;
 } 
 
 .content-grid-container > .content-grid {
