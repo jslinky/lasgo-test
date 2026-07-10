@@ -9175,7 +9175,7 @@
     aspect-ratio: 14/20;
   }
   .slick-slider:has(.hero) {
-    padding-bottom: 3rem;
+    margin-bottom: var(--spacing-md);
   }
   .c-about-us {
     --layout-gap: var(--space-2xl);
