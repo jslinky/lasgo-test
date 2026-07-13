@@ -141,6 +141,8 @@
       input {
         grid-row: 1/1;
         grid-column: 1/1;
+        width:auto;
+        position: relative;
       }
       button[type="submit"] {
         margin-top: var(--space-xl);
@@ -273,6 +275,10 @@
               font-size: var(--text-sm);
               grid-row: 1/1;
               grid-column: 2/2;
+              width: fit-content;
+              &:after {
+                display:none;
+              }
             }
           }
           input {

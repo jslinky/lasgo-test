@@ -22037,6 +22037,8 @@
     .accountHolderWrap .signIn input {
       grid-row: 1/1;
       grid-column: 1/1;
+      width: auto;
+      position: relative;
     }
     .accountHolderWrap .signIn button[type=submit] {
       margin-top: var(--space-xl);
@@ -22204,6 +22206,10 @@
           font-size: var(--text-sm);
           grid-row: 1/1;
           grid-column: 2/2;
+          width: fit-content;
+        }
+        .accountHolderWrap .form-group label[for=RememberMe]:after {
+          display: none;
         }
         .accountHolderWrap .form-group input {
           --input-bg: var(--color-grey-10);
