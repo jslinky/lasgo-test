@@ -6313,7 +6313,7 @@
   .accountHolderWrap .form-group:not(:last-of-type) {
     --text-frame-y: var(--input-fs);
     --text-frame-x: calc(var(--text-frame-y) * var(--text-frame-ratio));
-    --label-fs: var(--text-xs);
+    --label-fs: var(--text-sm);
     --input-text-frame-y: calc(var(--text-frame-y) + var(--label-fs));
     --input-fs: var(--font-size-base);
     grid-template-rows: calc(var(--label-fs) + var(--space-3xs)) 1fr;
@@ -7472,7 +7472,7 @@
     .form__row--label-overlay {
       --text-frame-y: var(--input-fs);
       --text-frame-x: calc(var(--text-frame-y) * var(--text-frame-ratio));
-      --label-fs: var(--text-xs);
+      --label-fs: var(--text-sm);
       --input-text-frame-y: calc(var(--text-frame-y) + var(--label-fs));
       --input-fs: var(--font-size-base);
       grid-template-rows: calc(var(--label-fs) + var(--space-3xs)) 1fr;
