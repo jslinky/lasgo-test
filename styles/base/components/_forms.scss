@@ -9,6 +9,9 @@
 :where(input):not([class*="k-"]):is(#{$input-text-selectors}),
 *:not([class*="k-"]) > input:is(#{$input-text-selectors}):not([class*="k-"]) {
     @include input-text-rules();
+    @layer modifiers {
+      @include form-element-states();
+    }
 }
 
 :where(input):not([class*="k-"]):is([type="radio"], [type="checkbox"]),

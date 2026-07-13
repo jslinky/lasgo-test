@@ -21892,504 +21892,503 @@
     border-color: var(--color-grey-10) !important;
     padding-inline: 5px !important;
   }
-  @media only screen and (max-width: 63.9375rem) {
-    body:has(.accountHolderWrap) .accountHolderWrap {
-      min-height: 100dvh;
+  @layer new {
+    @media only screen and (max-width: 63.9375rem) {
+      body:has(.accountHolderWrap) .accountHolderWrap {
+        min-height: 100dvh;
+      }
+      body:has(.accountHolderWrap) {
+        --root-bg: var(--color-primary);
+      }
+      body:has(.accountHolderWrap) #mainHeader {
+        background: var(--color-primary);
+      }
+      body:has(.accountHolderWrap) #mainHeader #logo a {
+        background-color: var(--color-light);
+      }
+      body:has(.accountHolderWrap) :is(.headerMenuRight, .headerMenuLeft) a {
+        color: var(--color-light);
+      }
     }
-    body:has(.accountHolderWrap) {
-      --root-bg: var(--color-primary);
-    }
-    body:has(.accountHolderWrap) #mainHeader {
+    .accountHolderWrap {
+      --heading-default-font-size-min: var(--xl-px);
+      --heading-default-font-size-max: var(--display-xs-px);
+      --heading-default-color: currentColor;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: min-content min-content;
       background: var(--color-primary);
-    }
-    body:has(.accountHolderWrap) #mainHeader #logo a {
-      background-color: var(--color-light);
-    }
-    body:has(.accountHolderWrap) :is(.headerMenuRight, .headerMenuLeft) a {
-      color: var(--color-light);
-    }
-  }
-  .accountHolderWrap {
-    --heading-default-font-size-min: var(--xl-px);
-    --heading-default-font-size-max: var(--display-xs-px);
-    --heading-default-color: currentColor;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: min-content min-content;
-    background: var(--color-primary);
-    color: var(--color-primary-contrast);
-    overflow: clip;
-    border-radius: var(--radius);
-  }
-  @media (max-width: 899px) {
-    .accountHolderWrap {
-      --wrapper-inline: 0;
-    }
-  }
-  @media (min-width: 900px) {
-    .accountHolderWrap {
-      grid-template-columns: 1fr 1fr;
+      color: var(--color-primary-contrast);
+      overflow: clip;
       border-radius: var(--radius);
-      background: var(--color-grey-6);
-      color: var(--color-grey-6-contrast);
     }
-  }
-  @supports (anchor-name: --anchor) {
-    .accountHolderWrap label[for=UserName] {
-      anchor-name: --username-label;
+    @media (max-width: 899px) {
+      .accountHolderWrap {
+        --wrapper-inline: 0;
+      }
     }
-    .accountHolderWrap label[for=Password] {
-      anchor-name: --password-label;
+    @media (min-width: 900px) {
+      .accountHolderWrap {
+        grid-template-columns: 1fr 1fr;
+        border-radius: var(--radius);
+        background: var(--color-grey-6);
+        color: var(--color-grey-6-contrast);
+      }
     }
-  }
-  .accountHolderWrap > div {
-    display: contents;
-  }
-  .accountHolderWrap .form-group {
-    order: 4;
-  }
-  .accountHolderWrap .form-group:not(:last-of-type) {
-    --text-frame-y: var(--input-fs);
-    --text-frame-x: calc(var(--text-frame-y) * var(--text-frame-ratio));
-    --label-fs: var(--text-sm);
-    --input-text-frame-y: calc(var(--text-frame-y) + var(--label-fs));
-    --input-fs: var(--font-size-base);
-    grid-template-rows: calc(var(--label-fs) + var(--space-3xs)) 1fr;
-  }
-  .accountHolderWrap .form-group:not(:last-of-type) > * {
-    grid-column: 1/-1;
-  }
-  .accountHolderWrap .form-group:not(:last-of-type) label {
-    z-index: 1;
-    margin-left: var(--text-frame-x);
-    margin-block-start: var(--space-3xs);
-    grid-row: 2/-1;
-    align-self: start;
-    font-size: var(--label-fs);
-    padding-block-start: 0;
-  }
-  .accountHolderWrap .form-group:not(:last-of-type) label + :is(input, textarea, select) {
-    grid-row: 2/-1;
-  }
-  .accountHolderWrap .form-group:not(:last-of-type) :is(input, textarea) {
-    grid-row: 2/-1;
-    padding-block-end: var(--text-frame-y);
-  }
-  .accountHolderWrap .form-group:not(:last-of-type) :is(input, textarea):not(:focus, :focus-within)::placeholder {
-    color: transparent;
-  }
-  .accountHolderWrap .form-group:not(:last-of-type):has(input:is(:focus, :focus-within)) label {
-    opacity: 0.5;
-  }
-  .accountHolderWrap .form-group:nth-last-of-type(2) {
-    anchor-name: --password-row;
-  }
-  .accountHolderWrap .form-group label {
-    color: var(--color-grey-10-contrast);
-  }
-  .accountHolderWrap .form-group label[for=RememberMe] {
-    color: var(--color-light);
-    font-size: var(--text-xs);
-    grid-row: 1/1;
-    grid-column: 2/2;
-  }
-  .accountHolderWrap .form-group input {
-    --input-bg: var(--color-grey-10);
-    --_outline-color: var(--color-grey-4);
-  }
-  .accountHolderWrap .form-group :is(label, input) {
-    grid-column: 1/-1;
-  }
-  .accountHolderWrap .form-group > .form-col:not(.signIn) {
-    display: contents;
-  }
-  .accountHolderWrap input[type=radio] + label {
-    font-weight: 900;
-  }
-  .accountHolderWrap input[type=radio] + label:hover {
-    cursor: pointer;
-  }
-  .accountHolderWrap input[type=radio]:checked + label {
-    text-decoration-line: underline;
-    text-decoration-thickness: from-font;
-    text-underline-offset: 0.75em;
-  }
-  .accountHolderWrap .account-tabs {
-    grid-column: 1/1;
-    grid-row: 1/1;
-    padding: calc(var(--layout-gap) * 2);
-    padding-bottom: 0;
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-  }
-  @media (max-width: 899px) {
+    @supports (anchor-name: --anchor) {
+      .accountHolderWrap label[for=UserName] {
+        anchor-name: --username-label;
+      }
+      .accountHolderWrap label[for=Password] {
+        anchor-name: --password-label;
+      }
+    }
+    .accountHolderWrap > div {
+      display: contents;
+    }
     .accountHolderWrap .account-tabs {
-      flex-wrap: wrap;
+      grid-column: 1/1;
+      grid-row: 1/1;
+      padding: calc(var(--layout-gap) * 2);
+      padding-bottom: 0;
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
     }
-    .accountHolderWrap .account-tabs:before, .accountHolderWrap .account-tabs:after {
-      content: "";
-      display: inline-flex;
-      width: 100%;
-      height: 200px;
-      display: none;
-    }
-    .accountHolderWrap .account-tabs:before {
-      background-image: url("data:image/svg+xml,%3Csvg width='61' height='135' viewBox='0 0 61 135' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M57.3534 54.0996C55.3423 54.0996 53.7117 55.4051 53.7117 57.0155V96.798C53.5735 97.5991 53.0813 98.4967 51.5048 98.4967H50.6133C50.0915 98.4048 49.432 98.0821 49.2214 97.0701V107.01L49.2219 107.011C49.4738 106.373 50.0502 105.8 51.3064 105.8V105.789H52.0949C52.7324 105.867 53.6577 106.262 53.6577 107.944H53.7112V117.359C53.7112 118.97 55.3418 120.275 57.3529 120.275C59.3644 120.275 60.995 118.97 60.995 117.359V57.0155C60.9955 55.4051 59.3649 54.0996 57.3534 54.0996Z' fill='%23CE6D6E'/%3E%3Cpath d='M45.5874 0C43.5763 0 41.9458 1.30554 41.9458 2.91589V26.9007C41.7729 27.5833 41.2679 28.2496 40.0709 28.3573H39.6195V28.3568L39.6144 28.3573H39.0355C38.4286 28.2848 37.5569 27.9254 37.4733 26.4376V37.0371C37.687 36.3325 38.247 35.6504 39.6159 35.6488H39.7725V35.6902C39.7725 35.6902 41.9259 35.2894 41.9259 37.8459H41.9458V132.081C41.9458 133.691 43.5763 134.997 45.5874 134.997C47.599 134.997 49.2296 133.691 49.2296 132.081V2.91589C49.2296 1.30503 47.599 0 45.5874 0Z' fill='%23F2AB70'/%3E%3Cpath d='M33.8219 12.1763C31.8104 12.1763 30.1798 13.7897 30.1798 15.7799V72.1086C29.9681 72.803 29.4193 73.4708 28.0881 73.4876H27.851V73.482C27.851 73.482 27.8214 73.4856 27.8076 73.4876H27.3241C26.6871 73.4289 25.6981 73.0669 25.6981 71.3264H25.6971V82.2037C25.9011 81.4945 26.4479 80.7955 27.8096 80.7792H28.0438V80.7853C28.0438 80.7853 28.0744 80.7817 28.0902 80.7792H28.5665C29.1816 80.8348 30.1155 81.1912 30.1798 82.7872V123.458C30.1798 125.448 31.8104 127.061 33.8219 127.061C35.8335 127.061 37.4641 125.448 37.4641 123.458V15.7799C37.4636 13.7897 35.833 12.1763 33.8219 12.1763Z' fill='%23F4DD6E'/%3E%3Cpath d='M22.0559 35.6191C20.0443 35.6191 18.4143 36.9247 18.4143 38.535V50.5734C18.2123 51.2718 17.6691 51.9489 16.3486 51.981H16.0681V51.9713C16.0681 51.9713 16.0329 51.9764 15.9941 51.981H15.5877C14.9787 51.9376 13.9969 51.6246 13.9203 50.0189V60.6807C14.1269 59.9833 14.6691 59.3001 15.9972 59.2731H16.264V59.2848C16.264 59.2848 16.2981 59.2787 16.3522 59.2731H16.724C17.3513 59.3119 18.4015 59.6381 18.4138 61.4124V104.975C18.4138 106.585 20.0443 107.891 22.0554 107.891C24.067 107.891 25.6976 106.585 25.6976 104.975V38.535C25.6981 36.9247 24.0675 35.6191 22.0559 35.6191Z' fill='%2360AFAB'/%3E%3Cpath d='M10.3409 45.7292C8.32937 45.7292 6.69879 47.0348 6.69879 48.6451V65.6284C6.47693 66.2809 5.93782 66.8829 4.71731 66.9273H2.77867C1.2506 66.9273 0 68.1787 0 69.7089V71.4377C0 72.9674 1.25009 74.2193 2.77867 74.2193H4.59184V74.2367C4.59184 74.2367 4.68212 74.2255 4.80299 74.2193H4.98865C5.55631 74.2392 6.53252 74.515 6.6993 75.9818V94.8649C6.6993 96.4753 8.32988 97.7808 10.3415 97.7808C12.353 97.7808 13.9836 96.4753 13.9836 94.8649V48.6451C13.9831 47.0353 12.3525 45.7292 10.3409 45.7292Z' fill='%236EA5C6'/%3E%3C/svg%3E%0A");
-      background-repeat: no-repeat;
-      background-position: left calc(var(--layout-gap) * 2) center;
-      background-size: 45px auto;
-      background-color: var(--color-primary);
-    }
-    .accountHolderWrap .account-tabs:after {
-      position: absolute;
-      top: 0;
-      left: var(--wrapper-padding);
-      width: calc(100% - var(--wrapper-padding) * 2);
-      background: var(--color-light);
-    }
-  }
-  .accountHolderWrap .account-tabs > div {
-    display: flex;
-    align-items: center;
-  }
-  .accountHolderWrap .account-tabs input {
-    clip: rect(0 0 0 0);
-    clip-path: inset(100%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
-  .accountHolderWrap :is(.accountHolderSignIn, .account-tabs + div) {
-    grid-column: 1/1;
-    grid-row: 2/2;
-    padding: calc(var(--layout-gap) * 2);
-  }
-  .accountHolderWrap .account-tabs ~ img {
-    grid-column: 2/2;
-    grid-row: 1/-1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: none;
-  }
-  @media (min-width: 900px) {
-    .accountHolderWrap .account-tabs ~ img {
-      display: block;
-    }
-  }
-  .accountHolderWrap .socials {
-    grid-column: 1/1;
-    height: 20px;
-    opacity: 1;
-    grid-row: 3/3;
-    place-self: center;
-    margin-bottom: calc(var(--layout-gap) * 2);
-    width: calc(100% - var(--layout-gap) * 2);
-  }
-  @media (min-width: 900px) {
-    .accountHolderWrap .socials {
-      grid-row: 1/-1;
-      margin-right: calc(var(--layout-gap) * 2);
-      place-self: end;
-      width: calc(50% - var(--layout-gap) * 2);
-    }
-  }
-  .accountHolderWrap .signIn {
-    grid-column: 1/-1;
-    display: grid;
-    grid-template-columns: 1em 1fr;
-  }
-  .accountHolderWrap .signIn input {
-    grid-row: 1/1;
-    grid-column: 1/1;
-  }
-  .accountHolderWrap .signIn button[type=submit] {
-    margin-top: var(--space-xl);
-    width: fit-content;
-    grid-column: 1/-1;
-  }
-  @media (max-width: 899px) {
-    .accountHolderWrap .signIn button[type=submit] {
-      width: 100%;
-      --button-color: var(--color-secondary) !important;
-      --button-color-contrast: var(--color-secondary-contrast) !important;
-    }
-  }
-  @media (min-width: 900px) {
-    .accountHolderWrap .signIn button[type=submit] {
-      margin-top: var(--space-md);
-    }
-  }
-  .accountHolderWrap .signIn a:last-child {
-    margin-top: var(--space-lg);
-    display: block;
-    font-size: var(--text-xs);
-    text-decoration: underline;
-  }
-  .accountHolderWrap .signIn a:last-child:hover {
-    text-decoration: none;
-  }
-  @supports (anchor-name: --anchor) {
-    .accountHolderWrap .signIn a:last-child {
-      position: absolute;
-      position-anchor: --password-row;
-      position-area: bottom span-left;
-      margin-top: var(--space-2xs);
-      text-align: right;
-      width: 50%;
-      right: 0;
-    }
-  }
-  .accountHolderWrap .openAccount {
-    display: contents;
-  }
-  .accountHolderWrap:has(input:checked:is(#login-tab)) > div:last-of-type {
-    height: 0;
-    z-index: 0;
-  }
-  .accountHolderWrap:has(input:checked:is(#login-tab)) > div:last-of-type > div > div:not(.account-tabs, .socials) {
-    opacity: 0;
-    z-index: 0;
-    pointer-events: none;
-  }
-  .accountHolderWrap:has(input:checked:is(#login-tab)) > div:first-of-type {
-    z-index: 1;
-  }
-  .accountHolderWrap:has(input:checked:is(#signup-tab)) > div:first-of-type {
-    height: 0;
-    z-index: 0;
-    pointer-events: none;
-  }
-  .accountHolderWrap:has(input:checked:is(#signup-tab)) > div:first-of-type > div {
-    opacity: 0;
-    z-index: 0;
-  }
-  .accountHolderWrap:has(input:checked:is(#signup-tab)) > div:last-of-type {
-    z-index: 1;
-  }
-  .accountHolderWrap .form-group {
-    flex-basis: 100%;
-  }
-  .accountHolderWrap .form-group * {
-    width: 100%;
-  }
-  @layer base {
-    .accountHolderWrap :is(input, textarea, select) {
-      --_color: var(--input-color, var(--color, CanvasText));
-      --_bg: var(--input-bg, Canvas);
-      --_fs: var(--input-fs, 1em);
-      --_outline-color: var(--_bg);
-      @supports (color: color-mix(in lab, red, red)) {
-        --_outline-color: color-mix(in oklch, var(--_bg) 90%, var(--input-outline-mix-color, black));
+    @media (max-width: 899px) {
+      .accountHolderWrap .account-tabs {
+        flex-wrap: wrap;
       }
-      --_outline-color-focused: var(--input-outline-color, var(--_outline-color));
-      @supports (color: color-mix(in lab, red, red)) {
-        --_outline-color-focused: color-mix(in oklch, var(--input-outline-color, var(--_outline-color)) 70%, var(--input-outline-mix-color-focused, var(--input-outline-mix-color, black)));
+      .accountHolderWrap .account-tabs:before, .accountHolderWrap .account-tabs:after {
+        content: "";
+        display: inline-flex;
+        width: 100%;
+        height: 200px;
+        display: none;
       }
-      background-color: var(--_bg);
-      color: var(--_color);
-      font-size: var(--_fs);
-    }
-  }
-  @layer modifiers {
-    .accountHolderWrap :is(input, textarea, select) .input--sm {
-      font-size: var(--sm);
-    }
-    .accountHolderWrap :is(input, textarea, select) .input--lg {
-      font-size: var(--lg);
-    }
-  }
-  @layer states {
-    .accountHolderWrap :is(input, textarea, select):focus-within {
-      outline-color: var(--input-outline-color-focused, var(--_outline-color-focused));
-    }
-    @container style(--eager:true) {
-      .accountHolderWrap :is(input, textarea, select):is([minlength], [pattern], [required]):invalid:not(:placeholder-shown) {
-        --input-outline-color: red;
+      .accountHolderWrap .account-tabs:before {
+        background-image: url("data:image/svg+xml,%3Csvg width='61' height='135' viewBox='0 0 61 135' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M57.3534 54.0996C55.3423 54.0996 53.7117 55.4051 53.7117 57.0155V96.798C53.5735 97.5991 53.0813 98.4967 51.5048 98.4967H50.6133C50.0915 98.4048 49.432 98.0821 49.2214 97.0701V107.01L49.2219 107.011C49.4738 106.373 50.0502 105.8 51.3064 105.8V105.789H52.0949C52.7324 105.867 53.6577 106.262 53.6577 107.944H53.7112V117.359C53.7112 118.97 55.3418 120.275 57.3529 120.275C59.3644 120.275 60.995 118.97 60.995 117.359V57.0155C60.9955 55.4051 59.3649 54.0996 57.3534 54.0996Z' fill='%23CE6D6E'/%3E%3Cpath d='M45.5874 0C43.5763 0 41.9458 1.30554 41.9458 2.91589V26.9007C41.7729 27.5833 41.2679 28.2496 40.0709 28.3573H39.6195V28.3568L39.6144 28.3573H39.0355C38.4286 28.2848 37.5569 27.9254 37.4733 26.4376V37.0371C37.687 36.3325 38.247 35.6504 39.6159 35.6488H39.7725V35.6902C39.7725 35.6902 41.9259 35.2894 41.9259 37.8459H41.9458V132.081C41.9458 133.691 43.5763 134.997 45.5874 134.997C47.599 134.997 49.2296 133.691 49.2296 132.081V2.91589C49.2296 1.30503 47.599 0 45.5874 0Z' fill='%23F2AB70'/%3E%3Cpath d='M33.8219 12.1763C31.8104 12.1763 30.1798 13.7897 30.1798 15.7799V72.1086C29.9681 72.803 29.4193 73.4708 28.0881 73.4876H27.851V73.482C27.851 73.482 27.8214 73.4856 27.8076 73.4876H27.3241C26.6871 73.4289 25.6981 73.0669 25.6981 71.3264H25.6971V82.2037C25.9011 81.4945 26.4479 80.7955 27.8096 80.7792H28.0438V80.7853C28.0438 80.7853 28.0744 80.7817 28.0902 80.7792H28.5665C29.1816 80.8348 30.1155 81.1912 30.1798 82.7872V123.458C30.1798 125.448 31.8104 127.061 33.8219 127.061C35.8335 127.061 37.4641 125.448 37.4641 123.458V15.7799C37.4636 13.7897 35.833 12.1763 33.8219 12.1763Z' fill='%23F4DD6E'/%3E%3Cpath d='M22.0559 35.6191C20.0443 35.6191 18.4143 36.9247 18.4143 38.535V50.5734C18.2123 51.2718 17.6691 51.9489 16.3486 51.981H16.0681V51.9713C16.0681 51.9713 16.0329 51.9764 15.9941 51.981H15.5877C14.9787 51.9376 13.9969 51.6246 13.9203 50.0189V60.6807C14.1269 59.9833 14.6691 59.3001 15.9972 59.2731H16.264V59.2848C16.264 59.2848 16.2981 59.2787 16.3522 59.2731H16.724C17.3513 59.3119 18.4015 59.6381 18.4138 61.4124V104.975C18.4138 106.585 20.0443 107.891 22.0554 107.891C24.067 107.891 25.6976 106.585 25.6976 104.975V38.535C25.6981 36.9247 24.0675 35.6191 22.0559 35.6191Z' fill='%2360AFAB'/%3E%3Cpath d='M10.3409 45.7292C8.32937 45.7292 6.69879 47.0348 6.69879 48.6451V65.6284C6.47693 66.2809 5.93782 66.8829 4.71731 66.9273H2.77867C1.2506 66.9273 0 68.1787 0 69.7089V71.4377C0 72.9674 1.25009 74.2193 2.77867 74.2193H4.59184V74.2367C4.59184 74.2367 4.68212 74.2255 4.80299 74.2193H4.98865C5.55631 74.2392 6.53252 74.515 6.6993 75.9818V94.8649C6.6993 96.4753 8.32988 97.7808 10.3415 97.7808C12.353 97.7808 13.9836 96.4753 13.9836 94.8649V48.6451C13.9831 47.0353 12.3525 45.7292 10.3409 45.7292Z' fill='%236EA5C6'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-position: left calc(var(--layout-gap) * 2) center;
+        background-size: 45px auto;
+        background-color: var(--color-primary);
       }
-      .accountHolderWrap :is(input, textarea, select):is([minlength], [pattern], [required]):valid {
-        --input-outline-color: green;
+      .accountHolderWrap .account-tabs:after {
+        position: absolute;
+        top: 0;
+        left: var(--wrapper-padding);
+        width: calc(100% - var(--wrapper-padding) * 2);
+        background: var(--color-light);
       }
     }
-    .accountHolderWrap :is(input, textarea, select):is([minlength], [pattern], [required]):user-invalid:not(:placeholder-shown) {
-      --input-outline-color: red;
-    }
-    .accountHolderWrap :is(input, textarea, select):is([minlength], [pattern], [required]):user-valid {
-      --input-outline-color: green;
-    }
-  }
-  .accountHolderWrap :is(input, textarea, select) {
-    background-color: var(--_bg) !important;
-    color: var(--_color) !important;
-    font-size: var(--_fs) !important;
-  }
-  .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])) {
-    padding-inline: var(--input-text-frame-x, var(--text-frame-x)) !important;
-    padding-block: var(--input-text-frame-y, var(--text-frame-y)) !important;
-    outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color))) !important;
-    border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius))) !important;
-  }
-  .accountHolderWrap input:is([type=radio], [type=checkbox]) {
-    accent-color: var(--input-accent-color, var(--accent-color, initial));
-    width: var(--_fs);
-    height: var(--_fs);
-    padding-inline: var(--input-box-frame-x, 1em);
-    padding-block: var(--input-box-frame-y, 1em);
-    border-radius: var(--input-box-radius, max(var(--input-box-max-radius, 0.5rem), var(--radius)));
-  }
-  @layer base {
-    .accountHolderWrap input:is(textarea, select) {
-      padding-inline: var(--input-text-frame-x, var(--text-frame-x));
-      padding-block: var(--input-text-frame-y, var(--text-frame-y));
-      outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
-      border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius)));
-    }
-  }
-  .accountHolderSignIn {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--flex-grid-gap);
-  }
-  .accountHolderSignIn > * {
-    display: grid;
-    flex: 1 1 var(--flex-grid-min);
-  }
-  .accountHolderSignIn form {
-    display: contents;
-  }
-  .accountHolderSignIn h2 {
-    order: 1;
-  }
-  .accountHolderSignIn :is(h2 + p, span:last-child) {
-    font-size: var(--text-xs);
-    white-space: nowrap;
-  }
-  @supports (anchor-name: --anchor) {
-    .accountHolderSignIn :is(h2 + p, span:last-child) {
-      position: absolute;
-      position-anchor: var(--anchor-name);
-      position-area: center span-all;
-      width: calc(100% - var(--layout-gap) * 6);
-      left: calc(anchor(var(--anchor-name) left) + var(--layout-gap));
-      top: calc(anchor(var(--anchor-name) top) - var(--layout-gap) * 1.5);
-      text-align: right;
-    }
-  }
-  .accountHolderSignIn h2 + p {
-    --anchor-name: --password-label;
-    order: 2;
-  }
-  .accountHolderSignIn span:last-child {
-    --anchor-name: --username-label;
-    order: 3;
-  }
-  @layer base {
-    .accountHolderSignIn {
-      --row-gap: var(--space-sm);
-      --column-gap: var(--space-sm);
-      --hint-fs: var(--xs);
-      --half-row-gap: calc(var(--row-gap) / 2);
-      --quarter-row-gap: calc(var(--row-gap) / 4);
-      display: grid;
-      grid-template-columns: max(25%, 120px) 1fr;
-      gap: var(--row-gap) var(--column-gap);
-    }
-    .accountHolderSignIn:has(.hint) {
-      row-gap: max(var(--half-row-gap), var(--hint-fs) + var(--half-row-gap));
-    }
-    .accountHolderSignIn:has(.hint) :is(.form-group) {
-      row-gap: max(var(--quarter-row-gap), 4px);
-    }
-    .accountHolderSignIn:has(.hint) :is(.form-group):not(:has(.hint)) {
-      margin-block-start: var(--row-gap);
-    }
-    .accountHolderSignIn:has(.hint) :is(.form-group):has(.hint) + :is(.form-group) {
-      margin-block-start: 0;
-    }
-    .accountHolderSignIn :where(.hint) {
-      visibility: hidden;
-      grid-column-start: 2;
-      font-size: var(--hint-fs);
-    }
-    .accountHolderSignIn :is(.form-group) {
-      display: grid;
-      grid-template-columns: subgrid;
-      grid-column: 1/-1;
-    }
-    .accountHolderSignIn :is(div:has(> input[type=radio], > input[type=checkbox]), button[type=submit]) {
-      grid-column-start: 2;
-      grid-template-columns: max-content 1fr;
-      column-gap: min(var(--column-gap), var(--space-xs));
+    .accountHolderWrap .account-tabs > div {
+      display: flex;
       align-items: center;
     }
-  }
-  @layer base {
-    :where(label:has(+ input:is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]))) {
-      padding-block-start: var(--input-text-frame-y, var(--text-frame-y));
+    .accountHolderWrap .account-tabs input {
+      clip: rect(0 0 0 0);
+      clip-path: inset(100%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
     }
-  }
-  @layer base {
-    :where(div:has(> input[type=radio], > input[type=checkbox]):has(label:first-child)) label {
+    .accountHolderWrap :is(.accountHolderSignIn, .account-tabs + div) {
+      grid-column: 1/1;
+      grid-row: 2/2;
+      padding: calc(var(--layout-gap) * 2);
+    }
+    .accountHolderWrap .account-tabs ~ img {
+      grid-column: 2/2;
+      grid-row: 1/-1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    @media (min-width: 900px) {
+      .accountHolderWrap .account-tabs ~ img {
+        display: block;
+      }
+    }
+    .accountHolderWrap .socials {
+      grid-column: 1/1;
+      height: 20px;
+      opacity: 1;
+      grid-row: 3/3;
+      place-self: center;
+      margin-bottom: calc(var(--layout-gap) * 2);
+      width: calc(100% - var(--layout-gap) * 2);
+    }
+    @media (min-width: 900px) {
+      .accountHolderWrap .socials {
+        grid-row: 1/-1;
+        margin-right: calc(var(--layout-gap) * 2);
+        place-self: end;
+        width: calc(50% - var(--layout-gap) * 2);
+      }
+    }
+    .accountHolderWrap .signIn {
+      grid-column: 1/-1;
+      display: grid;
+      grid-template-columns: 1em 1fr;
+    }
+    .accountHolderWrap .signIn input {
+      grid-row: 1/1;
+      grid-column: 1/1;
+    }
+    .accountHolderWrap .signIn button[type=submit] {
+      margin-top: var(--space-xl);
+      width: fit-content;
+      grid-column: 1/-1;
+    }
+    @media (max-width: 899px) {
+      .accountHolderWrap .signIn button[type=submit] {
+        width: 100%;
+        --button-color: var(--color-secondary) !important;
+        --button-color-contrast: var(--color-secondary-contrast) !important;
+      }
+    }
+    @media (min-width: 900px) {
+      .accountHolderWrap .signIn button[type=submit] {
+        margin-top: var(--space-md);
+      }
+    }
+    .accountHolderWrap .signIn a:last-child {
+      margin-top: var(--space-lg);
+      display: block;
+      font-size: var(--text-sm);
+      text-decoration: underline;
+    }
+    .accountHolderWrap .signIn a:last-child:hover {
+      text-decoration: none;
+    }
+    @supports (anchor-name: --anchor) {
+      .accountHolderWrap .signIn a:last-child {
+        position: absolute;
+        position-anchor: --password-row;
+        position-area: bottom span-left;
+        margin-top: var(--space-2xs);
+        text-align: right;
+        width: 50%;
+        right: 0;
+      }
+    }
+    .accountHolderWrap .openAccount {
+      display: contents;
+    }
+    .accountHolderWrap:has(input:checked:is(#login-tab)) > div:last-of-type {
+      height: 0;
+      z-index: 0;
+    }
+    .accountHolderWrap:has(input:checked:is(#login-tab)) > div:last-of-type > div > div:not(.account-tabs, .socials) {
+      opacity: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .accountHolderWrap:has(input:checked:is(#login-tab)) > div:first-of-type {
+      z-index: 1;
+    }
+    .accountHolderWrap:has(input:checked:is(#signup-tab)) > div:first-of-type {
+      height: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .accountHolderWrap:has(input:checked:is(#signup-tab)) > div:first-of-type > div {
+      opacity: 0;
+      z-index: 0;
+    }
+    .accountHolderWrap:has(input:checked:is(#signup-tab)) > div:last-of-type {
+      z-index: 1;
+    }
+    .accountHolderWrap .form-group {
+      flex-basis: 100%;
+    }
+    .accountHolderWrap .form-group * {
+      width: 100%;
+    }
+    @layer components {
+      @layer base {
+        .accountHolderWrap :is(input, textarea, select) {
+          --_color: var(--input-color, var(--color, CanvasText));
+          --_bg: var(--input-bg, Canvas);
+          --_fs: var(--input-fs, 1em);
+          --_outline-color: var(--_bg);
+          @supports (color: color-mix(in lab, red, red)) {
+            --_outline-color: color-mix(in oklch, var(--_bg) 90%, var(--input-outline-mix-color, black));
+          }
+          --_outline-color-focused: var(--input-outline-color, var(--_outline-color));
+          @supports (color: color-mix(in lab, red, red)) {
+            --_outline-color-focused: color-mix(in oklch, var(--input-outline-color, var(--_outline-color)) 70%, var(--input-outline-mix-color-focused, var(--input-outline-mix-color, black)));
+          }
+          background-color: var(--_bg);
+          color: var(--_color);
+          font-size: var(--_fs);
+        }
+        .accountHolderWrap input:is([type=radio], [type=checkbox]) {
+          accent-color: var(--input-accent-color, var(--accent-color, initial));
+          width: var(--_fs);
+          height: var(--_fs);
+          padding-inline: var(--input-box-frame-x, 1em);
+          padding-block: var(--input-box-frame-y, 1em);
+          border-radius: var(--input-box-radius, max(var(--input-box-max-radius, 0.5rem), var(--radius)));
+        }
+        @layer base {
+          .accountHolderWrap input:is(textarea, select) {
+            padding-inline: var(--input-text-frame-x, var(--text-frame-x));
+            padding-block: var(--input-text-frame-y, var(--text-frame-y));
+            outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
+            border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius)));
+          }
+        }
+        .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])) {
+          padding-inline: var(--input-text-frame-x, var(--text-frame-x));
+          padding-block: var(--input-text-frame-y, var(--text-frame-y));
+          outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
+          border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius)));
+        }
+        .accountHolderWrap .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])) {
+          border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius))) !important;
+          height: auto !important;
+          width: 100% !important;
+          padding-inline: var(--input-text-frame-x, var(--text-frame-x)) !important;
+          padding-block: var(--input-text-frame-y, var(--text-frame-y)) !important;
+        }
+        .accountHolderWrap .form-group {
+          order: 4;
+        }
+        .accountHolderWrap .form-group:not(:last-of-type) {
+          --text-frame-y: var(--input-fs);
+          --text-frame-x: calc(var(--text-frame-y) * var(--text-frame-ratio));
+          --label-fs: var(--text-sm);
+          --input-text-frame-y: calc(var(--text-frame-y) + var(--label-fs));
+          --input-fs: var(--font-size-base);
+          grid-template-rows: calc(var(--label-fs) + var(--space-3xs)) 1fr;
+        }
+        .accountHolderWrap .form-group:not(:last-of-type) > * {
+          grid-column: 1/-1;
+        }
+        .accountHolderWrap .form-group:not(:last-of-type) label {
+          z-index: 1;
+          margin-left: var(--text-frame-x);
+          margin-block-start: var(--space-3xs);
+          grid-row: 2/-1;
+          align-self: start;
+          font-size: var(--label-fs);
+          padding-block-start: 0;
+        }
+        .accountHolderWrap .form-group:not(:last-of-type) label + :is(input, textarea, select) {
+          grid-row: 2/-1;
+        }
+        .accountHolderWrap .form-group:not(:last-of-type) :is(input, textarea) {
+          grid-row: 2/-1;
+          padding-block-end: var(--text-frame-y);
+        }
+        .accountHolderWrap .form-group:not(:last-of-type) :is(input, textarea):not(:focus, :focus-within)::placeholder {
+          color: transparent;
+        }
+        .accountHolderWrap .form-group:not(:last-of-type):has(input:is(:focus, :focus-within)) label {
+          opacity: 1;
+          color: var(--color-primary);
+        }
+        .accountHolderWrap .form-group:nth-last-of-type(2) {
+          anchor-name: --password-row;
+        }
+        .accountHolderWrap .form-group label {
+          color: var(--color-grey-10-contrast);
+        }
+        .accountHolderWrap .form-group label[for=RememberMe] {
+          color: var(--color-light);
+          font-size: var(--text-sm);
+          grid-row: 1/1;
+          grid-column: 2/2;
+        }
+        .accountHolderWrap .form-group input {
+          --input-bg: var(--color-grey-10);
+          --_outline-color: var(--color-grey-4);
+        }
+        .accountHolderWrap .form-group :is(label, input) {
+          grid-column: 1/-1;
+        }
+        .accountHolderWrap .form-group > .form-col:not(.signIn) {
+          display: contents;
+        }
+        .accountHolderWrap input[type=radio] + label {
+          font-weight: 900;
+        }
+        .accountHolderWrap input[type=radio] + label:hover {
+          cursor: pointer;
+        }
+        .accountHolderWrap input[type=radio]:checked + label {
+          text-decoration-line: underline;
+          text-decoration-thickness: from-font;
+          text-underline-offset: 0.75em;
+        }
+      }
+      @layer modifiers;
+      @layer states {
+        .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])) {
+          --_outline-color-focused: var(--color-primary-3);
+        }
+        .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])):focus-within {
+          outline-color: var(--input-outline-color-focused, var(--_outline-color-focused));
+        }
+        @container style(--eager:true) {
+          .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])):is([minlength], [pattern], [required]):invalid:not(:placeholder-shown) {
+            --input-outline-color: red;
+          }
+          .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])):is([minlength], [pattern], [required]):valid {
+            --input-outline-color: green;
+          }
+        }
+        .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])):is([minlength], [pattern], [required]):user-invalid:not(:placeholder-shown) {
+          --input-outline-color: red;
+        }
+        .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])):is([minlength], [pattern], [required]):user-valid {
+          --input-outline-color: green;
+        }
+        .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])):focus-within {
+          outline-width: 3px;
+        }
+      }
+    }
+    .accountHolderSignIn {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--flex-grid-gap);
+    }
+    .accountHolderSignIn > * {
+      display: grid;
+      flex: 1 1 var(--flex-grid-min);
+    }
+    .accountHolderSignIn form {
+      display: contents;
+    }
+    .accountHolderSignIn h2 {
+      order: 1;
+    }
+    .accountHolderSignIn :is(h2 + p, span:last-child) {
+      font-size: var(--text-xs);
+      white-space: nowrap;
+    }
+    @supports (anchor-name: --anchor) {
+      .accountHolderSignIn :is(h2 + p, span:last-child) {
+        position: absolute;
+        position-anchor: var(--anchor-name);
+        position-area: center span-all;
+        width: calc(100% - var(--layout-gap) * 6);
+        left: calc(anchor(var(--anchor-name) left) + var(--layout-gap));
+        top: calc(anchor(var(--anchor-name) top) - var(--layout-gap) * 1.5);
+        text-align: right;
+      }
+    }
+    .accountHolderSignIn h2 + p {
+      --anchor-name: --password-label;
       order: 2;
     }
-  }
-  :is(.accountHolderSignIn, .openAccount) h2 {
-    --font-size-min: var(--heading-default-font-size-min, var(--lg-px));
-  }
-  :is(.accountHolderSignIn, .openAccount) h2.fluid-cq {
-    --font-size-min: var(--heading-default-font-size-min, var(--lg));
-  }
-  :is(.accountHolderSignIn, .openAccount) h2 {
-    --font-size-max: var(--heading-default-font-size-max, var(--xl-px));
-  }
-  :is(.accountHolderSignIn, .openAccount) h2.fluid-cq {
-    --font-size-max: var(--heading-default-font-size-max, var(--xl));
-  }
-  :is(.accountHolderSignIn, .openAccount) h2 {
-    --font-size: var(--heading-default-font-size, calc((var(--font-size-max) / var(--font-size-base-px)) * 1rem));
-  }
-  :is(.accountHolderSignIn, .openAccount) h2.fluid-cq {
-    --font-size: var(--heading-default-font-size-fluid-cq, min(var(--font-size-max, var(--font-size-base-px)), calc(var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw))));
-  }
-  :is(.accountHolderSignIn, .openAccount) h2.fluid-cq:is(.fluid) {
-    font-size: var(--font-size);
-  }
-  :is(.accountHolderSignIn, .openAccount) h2 {
-    --font-ratio-min: var(--heading-default-font-ratio-min, 1.2);
-    --font-ratio-max: var(--heading-default-font-ratio-max, 1.5);
-    --font-width-min: var(--heading-default-font-width-min, 375);
-    --font-width-max: var(--heading-default-font-width-max, 1440);
-    --font-fluid-cq-variance: var(--heading-default-font-fluid-cq-variance, 0.75cqw);
-    --text-transform: var(--heading-default-text-transform, none);
-    --letter-spacing: var(--heading-default-letter-spacing, normal);
-    --line-height: var(--heading-default-line-height, normal);
-    --color-heading: var(--heading-default-color, inherit);
-    --font-family: var(--heading-default-font-family, var(--font-family-heading));
-  }
-  .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])) {
-    border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius))) !important;
-    height: auto !important;
-    width: 100% !important;
-    padding-inline: var(--input-text-frame-x, var(--text-frame-x)) !important;
-    padding-block: var(--input-text-frame-y, var(--text-frame-y)) !important;
-  }
-  :is(#accountHeader) .loggedinWrap {
-    font-size: var(--text-xs);
-  }
-  .accountHolderWrap {
-    margin-block: var(--spacing-xl);
-  }
-  :is(.container_16, .grid_16):has(.accountHolderWrap) {
-    all: unset;
-  }
-  .container_16:has(.accountHolderWrap) {
-    width: min(var(--max-wrapper-width), 100%);
-    display: block;
-    margin-inline: auto;
+    .accountHolderSignIn span:last-child {
+      --anchor-name: --username-label;
+      order: 3;
+    }
+    @layer base {
+      .accountHolderSignIn {
+        --row-gap: var(--space-sm);
+        --column-gap: var(--space-sm);
+        --hint-fs: var(--xs);
+        --half-row-gap: calc(var(--row-gap) / 2);
+        --quarter-row-gap: calc(var(--row-gap) / 4);
+        display: grid;
+        grid-template-columns: max(25%, 120px) 1fr;
+        gap: var(--row-gap) var(--column-gap);
+      }
+      .accountHolderSignIn:has(.hint) {
+        row-gap: max(var(--half-row-gap), var(--hint-fs) + var(--half-row-gap));
+      }
+      .accountHolderSignIn:has(.hint) :is(.form-group) {
+        row-gap: max(var(--quarter-row-gap), 4px);
+      }
+      .accountHolderSignIn:has(.hint) :is(.form-group):not(:has(.hint)) {
+        margin-block-start: var(--row-gap);
+      }
+      .accountHolderSignIn:has(.hint) :is(.form-group):has(.hint) + :is(.form-group) {
+        margin-block-start: 0;
+      }
+      .accountHolderSignIn :where(.hint) {
+        visibility: hidden;
+        grid-column-start: 2;
+        font-size: var(--hint-fs);
+      }
+      .accountHolderSignIn :is(.form-group) {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1/-1;
+      }
+      .accountHolderSignIn :is(div:has(> input[type=radio], > input[type=checkbox]), button[type=submit]) {
+        grid-column-start: 2;
+        grid-template-columns: max-content 1fr;
+        column-gap: min(var(--column-gap), var(--space-xs));
+        align-items: center;
+      }
+    }
+    @layer base {
+      :where(label:has(+ input:is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]))) {
+        padding-block-start: var(--input-text-frame-y, var(--text-frame-y));
+      }
+    }
+    @layer base {
+      :where(div:has(> input[type=radio], > input[type=checkbox]):has(label:first-child)) label {
+        order: 2;
+      }
+    }
+    :is(.accountHolderSignIn, .openAccount) h2 {
+      --font-size-min: var(--heading-default-font-size-min, var(--lg-px));
+    }
+    :is(.accountHolderSignIn, .openAccount) h2.fluid-cq {
+      --font-size-min: var(--heading-default-font-size-min, var(--lg));
+    }
+    :is(.accountHolderSignIn, .openAccount) h2 {
+      --font-size-max: var(--heading-default-font-size-max, var(--xl-px));
+    }
+    :is(.accountHolderSignIn, .openAccount) h2.fluid-cq {
+      --font-size-max: var(--heading-default-font-size-max, var(--xl));
+    }
+    :is(.accountHolderSignIn, .openAccount) h2 {
+      --font-size: var(--heading-default-font-size, calc((var(--font-size-max) / var(--font-size-base-px)) * 1rem));
+    }
+    :is(.accountHolderSignIn, .openAccount) h2.fluid-cq {
+      --font-size: var(--heading-default-font-size-fluid-cq, min(var(--font-size-max, var(--font-size-base-px)), calc(var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw))));
+    }
+    :is(.accountHolderSignIn, .openAccount) h2.fluid-cq:is(.fluid) {
+      font-size: var(--font-size);
+    }
+    :is(.accountHolderSignIn, .openAccount) h2 {
+      --font-ratio-min: var(--heading-default-font-ratio-min, 1.2);
+      --font-ratio-max: var(--heading-default-font-ratio-max, 1.5);
+      --font-width-min: var(--heading-default-font-width-min, 375);
+      --font-width-max: var(--heading-default-font-width-max, 1440);
+      --font-fluid-cq-variance: var(--heading-default-font-fluid-cq-variance, 0.75cqw);
+      --text-transform: var(--heading-default-text-transform, none);
+      --letter-spacing: var(--heading-default-letter-spacing, normal);
+      --line-height: var(--heading-default-line-height, normal);
+      --color-heading: var(--heading-default-color, inherit);
+      --font-family: var(--heading-default-font-family, var(--font-family-heading));
+    }
+    :is(#accountHeader) .loggedinWrap {
+      font-size: var(--text-xs);
+    }
+    .accountHolderWrap {
+      margin-block: var(--spacing-xl);
+    }
+    :is(.container_16, .grid_16):has(.accountHolderWrap) {
+      all: unset;
+    }
+    .container_16:has(.accountHolderWrap) {
+      width: min(var(--max-wrapper-width), 100%);
+      display: block;
+      margin-inline: auto;
+    }
   }
   #footer {
     overflow: visible;
@@ -23074,6 +23073,25 @@
       outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
       border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius)));
     }
+    @layer modifiers {
+      :where(input):not([class*=k-]):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]):focus-within, *:not([class*=k-]) > input:is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]):not([class*=k-]):focus-within {
+        outline-color: var(--input-outline-color-focused, var(--_outline-color-focused));
+      }
+      @container style(--eager:true) {
+        :where(input):not([class*=k-]):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]):is([minlength], [pattern], [required]):invalid:not(:placeholder-shown), *:not([class*=k-]) > input:is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]):not([class*=k-]):is([minlength], [pattern], [required]):invalid:not(:placeholder-shown) {
+          --input-outline-color: red;
+        }
+        :where(input):not([class*=k-]):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]):is([minlength], [pattern], [required]):valid, *:not([class*=k-]) > input:is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]):not([class*=k-]):is([minlength], [pattern], [required]):valid {
+          --input-outline-color: green;
+        }
+      }
+      :where(input):not([class*=k-]):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]):is([minlength], [pattern], [required]):user-invalid:not(:placeholder-shown), *:not([class*=k-]) > input:is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]):not([class*=k-]):is([minlength], [pattern], [required]):user-invalid:not(:placeholder-shown) {
+        --input-outline-color: red;
+      }
+      :where(input):not([class*=k-]):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]):is([minlength], [pattern], [required]):user-valid, *:not([class*=k-]) > input:is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]):not([class*=k-]):is([minlength], [pattern], [required]):user-valid {
+        --input-outline-color: green;
+      }
+    }
     :where(input):not([class*=k-]):is([type=radio], [type=checkbox]), *:not([class*=k-]) > input:is([type=radio], [type=checkbox]):not([class*=k-]) {
       accent-color: var(--input-accent-color, var(--accent-color, initial));
       width: var(--_fs);
@@ -23152,7 +23170,8 @@
       color: transparent;
     }
     .form__row--label-overlay:has(input:is(:focus, :focus-within)) label {
-      opacity: 0.5;
+      opacity: 1;
+      color: var(--color-primary);
     }
     @property --underline-progress {
       syntax: "<length>";

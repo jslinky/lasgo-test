@@ -30,6 +30,7 @@
     }
   }
   &:has(input:is(:focus, :focus-within)) label {
-    opacity: 0.5;
+    opacity: 1;
+    color: var(--color-primary);
   }
 }
