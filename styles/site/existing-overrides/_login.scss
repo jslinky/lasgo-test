@@ -224,6 +224,7 @@
         :is(input, textarea, select) {
           // @include input-textarea-select-rules();
           @include input-base-rules();
+          height: fit-content;
           // background-color: var(--_bg);
           // color: var(--_color);
           // font-size: var(--_fs);

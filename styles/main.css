@@ -22125,6 +22125,7 @@
           background-color: var(--_bg);
           color: var(--_color);
           font-size: var(--_fs);
+          height: fit-content;
         }
         .accountHolderWrap input:is([type=radio], [type=checkbox]) {
           accent-color: var(--input-accent-color, var(--accent-color, initial));
