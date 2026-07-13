@@ -22547,6 +22547,11 @@
           transition: background-color 200ms ease-in, border 200ms ease-in;
           overflow: clip;
           --_button-bg-hover: radial-gradient(
+                ellipse at 50%,
+                color-mix(in oklch, hsl(0 0 100 / 0.7), transparent 40%) 40%,
+                transparent 80%
+              ),
+            radial-gradient(
               circle at 50%,
               oklch(
                   from var(--button-color) var(--l-hover-bg-1, calc(l + 0.4)) c h
@@ -22556,6 +22561,11 @@
             oklch(from var(--button-color) var(--l-hover-bg-2, calc(l + 0.05)) c h);
           @supports (color: color-mix(in lab, red, red)) {
             --_button-bg-hover: radial-gradient(
+                ellipse at 50%,
+                color-mix(in oklch, hsl(0 0 100 / 0.7), transparent 40%) 40%,
+                transparent 80%
+              ),
+            radial-gradient(
               circle at 50%,
               color-mix(
                 in oklch,
@@ -22598,23 +22608,6 @@
           scale: 1;
           opacity: 1;
         }
-        :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)) .button__text::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          border-radius: inherit;
-          background: radial-gradient(ellipse at 50%, color-mix(in oklch, hsla(0, 0%, 100%, 0.7), transparent 40%) 40%, transparent 80%);
-          background-size: min(2rem, 20%) 12px;
-          opacity: 0;
-          transition: 200ms opacity 50ms ease-in-out;
-          background-repeat: no-repeat;
-        }
-        :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)) .button__text {
-          z-index: 1;
-        }
-        :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)):hover .button__text::after {
-          opacity: 1;
-        }
       }
     }
     :is(.button--tertiary, .button--secondary, .button--light) {
@@ -22633,6 +22626,8 @@
         @media (hover) and (pointer: fine) {
           :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)):hover {
             background: var(--_button-bg-hover);
+            background-size: min(2rem, 20%) 12px, cover, cover;
+            background-repeat: no-repeat;
             box-shadow: 0 21px 19px var(--button-box-shadow-color-1), 0 3px 6px var(--button-box-shadow-color-2), 0 1px 1px var(--button-box-shadow-color-3);
           }
         }

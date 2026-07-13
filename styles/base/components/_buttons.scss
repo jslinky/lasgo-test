@@ -28,6 +28,11 @@ $button-selectors: ();
       transition: background-color 200ms ease-in, border 200ms ease-in;
       overflow: clip;
       --_button-bg-hover:
+              radial-gradient(
+            ellipse at 50%,
+            color-mix(in oklch, hsl(0 0 100 / 0.7), transparent 40%) 40%,
+            transparent 80%
+          ),
         radial-gradient(
           circle at 50%,
           color-mix(
@@ -101,28 +106,28 @@ $button-selectors: ();
         opacity: 1;
       }
 
-      .button__text {
-        &::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          border-radius: inherit;
-          background: radial-gradient(
-            ellipse at 50%,
-            color-mix(in oklch, hsl(0 0 100 / 0.7), transparent 40%) 40%,
-            transparent 80%
-          );
-          background-size: min(2rem, 20%) 12px;
-          opacity: 0;
-          transition: 200ms opacity 50ms ease-in-out;
-          background-repeat: no-repeat;
-        }
-        z-index: 1;
-      }
+      // .button__text {
+      //   &::after {
+      //     content: "";
+      //     position: absolute;
+      //     inset: 0;
+      //     border-radius: inherit;
+      //     background: radial-gradient(
+      //       ellipse at 50%,
+      //       color-mix(in oklch, hsl(0 0 100 / 0.7), transparent 40%) 40%,
+      //       transparent 80%
+      //     );
+      //     background-size: min(2rem, 20%) 12px;
+      //     opacity: 0;
+      //     transition: 200ms opacity 50ms ease-in-out;
+      //     background-repeat: no-repeat;
+      //   }
+      //   z-index: 1;
+      // }
 
-      &:hover .button__text::after {
-        opacity: 1;
-      }
+      // &:hover .button__text::after {
+      //   opacity: 1;
+      // }
     }
   }
 }
@@ -156,6 +161,8 @@ $button-selectors: ();
       ) {
         &:hover {
           background: var(--_button-bg-hover);
+          background-size: min(2rem, 20%) 12px, cover, cover;
+          background-repeat: no-repeat;
           box-shadow:
             0 21px 19px var(--button-box-shadow-color-1),
             0 3px 6px var(--button-box-shadow-color-2),
