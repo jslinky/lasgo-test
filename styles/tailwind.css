@@ -6903,8 +6903,7 @@
         .button--soft,
         .button--link,
         .button--ghost)) {
-          position: relative;
-          transition: border 200ms ease-in;
+          transition: background-color 200ms ease-in, border 200ms ease-in;
           overflow: clip;
           --_button-bg-hover:
             radial-gradient(

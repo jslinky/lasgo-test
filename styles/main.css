@@ -22544,8 +22544,7 @@
     @supports (color: color-mix(in srgb, red 50%, blue 50%)) {
       @media (hover) and (pointer: fine) {
         :is(.button:not(.button--outline, .button--soft, .button--link, .button--ghost)) {
-          position: relative;
-          transition: border 200ms ease-in;
+          transition: background-color 200ms ease-in, border 200ms ease-in;
           overflow: clip;
           --_button-bg-hover: radial-gradient(
               circle at 50%,
