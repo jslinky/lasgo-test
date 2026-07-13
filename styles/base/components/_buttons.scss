@@ -30,7 +30,7 @@ $button-selectors: ();
       --_button-bg-hover:
               radial-gradient(
             ellipse at 50%,
-            color-mix(in oklch, hsl(0 0 100 / 0.7), transparent 40%) 40%,
+            color-mix(in oklch, hsl(0 0 100 / 0.3), transparent 40%) 20%,
             transparent 80%
           ),
         radial-gradient(

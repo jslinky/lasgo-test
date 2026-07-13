@@ -299,19 +299,19 @@ body:has(.accountHolderWrap) {
       position-area: center span-all;
       width: calc(100% - (var(--layout-gap) * 6));
       left: calc(anchor(var(--anchor-name) left) + var(--layout-gap));
-      top: calc(anchor(var(--anchor-name) top) - (var(--layout-gap) * 2));
+      top: calc(anchor(var(--anchor-name) top) - (var(--layout-gap) * 1.5));
       text-align: right;
     }
   }
   h2 + p {
     --anchor-name: --password-label;
-    margin-top: calc(-1 * (var(--flex-grid-gap) + 0.5rem));
+    // margin-top: calc(-1 * (var(--flex-grid-gap) + 0.5rem));
     order: 2;
   }
   span:last-child {
     --anchor-name: --username-label;
     order: 3;
-    margin-top: calc(-1 * (var(--flex-grid-gap) + 0.5rem));
+    // margin-top: calc(-1 * (var(--flex-grid-gap) + 0.5rem));
   }
 }
 

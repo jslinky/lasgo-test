@@ -22275,19 +22275,17 @@
       position-area: center span-all;
       width: calc(100% - var(--layout-gap) * 6);
       left: calc(anchor(var(--anchor-name) left) + var(--layout-gap));
-      top: calc(anchor(var(--anchor-name) top) - var(--layout-gap) * 2);
+      top: calc(anchor(var(--anchor-name) top) - var(--layout-gap) * 1.5);
       text-align: right;
     }
   }
   .accountHolderSignIn h2 + p {
     --anchor-name: --password-label;
-    margin-top: calc(-1 * (var(--flex-grid-gap) + 0.5rem));
     order: 2;
   }
   .accountHolderSignIn span:last-child {
     --anchor-name: --username-label;
     order: 3;
-    margin-top: calc(-1 * (var(--flex-grid-gap) + 0.5rem));
   }
   @layer base {
     .accountHolderSignIn {
@@ -22548,7 +22546,7 @@
           overflow: clip;
           --_button-bg-hover: radial-gradient(
                 ellipse at 50%,
-                color-mix(in oklch, hsl(0 0 100 / 0.7), transparent 40%) 40%,
+                color-mix(in oklch, hsl(0 0 100 / 0.3), transparent 40%) 20%,
                 transparent 80%
               ),
             radial-gradient(
@@ -22562,7 +22560,7 @@
           @supports (color: color-mix(in lab, red, red)) {
             --_button-bg-hover: radial-gradient(
                 ellipse at 50%,
-                color-mix(in oklch, hsl(0 0 100 / 0.7), transparent 40%) 40%,
+                color-mix(in oklch, hsl(0 0 100 / 0.3), transparent 40%) 20%,
                 transparent 80%
               ),
             radial-gradient(
