@@ -217,7 +217,7 @@
     /// forms styling
     .form-group {
       flex-basis: 100%;
-      * {
+      .k-textbox {
         width: 100%;
       }
     }
@@ -287,6 +287,12 @@
             + span {
               grid-row: -1/-1;
               font-size: var(--text-xs);
+              width: fit-content;
+              background: var(--color-danger);
+              border-radius: 0 0 var(--radius) var(--radius);
+              color: var(--color-danger-contrast);
+              padding-inline: var(--spacing-sm);
+              margin-inline-start: var(--spacing-md);
             }
           }
           :is(label, input) {
