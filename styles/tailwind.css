@@ -6573,6 +6573,7 @@
         }
         .accountHolderWrap .form-group input + span {
           grid-row: -1/-1;
+          font-size: var(--text-xs);
         }
         .accountHolderWrap .form-group :is(label, input) {
           grid-column: 1/-1;
