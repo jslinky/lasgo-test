@@ -22215,6 +22215,9 @@
           --input-bg: var(--color-grey-10);
           --_outline-color: var(--color-grey-4);
         }
+        .accountHolderWrap .form-group input + span {
+          grid-row: -1/-1;
+        }
         .accountHolderWrap .form-group :is(label, input) {
           grid-column: 1/-1;
         }
@@ -22239,6 +22242,7 @@
           color: var(--color-danger);
         }
         .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])) {
+          outline-offset: -1px;
           --_outline-color-focused: var(--color-primary-3);
         }
         .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])):focus-within {
@@ -22286,12 +22290,12 @@
     .accountHolderSignIn h2 {
       order: 1;
     }
-    .accountHolderSignIn :is(h2 + p, span:last-child) {
+    .accountHolderSignIn > h2 + p, .accountHolderSignIn > span:last-child {
       font-size: var(--text-xs);
       white-space: nowrap;
     }
     @supports (anchor-name: --anchor) {
-      .accountHolderSignIn :is(h2 + p, span:last-child) {
+      .accountHolderSignIn > h2 + p, .accountHolderSignIn > span:last-child {
         position: absolute;
         position-anchor: var(--anchor-name);
         position-area: center span-all;
@@ -22305,7 +22309,7 @@
       --anchor-name: --password-label;
       order: 2;
     }
-    .accountHolderSignIn span:last-child {
+    .accountHolderSignIn > span:last-child {
       --anchor-name: --username-label;
       order: 3;
     }
