@@ -109,10 +109,12 @@ body:has(.hero--expanded):has(#outerWrap) {
   );
   --card-backdrop-color-stop-from-opacity: 0.2;
   --card-backdrop-color-stop-to-opacity: 0.7;
-  :is(.card-body__content, .card-picture) {
-    animation: backdropOpacity linear both;
-    animation-timeline: scroll();
-    animation-range: 0 60vh;
+  @supports (animation-timeline: scroll()) {
+    :is(.card-body__content, .card-picture) {
+      animation: backdropOpacity linear both;
+      animation-timeline: scroll();
+      animation-range: 0 60vh;
+    }
   }
 }
 
@@ -405,7 +407,7 @@ div.scanlines {
   overflow: hidden;
   width: fit-content;
   perspective: 1200px;
-  mask: linear-gradient(180deg, transparent, black 35%, black 65%, transparent);  
+  mask: linear-gradient(180deg, transparent, black 35%, black 65%, transparent);
   transform-origin: right;
   ul {
     list-style: none;
@@ -441,11 +443,11 @@ div.scanlines {
 
   li:first-of-type {
     margin-top: 1em;
-    position:relative;
+    position: relative;
     &:before {
       content: var(--last-item-text, "Consumer Electronics");
       position: absolute;
-      right:0;
+      right: 0;
       opacity: 0.3;
       transform: translateY(-100%) rotateX(-20deg) scale(0.98);
     }
@@ -455,7 +457,7 @@ div.scanlines {
     &:before {
       content: var(--second-item-text, "Music");
       position: absolute;
-      right:0;
+      right: 0;
       opacity: 0.3;
       transform: translateY(100%) rotateX(-20deg) scale(0.98);
     }
@@ -467,44 +469,39 @@ div.scanlines {
   }
 }
 
-
 .hero:has(.hero__cat-reveal) :where(.card-picture img) {
-    opacity:0;
-    transition: opacity 100ms ease-out;
+  opacity: 0;
+  transition: opacity 100ms ease-out;
 }
 
-.hero:has(.hero__cat-reveal ul[style*="--slide-index: 0"])
-.card-picture {
-    img {        
-        &:nth-of-type(1) {
-            opacity: 1;
-        }
+.hero:has(.hero__cat-reveal ul[style*="--slide-index: 0"]) .card-picture {
+  img {
+    &:nth-of-type(1) {
+      opacity: 1;
     }
+  }
 }
 
-.hero:has(.hero__cat-reveal ul[style*="--slide-index: 1"])
-.card-picture {
-    img {        
-        &:nth-of-type(2) {
-            opacity: 1;
-        }
+.hero:has(.hero__cat-reveal ul[style*="--slide-index: 1"]) .card-picture {
+  img {
+    &:nth-of-type(2) {
+      opacity: 1;
     }
+  }
 }
 
-.hero:has(.hero__cat-reveal ul[style*="--slide-index: 2"])
-.card-picture {
-    img {        
-        &:nth-of-type(3) {
-            opacity: 1;
-        }
+.hero:has(.hero__cat-reveal ul[style*="--slide-index: 2"]) .card-picture {
+  img {
+    &:nth-of-type(3) {
+      opacity: 1;
     }
+  }
 }
 
-.hero:has(.hero__cat-reveal ul[style*="--slide-index: 3"])
-.card-picture {
-    img {        
-        &:nth-of-type(4) {
-            opacity: 1;
-        }
+.hero:has(.hero__cat-reveal ul[style*="--slide-index: 3"]) .card-picture {
+  img {
+    &:nth-of-type(4) {
+      opacity: 1;
     }
+  }
 }

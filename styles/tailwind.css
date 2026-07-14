@@ -7787,10 +7787,12 @@
     --card-backdrop-color-stop-from-opacity: 0.2;
     --card-backdrop-color-stop-to-opacity: 0.7;
   }
-  .hero--expanded .card :is(.card-body__content, .card-picture) {
-    animation: backdropOpacity linear both;
-    animation-timeline: scroll();
-    animation-range: 0 60vh;
+  @supports (animation-timeline: scroll()) {
+    .hero--expanded .card :is(.card-body__content, .card-picture) {
+      animation: backdropOpacity linear both;
+      animation-timeline: scroll();
+      animation-range: 0 60vh;
+    }
   }
   .hero--expanded .card-body {
     width: min(100% - var(--wrapper-padding) * 2, var(--max-wrapper-width));
