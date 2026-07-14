@@ -4,3 +4,7 @@
     --heading-xl-font-size-max: var(--#{$font-size-max}-px);
     --heading-xl-font-size-min: var(--#{$font-size-min}-px);
 }
+
+.wrapper:has(.c-marquee) {
+  overflow: clip;
+}

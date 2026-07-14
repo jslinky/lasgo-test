@@ -20,6 +20,7 @@
 }
 
 .hero--contract {
+  --hero-height: min(550px, 80vh);
   animation: hero-size linear both;
   animation-timeline: scroll();
   animation-range: 0 380px;
@@ -51,9 +52,9 @@
 }
 
 .c-application-form {
-//   input:not([type="checkbox"]) {
-//     width: 100%;
-//   }
+  //   input:not([type="checkbox"]) {
+  //     width: 100%;
+  //   }
   label:has(input[type="checkbox"]) {
     padding: var(--space-sm);
     border-radius: var(--radius);

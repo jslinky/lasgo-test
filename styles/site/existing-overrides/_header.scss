@@ -689,7 +689,7 @@
   ) {
     transition: all 50ms ease-in-out;
     height: calc(105 / var(--font-size-base-px) * 1rem) !important;
-    z-index: 2;
+    z-index: 3;
     /* position: relative; */
     position: sticky;
     top: 0;

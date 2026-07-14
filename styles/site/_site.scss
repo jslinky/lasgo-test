@@ -123,7 +123,7 @@
     transform: translatex(0%);
   }
   to {
-    transform: translatex(-100%);
+    transform: translatex(-30%);
   }
 }
 
@@ -147,8 +147,13 @@ div:has(> .c-marquee) {
   margin-inline: calc(-50vw + 50%);
   width: 100vw;
   --layout-column-min: 20%;
+  @include respond-to("md") {
+    transform: translateX(56vw);
+  }
   > div > div {
-    animation: marquee 20s linear infinite;
+    animation: marquee linear;
+    animation-timeline: view();
+    animation-range: 50% 100%;
   }
   ~ * {
     z-index: 2;

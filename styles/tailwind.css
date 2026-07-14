@@ -4334,7 +4334,7 @@
     #mainHeader) {
       transition: all 50ms ease-in-out;
       height: calc(105 / var(--font-size-base-px) * 1rem) !important;
-      z-index: 2;
+      z-index: 3;
       /* position: relative; */
       position: sticky;
       top: 0;
@@ -6982,9 +6982,6 @@
       --l-hover-bg-1: calc(l + 0.2);
       --l-hover-bg-2: calc(l - 0.02);
     }
-    .button:not(.button--primary, .button--secondary, .button--tertiary, .button--dark, .button--light, .button--grey, .button--brand-orange, .button--brand-red, .button--brand-yellow):not(.button--inverted) {
-      --button-fg: var(--color-primary-4);
-    }
     @layer states {
       @supports (color: color-mix(in srgb, red 50%, blue 50%)) {
         @media (hover) and (pointer: fine) {
@@ -7450,6 +7447,7 @@
       padding-block: var(--input-text-frame-y, var(--text-frame-y));
       outline: var(--input-outline, var(--input-outline-width, 1px) solid var(--input-outline-color, var(--_outline-color)));
       border-radius: var(--input-text-radius, max(var(--input-text-max-radius, var(--radius)), var(--radius)));
+      padding-block-end: calc(var(--text-frame-y) / 0.75);
     }
     @layer modifiers {
       :where(input):not([class*=k-]):is([type=text], [type=search], [type=url], [type=tel], [type=email], [type=password], [type=number]):focus-within,
@@ -9277,6 +9275,9 @@
     --heading-xl-font-size-max: var(--display-md-px);
     --heading-xl-font-size-min: var(--display-sm-px);
   }
+  .wrapper:has(.c-marquee) {
+    overflow: clip;
+  }
   @keyframes hero-size {
     to {
       --hero-height: var(--hero-height-contracted);
@@ -9296,6 +9297,7 @@
     }
   }
   .hero--contract {
+    --hero-height: min(550px, 80vh);
     animation: hero-size linear both;
     animation-timeline: scroll();
     animation-range: 0 380px;
@@ -9569,7 +9571,7 @@
       transform: translatex(0%);
     }
     to {
-      transform: translatex(-100%);
+      transform: translatex(-30%);
     }
   }
   div:has(> .c-marquee):after {
@@ -9582,8 +9584,15 @@
     width: 100vw;
     --layout-column-min: 20%;
   }
+  @media only screen and (min-width: 48rem) {
+    .c-marquee {
+      transform: translateX(56vw);
+    }
+  }
   .c-marquee > div > div {
-    animation: marquee 20s linear infinite;
+    animation: marquee linear;
+    animation-timeline: view();
+    animation-range: 50% 100%;
   }
   .c-marquee ~ * {
     z-index: 2;

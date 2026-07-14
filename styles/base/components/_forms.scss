@@ -9,6 +9,7 @@
 :where(input):not([class*="k-"]):is(#{$input-text-selectors}),
 *:not([class*="k-"]) > input:is(#{$input-text-selectors}):not([class*="k-"]) {
     @include input-text-rules();
+    padding-block-end: calc(var(--text-frame-y) / 0.75);
     @layer modifiers {
       @include form-element-states();
     }

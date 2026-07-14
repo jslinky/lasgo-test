@@ -80,9 +80,9 @@ $button-selectors: ();
   --l-hover-bg-2: calc(l - 0.02);
 }
 
-.button:not(#{$button-selectors}):not(.button--inverted) {
-  --button-fg: var(--color-primary-4);
-}
+// :where(.button:not(#{$button-selectors}):not(.button--inverted)) {
+//   --button-fg: var(--color-primary-4);
+// }
 
 
 
