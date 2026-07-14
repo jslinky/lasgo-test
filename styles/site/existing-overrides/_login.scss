@@ -141,7 +141,7 @@
       input {
         grid-row: 1/1;
         grid-column: 1/1;
-        width:auto;
+        width: auto;
         position: relative;
       }
       button[type="submit"] {
@@ -277,7 +277,7 @@
               grid-column: 2/2;
               width: fit-content;
               &:after {
-                display:none;
+                display: none;
               }
             }
           }
@@ -309,11 +309,23 @@
       @layer modifiers {
       }
       @layer states {
+        .form-group:has(.input-validation-error) {
+          label {
+            color: var(--color-danger);
+          }
+        }
         :is(input:not([type="radio"]):not([type="checkbox"])) {
           --_outline-color-focused: var(--color-primary-3);
           @include form-element-states();
           &:focus-within {
             outline-width: 3px;
+          }
+          &.input-validation-error {
+            --_outline-color: var(--color-danger);
+            box-shadow: 0 0 0 2px var(--color-danger) inset;
+            &:not(:focus, :focus-within) {
+              --_outline-color-focused: var(--color-danger);
+            }
           }
         }
       }

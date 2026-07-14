@@ -62,6 +62,20 @@
 
   --color-grey-c: 0.01;
 
+  --color-danger-l: 0.5;
+  --color-danger-c: 0.2;
+  --color-danger-h: 20;
+  --color-danger: oklch(var(--color-danger-l) var(--color-danger-c) var(--color-danger-h));
+  --color-danger-contrast: oklch(
+    from var(--color-danger, inherit)
+      clamp(
+        var(--contrast-dangerlightest-text, 0),
+        (l / var(--contrast-danger-threshold, 0.623) - 1) * -infinity,
+        var(--contrast-danger-darkest-text, 1)
+      )
+      0 h
+  );
+
 
 
   // Wrappers

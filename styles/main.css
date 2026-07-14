@@ -22235,6 +22235,9 @@
       }
       @layer modifiers;
       @layer states {
+        .accountHolderWrap .form-group:has(.input-validation-error) label {
+          color: var(--color-danger);
+        }
         .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])) {
           --_outline-color-focused: var(--color-primary-3);
         }
@@ -22257,6 +22260,13 @@
         }
         .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])):focus-within {
           outline-width: 3px;
+        }
+        .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])).input-validation-error {
+          --_outline-color: var(--color-danger);
+          box-shadow: 0 0 0 2px var(--color-danger) inset;
+        }
+        .accountHolderWrap :is(input:not([type=radio]):not([type=checkbox])).input-validation-error:not(:focus, :focus-within) {
+          --_outline-color-focused: var(--color-danger);
         }
       }
     }
@@ -25226,6 +25236,19 @@
     --heading-3xl-line-height: 1;
     --heading-xl-line-height: 1;
     --color-grey-c: 0.01;
+    --color-danger-l: 0.5;
+    --color-danger-c: 0.2;
+    --color-danger-h: 20;
+    --color-danger: oklch(var(--color-danger-l) var(--color-danger-c) var(--color-danger-h));
+    --color-danger-contrast: oklch(
+      from var(--color-danger, inherit)
+        clamp(
+          var(--contrast-dangerlightest-text, 0),
+          (l / var(--contrast-danger-threshold, 0.623) - 1) * -infinity,
+          var(--contrast-danger-darkest-text, 1)
+        )
+        0 h
+    );
     --root-max-wrapper-width: 1275;
     --max-wrapper-width: calc(var(--root-max-wrapper-width) * 1px);
     --wrapper-width: calc(
