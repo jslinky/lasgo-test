@@ -25,10 +25,10 @@
   animation-timeline: scroll();
   animation-range: 0 380px;
   position: fixed;
-  top: 0;
+  top: 76px;
   width: 100%;
   overflow: hidden;
-  z-index: 2;
+  z-index: -1;
   transition: height 0.3s ease-in-out;
   .card-body {
     max-height: var(--hero-height);
