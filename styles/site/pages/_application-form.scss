@@ -1,0 +1,120 @@
+@keyframes hero-size {
+  to {
+    --hero-height: var(--hero-height-contracted);
+    --card-backdrop-color-stop-to-opacity: 1;
+    /* height:100px; */
+  }
+}
+
+@keyframes card-body-shrink {
+  to {
+    margin-block: 0;
+    padding-block: 0;
+  }
+}
+
+@keyframes card-title-shrink {
+  to {
+    scale: 0.7;
+  }
+}
+
+.hero--contract {
+  animation: hero-size linear both;
+  animation-timeline: scroll();
+  animation-range: 0 380px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2;
+  transition: height 0.3s ease-in-out;
+  .card-body {
+    max-height: var(--hero-height);
+    animation: card-body-shrink linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 380px;
+  }
+  .card-body__content__caption {
+    h2 {
+      animation: card-title-shrink linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 380px;
+      transform-origin: center left;
+    }
+  }
+  .card-picture {
+    animation: parallax-hero-image linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 380px;
+  }
+}
+
+.c-application-form {
+//   input:not([type="checkbox"]) {
+//     width: 100%;
+//   }
+  label:has(input[type="checkbox"]) {
+    padding: var(--space-sm);
+    border-radius: var(--radius);
+    font-size: var(--text-sm);
+    border: 1px solid var(--field-border-color);
+    &:hover {
+      background: color-mix(in oklab, var(--color-grey-11), white 80%);
+    }
+  }
+  label:has(input[type="checkbox"]:checked) {
+    background: color-mix(in oklab, var(--color-grey-11), white 50%);
+    --field-border-color: var(--color-primary);
+  }
+  :where(.form__row > div:last-of-type, .form__row__error) {
+    font-size: var(--text-xs);
+    grid-row: 3 / 3;
+    padding-left: var(--input-text-frame-y);
+    margin-top: var(--space-3xs);
+  }
+
+  :where(.form__row :where(input, textarea, select)) {
+    align-self: start;
+    &:is(:invalid, :user-invalid).invalid {
+      outline-color: red;
+    }
+    &:is(:valid, :user-valid) {
+      + :is(div:last-of-type, .form__row__error) {
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.c-application-form > section {
+  max-width: calc(100vw - ((var(--wrapper-inline) * 2) + 1rem));
+  margin-top: 5vh;
+}
+
+.c-application-form__legend-container {
+  position: sticky;
+  top: var(--hero-height-contracted);
+  background: #fff;
+  padding-block: var(--space-lg);
+  width: calc(100vw - (var(--wrapper-padding)));
+  /* max-width: calc(100vw - ((var(--wrapper-padding)*2) - 1rem));      */
+  margin-inline: calc(
+    calc(-1 * (50vw - var(--wrapper-padding))) +
+      (50% - (var(--wrapper-padding) / 2))
+  );
+  z-index: 2;
+  padding-inline: var(--wrapper-padding);
+  &:not(:has(legend)) {
+    border-bottom: 1px solid var(--field-border-color);
+  }
+  &:has(legend) {
+    position: relative;
+    z-index: 1;
+    top: unset;
+  }
+  legend {
+    max-width: var(--breakpoint-lg);
+    margin-inline: auto;
+  }
+}

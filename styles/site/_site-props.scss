@@ -1,3 +1,9 @@
+@property --hero-height {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 400px;
+}
+
 :root {
   --line-height-base: 1.42; // reset to existing line-height. apply new line height to scoped styles
   // Colors
@@ -8,9 +14,7 @@
   --color-secondary-l: 0.9144;
   --color-secondary-c: 0.0366;
   --color-secondary-h: 192.29;
-  /* --color-secondary: oklch(
-      var(--color-secondary-l) var(--color-secondary-c) var(--color-secondary-h)
-    ); */
+
   --color-tertiary-l: 0.8202;
   --color-tertiary-c: 0.0437;
   --color-tertiary-h: 244.03;
@@ -65,7 +69,9 @@
   --color-danger-l: 0.5;
   --color-danger-c: 0.2;
   --color-danger-h: 20;
-  --color-danger: oklch(var(--color-danger-l) var(--color-danger-c) var(--color-danger-h));
+  --color-danger: oklch(
+    var(--color-danger-l) var(--color-danger-c) var(--color-danger-h)
+  );
   --color-danger-contrast: oklch(
     from var(--color-danger, inherit)
       clamp(
@@ -75,8 +81,6 @@
       )
       0 h
   );
-
-
 
   // Wrappers
   --root-max-wrapper-width: 1275;
@@ -124,6 +128,8 @@
   --root-header-mt: var(--space-xs);
 
   --contrast-threshold: 0.7;
+
+  --hero-height-contracted: 70px;
 
   /// Logged out homepage adjustments
   &.unauthenticated {

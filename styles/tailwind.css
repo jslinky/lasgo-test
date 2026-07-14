@@ -9277,6 +9277,107 @@
     --heading-xl-font-size-max: var(--display-md-px);
     --heading-xl-font-size-min: var(--display-sm-px);
   }
+  @keyframes hero-size {
+    to {
+      --hero-height: var(--hero-height-contracted);
+      --card-backdrop-color-stop-to-opacity: 1;
+      /* height:100px; */
+    }
+  }
+  @keyframes card-body-shrink {
+    to {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+  @keyframes card-title-shrink {
+    to {
+      scale: 0.7;
+    }
+  }
+  .hero--contract {
+    animation: hero-size linear both;
+    animation-timeline: scroll();
+    animation-range: 0 380px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+    transition: height 0.3s ease-in-out;
+  }
+  .hero--contract .card-body {
+    max-height: var(--hero-height);
+    animation: card-body-shrink linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 380px;
+  }
+  .hero--contract .card-body__content__caption h2 {
+    animation: card-title-shrink linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 380px;
+    transform-origin: center left;
+  }
+  .hero--contract .card-picture {
+    animation: parallax-hero-image linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 380px;
+  }
+  .c-application-form label:has(input[type=checkbox]) {
+    padding: var(--space-sm);
+    border-radius: var(--radius);
+    font-size: var(--text-sm);
+    border: 1px solid var(--field-border-color);
+  }
+  .c-application-form label:has(input[type=checkbox]):hover {
+    background: color-mix(in oklab, var(--color-grey-11), white 80%);
+  }
+  .c-application-form label:has(input[type=checkbox]:checked) {
+    background: color-mix(in oklab, var(--color-grey-11), white 50%);
+    --field-border-color: var(--color-primary);
+  }
+  .c-application-form :where(.form__row > div:last-of-type, .form__row__error) {
+    font-size: var(--text-xs);
+    grid-row: 3/3;
+    padding-left: var(--input-text-frame-y);
+    margin-top: var(--space-3xs);
+  }
+  .c-application-form :where(.form__row :where(input, textarea, select)) {
+    align-self: start;
+  }
+  .c-application-form :where(.form__row :where(input, textarea, select)):is(:invalid, :user-invalid).invalid {
+    outline-color: red;
+  }
+  .c-application-form :where(.form__row :where(input, textarea, select)):is(:valid, :user-valid) + :is(div:last-of-type, .form__row__error) {
+    visibility: hidden;
+  }
+  .c-application-form > section {
+    max-width: calc(100vw - (var(--wrapper-inline) * 2 + 1rem));
+    margin-top: 5vh;
+  }
+  .c-application-form__legend-container {
+    position: sticky;
+    top: var(--hero-height-contracted);
+    background: #fff;
+    padding-block: var(--space-lg);
+    width: calc(100vw - (var(--wrapper-padding)));
+    /* max-width: calc(100vw - ((var(--wrapper-padding)*2) - 1rem));      */
+    margin-inline: calc(-1 * (50vw - var(--wrapper-padding)) + 50% - var(--wrapper-padding) / 2);
+    z-index: 2;
+    padding-inline: var(--wrapper-padding);
+  }
+  .c-application-form__legend-container:not(:has(legend)) {
+    border-bottom: 1px solid var(--field-border-color);
+  }
+  .c-application-form__legend-container:has(legend) {
+    position: relative;
+    z-index: 1;
+    top: unset;
+  }
+  .c-application-form__legend-container legend {
+    max-width: var(--breakpoint-lg);
+    margin-inline: auto;
+  }
   @layer components.base {
     .list-decimal {
       --flow-space: var(--space-xl);
@@ -9389,69 +9490,6 @@
     display: block;
     opacity: 1;
     transform: translateY(0);
-  }
-  /* ====== Relevant CSS ====== */
-  .carousel-3d-scene, .carousel-3d-scene__container {
-    display: grid;
-  }
-  .carousel-3d-scene {
-    /* prevent scrollbars */
-    overflow: hidden;
-    /* for 3D look; smaller = more extreme effect */
-    perspective: 35em;
-    mask: linear-gradient(90deg, rgba(0, 0, 0, 0), red 20% 80%, rgba(0, 0, 0, 0));
-  }
-  .carousel-3d-scene__container {
-    place-self: center;
-    /* don't flatten 3D transformed children 
-     * of this parent having its own 3D transform */
-    transform-style: preserve-3d;
-    animation: ry 32s linear infinite;
-  }
-  /* simplest y axis rotation */
-  /* simplest y axis rotation */
-  @keyframes ry {
-    to {
-      rotate: y 1turn;
-    }
-  }
-  .carousel-3d-scene__card {
-    /* base card width, you may change this */
-    --w: 17.5em;
-    /* compute base angle corresponding to a card */
-    --ba: 1turn/var(--n); /* in the future: sibling-count() */
-    grid-area: 1/1;
-    width: var(--w);
-    aspect-ratio: 7/10;
-    object-fit: cover;
-    border-radius: 1.5em;
-    /* don't want to see back of cards in front of screen plane */
-    backface-visibility: hidden;
-    /* need to use a transform chain here, cannot use separate 
-     * rotate & translate properties because they'd be applied 
-     * in wrong order (translate, then rotate) for what we need */
-    transform: rotatey(calc(var(--i) * var(--ba))) translatez(calc(-1 * (0.5 * var(--w) + 0.5em) / tan(0.5 * var(--ba))));
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .carousel-3d-scene__container {
-      animation-duration: 128s;
-    }
-  }
-  /* ====== General page prettifying and layout ====== */
-  .carousel-3d-scene {
-    width: 100vw;
-    margin-inline: calc(-50vw + 50%);
-    min-height: 70vh;
-    perspective: 50em;
-  }
-  .carousel-3d-scene__card {
-    transform: rotatey(calc(var(--i) * var(--ba))) translatez(calc(-1 * (0.875 * var(--w) + 0.875em) / tan(0.65 * var(--ba))));
-  }
-  .carousel-3d-scene__card > div {
-    height: 100%;
-  }
-  .carousel-3d-scene__card .card {
-    display: flex;
   }
   /* TEMP - remove when tw integrated */
   :root:is(.new) #body {
@@ -9601,6 +9639,11 @@
   }
 }
 @layer site-props {
+  @property --hero-height {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 400px;
+  }
   :root {
     --line-height-base: 1.42;
     --color-primary-l: 0.3835;
@@ -9609,9 +9652,6 @@
     --color-secondary-l: 0.9144;
     --color-secondary-c: 0.0366;
     --color-secondary-h: 192.29;
-    /* --color-secondary: oklch(
-        var(--color-secondary-l) var(--color-secondary-c) var(--color-secondary-h)
-      ); */
     --color-tertiary-l: 0.8202;
     --color-tertiary-c: 0.0437;
     --color-tertiary-h: 244.03;
@@ -9657,7 +9697,9 @@
     --color-danger-l: 0.5;
     --color-danger-c: 0.2;
     --color-danger-h: 20;
-    --color-danger: oklch(var(--color-danger-l) var(--color-danger-c) var(--color-danger-h));
+    --color-danger: oklch(
+      var(--color-danger-l) var(--color-danger-c) var(--color-danger-h)
+    );
     --color-danger-contrast: oklch(
       from var(--color-danger, inherit)
         clamp(
@@ -9696,6 +9738,7 @@
     --root-header-height: 138px;
     --root-header-mt: var(--space-xs);
     --contrast-threshold: 0.7;
+    --hero-height-contracted: 70px;
   }
   :root.unauthenticated {
     --root-header-height: 50px;
