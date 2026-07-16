@@ -9695,8 +9695,8 @@
     --color-primary-light-h: 191.32;
     --color-dark-contrast: var(--color-light);
     --color-light-contrast: var(--color-dark);
-    --color-grey: var(--color-grey-9);
-    --color-grey-contrast: var(--color-grey-9-contrast);
+    --color-grey: var(--color-grey-11);
+    --color-grey-contrast: var(--color-grey-11-contrast);
     --color-heading: var(--color-dark);
     --font-family-base: "Inter", sans-serif;
     --font-family-heading: var(--font-family-base);
