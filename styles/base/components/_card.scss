@@ -104,6 +104,10 @@
     --card-picture-aspect: none;
   }
 
+  :where(.card[data-card-layout="overlay"]) .card-picture {
+    max-width: min(100%, 100cqw);
+  }
+
   .card-body__content__caption--tagline {
     font-weight: 600;
   }
