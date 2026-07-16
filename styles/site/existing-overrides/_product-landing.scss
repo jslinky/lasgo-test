@@ -38,8 +38,7 @@
 
   :is(#{site-vars.$asideSelector}) {
     container-type: scroll-state;
-    container-name: sticky-aside;
-    width:100%;
+    container-name: sticky-aside;    
     .collapse-icon-slot {
       display: grid;
       grid-template-columns: max-content 1fr;
@@ -62,6 +61,7 @@
     }
 
     @container content-grid (max-width: $contentGridFullLgBp) {
+      grid-column: 1/-1;
       .collapse-title {
         margin-inline: calc(var(--layout-gap) * -1);
       }

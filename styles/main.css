@@ -20808,7 +20808,6 @@
     :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) {
       container-type: scroll-state;
       container-name: sticky-aside;
-      width: 100%;
     }
     :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-icon-slot {
       display: grid;
@@ -20829,6 +20828,9 @@
       }
     }
     @container content-grid (max-width: $contentGridFullLgBp) {
+      :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) {
+        grid-column: 1/-1;
+      }
       :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-title {
         margin-inline: calc(var(--layout-gap) * -1);
       }
