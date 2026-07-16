@@ -84,6 +84,12 @@
    grid-column:1/-1;
 }
 
+.content-grid__main__item--span-2-sm {
+  @container content-grid (max-width:#{$contentGridFullLgBp}) {
+    grid-column: span 2;
+  }
+}
+
 .content-grid__main__item--span-2-lg {
   @container content-grid (min-width:#{$contentGridFullLgBp}) {
     grid-column: span 2;

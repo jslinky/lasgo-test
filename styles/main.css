@@ -24525,6 +24525,11 @@
   :where(.content-grid_full > .c-collapse) {
     grid-column: 1/-1;
   }
+  @container content-grid (max-width:80ch) {
+    .content-grid__main__item--span-2-sm {
+      grid-column: span 2;
+    }
+  }
   @container content-grid (min-width:80ch) {
     .content-grid__main__item--span-2-lg {
       grid-column: span 2;
