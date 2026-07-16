@@ -54,7 +54,7 @@
   @container content-grid (max-width:#{$contentGridFullLgBp}) {
     .collapse-content {
       padding-top: var(--spacing-sm);
-      padding-right: 1rem; // scrollbar space
+      // padding-right: 1rem; // scrollbar space
     }
     .formDetails {
       padding-right: var(--layout-gap);

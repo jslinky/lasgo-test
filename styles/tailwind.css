@@ -8872,7 +8872,6 @@
   @container content-grid (max-width:80ch) {
     :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .collapse-content {
       padding-top: var(--spacing-sm);
-      padding-right: 1rem;
     }
     :is(.content-grid__aside, .container_16:has(.searchResultsWrapper) > .grid_16 > .grid_4) .formDetails {
       padding-right: var(--layout-gap);
