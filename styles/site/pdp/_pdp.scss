@@ -1,5 +1,6 @@
 @use "../variables" as site-vars;
 @use "../../mixins/components/content-layout" as *;
+@use "small-style/scss/base/mixins/utils/breakpoints" as *;
 
 /* TEMP - remove when tw integrated */
 .main-content {
@@ -123,7 +124,7 @@
   }
 }
 
-@media (min-width: 960px) {
+@include respond-to(md) {
   .content-grid__aside {
     --aside-sticky-top: 0px;
   }

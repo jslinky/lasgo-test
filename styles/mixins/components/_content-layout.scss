@@ -55,10 +55,13 @@ $contentGridFullLgBp: 80ch !default;
   height: auto;  
   @container content-grid (max-width:#{$contentGridFullLgBp}) {
     width: 100vw;
-    grid-column: 1/-1;
+    // grid-column: 1/-1;
     margin-inline: calc(var(--wrapper-inline) * -1);
     padding-inline: 0;
-    padding-inline-start: var(--wrapper-inline);
+    // padding-inline-start: var(--wrapper-inline);
+    .c-collapse {
+      border:1px solid var(--field-border-color);
+    }
   }  
   @container content-grid (min-width:#{$contentGridFullLgBp}) {
     --aside-height: auto;

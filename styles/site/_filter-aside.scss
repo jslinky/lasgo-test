@@ -1,20 +1,14 @@
 .filter-tab-nav {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
    padding-left: var(--space-xs);
   z-index: 10;
-}
-@include respond-to(md) {
-  .filter-tab-nav {
-    flex-direction: row;
-  }
 }
 .filter-tab {
   position: relative;
   padding: calc(var(--space-xs) /2) var(--text-frame-x);
-  margin-left: 0;
-  margin-bottom: -8px;
+  margin-left: 0;  
   background: var(--color-grey-11);
   color: var(--color-primary);
   font-size: var(--text-sm);
