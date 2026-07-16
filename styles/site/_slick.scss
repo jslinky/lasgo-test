@@ -15,6 +15,10 @@
   position: relative;
 }
 
+:where(.slick-list) {
+  height: max-content;
+}
+
 :where(.layout-grid.slick-slider) :is(.slick-list, .slick-dots) {
   grid-column: 1/-1;
 }
@@ -75,10 +79,6 @@
   object-fit: contain;
 }
 
-[data-slick]:has(.card--full-details) {
-  aspect-ratio: 939/381;
-}
-
 .layout-grid.slick-slider .slick-list {
   @container content-grid (max-width:645px) {
     padding: 0 20% 0 0 !important;
@@ -107,8 +107,6 @@
 
 :where(.layout-grid.slick-slider) {
     .slick-slide .card {
-        aspect-ratio: 1 / 1;
-        max-height:300px;
         margin-inline: auto;
     }
     &:has(.card-picture.aspect-dvd) {

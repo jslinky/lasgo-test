@@ -36,11 +36,15 @@
 
   @container ctas (inline-size > 300px) {
     .button:only-of-type {
-      --button-padding-inline-wide: clamp(var(--text-frame-x), 10vw, calc(var(--text-frame-x) * 3));
+      --button-padding-inline-wide: clamp(
+        var(--text-frame-x),
+        10vw,
+        calc(var(--text-frame-x) * 3)
+      );
       --button-padding-inline-start: var(--button-padding-inline-wide);
       --button-padding-inline-end: var(--button-padding-inline-wide);
     }
-  }  
+  }
 
   .card-body__content__ctas.\*\:contents .button__text {
     display: none;
@@ -83,6 +87,27 @@
   .card:has(.card-picture > * + *)
     :is(.card-body, .card-picture > img:first-child) {
     z-index: 1;
+  }
+
+  :where(.card-body__content__caption-tagline) {
+    font-weight: 600;
+    width: fit-content;
+    &:not([data-surface]) {
+      color: oklch(from var(--color) calc(l - 0.15) c h);
+    }
+  }
+
+  :where(.card-body__content__caption-subtitle) {
+    font-weight: 600;
+    color: oklch(from var(--color) calc(l - 0.07) c h);
+  }
+
+  :where(.card-body__content__caption-title) {
+    --flow-space: calc(var(--spacing) * 1);
+  }
+
+  :where(.hero .card-body__content__caption-title) {
+    --flow-space: var(--spacing-xs);
   }
 }
 
@@ -191,6 +216,12 @@
     }
   }
 
+  :where([data-card-template-variant="overlayBackdropAlignBottomS"]) {
+    .card-body__content__caption-tagline:before {
+      display: none;
+    }
+  }
+
   /// Card expand on hover
   @include output-rules-with-scope() {
     :is(.layout-grid--column-count-expand) {
@@ -282,7 +313,7 @@
                 .card-body__content-slot {
                   transform: translateY(4em);
                 }
-              }              
+              }
             }
             .card-body__content__ctas {
               .button {
@@ -295,7 +326,7 @@
                 transform: translateY(20%);
                 transition:
                   opacity 0.3s ease-in-out,
-                  transform 0.3s ease-in-out;                  
+                  transform 0.3s ease-in-out;
               }
               // &:not(:has(.card-body__content__caption)) {
               //   display: none;
@@ -304,7 +335,9 @@
           }
 
           :is(.card-picture, .card-picture img) {
-            transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+            transition:
+              width 0.15s ease-in-out,
+              height 0.15s ease-in-out;
           }
 
           :is(.card-picture, .card-picture img) {
@@ -337,7 +370,7 @@
               }
             }
             .card-body__content-slot img {
-              max-height: 20cqh;
+              max-height: 15cqh;
             }
             // &:has(.card-body__content-slot img) {
             //   .card-picture img {
@@ -345,6 +378,9 @@
             //   }
             // }
           }
+        }
+        &:has(> *:nth-child(3):is(:last-child)) :where(.card) {
+          --card-max-height-lg: 300px;
         }
         @container content-grid (inline-size >= #{$container-lg}) {
           @media #{$mouse} {

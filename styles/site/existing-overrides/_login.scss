@@ -21,6 +21,7 @@
     --heading-default-font-size-min: var(--xl-px);
     --heading-default-font-size-max: var(--display-xs-px);
     --heading-default-color: currentColor;
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: min-content min-content;

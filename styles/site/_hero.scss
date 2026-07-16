@@ -12,6 +12,14 @@
   );
 }
 
+.hero {
+  .card[data-card-column-reverse-order="true"] {
+    .card-picture img[src$=".png"] {
+      filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.2));
+    }
+  }
+}
+
 body:has(.hero--expanded):has(#outerWrap) {
   overflow: hidden;
   #outerWrap {

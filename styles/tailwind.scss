@@ -46,11 +46,13 @@
 @source inline("[{--card-backdrop-color-stop-to-opacity,--card-backdrop-color-stop-from-opacity}:{0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,0}]");
 @source inline("{@md:,@lg:,@xl:,@2xl:,@3xl:,@4xl:,@5xl:,@6xl:,}[{--card-picture-aspect}:{none,1/1,4/3,3/2,2/1,16/9}]");
 @source inline("fluid-cq");
-@source inline("[--flex-grid-min:25ch]");
 @source inline("{font}-{bold,semibold}");
 @source inline("{lg:}{bg}-{transparent}");
 @source inline("[{--heading-3xl-font-size-max,--heading-3xl-font-size-min,--heading-2xl-font-size-max,--heading-2xl-font-size-min,--heading-xl-font-size-max,--heading-xl-font-size-min}:{var(--display-xs),var(--display-sm),var(--display-md),var(--display-2xl)}]");
-@source inline("{max-w}-{screen,xs,sm,md,lg,xl,2xl,max-wrapper-width}");
+@source inline("{max-w}-{screen,xs,sm,md,lg,xl,2xl,max-wrapper-width,[min(940px,100%)]}");
+@source inline("hover:[{--card-background-color}:{var(--color-primary),var(--color-secondary),var(--color-tertiary),var(--color-light),var(--color-dark),var(--color-brand-red),var(--color-brand-yellow),var(--color-brand-orange)}]")
+@source inline("{*}{:border}");
+@source inline("{[--layout-column-min:16ch],[--flex-grid-min:20ch],[--flex-grid-min:25ch]}");
 
 // @import "small-style/dist/style.css";
 

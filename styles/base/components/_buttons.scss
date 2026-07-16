@@ -25,14 +25,16 @@ $button-selectors: ();
         .button--ghost
       )
     ) {
-      transition: background-color 200ms ease-in, border 200ms ease-in;
+      transition:
+        background-color 200ms ease-in,
+        border 200ms ease-in;
       overflow: clip;
       --_button-bg-hover:
-              radial-gradient(
-            ellipse at 50%,
-            color-mix(in oklch, hsl(0 0 100 / 0.3), transparent 40%) 20%,
-            transparent 80%
-          ),
+        radial-gradient(
+          ellipse at 50%,
+          color-mix(in oklch, hsl(0 0 100 / 0.3), transparent 40%) 20%,
+          transparent 80%
+        ),
         radial-gradient(
           circle at 50%,
           color-mix(
@@ -80,11 +82,10 @@ $button-selectors: ();
   --l-hover-bg-2: calc(l - 0.02);
 }
 
-// :where(.button:not(#{$button-selectors}):not(.button--inverted)) {
-//   --button-fg: var(--color-primary-4);
-// }
-
-
+:is(.button):not([class*="--"]) {
+  --button-border-color-mix: var(--color-dark);
+  --button-border-depth: 1;
+}
 
 @layer states {
   @supports (color: color-mix(in srgb, red 50%, blue 50%)) {
@@ -99,7 +100,10 @@ $button-selectors: ();
       ) {
         &:hover {
           background: var(--_button-bg-hover);
-          background-size: min(2rem, 20%) 12px, cover, cover;
+          background-size:
+            min(2rem, 20%) 12px,
+            cover,
+            cover;
           background-repeat: no-repeat;
           box-shadow:
             0 21px 19px var(--button-box-shadow-color-1),
@@ -110,7 +114,6 @@ $button-selectors: ();
     }
   }
 }
-
 
 // :is(
 //   .card-body__content:has(.card-body__content__ctas:only-child),
