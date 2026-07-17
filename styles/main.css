@@ -436,9 +436,6 @@
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
-  .top-1\/5 {
-    top: calc(1/5 * 100%);
-  }
   .top-9 {
     top: calc(var(--spacing) * 9);
   }
@@ -1536,6 +1533,12 @@
   .gap-x-0 {
     column-gap: calc(var(--spacing) * 0);
   }
+  .gap-x-\[0\.3em\] {
+    column-gap: 0.3em;
+  }
+  .gap-x-\[0\.5em\] {
+    column-gap: 0.5em;
+  }
   .gap-x-layout-gap {
     column-gap: var(--spacing-layout-gap);
   }
@@ -2353,6 +2356,9 @@
     --font-size: var(--default-font-size-fluid-cq, min(var(--font-size-max, var(--font-size-base)), calc(var(--font-size-min, var(--sm)) + var(--font-fluid-cq-variance, 0.5cqw))));
     font-size: var(--font-size);
   }
+  .text-\[1em\] {
+    font-size: 1em;
+  }
   .text-\[2\.5em\] {
     font-size: 2.5em;
   }
@@ -2380,6 +2386,10 @@
   .leading-\[1\.25\] {
     --tw-leading: 1.25;
     line-height: 1.25;
+  }
+  .leading-\[inherit\] {
+    --tw-leading: inherit;
+    line-height: inherit;
   }
   .leading-loose {
     --tw-leading: var(--leading-loose);
@@ -2483,6 +2493,9 @@
   }
   .text-grey-9-contrast {
     color: var(--color-grey-9-contrast);
+  }
+  .text-grey-10 {
+    color: var(--color-grey-10);
   }
   .text-grey-10-contrast {
     color: var(--color-grey-10-contrast);
@@ -8815,16 +8828,6 @@
   .\@lg\:relative {
     @container (width >= 32rem) {
       position: relative;
-    }
-  }
-  .\@lg\:top-auto {
-    @container (width >= 32rem) {
-      top: auto;
-    }
-  }
-  .\@lg\:bottom-md {
-    @container (width >= 32rem) {
-      bottom: var(--spacing-md);
     }
   }
   .\@lg\:col-span-1 {
@@ -23794,12 +23797,13 @@
       height: 100%;
     }
   }
+  .hero__cat-reveal-wrapper {
+    height: 1em;
+    overflow: clip;
+  }
   .hero__cat-reveal {
-    --font-size: 2rem;
-    font-size: var(--font-size);
-    font-family: var(--font-family-heading);
-    font-weight: var(--font-heading-weight);
-    color: var(--color-tertiary);
+    transform: translateY(-1.05em);
+    color: var(--color-grey-10);
     height: 3em;
     overflow: hidden;
     width: fit-content;
@@ -23826,8 +23830,8 @@
     height: 1em;
     border: 0;
     align-items: center;
-    justify-content: flex-end;
-    text-align: right;
+    justify-content: flex-start;
+    text-align: left;
     line-height: 1;
     opacity: 0.3;
     transform: rotateX(-20deg) scale(0.98);

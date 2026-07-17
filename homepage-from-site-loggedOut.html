@@ -371,8 +371,8 @@
             <div
               class="card-body flow flow--md col-start-1 mx-auto w-[min(100%-var(--wrapper-padding)*2,var(--max-wrapper-width))] px-0"
             >
-              <div class="card-body__content flow flex-col max-w-prose">
-                <div class="card-body__content__caption flow">
+              <div class="card-body__content flow flex-col">
+                <div class="card-body__content__caption flow max-w-prose">
                   <h2
                     class="heading heading-3xl w-full text-left card-body__content__caption-title fluid"
                   >
@@ -380,14 +380,14 @@
                   </h2>
                 </div>
 
-                <div class="card-body__content-slot">
-                  <p class="heading-lg fluid normal-case font-bold">
-                    Your perfect partner for
+                <div class="card-body__content-slot inline-flex gap-x-[0.5em] flex-wrap items-end">
+                  <p class="heading-lg fluid normal-case font-bold inline-flex gap-x-[0.3em] flex-wrap">
+                    <span class="text-[1em] leading-[inherit] text-grey-10">Your perfect partner for</span>
                     <span class="text-color">wholesale and distribution</span>
+                    <span class="text-[1em] leading-[inherit] text-grey-10">of</span>
                   </p>
-
-                  <div
-                    class="absolute right-md top-1/5 @lg:top-auto @lg:bottom-md"
+                                      <div
+                                      class="hero__cat-reveal-wrapper heading-lg normal-case"
                     x-data="{
         activeIndex: 0,
         slideIndex: 0,
@@ -480,6 +480,7 @@
                       </ul>
                     </div>
                   </div>
+
                 </div>
 
                 <div class="card-body__content__ctas flow--xl">
