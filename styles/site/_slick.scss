@@ -23,6 +23,10 @@
   grid-column: 1/-1;
 }
 
+[data-slick]:has(.hero) {
+  height: calc(var(--hero-height) + 2rem);
+}
+
 :is(.slick-next, .slick-prev) {
   text-indent: -999em;
   overflow: hidden;
