@@ -3951,6 +3951,7 @@
 @source inline("hover:[{--card-background-color}:{var(--color-primary),var(--color-secondary),var(--color-tertiary),var(--color-light),var(--color-dark),var(--color-brand-red),var(--color-brand-yellow),var(--color-brand-orange)}]");
 @source inline("{*}{:border}");
 @source inline("{[--layout-column-min:16ch],[--flex-grid-min:20ch],[--flex-grid-min:25ch]}");
+@source inline("{text}-{brand-red,brand-yellow,brand-orange}");
 @layer existing-overrides {
   @layer unset {
     :root:is(.unauthenticated.new) #megaMenuHeader #navWrapper .navinner > ul.loggedIn > li ul.primary .megaMenu.ui-sortable:before,
@@ -9731,6 +9732,7 @@
   /* TEMP - remove when tw integrated */
   :root:is(.new) #body {
     line-height: calc(var(--line-height-relative, 1.4em) + var(--line-height-fixed, 0.375rem));
+    min-height: calc(100dvh - var(--header-height));
   }
   .carousel-item {
     width: min((min(100vw - var(--wrapper-padding) * 2, var(--max-wrapper-width)) - var(--wrapper-padding) / 2) / var(--items-to-show, 4), 70vw);

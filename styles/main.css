@@ -2427,6 +2427,15 @@
   .wrap-normal {
     overflow-wrap: normal;
   }
+  .text-brand-orange {
+    color: var(--color-brand-orange);
+  }
+  .text-brand-red {
+    color: var(--color-brand-red);
+  }
+  .text-brand-yellow {
+    color: var(--color-brand-yellow);
+  }
   .text-dark {
     color: var(--color-dark);
   }
@@ -25409,6 +25418,7 @@
   }
   :root:is(.new) #body {
     line-height: calc(var(--line-height-relative, 1.4em) + var(--line-height-fixed, 0.375rem));
+    min-height: calc(100dvh - var(--header-height));
   }
   .carousel-item {
     width: min((min(100vw - var(--wrapper-padding) * 2, var(--max-wrapper-width)) - var(--wrapper-padding) / 2) / var(--items-to-show, 4), 70vw);

@@ -54,6 +54,7 @@
 @source inline("hover:[{--card-background-color}:{var(--color-primary),var(--color-secondary),var(--color-tertiary),var(--color-light),var(--color-dark),var(--color-brand-red),var(--color-brand-yellow),var(--color-brand-orange)}]");
 @source inline("{*}{:border}");
 @source inline("{[--layout-column-min:16ch],[--flex-grid-min:20ch],[--flex-grid-min:25ch]}");
+@source inline("{text}-{brand-red,brand-yellow,brand-orange}");
 
 // @import "small-style/dist/style.css";
 
