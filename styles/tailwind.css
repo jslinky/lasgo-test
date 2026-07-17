@@ -9734,6 +9734,11 @@
     line-height: calc(var(--line-height-relative, 1.4em) + var(--line-height-fixed, 0.375rem));
     min-height: calc(100dvh - var(--header-height));
   }
+  :root:is(.new) #body:has(.c-404) {
+    display: grid;
+    place-content: center;
+    --heading-3xl-font-size-max: calc(var(--display-2xl-px) * var(--text-size-increment));
+  }
   .carousel-item {
     width: min((min(100vw - var(--wrapper-padding) * 2, var(--max-wrapper-width)) - var(--wrapper-padding) / 2) / var(--items-to-show, 4), 70vw);
   }
