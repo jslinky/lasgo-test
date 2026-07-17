@@ -3490,6 +3490,12 @@
       align-self: flex-start;
     }
   }
+  .\*\:border {
+    :is(& > *) {
+      border-style: var(--tw-border-style);
+      border-width: 1px;
+    }
+  }
   .\*\:bg-primary {
     :is(& > *) {
       background-color: var(--color-primary);
@@ -3997,6 +4003,62 @@
       @media (hover: hover) {
         --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
         box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .hover\:\[--card-background-color\:var\(--color-brand-orange\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --card-background-color: var(--color-brand-orange);
+      }
+    }
+  }
+  .hover\:\[--card-background-color\:var\(--color-brand-red\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --card-background-color: var(--color-brand-red);
+      }
+    }
+  }
+  .hover\:\[--card-background-color\:var\(--color-brand-yellow\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --card-background-color: var(--color-brand-yellow);
+      }
+    }
+  }
+  .hover\:\[--card-background-color\:var\(--color-dark\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --card-background-color: var(--color-dark);
+      }
+    }
+  }
+  .hover\:\[--card-background-color\:var\(--color-light\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --card-background-color: var(--color-light);
+      }
+    }
+  }
+  .hover\:\[--card-background-color\:var\(--color-primary\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --card-background-color: var(--color-primary);
+      }
+    }
+  }
+  .hover\:\[--card-background-color\:var\(--color-secondary\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --card-background-color: var(--color-secondary);
+      }
+    }
+  }
+  .hover\:\[--card-background-color\:var\(--color-tertiary\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --card-background-color: var(--color-tertiary);
       }
     }
   }

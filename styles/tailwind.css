@@ -3946,8 +3946,9 @@
 @source inline("{font}-{bold,semibold}");
 @source inline("{lg:}{bg}-{transparent}");
 @source inline("[{--heading-3xl-font-size-max,--heading-3xl-font-size-min,--heading-2xl-font-size-max,--heading-2xl-font-size-min,--heading-xl-font-size-max,--heading-xl-font-size-min}:{var(--display-xs),var(--display-sm),var(--display-md),var(--display-2xl)}]");
-@source inline("{max-w}-{screen,xs,sm,md,lg,xl,2xl,max-wrapper-width,[min(940px,100%)]}");
-@source inline("hover:[{--card-background-color}:{var(--color-primary),var(--color-secondary),var(--color-tertiary),var(--color-light),var(--color-dark),var(--color-brand-red),var(--color-brand-yellow),var(--color-brand-orange)}]")
+@source inline("{max-w}-{screen,xs,sm,md,lg,xl,2xl,max-wrapper-width}");
+@source inline("max-w-[min(940px,100%)]");
+@source inline("hover:[{--card-background-color}:{var(--color-primary),var(--color-secondary),var(--color-tertiary),var(--color-light),var(--color-dark),var(--color-brand-red),var(--color-brand-yellow),var(--color-brand-orange)}]");
 @source inline("{*}{:border}");
 @source inline("{[--layout-column-min:16ch],[--flex-grid-min:20ch],[--flex-grid-min:25ch]}");
 @layer existing-overrides {
