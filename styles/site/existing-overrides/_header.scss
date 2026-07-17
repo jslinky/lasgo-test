@@ -1751,5 +1751,18 @@
       }
     }
   }
+
+  /// Marisa amends to remove rounded corners and margins
+  :root:is(.unauthenticated.new):has(.hero--expanded) #mainHeader > div {
+    margin-top:0;
+  }
+
+  .hero--expanded {
+    --hero-expanded-outer-margin: 0;
+    border-radius: 0;
+  }
+    
+
+
 }
 // }

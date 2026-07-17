@@ -406,7 +406,7 @@ div.scanlines {
 }
 
 .hero__cat-reveal {
-  --font-size: clamp(2rem, 1rem + 3cqi, 3rem);
+  --font-size: 2rem;
   font-size: var(--font-size);
   font-family: var(--font-family-heading);
   font-weight: var(--font-heading-weight);
