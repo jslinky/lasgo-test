@@ -8166,9 +8166,6 @@
     place-content: center;
     opacity: 1 !important;
   }
-  #outerWrap:has(.lasgo-artwork) .blob-container {
-    display: none;
-  }
   :is(.lasgo-artwork > svg,
   .globe-logo,
   .globe-container,
@@ -8634,7 +8631,14 @@
   .blob-container > div {
     width: 100%;
     height: max(100%, var(--blob-min-height));
-    --delay: calc(sibling-index() * 800ms);
+    --delay: calc(800ms + var(--index-delay, 0ms));
+  }
+  @supports (width: calc(sibling-index() * 10px)) {
+    .blob-container > div {
+      --delay: calc(sibling-index() * 800ms);
+    }
+  }
+  .blob-container > div {
     --bg: hsl(calc(360deg / sibling-count() * sibling-index()) 50% 50%);
     --bg: #c8ebe9;
     /*     background: var(--bg); */
@@ -8644,12 +8648,27 @@
     max-height: max(80%, var(--blob-min-height));
     animation: bulb-one calc(var(--duration) * 3) calc(var(--delay) * 0.75) var(--easing) infinite alternate;
   }
+  @supports not (width: calc(sibling-index() * 10px)) {
+    .blob-container > div:nth-child(2) {
+      --local-delay: 800ms;
+    }
+  }
   .blob-container > div:nth-child(2) {
     animation: bulb-two calc(var(--duration) * 3) calc(var(--delay) * 0.25) var(--easing) infinite alternate;
+  }
+  @supports not (width: calc(sibling-index() * 10px)) {
+    .blob-container > div:nth-child(3) {
+      --local-delay: 1600ms;
+    }
   }
   .blob-container > div:nth-child(3) {
     max-height: max(60%, var(--blob-min-height));
     animation: bulb-three calc(var(--duration) * 3) calc(var(--delay) * 1.25) var(--easing) infinite alternate;
+  }
+  @supports not (width: calc(sibling-index() * 10px)) {
+    .blob-container > div:nth-child(4) {
+      --local-delay: 1800ms;
+    }
   }
   .blob-container > div:nth-child(4) {
     max-height: max(50%, var(--blob-min-height));

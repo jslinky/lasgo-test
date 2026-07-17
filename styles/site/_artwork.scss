@@ -34,11 +34,11 @@
   opacity: 1 !important;
 }
 
-#outerWrap:has(.lasgo-artwork) {
-  .blob-container {
-    display: none;
-  }
-}
+// #outerWrap:has(.lasgo-artwork) {
+//   .blob-container {
+//     display: none;
+//   }
+// }
 
 :is(
   .lasgo-artwork > svg,
