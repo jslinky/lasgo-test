@@ -493,23 +493,24 @@
           </article>
         </section>
         <div
-          class="wrapper pb-section-gap-xl pt-section-gap-3xl md:min-h-[min(800px,calc(100vh-var(--root-header-height)))] content-center"
+          class="wrapper pb-section-gap-xl pt-section-gap-xl md:min-h-[min(1200px,calc(100vh-var(--root-header-height)))] content-stretch flex"
         >
-          <div class="relative flow grid grid-rows-[max-content_1fr] grid-cols-[1fr] *:row-span-full *:col-span-full row-x-5xl md:before:content-[''] md:before:w-[63vw] md:before:mx-[calc(-50vw+50%)] md:before:left-0 md:before:h-full md:before:bg-linear-to-r md:before:from-[var(--root-bg)] md:before:from-90% md:before:to-[transparent]  md:before:z-[1] md:before:block md:before:absolute">
+          <div class="relative flow grid grid-rows-[1fr_max-content_max-content] grid-cols-[1fr] *:row-span-full *:col-span-full row-x-5xl basis-full">
 
-                <div class="c-marquee z-[-1] !row-start-3 !row-end-3 md:!row-start-1 md:!row-end-[-1]"
+                <div
+                  class="c-marquee z-[-1] !row-start-1 !row-end-1 mb-layout-gap"
                   x-data="{
                     slides: ['dvd-slide.png', 'music-slide.png', 'merch-slide.png', 'electronics-slide.png']
                   }"
                 >
                 <div class="flex wrap-none">
                   <template x-for="group in 2">
-                    <div class="layout-grid w-[calc(200vw-(var(--layout-gap)/2))] md:w-[calc(100vw-(var(--layout-gap)/2))] shrink-0">
+                    <div class="layout-grid min-w-[calc(max(1200px,100vw)-(var(--layout-gap)/2))] shrink-0">
                       <template
                         x-for="(item, index) in slides"
                         :key="`${item}-${index}`"
                       >
-                      <div class="aspect-square z-[-2]">
+                      <div class="aspect-square z-[-2] *:w-full">
                         <img :src="`./assets/${item}`" alt="" />
                       </div>
                       </template>
@@ -539,12 +540,12 @@
                   </div> -->
                 </div>
 
-            <h2 class="heading fluid heading--underline heading-2xl uppercase row-end-1!">
+            <h2 class="heading fluid heading--underline heading-2xl uppercase !row-start-2 !row-end-2">
               <span class="heading-xs text-default"
                 >Innovating UK entertainment supply</span
               ><span>What we do</span>
             </h2>
-            <div class="layout-grid flow [--layout-column-min:40ch] !row-start-2 !row-end-2 !col-start-1 !col-end-1">
+            <div class="layout-grid flow [--layout-column-min:40ch] !row-start-3 !row-end-3 !col-start-1 !col-end-1">
               <div class="flow flex-auto">
                 <div class="max-w-prose flow">
                   <p class="text-lg font-bold">
@@ -552,6 +553,12 @@
                     UK&#39;s longest established international wholesaler and
                     distributor of home entertainment product.
                   </p>
+
+                </div>
+              </div>
+              <div
+                class="basis-[fit-content] md:content-end flex md:items-end md:justify-center md:mt-0"
+              >
 
                   <p>
                     From our humble beginnings in London&#39;s Oxford Street,
@@ -562,12 +569,6 @@
                     Entertainment and Merchandise divisions to meet a growing
                     demand for fan-based physical products.
                   </p>
-                </div>
-              </div>
-              <div
-                class="basis-[fit-content] md:content-end flex md:items-end md:justify-center"
-              >
-
               </div>
             </div>
           </div>

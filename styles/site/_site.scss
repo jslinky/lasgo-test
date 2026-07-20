@@ -149,14 +149,18 @@ div:has(> .c-marquee) {
 }
 
 .c-marquee {
+  container-type: size;
+  max-height: 50vh;
   max-width: calc(100vw - var(--layout-gap));
   overflow: clip;
   margin-inline: calc(-50vw + 50%);
   width: 100vw;
   --layout-column-min: 20%;
-  @include respond-to("md") {
-    transform: translateX(56vw);
-  }
+  display: flex;
+  align-items: stretch;
+  // @include respond-to("md") {
+  //   transform: translateX(56vw);
+  // }
   > div > div {
     animation: marquee linear;
     animation-timeline: view();
@@ -164,6 +168,10 @@ div:has(> .c-marquee) {
   }
   ~ * {
     z-index: 2;
+  }
+  img {
+    max-height: 100cqh;
+    object-fit: contain;
   }
   &:before {
     content: "";

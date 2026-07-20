@@ -7784,23 +7784,26 @@
   .hero .card[data-card-column-reverse-order=true] .card-picture img[src$=".png"] {
     filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.2));
   }
-  body:has(.hero--expanded):has(#outerWrap) {
+  body:has(.hero--expanded) {
     overflow: hidden;
   }
-  body:has(.hero--expanded):has(#outerWrap) #outerWrap {
+  body:has(.hero--expanded) #outerWrap {
     scroll-snap-type: y proximity;
     overflow: auto;
     max-height: 100vh;
     scroll-behavior: smooth;
   }
-  body:has(.hero--expanded):has(#outerWrap) #body {
+  body:has(.hero--expanded) #body {
     display: contents;
   }
-  body:has(.hero--expanded):has(#outerWrap) #body > * {
+  body:has(.hero--expanded) #body > * {
     scroll-snap-align: center;
   }
-  body:has(.hero--expanded):has(#outerWrap) #body .hero {
+  body:has(.hero--expanded) #body .hero {
     scroll-snap-align: center;
+  }
+  body:not(.hero-not-in-view):has(.hero--expanded) #outerWrap {
+    scroll-snap-type: y mandatory;
   }
   .hero.hero--expanded {
     --variable-unit: calc(40vi + 60vb);
@@ -7971,7 +7974,7 @@
     --hero-expanded-outer-margin: clamp(0.25rem, 1vi, 1rem);
     --hero-height: clamp(
       520px,
-      calc(95dvh - (var(--header-height) + 50px)),
+      calc(95dvh - (var(--header-height) + 0px)),
       1000px
     );
     --hero-height-expanded: calc(var(--header-height) + var(--hero-height));
@@ -9828,16 +9831,15 @@
     opacity: 0;
   }
   .c-marquee {
+    container-type: size;
+    max-height: 50vh;
     max-width: calc(100vw - var(--layout-gap));
     overflow: clip;
     margin-inline: calc(-50vw + 50%);
     width: 100vw;
     --layout-column-min: 20%;
-  }
-  @media only screen and (min-width: 48rem) {
-    .c-marquee {
-      transform: translateX(56vw);
-    }
+    display: flex;
+    align-items: stretch;
   }
   .c-marquee > div > div {
     animation: marquee linear;
@@ -9846,6 +9848,10 @@
   }
   .c-marquee ~ * {
     z-index: 2;
+  }
+  .c-marquee img {
+    max-height: 100cqh;
+    object-fit: contain;
   }
   .c-marquee:before {
     content: "";
