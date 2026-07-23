@@ -1,24 +1,55 @@
-
 .lasgo-artwork {
   // animation: artwork-in linear both;
   // animation-timeline: view();
   // animation-range: 0% 50%;
   --track-size: min(1.5cqmin, 0.85rem);
-  --spring-easing: linear(0, 0.0018, 0.0069 1.16%, 0.0262 2.32%, 0.0642, 0.1143 5.23%, 0.2244 7.84%, 0.5881 15.68%, 0.6933, 0.7839, 0.8591, 0.9191 26.13%, 0.9693, 1.0044 31.93%, 1.0234, 1.0358 36.58%, 1.0434 39.19%, 1.046 42.39%, 1.0446 44.71%, 1.0404 47.61%, 1.0118 61.84%, 1.0028 69.39%, 0.9981 80.42%, 0.9991 99.87%);  
+  --spring-easing: linear(
+    0,
+    0.0018,
+    0.0069 1.16%,
+    0.0262 2.32%,
+    0.0642,
+    0.1143 5.23%,
+    0.2244 7.84%,
+    0.5881 15.68%,
+    0.6933,
+    0.7839,
+    0.8591,
+    0.9191 26.13%,
+    0.9693,
+    1.0044 31.93%,
+    1.0234,
+    1.0358 36.58%,
+    1.0434 39.19%,
+    1.046 42.39%,
+    1.0446 44.71%,
+    1.0404 47.61%,
+    1.0118 61.84%,
+    1.0028 69.39%,
+    0.9981 80.42%,
+    0.9991 99.87%
+  );
   display: grid;
   place-content: center;
+  opacity: 1 !important;
 }
 
+// #outerWrap:has(.lasgo-artwork) {
+//   .blob-container {
+//     display: none;
+//   }
+// }
+
 :is(
-    .lasgo-artwork > svg,
-    .globe-logo,
-    .globe-container,
-    .axis,
-    .books,
-    .cd,
-    .record,
-    .tee
-  ) {
+  .lasgo-artwork > svg,
+  .globe-logo,
+  .globe-container,
+  .axis,
+  .books,
+  .cd,
+  .record,
+  .tee
+) {
   grid-column: 1/-1;
   grid-row: 1/-1;
 }
@@ -37,19 +68,18 @@
   }
 }
 
-
 :is(.books, .cd, .tee) {
   svg {
     animation: item-timeline var(--spring-easing) both;
     animation-timeline: view();
-    animation-range: 0% 35%;      
+    animation-range: 0% 35%;
   }
 }
 
 :is(.record) {
-    animation: item-timeline var(--spring-easing) both;
-    animation-timeline: view();
-    animation-range: 0% 85%;   
+  animation: item-timeline var(--spring-easing) both;
+  animation-timeline: view();
+  animation-range: 0% 85%;
 }
 
 .books {
@@ -66,7 +96,7 @@
 @keyframes item-timeline {
   to {
     transform: translate(0%, 0%);
-    scale:1;
+    scale: 1;
   }
 }
 
@@ -82,7 +112,7 @@
     width: 65%;
     height: 65%;
     // timeline animation
-    transform: translate(calc(25vmin - 25%), -60%);  
+    transform: translate(calc(25vmin - 25%), -60%);
   }
 }
 
@@ -109,7 +139,7 @@
   z-index: -1;
   svg {
     /// animation timline
-    transform: translate(-35cqmin, -10vmin) scale(0.65);    
+    transform: translate(-35cqmin, -10vmin) scale(0.65);
   }
 }
 
@@ -124,7 +154,19 @@
   padding: 1rem;
   border-radius: 3rem;
   border: calc(var(--track-size) / 2) solid transparent;
-  background: linear-gradient(to right, white, white) padding-box, conic-gradient(from 45deg in oklch shorter hue, #ce6d6e, var(--color-primary), var(--color-secondary), var(--color-tertiary), var(--color-brand-orange), var(--color-brand-yellow), #ce6d6e) border-box;
+  background:
+    linear-gradient(to right, white, white) padding-box,
+    conic-gradient(
+        from 45deg in oklch shorter hue,
+        #ce6d6e,
+        var(--color-primary),
+        var(--color-secondary),
+        var(--color-tertiary),
+        var(--color-brand-orange),
+        var(--color-brand-yellow),
+        #ce6d6e
+      )
+      border-box;
 }
 
 @keyframes globe-scale {
@@ -146,7 +188,7 @@
   align-self: center;
   justify-self: center;
   scale: 0.6;
-  background: white;
+  background: var(--color-primary);
 }
 
 .axis {
@@ -156,6 +198,26 @@
   border-radius: 50%;
   z-index: -1;
   /* mix-blend-mode: screen; */
+}
+
+@media (min-width: 64rem) {
+  .lasgo-artwork {
+    left: auto;
+    right: 0px;
+    width: 54%;
+    translate: 11% 5%;
+    scale: 1.2;
+    top: 0;
+    position: absolute;
+  }
+
+  .globe-container {
+    background: var(--color-grey-6);
+  }
+
+  .axis {
+    border-color: var(--color-primary-5);
+  }
 }
 
 div:nth-child(2 of .axis) {
@@ -270,7 +332,6 @@ div:nth-child(5 of .axis) {
   }
 }
 
-
 div:nth-child(1 of .orb) {
   animation: 10s orbit-left 2s linear infinite;
   --angle-y: 90deg;
@@ -359,7 +420,6 @@ div:nth-child(6 of .orb) {
   stroke-dasharray: calc(1px * var(--cd-stroke-length));
   stroke-dashoffset: calc(1px * var(--cd-stroke-length));
   stroke: var(--color-brand-orange);
-
 }
 
 @keyframes t-shirt-move {

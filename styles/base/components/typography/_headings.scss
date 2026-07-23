@@ -60,6 +60,11 @@
   display: block;
 }
 
+.heading > span:nth-last-of-type(2).text-default {
+  font-size: var(--font-size-base);
+  color: var(--color-grey-5);
+}
+
 .line-across {
   display: flex;
   place-items: center;

@@ -1,19 +1,38 @@
+@use "small-style/scss/theme" as *;
+
 $contentGridFullLgBp: 80ch !default;
 
+@mixin content-grid-rules-sm() {
+  --layout-column-min: 3ch;
+  --column-count: 2;  
+}
+
+@mixin content-grid-rules-lg() {
+    --layout-column-min: 8.8ch;
+    --column-count: 8;    
+}
+
 @mixin content-grid-rules() {
-  --layout-column-min: 8.8ch;
-  --column-count: 8;
+  @include content-grid-rules-lg();
   container-type: inline-size;
   container-name: content-grid;    
+}
+
+@mixin content-grid-rules-has-container() {
+  @include content-grid-rules-sm();
+  @container content-grid-container (min-width: #{$contentGridFullLgBp}) {
+    @include content-grid-rules-lg();
+  }
 }
 
 @mixin content-grid__full-rules() {
   display: grid;
   grid-template-columns: subgrid;
   container: none;
-  @container content-grid (min-width: #{$contentGridFullLgBp}) {
-    grid-column: 1/-1;
-  }  
+  grid-column: 1/-1;
+  // @container content-grid (min-width: #{$contentGridFullLgBp}) {
+  //   grid-column: 1/-1;
+  // }  
 }
 
 @mixin content-grid__main-rules() {
@@ -32,18 +51,22 @@ $contentGridFullLgBp: 80ch !default;
   position: sticky;
   top: var(--aside-sticky-top, 0);
   background: var(--root-bg);
-  z-index: 1;
+  z-index: 10;
   height: auto;  
   @container content-grid (max-width:#{$contentGridFullLgBp}) {
     width: 100vw;
-    grid-column: 1/-1;
+    // grid-column: 1/-1;
     margin-inline: calc(var(--wrapper-inline) * -1);
     padding-inline: 0;
-    padding-inline-start: var(--wrapper-inline);
+    // padding-inline-start: var(--wrapper-inline);
+    .c-collapse {
+      border:1px solid var(--field-border-color);
+    }
   }  
   @container content-grid (min-width:#{$contentGridFullLgBp}) {
     --aside-height: auto;
     position: relative;
     grid-column: span 2;
+    background: transparent;
   }  
 }

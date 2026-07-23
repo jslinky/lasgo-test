@@ -1,126 +1,161 @@
-  :root {
-    // Colors
-    --color-primary-l: 0.3835;
-    --color-primary-c: 0.0679;
-    --color-primary-h: 215.42;
+@property --hero-height {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 400px;
+}
 
-    --color-secondary-l: 0.9144;
-    --color-secondary-c: 0.0366;
-    --color-secondary-h: 192.29;
-    /* --color-secondary: oklch(
-      var(--color-secondary-l) var(--color-secondary-c) var(--color-secondary-h)
-    ); */
-    --color-tertiary-l: 0.8202;
-    --color-tertiary-c: 0.0437;
-    --color-tertiary-h: 244.03;
+:root {
+  --line-height-base: 1.42; // reset to existing line-height. apply new line height to scoped styles
+  // Colors
+  --color-primary-l: 0.3835;
+  --color-primary-c: 0.0679;
+  --color-primary-h: 215.42;
 
-    --color-brand-yellow-l: 0.8928;
-    --color-brand-yellow-c: 0.1343;
-    --color-brand-yellow-h: 98.86;
+  --color-secondary-l: 0.9144;
+  --color-secondary-c: 0.0366;
+  --color-secondary-h: 192.29;
 
-    --color-brand-red-l: 0.6493;
-    --color-brand-red-c: 0.1225;
-    --color-brand-red-h: 20.36;
+  --color-tertiary-l: 0.8202;
+  --color-tertiary-c: 0.0437;
+  --color-tertiary-h: 244.03;
 
-    --color-contrast: oklch(
-      from var(--color, inherit)
-        clamp(
-          var(--contrast-lightest-text, 0),
-          (l / var(--contrast-threshold, 0.623) - 1) * -infinity,
-          var(--contrast-darkest-text, 1)
-        )
-        0 h
-    );
+  --color-brand-yellow-l: 0.8928;
+  --color-brand-yellow-c: 0.1343;
+  --color-brand-yellow-h: 98.86;
 
-    --color-brand-orange-l: 0.7966;
-    --color-brand-orange-c: 0.1125;
-    --color-brand-orange-h: 59.9;
+  --color-brand-red-l: 0.6493;
+  --color-brand-red-c: 0.1225;
+  --color-brand-red-h: 20.36;
 
-    --color-primary-light-l: 0.7048;
-    --color-primary-light-c: 0.0799;
-    --color-primary-light-h: 191.32;
+  --color-contrast: oklch(
+    from var(--color, inherit)
+      clamp(
+        var(--contrast-lightest-text, 0),
+        (l / var(--contrast-threshold, 0.623) - 1) * -infinity,
+        var(--contrast-darkest-text, 1)
+      )
+      0 h
+  );
 
-    --font-family-base: "Inter", sans-serif;
-    --font-family-heading: var(--font-family-base);
-    --font-heading-weight: 900;
-    --root-fg: var(--color-dark-5);
+  --color-brand-orange-l: 0.7966;
+  --color-brand-orange-c: 0.1125;
+  --color-brand-orange-h: 59.9;
 
-    --button-default-color: var(--color-grey-11);
-    --button-default-color-contrast: var(--color-grey-11-contrast);
-    --button-border-depth: 0.5;
-    --button-font-weight: 700;
-    --heading-2xl-text-transform: none;
-    --heading-2xl-line-height: 1;
-    --heading-3xl-line-height: 1;
-    --heading-xl-line-height: 1;
+  --color-primary-light-l: 0.97;
+  --color-primary-light-c: var(--color-primary-c);
+  --color-primary-light-h: 191.32;
 
-    --color-grey-c: 0.01;
+  --color-dark-contrast: var(--color-light);
+  --color-light-contrast: var(--color-dark);
 
-    --root-fg: var(--color-dark);
-    --root-fg-muted: var(--color-grey-6);    
+  --color-grey: var(--color-grey-11);
+  --color-grey-contrast: var(--color-grey-11-contrast);
 
-    // Wrappers
-    --root-max-wrapper-width: 1275;
-    --max-wrapper-width: calc(var(--root-max-wrapper-width) * 1px);
-    --wrapper-width: calc(
-      var(--max-wrapper-width, 1200px) +
+  --color-heading: var(--color-dark);
+  --font-family-base: "Inter", sans-serif;
+  --font-family-heading: var(--font-family-base);
+  --font-heading-weight: 900;
+  --root-fg: var(--color-grey-5);
+  --root-fg-muted: var(--color-grey-6);
+  --button-default-color: var(--color-grey-11);
+  --button-default-color-contrast: var(--color-grey-11-contrast);
+  --button-border-depth: 0.5;
+  --button-border-radius: calc(var(--radius) * 2);
+  --button-font-weight: 700;
+  --heading-2xl-text-transform: none;
+  --heading-2xl-line-height: 1;
+  --heading-3xl-line-height: 1;
+  --heading-xl-line-height: 1;
+  --heading-default-text-transform: none;
+  --line-height-fixed: 0.25rem;  
+
+  --color-grey-c: 0.01;
+
+  --color-danger-l: 0.5;
+  --color-danger-c: 0.2;
+  --color-danger-h: 20;
+  --color-danger: oklch(
+    var(--color-danger-l) var(--color-danger-c) var(--color-danger-h)
+  );
+  --color-danger-contrast: oklch(
+    from var(--color-danger, inherit)
+      clamp(
+        var(--contrast-dangerlightest-text, 0),
+        (l / var(--contrast-danger-threshold, 0.623) - 1) * -infinity,
+        var(--contrast-danger-darkest-text, 1)
+      )
+      0 h
+  );
+
+  // Wrappers
+  --root-max-wrapper-width: 1275;
+  --max-wrapper-width: calc(var(--root-max-wrapper-width) * 1px);
+  --wrapper-width: calc(
+    var(--max-wrapper-width, 1200px) +
+      var(
+        --wrapper-padding,
         var(
-          --wrapper-padding,
-          var(
-            --layout-gap,
-            max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem))
-          )
-        ) * 2
-    );    
+          --layout-gap,
+          max(min(2vmax, var(--space-xl)), var(--space-lg, 1rem))
+        )
+      ) *
+      2
+  );
 
-    // Spacing
-    --flow-space: var(--space-lg);
-    --text-frame-ratio: 1.5;    
+  // Spacing
+  --flow-space: var(--space-lg);
+  --text-frame-ratio: 1.5;
 
-    // Default border radius
-    --radius: var(--text-xs);
+  // Default border radius
+  --radius: var(--text-xs);
 
-    // Buttons
-    --button-border-depth: 0;
-    --root-bg: #fff;
-    
-    // Layout
-    --layout-gap: max(min(2vmax, var(--space-md)), var(--space-md, 1rem));
-    --unit-min: var(--unit-max, 1rem) / 1.5;
+  // Buttons
+  --button-border-depth: 0;
+  --root-bg: #fff;
 
-    // Hero
-    --hero-height: min(520px, 80vh);
-    --header-height: 169px;
-    --hero-height-expanded: calc(var(--header-height) + var(--hero-height));
+  // Layout
+  --layout-gap: max(min(2vmax, var(--space-md)), var(--space-md, 1rem));
+  --unit-min: var(--unit-max, 1rem) / 1.5;
 
-    // Nav and Header
-      // --root-header-height: 73px;
-      // --root-nav-height: 30px;
-      --root-account-header-height: 32px;
+  // Hero
+  --hero-height: min(460px, 80vh);
+  --header-height: 169px;
+  --hero-height-expanded: calc(var(--header-height) + var(--hero-height));
 
-      --root-nav-mt: var(--space-sm);
-      --root-nav-height: 35px;
-      --root-header-height: 138px;
-      --root-header-mt: var(--space-xs);
+  // Nav and Header
+  // --root-header-height: 73px;
+  // --root-nav-height: 30px;
+  --root-account-header-height: 32px;
 
-      --contrast-threshold: 0.7;
+  --root-nav-mt: var(--space-sm);
+  --root-nav-height: 35px;
+  --root-header-height: 138px;
+  --root-header-mt: var(--space-xs);
 
-      /// Logged out homepage adjustments
-      &.unauthenticated {
-        // --root-header-mt: 0px;
-        // --root-nav-height: 0px;
-        // --root-nav-mt: 0px;
-        --root-header-height: 50px;
-      }
+  --contrast-threshold: 0.7;
 
-      @include respond-to(lg) {
-        --root-header-height: 50px;
-      }        
+  --hero-height-contracted: 70px;
 
-    // Headings
-    --heading-underline-height: 0.5rem;
-
-
-
-
+  /// Logged out homepage adjustments
+  &.unauthenticated {
+    // --root-header-mt: 0px;
+    // --root-nav-height: 0px;
+    // --root-nav-mt: 0px;
+    --root-header-height: 50px;
   }
+
+  @include respond-to(lg) {
+    --root-header-height: 50px;
+  }
+
+  // Headings
+  --heading-underline-height: 0.5rem;
+}
+
+// overrding template tw class - slighty hack but meh
+.card-body__content__caption-tagline[data-surface] {
+  width: fit-content;
+  line-height: 1;
+  border-radius: var(--radius);
+  padding: var(--space-3xs) var(--text-frame-x);
+}

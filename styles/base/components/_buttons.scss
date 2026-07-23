@@ -1,3 +1,126 @@
+@use "small-style/scss/theme" as *;
+@use "small-style/scss/base/mixins/rules/components/buttons" as *;
+@use "../../site/variables" as site-vars;
+
 :where(.button) {
   text-decoration: none;
+  @include gen-button-color-variations(
+    ("brand-orange" "brand-red" "brand-yellow")
+  );
 }
+
+$button-selectors: ();
+
+@each $item in site-vars.$colorIncludes {
+  $button-selectors: append($button-selectors, ".button--#{$item}", comma);
+}
+
+@supports (color: color-mix(in srgb, red 50%, blue 50%)) {
+  @media #{$mouse} {
+    :is(
+      .button:not(
+        .button--outline,
+        .button--soft,
+        .button--link,
+        .button--ghost
+      )
+    ) {
+      transition:
+        background-color 200ms ease-in,
+        border 200ms ease-in;
+      overflow: clip;
+      --_button-bg-hover:
+        radial-gradient(
+          ellipse at 50%,
+          color-mix(in oklch, hsl(0 0 100 / 0.3), transparent 40%) 20%,
+          transparent 80%
+        ),
+        radial-gradient(
+          circle at 50%,
+          color-mix(
+            in oklch,
+            oklch(
+              from var(--button-color) var(--l-hover-bg-1, calc(l + 0.4)) c h
+            ),
+            transparent 50%
+          ),
+          transparent
+        ),
+        oklch(from var(--button-color) var(--l-hover-bg-2, calc(l + 0.05)) c h);
+      --button-bg-hover-depth: 0;
+      --button-border-color-mix: var(--button-color);
+      --button-box-shadow-color-1: color-mix(
+        oklch(from var(--button-color) calc(l - 0.4) c h),
+        transparent 90%
+      );
+      --button-box-shadow-color-2: color-mix(
+        oklch(from var(--button-color) calc(l - 0.4) c h),
+        transparent 80%
+      );
+      --button-box-shadow-color-3: color-mix(
+        oklch(from var(--button-color) calc(l - 0.4) c h),
+        transparent 70%
+      );
+      transition: box-shadow 200ms ease-in;
+
+      &:hover .button__text:before {
+        max-width: 100%;
+        scale: 1;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+:is(.button--tertiary, .button--secondary, .button--light) {
+  --l-hover-bg-1: calc(l + 0.7);
+  --l-hover-bg-2: calc(l - 0.04);
+}
+
+.button:not(#{$button-selectors}):not(.button--outline) {
+  --l-hover-bg-1: calc(l + 0.2);
+  --l-hover-bg-2: calc(l - 0.02);
+}
+
+:is(.button):not([class*="--"]) {
+  --button-border-color-mix: var(--color-dark);
+  --button-border-depth: 1;
+}
+
+@layer states {
+  @supports (color: color-mix(in srgb, red 50%, blue 50%)) {
+    @media #{$mouse} {
+      :is(
+        .button:not(
+          .button--outline,
+          .button--soft,
+          .button--link,
+          .button--ghost
+        )
+      ) {
+        &:hover {
+          background: var(--_button-bg-hover);
+          background-size:
+            min(2rem, 20%) 12px,
+            cover,
+            cover;
+          background-repeat: no-repeat;
+          box-shadow:
+            0 21px 19px var(--button-box-shadow-color-1),
+            0 3px 6px var(--button-box-shadow-color-2),
+            0 1px 1px var(--button-box-shadow-color-3);
+        }
+      }
+    }
+  }
+}
+
+// :is(
+//   .card-body__content:has(.card-body__content__ctas:only-child),
+//   .card-body__content__ctas.contents
+// ) {
+//   .button:before,
+//   .button__text::after {
+//     background: none;
+//   }
+// }

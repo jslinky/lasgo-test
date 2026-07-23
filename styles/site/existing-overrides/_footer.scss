@@ -87,6 +87,30 @@
     }
     li {
       padding-inline: 0;
+      a {
+        color: var(--color-primary-6);
+        &:hover {
+          color: var(--color-primary);
+        }        
+      }
     }
   }
+
+  #footer .footerMenu ul li:first-child,
+  .footerMenu .grid_4.alpha:before {
+    color: var(--color-primary-2);
+  }
+
+  #footer #subFooter .copyright {
+    color: var(--color-grey-7);
+  }
+
+  .blob-container + svg {
+    pointer-events: none;
+  }
+
+  #footer {
+    min-width: unset;
+  }
+
 }

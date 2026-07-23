@@ -1,3 +1,15 @@
+@keyframes expandCard {
+  0% {
+    overflow: clip;
+  }
+  25% {
+    overflow: visible;
+  }
+  100% {
+    overflow: visible;
+  }
+}
+
 .featured-products {
   display: grid;
   place-items: stretch;
@@ -16,6 +28,87 @@
     grid-row: 2 / 3;
   }
   /* } */
+  > div:nth-child(1) {
+    .card-picture {
+      transform-origin: center;
+      transition:
+        scale 100ms #{$ease-elastic-in-out-1},
+        opacity 100ms #{$ease-elastic-in-out-1},
+        box-shadow 100ms #{$ease-elastic-in-out-1};
+    }
+  }
+
+  &.featured-products--three-in-a-row {
+    > div:nth-of-type(1) {
+      grid-column: 3/7;
+    }
+    > div:nth-of-type(2) {
+      grid-column: 7/9;
+      grid-row: 1/3;
+    }
+    > div:nth-of-type(3) {
+      grid-column: 1/3;
+      grid-row: span 2;
+    }
+  }
+  &:has(> div:nth-child(3) ~ *) {
+    > div:first-of-type {
+      grid-column: 3 / -3;
+      grid-row: 1 / 3;
+    }
+    > div:nth-of-type(2) {
+      grid-column: 7/9;
+      grid-row: 1/2;
+    }
+    > div:nth-of-type(3) {
+      grid-column: 7/9;
+      grid-row: 2/3;
+    }
+    > div:is(:nth-of-type(4), :nth-of-type(5)) {
+      grid-column: 1/3;
+    }
+  }
+  &:has(> div:nth-child(4):is(:last-of-type)) {
+    > div:nth-child(4) {
+      grid-row: span 2;
+    }
+  }
+  .card-picture {
+    overflow: clip;
+    border-radius: var(--radius);
+    box-shadow: 0 0 0 hsl(0deg 0% 0% / 0.3);
+  }
+  .card-body:before {
+    transition: scale 100ms #{$ease-elastic-in-out-1};
+  }
+  @media #{$mouse} {
+    .card:hover {
+      animation: expandCard 300ms #{$ease-elastic-in-out-1} forwards;
+
+      .card-picture {
+        z-index: 2;
+        scale: 1.05;
+        box-shadow: 6.3px 12.6px 12.6px hsl(0deg 0% 0% / 0.3);
+      }
+      .card-body {
+        z-index: 3;
+        &:before {
+          background: oklch(from var(--color-dark) l c h / 0.2);
+          transform-origin: center;
+          border-radius: var(--radius);
+          animation: expandCard 100ms ease-in forwards;
+
+          filter: blur(21px);
+        }
+      }
+    }
+  }
+  @media #{$mouse} {
+    &:hover:has(> div:hover) > div:not(:hover) {
+      scale: 0.95;
+      opacity: 0.8;
+    }
+  }
 }
 
 /* Featured products to use subgrid on landing pages - check if bp need adjusting */
@@ -38,6 +131,81 @@
     @container content-grid (max-width:55ch) {
       grid-column: span 4;
       grid-row: 2/2;
+    }
+  }
+}
+
+.content-grid-container .content-grid_full > .content-grid:has(> .featured-products) {
+  @container content-grid-container (max-width:55ch) {
+    grid-column: span 1;    
+  }
+} 
+
+.content-grid_full:is(.featured-products.featured-products--three-in-a-row) {
+  @container content-grid (inline-size < 55ch) {
+    > div:first-of-type {
+      opacity: 0.3;
+      grid-column: 1/-1;
+      grid-row: 1/1;
+    }
+    > div:is(:nth-of-type(2), :nth-of-type(3)) {
+      grid-row: 2/2;
+      grid-column: inherit;
+      width: calc(50% - (var(--layout-gap) / 2));
+    }
+    > div:nth-of-type(3) {
+      margin-inline: auto 0;
+    }
+  }
+}
+
+.content-grid_full:is(.featured-products) {
+  @container content-grid (inline-size < 55ch) {
+    &:has(> div:nth-child(3) ~ *) {
+      > div:nth-of-type(1) {
+        grid-column: 1/-1;
+        grid-row: 1/1;
+      }
+      > div:is(
+          :nth-of-type(2),
+          :nth-of-type(3),
+          :nth-of-type(4),
+          :nth-of-type(5)
+        ) {
+        grid-column: 1/-1;
+        grid-row: auto;
+        width: calc(50% - (var(--layout-gap) / 2));
+      }
+      > div:is(:nth-of-type(2), :nth-of-type(3)) {
+        grid-row: 2/2;
+      }
+      > div:nth-of-type(3) {
+        grid-row: 2/2;
+        margin-inline: auto 0;
+      }
+      > div:is(:nth-of-type(4), :nth-of-type(5)) {
+        grid-row: 3/3;
+      }
+      > div:nth-of-type(5) {
+        margin-inline: auto 0;
+      }
+    }
+  }
+}
+
+.content-grid_full:is(.featured-products.featured-products--three-in-a-row) {
+  @container content-grid (inline-size < 55ch) {
+    > div:first-of-type {
+      grid-column: 1/-1;
+      grid-row: 1/1;
+    }
+    > div:is(:nth-of-type(2), :nth-of-type(3)) {
+      grid-row: 2/2;
+      grid-column: inherit;
+      width: calc(50% - (var(--layout-gap) / 2));
+    }
+    > div:nth-of-type(3) {
+      margin-inline: auto 0;
     }
   }
 }

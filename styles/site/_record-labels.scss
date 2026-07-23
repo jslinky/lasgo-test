@@ -1,0 +1,142 @@
+  @property --card-one-trns {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 200%;
+  }
+
+  @property --card-two-trns {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+  }
+
+  @property --card-five-trns {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: -100%;
+  }
+
+  @property --card-six-trns {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: -200%;
+  }
+
+  @property --card-rotate {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 45deg;
+  }
+
+  @keyframes reveal {
+    from {
+      --card-rotate: 45deg;
+    }
+    to {
+      --card-one-trns: 0%;
+      --card-two-trns: 0%;
+      --card-five-trns: 0%;
+      --card-six-trns: 0%;
+      --card-rotate: 0deg;
+    }
+  }
+
+  .c-labels {
+    .card {
+      --card-background-color: var(--color-dark);
+      transition:
+        clip-path 150ms ease-out,
+        rotate 150ms ease-out,
+        scale 150ms ease-out;
+      box-shadow: 0 0 0px 1.125rem var(--color-dark);
+      clip-path: circle(50%);
+      &:hover {
+        clip-path: circle(100%);
+      }
+    }
+    .card-picture {
+      mix-blend-mode: exclusion;
+    }
+    &:is(:hover) {
+      &:has(.card:hover) {
+        .card {
+          rotate: 45deg;
+        }
+      }
+
+      .card:not(:hover) {
+        scale: 0.95;
+        rotate: 45deg;
+      }
+      .card:hover {
+        rotate: 0deg;
+      }
+    }
+  }
+
+  @supports (width: anchor-size(width, 100%)) {
+    @container content-grid (width >= 32rem) {
+      .c-labels:has(> *:nth-child(6)) {
+        .card {
+          rotate: var(--card-rotate, 0deg);
+          animation: reveal ease-in forwards;
+          animation-timeline: view();
+          animation-range-start: cover 0%;
+          animation-range-end: cover 35%;
+        }
+        > div {
+          &:is(&:nth-child(1), &:nth-child(2), &:nth-child(5), &:nth-child(6)) {
+            .card {
+              width: anchor-size(width, 100%);
+            }
+          }
+
+          &:is(&:nth-child(1), &:nth-child(2)) {
+            .card {
+              position-anchor: --left-label;
+              position-area: center start;
+            }
+          }
+          &:is(&:nth-child(5), &:nth-child(6)) {
+            .card {
+              position-anchor: --right-label;
+              position-area: center end;
+            }
+          }
+          &:is(&:nth-child(3), &:nth-child(4)) {
+            .card {
+              z-index: 2;
+            }
+          }
+          &:nth-child(1) {
+            .card {
+              translate: var(--card-one-trns, 100%) 0;
+            }
+          }
+          &:nth-child(2) {
+            .card {
+              translate: var(--card-two-trns, 100%) 0 0;
+            }
+          }
+          &:nth-child(3) {
+            anchor-name: --left-label;
+          }
+          &:nth-child(4) {
+            anchor-name: --right-label;
+          }
+          &:nth-child(5) {
+            .card {
+              translate: var(--card-five-trns, -100%) 0;
+              z-index: 1;
+            }
+          }
+          &:nth-child(6) {
+            .card {
+              translate: var(--card-six-trns, -100%) 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  

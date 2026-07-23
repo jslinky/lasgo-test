@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-gb" class="unauthenticated">
   <head>
     <meta charset="utf-8" />
@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/favicon.ico?v=2" rel="shortcut icon" type="image/x-icon" />
     <title>Lasgo -</title>
-
+    <script src="https://unpkg.com/alpinejs" defer></script>
     <script type="text/javascript">
       var ROOT = "/";
     </script>
-
 
     <link
       href="http://www.lasgo.com/Content/cssKendo?v=cCxRpqqmOdoI4p-UJPvP7qdQ_oSggO7-P_OdT25UPis1"
@@ -32,9 +31,12 @@
 
     <script src="http://www.lasgo.com/CommerceManager/public/javascript/ZebraTooltip/zebra_tooltips.js?v=638034181553836538"></script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
 
     <link
       rel="stylesheet"
@@ -110,7 +112,7 @@
                   {
                     scrollTop: target.offset().top,
                   },
-                  800
+                  800,
                 );
                 return false;
               }
@@ -166,11 +168,11 @@
     <script>
       document.documentElement.setAttribute(
         "is-showing-discount",
-        gardners.settings.IsShowingDiscount
+        gardners.settings.IsShowingDiscount,
       ); //Set view first thing to hide pricing.
       document.documentElement.setAttribute(
         "is-pricing-vat-inclusive",
-        gardners.settings.IsPricingVatInclusive
+        gardners.settings.IsPricingVatInclusive,
       ); //Set VatView first thing to ide pricing.
     </script>
     <link
@@ -197,58 +199,56 @@
 
     <div id="outerWrap" class="">
       <div id="mainHeader" class="clearfix">
-                <div class="container_16 clearfix">
-                    <div class="grid_16">
-                        <!--Top row-->
-                        <div class="grid_3 alpha">
-                            <div id="logo"><a href="/"></a></div>
-                        </div>
-                        <div class="grid_13 omega headerMenu">
-                            <div class="loggedOut">
-                                <div class="headerMenuLeft"></div>
-                                <ul class="loggedOutHeaderMenuRight headerMenuRight">
-                                    <li><a href="/Account/LogOn">Sign in to your account</a><span>|</span></li>
-                                    <li><a target="_blank" href="/Content/Documents/application_form.pdf">Apply for an account</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="container_16 clearfix">
+          <div class="grid_16">
+            <!--Top row-->
+            <div class="grid_3 alpha">
+              <div id="logo"><a href="/"></a></div>
+            </div>
+            <div class="grid_13 omega headerMenu">
+              <div class="loggedOut">
+                <div class="headerMenuLeft"></div>
+                <ul class="loggedOutHeaderMenuRight headerMenuRight">
+                  <li>
+                    <a href="/Account/LogOn">Sign in to your account</a
+                    ><span>|</span>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="/Content/Documents/application_form.pdf"
+                      >Apply for an account</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="sticky-wrapper" class="sticky-wrapper"><div class="stickyHeaderLoggedOut">
-                <div id="megaMenuHeaderLoggedOut">
-                    <div class="container_16 clearfix">
-                        <!--Sticky search and basket-->
-                        <div class="grid_16">
-                            <div id="navMenu">
-                                <div class="navInner">
-                                    <ul class="loggedOut">
-                                        <li class="navMenu">
-        
-        
-     
-     
-     <ul class="primary">
-  <li><a class="" href="/about-us">ABOUT US</a></li>
-  
-  
-  
-</ul>
-
-
-
-    
-    </li>
-                                        <li class="quickSearch">
-                                            
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <div id="sticky-wrapper" class="sticky-wrapper">
+        <div class="stickyHeaderLoggedOut">
+          <div id="megaMenuHeaderLoggedOut">
+            <div class="container_16 clearfix">
+              <!--Sticky search and basket-->
+              <div class="grid_16">
+                <div id="navMenu">
+                  <div class="navInner">
+                    <ul class="loggedOut">
+                      <li class="navMenu">
+                        <ul class="primary">
+                          <li><a class="" href="/about-us">ABOUT US</a></li>
+                        </ul>
+                      </li>
+                      <li class="quickSearch"></li>
+                    </ul>
+                  </div>
                 </div>
-            </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div id="breadCrumb" style="margin-top: 35px">
         <div class="container_16 clearfix">
@@ -273,10 +273,10 @@
 
           const modeCheckbox = document.querySelector("input#mode");
           const currentCSS = document.querySelector(
-            'head link[href*="siteCSS"]'
+            'head link[href*="siteCSS"]',
           );
           const currentLessCSS = document.querySelector(
-            'head link[href*="CssLess"]'
+            'head link[href*="CssLess"]',
           );
           const currentCSSPath = currentCSS
             ? currentCSS.getAttribute("href")
@@ -284,10 +284,9 @@
           const currentCSSLessPath = currentLessCSS
             ? currentLessCSS.getAttribute("href")
             : null;
-        //   const newCssPath =
-        //     "http://www.lasgo.com/Content/Core/JS/new-lasgo.css";
-        const newCssPath =
-            "./styles/main.css";
+          //   const newCssPath =
+          //     "http://www.lasgo.com/Content/Core/JS/new-lasgo.css";
+          const newCssPath = "./styles/main.css";
           let newCssLinkEl = null;
           let layerStyleEl = null;
 
@@ -347,17 +346,33 @@
             data-card-backdrop="uniform"
           >
             <picture class="card-picture scanlines">
-              <img
+              <!-- <img
                 src="http://www.lasgo.com/Content/Images/hero/hero-home.jpg"
                 alt="Picture"
+              /> -->
+              <img
+                src="./assets/mask_group_1x.webp"
+                alt="DVD and Blu-ray"
               />
+              <img
+                src="./assets/music_1x.webp"
+                alt="Music"
+              />          
+              <img
+                src="./assets/merch-hero_1x.webp"
+                alt="Merchandise"
+              />                
+              <img
+                src="./assets/electronics_1x.webp"
+                alt="Consumer Electronics"
+              />                                          
             </picture>
 
             <div
               class="card-body flow flow--md col-start-1 mx-auto w-[min(100%-var(--wrapper-padding)*2,var(--max-wrapper-width))] px-0"
             >
-              <div class="card-body__content flow flex-col max-w-prose">
-                <div class="card-body__content__caption flow">
+              <div class="card-body__content flow flex-col">
+                <div class="card-body__content__caption flow max-w-prose">
                   <h2
                     class="heading heading-3xl w-full text-left card-body__content__caption-title fluid"
                   >
@@ -365,11 +380,107 @@
                   </h2>
                 </div>
 
-                <div class="card-body__content-slot">
-                  <p class="heading-lg fluid normal-case font-bold">
-                    Your perfect partner for
+                <div class="card-body__content-slot inline-flex gap-x-[0.5em] flex-wrap items-end">
+                  <p class="heading-lg fluid normal-case font-bold inline-flex gap-x-[0.3em] flex-wrap">
+                    <span class="text-[1em] leading-[inherit] text-grey-10">Your perfect partner for</span>
                     <span class="text-color">wholesale and distribution</span>
+                    <span class="text-[1em] leading-[inherit] text-grey-10">of</span>
                   </p>
+                                      <div
+                                      class="hero__cat-reveal-wrapper heading-lg normal-case"
+                    x-data="{
+        activeIndex: 0,
+        slideIndex: 0,
+        items: ['DVD & Blu-ray', 'Music', 'Merchandise', 'Consumer Electronics'],
+        clonedItems: [],
+        intervalMs: 3000,
+        transitionMs: 320,
+        frameId: null,
+        lastTick: 0,
+        isResetting: false,
+        pendingLoopReset: false,
+        initLoopItems() {
+          this.clonedItems = [...this.items, this.items[0]];
+        },
+        queueSteps(steps) {
+          for (let i = 0; i < steps; i += 1) {
+            this.advanceOne();
+          }
+        },
+        advanceOne() {
+          if (this.isResetting || this.pendingLoopReset || !this.items.length) {
+            return;
+          }
+
+          this.slideIndex += 1;
+          this.activeIndex = this.slideIndex % this.items.length;
+
+          // Queue a reset once the transition to the cloned first slide finishes.
+          if (this.slideIndex === this.items.length) {
+            this.pendingLoopReset = true;
+          }
+        },
+        handleTrackTransitionEnd(event) {
+          if (event.propertyName !== 'transform' || !this.pendingLoopReset) {
+            return;
+          }
+
+          this.pendingLoopReset = false;
+          this.isResetting = true;
+          this.slideIndex = 0;
+          this.activeIndex = 0;
+          this.lastTick = performance.now();
+
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              this.isResetting = false;
+            });
+          });
+        },
+        startTicker() {
+          const step = (timestamp) => {
+            if (!this.lastTick) {
+              this.lastTick = timestamp;
+            }
+
+            const elapsed = timestamp - this.lastTick;
+            if (elapsed >= this.intervalMs) {
+              const steps = Math.floor(elapsed / this.intervalMs);
+              this.lastTick += steps * this.intervalMs;
+              this.queueSteps(steps);
+            }
+
+            this.frameId = requestAnimationFrame(step);
+          };
+
+          this.frameId = requestAnimationFrame(step);
+        },
+        next() {
+          this.advanceOne();
+          this.lastTick = performance.now();
+        }
+      }"
+                    x-init="initLoopItems(); startTicker()"
+                  >
+                    <div class="hero__cat-reveal">
+                      <ul
+                        :style="{ '--slide-index': slideIndex, '--item-count': clonedItems.length || 4 }"
+                        :class="{ 'is-resetting': isResetting }"
+                        @transitionend="handleTrackTransitionEnd($event)"
+                      >
+                        <template
+                          x-for="(item, index) in clonedItems"
+                          :key="`${item}-${index}`"
+                        >
+                          <li
+                            x-text="item"
+                            :class="{ 'is-active': (index % items.length) === activeIndex }"
+                          ></li>
+                        </template>
+                      </ul>
+                    </div>
+                  </div>
+
                 </div>
 
                 <div class="card-body__content__ctas flow--xl">
@@ -381,14 +492,60 @@
             </div>
           </article>
         </section>
-        <div class="wrapper pb-section-gap pt-section-gap-3xl min-h-[min(800px,calc(100vh-var(--root-header-height)))] content-center">
-          <div class="flow">
-            <h2 class="heading fluid heading--underline heading-xl">
+        <div
+          class="wrapper pb-section-gap-xl pt-section-gap-xl md:min-h-[min(1200px,calc(100vh-var(--root-header-height)))] content-stretch flex"
+        >
+          <div class="relative flow grid grid-rows-[max(45vh,300px)_max-content_max-content] grid-cols-[1fr] *:row-span-full *:col-span-full row-x-5xl basis-full">
+
+                <div
+                  class="c-marquee z-[-1] !row-start-1 !row-end-1 mb-layout-gap"
+                  x-data="{
+                    slides: ['dvd-slide.png', 'music-slide.png', 'merch-slide.png', 'electronics-slide.png']
+                  }"
+                >
+                <div class="flex wrap-none">
+                  <template x-for="group in 2">
+                    <div class="layout-grid min-w-[calc(max(1200px,100vw)-(var(--layout-gap)/2))] shrink-0">
+                      <template
+                        x-for="(item, index) in slides"
+                        :key="`${item}-${index}`"
+                      >
+                      <div class="aspect-square z-[-2] *:w-full">
+                        <img :src="`./assets/${item}`" alt="" />
+                      </div>
+                      </template>
+                    </div>
+                  </template>
+                </div>
+
+                  <!-- <template
+                    x-for="(item, index) in slides"
+                    :key="`${item}-${index}`"
+                  >
+                  <div class="aspect-square z-[-2]">
+                    <img :src="`./assets/${item}`" alt="" />
+                  </div>
+                  </template>                   -->
+                  <!-- <div class="aspect-square z-[-2]">
+                    <img src="./assets/dvd-slide.png" alt="" />
+                  </div>
+                  <div class="aspect-square z-[-2]">
+                    <img src="./assets/music-slide.png" alt="" />
+                  </div>
+                  <div class="aspect-square z-[-2]">
+                    <img src="./assets/merch-slide.png" alt="" />
+                  </div>
+                  <div class="aspect-square z-[-2]">
+                    <img src="./assets/electronics-slide.png" alt="" />
+                  </div> -->
+                </div>
+
+            <h2 class="heading fluid heading--underline heading-2xl uppercase !row-start-2 !row-end-2">
               <span class="heading-xs text-default"
                 >Innovating UK entertainment supply</span
               ><span>What we do</span>
             </h2>
-            <div class="layout-grid flow [--layout-column-min:40ch]">
+            <div class="layout-grid flow [--layout-column-min:40ch] !row-start-3 !row-end-3 !col-start-1 !col-end-1">
               <div class="flow flex-auto">
                 <div class="max-w-prose flow">
                   <p class="text-lg font-bold">
@@ -396,6 +553,12 @@
                     UK&#39;s longest established international wholesaler and
                     distributor of home entertainment product.
                   </p>
+
+                </div>
+              </div>
+              <div
+                class="basis-[fit-content] md:content-end flex md:items-end md:justify-center md:mt-0"
+              >
 
                   <p>
                     From our humble beginnings in London&#39;s Oxford Street,
@@ -406,18 +569,6 @@
                     Entertainment and Merchandise divisions to meet a growing
                     demand for fan-based physical products.
                   </p>
-                </div>
-              </div>
-              <div
-                class="basis-[fit-content] md:content-end flex md:items-end md:justify-center"
-              >
-                <p>
-                  <a
-                    class="button button--primary button--wide md:mx-auto min-w-max"
-                    href="#"
-                    >Find out more</a
-                  >
-                </p>
               </div>
             </div>
           </div>
@@ -1153,84 +1304,104 @@
     </script>
 
     <script>
-
       // Title Case navigation menu items
-      const navMenuLinks = document.querySelectorAll('#navMenu .navMenu > .primary > li > a');
-      navMenuLinks.forEach(link => {
+      const navMenuLinks = document.querySelectorAll(
+        "#navMenu .navMenu > .primary > li > a",
+      );
+      navMenuLinks.forEach((link) => {
         const text = link.textContent.trim();
-        link.textContent = text.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+        link.textContent = text
+          .split(" ")
+          .map(
+            (word) =>
+              word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
+          )
+          .join(" ");
       });
 
-      const mobileMenuScollEl = document.querySelector('#navMenu .navMenu');
+      const mobileMenuScollEl = document.querySelector("#navMenu .navMenu");
 
       //// Burger Menu toggle ////
-      const burger = document.querySelector('.hamburgerSection');
-      const outerWrap = document.querySelector('#outerWrap');
+      const burger = document.querySelector(".hamburgerSection");
+      const outerWrap = document.querySelector("#outerWrap");
 
-      if(burger) {
-        burger.addEventListener('click', async () => {
-          outerWrap.classList.toggle('nav-open');
-          
+      if (burger) {
+        burger.addEventListener("click", async () => {
+          outerWrap.classList.toggle("nav-open");
+
           // Wait for animations to finish
           const animations = mobileMenuScollEl.getAnimations();
           if (animations.length > 0) {
-            await Promise.all(animations.map(animation => animation.finished));
+            await Promise.all(
+              animations.map((animation) => animation.finished),
+            );
           }
-          
+
           // Apply final state after animations complete
-          if (outerWrap.classList.contains('nav-open')) {
-            outerWrap.classList.add('nav-opened');
+          if (outerWrap.classList.contains("nav-open")) {
+            outerWrap.classList.add("nav-opened");
           } else {
-            outerWrap.classList.remove('nav-opened');
+            outerWrap.classList.remove("nav-opened");
           }
         });
       }
 
       //// Hero Observer ////
       const heroInfo = () => {
-        const hero = document.querySelector('.hero');
-        if(hero) {
+        const hero = document.querySelector(".hero");
+        if (hero) {
           return {
             el: hero,
-            surface: hero.getAttribute('data-surface'),
-            isExpanded: hero.classList.contains('hero--expanded'),
-          }
+            surface: hero.getAttribute("data-surface"),
+            isExpanded: hero.classList.contains("hero--expanded"),
+          };
         } else {
           return null;
         }
-      }
+      };
 
       const hero = heroInfo();
 
-      const observerHero = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          !entry.isIntersecting ? document.body.classList.add('hero-not-in-view') : document.body.classList.remove('hero-not-in-view')
-          entry.intersectionRatio < 0.8 ? document.body.classList.add('hero-solid-bg') : document.body.classList.remove('hero-solid-bg')
-        });
-      }, { threshold: [0, 0.1, 0.2, 0.5, 0.8, 1], rootMargin: '-70px' });
+      const observerHero = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            !entry.isIntersecting
+              ? document.body.classList.add("hero-not-in-view")
+              : document.body.classList.remove("hero-not-in-view");
+            entry.intersectionRatio < 0.8
+              ? document.body.classList.add("hero-solid-bg")
+              : document.body.classList.remove("hero-solid-bg");
+          });
+        },
+        { threshold: [0, 0.1, 0.2, 0.5, 0.8, 1], rootMargin: "-70px" },
+      );
 
-      if(hero) {
+      if (hero) {
         observerHero.observe(hero.el);
       }
 
-      //// Mobile Menu scrollTo ////      
-      const mobileMenuLinks = [...document.querySelectorAll('.navMenu > .primary > li > a')].filter(link => link?.nextElementSibling && link?.nextElementSibling.classList.contains('megaMenu'));
-      mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          if(window.innerWidth < 701) {
+      //// Mobile Menu scrollTo ////
+      const mobileMenuLinks = [
+        ...document.querySelectorAll(".navMenu > .primary > li > a"),
+      ].filter(
+        (link) =>
+          link?.nextElementSibling &&
+          link?.nextElementSibling.classList.contains("megaMenu"),
+      );
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          if (window.innerWidth < 701) {
             const megaMenu = link.nextElementSibling;
-            const megaMenuTop = megaMenu.getBoundingClientRect().top + window.scrollY;
+            const megaMenuTop =
+              megaMenu.getBoundingClientRect().top + window.scrollY;
             const offset = 80; // Adjust based on fixed header height
             mobileMenuScollEl.scrollTo({
               top: megaMenuTop - offset,
-              behavior: 'smooth'
+              behavior: "smooth",
             });
           }
         });
       });
-
-
-
     </script>
 
     <input id="hasFilteredKendoGrid" type="hidden" value="0" />

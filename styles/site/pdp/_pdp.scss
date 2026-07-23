@@ -1,3 +1,7 @@
+@use "../variables" as site-vars;
+@use "../../mixins/components/content-layout" as *;
+@use "small-style/scss/base/mixins/utils/breakpoints" as *;
+
 /* TEMP - remove when tw integrated */
 .main-content {
   @media (min-width: 990px) {
@@ -7,6 +11,15 @@
 
 .content-grid {
   @include content-grid-rules();
+}
+
+.content-grid-container {
+  container: content-grid-container / inline-size;
+  grid-column: 2/2;
+}
+
+.content-grid-container > .content-grid {
+  @include content-grid-rules-has-container();
 }
 
 .content-grid_full {
@@ -32,7 +45,7 @@
   }
 }
 
-:is(#{$asideSelector}) {
+:is(#{site-vars.$asideSelector}) {
   @include content-grid__aside-rules();
   #filterMenu {
     padding-top: 0;
@@ -41,7 +54,7 @@
   @container content-grid (max-width:#{$contentGridFullLgBp}) {
     .collapse-content {
       padding-top: var(--spacing-sm);
-      padding-right: 1rem; // scrollbar space
+      padding-right: 0; // scrollbar space
     }
     .formDetails {
       padding-right: var(--layout-gap);
@@ -59,16 +72,26 @@
   }
 }
 
+.content-grid > :where(.heading, section) {
+  --flow-space: var(--space-2xl);
+}
+
 :where(.content-grid_full > :where(.heading, section)) {
-   --flow-space: var(--space-2xl);
+  --flow-space: var(--space-2xl);
 }
 
 :where(.content-grid_full > section > *) {
-   --flow-space: var(--space-lg);
+  --flow-space: var(--space-lg);
 }
 
 :where(.content-grid_full > .c-collapse) {
-   grid-column:1/-1;
+  grid-column: 1/-1;
+}
+
+.content-grid__main__item--span-2-sm {
+  @container content-grid (max-width:#{$contentGridFullLgBp}) {
+    grid-column: span 2;
+  }
 }
 
 .content-grid__main__item--span-2-lg {
@@ -97,21 +120,21 @@
   }
 }
 
-@container content-grid (min-width:#{$contentGridFullLgBp}) {
-  :where(.content-grid__aside) {
-    grid-row: span 4;
-  }
-}
+// @container content-grid (min-width:#{$contentGridFullLgBp}) {
+//   :where(.content-grid__aside) {
+//     grid-row: span 4;
+//   }
+// }
 
 .content-grid__aside {
-  @if $disableNewHeaderLoggedIn {
+  @if site-vars.$disableNewHeaderLoggedIn {
     --aside-sticky-top: 75px;
   } @else {
     --aside-sticky-top: 105px;
   }
 }
 
-@media (min-width: 960px) {
+@include respond-to(md) {
   .content-grid__aside {
     --aside-sticky-top: 0px;
   }
@@ -129,28 +152,27 @@
 }
 
 .content-grid__aside .collapse-content {
-   padding-bottom: var(--space-xl);
+  padding-bottom: var(--space-xl);
 }
 
 .content-grid__aside {
-   a.active {
-      color: var(--color-primary);
-      font-weight: 600;  
-   }
+  a.active {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
 }
 
 @container content-grid (max-width: 80ch) {
-    .content-grid__aside .collapse-content {
-        padding-inline: calc(1rem + var(--spacing-sm));
-    }
+  .content-grid__aside .collapse-content {
+    padding-inline: calc(1rem + var(--spacing-sm));
+  }
 }
 
 @container content-grid (max-width: 80ch) {
-    .content-grid__aside {
-        padding-inline-start: 0;
-        .collapse-title {
-           padding-inline: var(--wrapper-inline);
-        }
+  .content-grid__aside {
+    padding-inline-start: 0;
+    .collapse-title {
+      padding-inline: var(--wrapper-inline);
     }
+  }
 }
-

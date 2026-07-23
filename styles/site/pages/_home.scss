@@ -1,0 +1,10 @@
+.c-home-ticket-block .heading {
+    $font-size-max: map-deep-get($heading-sizes, "2xl", "font-size-max");
+    $font-size-min: map-deep-get($heading-sizes, "2xl", "font-size-min");
+    --heading-xl-font-size-max: var(--#{$font-size-max}-px);
+    --heading-xl-font-size-min: var(--#{$font-size-min}-px);
+}
+
+.wrapper:has(.c-marquee) {
+  overflow: clip;
+}

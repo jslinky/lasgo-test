@@ -23,6 +23,29 @@
     overflow: clip;
   }
 
+  :where(.card-body__content__ctas) {
+    container-name: ctas;
+    container-type: inline-size;
+  }
+
+  @container ctas (inline-size <= 300px) {
+    .button {
+      width: min(300px, 100%);
+    }
+  }
+
+  @container ctas (inline-size > 300px) {
+    .button:only-of-type {
+      --button-padding-inline-wide: clamp(
+        var(--text-frame-x),
+        10vw,
+        calc(var(--text-frame-x) * 3)
+      );
+      --button-padding-inline-start: var(--button-padding-inline-wide);
+      --button-padding-inline-end: var(--button-padding-inline-wide);
+    }
+  }
+
   .card-body__content__ctas.\*\:contents .button__text {
     display: none;
   }
@@ -65,6 +88,27 @@
     :is(.card-body, .card-picture > img:first-child) {
     z-index: 1;
   }
+
+  :where(.card-body__content__caption-tagline) {
+    font-weight: 600;
+    width: fit-content;
+    &:not([data-surface]) {
+      color: oklch(from var(--color) calc(l - 0.15) c h);
+    }
+  }
+
+  :where(.card-body__content__caption-subtitle) {
+    font-weight: 600;
+    color: oklch(from var(--color) calc(l - 0.07) c h);
+  }
+
+  :where(.card-body__content__caption-title) {
+    --flow-space: calc(var(--spacing) * 1);
+  }
+
+  :where(.hero .card-body__content__caption-title) {
+    --flow-space: var(--spacing-xs);
+  }
 }
 
 @layer modifiers {
@@ -77,6 +121,27 @@
     );
   }
 
+  :is(:not(.hero > .card)) .card-body__content__caption-tagline:before {
+    display: none;
+  }
+
+  :where(.hero .card-picture) {
+    --card-picture-aspect: none;
+  }
+
+  :where(.card[data-card-layout="overlay"]) .card-picture {
+    max-width: min(100%, 100cqw);
+  }
+
+  .card-body__content__caption--tagline {
+    font-weight: 600;
+  }
+
+  :where(.card[data-card-layout="overlay"]) .card-body {
+    margin-inline: 0;
+    margin-block: 0;
+  }
+
   :where(
     .card-body__content__ctas:has(.button:empty),
     .card-body__content__ctas .button:empty
@@ -87,66 +152,316 @@
   .card-body {
     --card-body-padding-inline: clamp(
       var(--space-sm),
-      min(6vmax, 6cqi),
+      min(3vmax, 3cqi),
       var(--space-lg)
     );
     --card-body-padding-block: clamp(
       var(--space-sm),
-      min(6vmax, 6cqi),
+      min(3vmax, 3cqi),
       var(--space-lg)
     );
   }
-}
 
-:is(.card:has(.overlay-expand), .overlay-expand) {
-  --overlay-contracted-size: 3.5em;
-  .card-picture {
-    clip-path: inset(0 0 0 0);
-    transition: clip-path 0.2s ease-in-out;
-    img {
-      transition: scale 0.3s ease-in-out;
+  :is(.card:has(.overlay-expand), .overlay-expand) {
+    --overlay-contracted-size: 3.5em;
+    .card-picture {
+      clip-path: inset(0 0 0 0);
+      transition: clip-path 0.2s ease-in-out;
+      img {
+        transition: scale 0.3s ease-in-out;
+      }
     }
-  }
-  &:is(:hover) {
-    /* .card-picture {
+    &:is(:hover) {
+      /* .card-picture {
             transition-delay: 0.1s;            
         } */
-  }
-}
-
-.overlay-expand {
-  &:before {
-    transition:
-      clip-path 0.3s ease-in-out,
-      background 0.3s ease-in-out;
-    content: "";
-    clip-path: inset(
-      calc(100% - var(--overlay-contracted-size))
-        calc(100% - var(--overlay-contracted-size)) 0 0
-    );
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color-primary);
-    z-index: -1;
-    /* mask: linear-gradient(to right, black 0%, black 80%); */
-  }
-  &:hover {
-    &:before {
-      background: color-mix(in oklch, var(--color-primary) 100%, transparent);
-      clip-path: inset(0 0 0 0);
-      /* mask: linear-gradient(to right, transparent 0%, black 80%); */
     }
   }
-}
 
-.card:has(.overlay-expand) {
-  &:hover {
-    .card-picture {
-      clip-path: inset(0 0 calc(var(--overlay-contracted-size)) 0);
-      img {
-        scale: 1.1;
+  .overlay-expand {
+    &:before {
+      transition:
+        clip-path 0.3s ease-in-out,
+        background 0.3s ease-in-out;
+      content: "";
+      clip-path: inset(
+        calc(100% - var(--overlay-contracted-size))
+          calc(100% - var(--overlay-contracted-size)) 0 0
+      );
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--color-primary);
+      z-index: -1;
+      /* mask: linear-gradient(to right, black 0%, black 80%); */
+    }
+    &:hover {
+      &:before {
+        background: color-mix(in oklch, var(--color-primary) 100%, transparent);
+        clip-path: inset(0 0 0 0);
+        /* mask: linear-gradient(to right, transparent 0%, black 80%); */
+      }
+    }
+  }
+
+  .card:has(.overlay-expand) {
+    &:hover {
+      .card-picture {
+        clip-path: inset(0 0 calc(var(--overlay-contracted-size)) 0);
+        img {
+          scale: 1.1;
+        }
+      }
+    }
+  }
+
+  :where([data-card-template-variant="overlayBackdropAlignBottomS"]) {
+    .card-body__content__caption-tagline:before {
+      display: none;
+    }
+  }
+
+  /// Card expand on hover
+  @include output-rules-with-scope() {
+    :is(.layout-grid--column-count-expand) {
+      @for $i from 1 through 6 {
+        &[class*="@lg:[--column-count:#{$i}]"] {
+          @container (inline-size >= #{$container-lg}) {
+            @if $i == 1 {
+              &:has(> div:only-child) {
+                --layout-grid-template-columns: var(--col-1);
+              }
+            } @else if $i == 2 {
+              &:has(> div:nth-last-child(2)) {
+                --layout-grid-template-columns: var(--col-1) var(--col-2);
+              }
+            } @else if $i == 3 {
+              &:has(> div:nth-last-child(3)) {
+                --layout-grid-template-columns: var(--col-1)
+                  var(--col-2)
+                  var(--col-3);
+              }
+            } @else if $i == 4 {
+              &:has(> div:nth-last-child(4)) {
+                --layout-grid-template-columns: var(--col-1)
+                  var(--col-2)
+                  var(--col-3)
+                  var(--col-4);
+              }
+            } @else if $i == 5 {
+              &:has(> div:nth-last-child(5)) {
+                --layout-grid-template-columns: var(--col-1)
+                  var(--col-2)
+                  var(--col-3)
+                  var(--col-4)
+                  var(--col-5);
+              }
+            } @else if $i == 6 {
+              &:has(> div:nth-last-child(6)) {
+                --layout-grid-template-columns: var(--col-1)
+                  var(--col-2)
+                  var(--col-3)
+                  var(--col-4)
+                  var(--col-5)
+                  var(--col-6);
+              }
+            }
+          }
+        }
+      }
+
+      :where(.card) {
+        --card-background-color: var(--color-dark);
+        .card-body {
+          --card-body-padding-inline: var(--space-2xs);
+        }
+      }
+
+      &:is([class*="@lg:[--column-count:"]) {
+        @container (inline-size >= #{$container-lg}) {
+          transition: 300ms;
+          transition-delay: 50ms;
+          --col-1: var(--column-size-one, 1fr);
+          --col-2: var(--column-size-two, 1fr);
+          --col-3: var(--column-size-three, 1fr);
+          --col-4: var(--column-size-four, 1fr);
+          --col-5: var(--column-size-five, 1fr);
+          --col-6: var(--column-size-six, 1fr);
+          // --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3)
+          //   var(--col-4) var(--col-5) var(--col-6);
+          align-items: center;
+          > div:has(> .card) {
+            height: 100%;
+          }
+        }
+        :where(.card) {
+          max-height: var(--card-max-height, auto);
+          --card-max-height-lg: 240px;
+          --card-aspect-lg: 9/16;
+          max-height: var(--card-max-height);
+          @container content-grid (inline-size >= #{$container-lg}) {
+            --card-aspect: var(--card-aspect-lg);
+            --card-max-height: var(--card-max-height-lg);
+            max-width: min(100%, 100cqw);
+            width: 100%;
+            &:has(.card-body__content__ctas) {
+              .card-body__content-slot {
+                transition: transform 0.3s ease-in-out;
+              }
+              &:not(:hover) {
+                .card-body__content-slot {
+                  transform: translateY(4em);
+                }
+              }
+            }
+            .card-body__content__ctas {
+              .button {
+                width: fit-content;
+              }
+            }
+            .card-body__content {
+              > *:not(.card-body__content-slot) {
+                opacity: 0;
+                transform: translateY(20%);
+                transition:
+                  opacity 0.3s ease-in-out,
+                  transform 0.3s ease-in-out;
+              }
+              // &:not(:has(.card-body__content__caption)) {
+              //   display: none;
+              // }
+            }
+          }
+
+          :is(.card-picture, .card-picture img) {
+            transition:
+              width 0.15s ease-in-out,
+              height 0.15s ease-in-out;
+          }
+
+          :is(.card-picture, .card-picture img) {
+            max-height: var(--card-max-height);
+          }
+
+          @container content-grid (inline-size >= #{$container-lg}) {
+            .card-picture {
+              --card-picture-aspect: none;
+              img {
+                width: 100%;
+                height: 100%;
+                // transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+                &:nth-child(1) {
+                  object-position: right;
+                }
+                &:is(&:nth-child(1)) {
+                  position: relative;
+                  margin-inline: auto 0;
+                }
+                &:is(&:nth-child(2)) {
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  object-fit: cover;
+                }
+                &:nth-child(1) {
+                  width: 100%;
+                }
+              }
+            }
+            .card-body__content-slot img {
+              max-height: 15cqh;
+            }
+            // &:has(.card-body__content-slot img) {
+            //   .card-picture img {
+            //     filter: blur(3px);
+            //   }
+            // }
+          }
+        }
+        &:has(> *:nth-child(3):is(:last-child)) :where(.card) {
+          --card-max-height-lg: 300px;
+        }
+        @container content-grid (inline-size >= #{$container-lg}) {
+          @media #{$mouse} {
+            > div:hover {
+              max-height: var(--card-max-height);
+              .card-body__content {
+                > *:not(.card-body__content-slot) {
+                  opacity: 1;
+                  transform: translateY(0);
+                  transition-delay: 350ms;
+                }
+              }
+              .card-picture {
+                img:is(:nth-child(2), :nth-child(1)) {
+                  width: min(65%, 65cqw);
+                }
+                img:nth-child(1) {
+                  mask: var(
+                    --column-expand-img-mask,
+                    linear-gradient(
+                      to right,
+                      transparent 0%,
+                      transparent 20%,
+                      black 100%
+                    )
+                  );
+                }
+                img:nth-child(2) {
+                  left: auto;
+                  scale: 1.2;
+                  filter: blur(20px) brightness(0.75);
+                }
+              }
+            }
+          }
+        }
+        &:has(> div:is(:nth-child(1)):hover) {
+          @media #{$mouse} {
+            @container (inline-size >= #{$container-lg}) {
+              --column-size-one: 5fr;
+            }
+          }
+        }
+        &:has(> div:is(:nth-child(2)):hover) {
+          @media #{$mouse} {
+            @container (inline-size >= #{$container-lg}) {
+              --column-size-two: 5fr;
+            }
+          }
+        }
+        &:has(> div:is(:nth-child(3)):hover) {
+          @media #{$mouse} {
+            @container (inline-size >= #{$container-lg}) {
+              --column-size-three: 5fr;
+            }
+          }
+        }
+        &:has(> div:is(:nth-child(4)):hover) {
+          @media #{$mouse} {
+            @container (inline-size >= #{$container-lg}) {
+              --column-size-four: 5fr;
+            }
+          }
+        }
+        &:has(> div:is(:nth-child(5)):hover) {
+          @media #{$mouse} {
+            @container (inline-size >= #{$container-lg}) {
+              --column-size-five: 5fr;
+            }
+          }
+        }
+        &:has(> div:is(:nth-child(6)):hover) {
+          @media #{$mouse} {
+            @container (inline-size >= #{$container-lg}) {
+              --column-size-six: 5fr;
+            }
+          }
+        }
+        .card-picture {
+          max-width: min(100%, 100cqw);
+        }
       }
     }
   }

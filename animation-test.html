@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .hero__cat-reveal {
+        --font-size: 3rem;
+        font-size: var(--font-size);
+        font-family: "Inter", sans-serif;
+        height: 3em;
+        overflow: hidden;
+        border: 1px solid grey;
+        width: fit-content;
+        perspective: 1200px;
+        ul {
+          list-style: none;
+          display: grid;
+          grid-auto-rows: auto;
+          width: fit-content;
+          margin: 0;
+          padding: 0;
+          transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+          transform: translateY(
+            calc(((-100% + 1em) / var(--item-count, 4)) * var(--slide-index, 0))
+          );
+        }
+
+        ul.is-resetting {
+          transition: none;
+        }
+        li {
+          display: flex;
+          padding: 0 1.5em;
+          height: 1em;
+          border: 0;
+          align-items: center;
+          line-height: 1;
+          opacity: 0.3;
+          transform: rotateX(-20deg) scale(0.98);
+          transform-origin: center center;
+          transition:
+            transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+            opacity 220ms ease-out;
+        }
+
+        li:first-of-type {
+          margin-top: 1em;
+          &:before {
+            content: var(--last-item-text, 'Consumer Electronics');
+            position: absolute;
+            opacity: 0.3;
+            transform: translateY(-100%) rotateX(-20deg) scale(0.98);            
+          }
+        }
+
+        li:last-of-type {
+          &:before {
+            content: var(--second-item-text, 'Music');
+            position: absolute;
+            opacity: 0.3;
+            transform: translateY(100%) rotateX(-20deg) scale(0.98);            
+          }
+        }        
+
+        li.is-active {
+          opacity: 1;
+          transform: rotateX(0deg) scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="flex bg-red-100 h-full"
+      x-data="{
+        activeIndex: 0,
+        slideIndex: 0,
+        items: ['DVD & Blu-ray', 'Music', 'Merchandise', 'Consumer Electronics'],
+        clonedItems: [],
+        intervalMs: 1500,
+        transitionMs: 320,
+        frameId: null,
+        lastTick: 0,
+        isResetting: false,
+        pendingLoopReset: false,
+        initLoopItems() {
+          this.clonedItems = [...this.items, this.items[0]];
+        },
+        queueSteps(steps) {
+          for (let i = 0; i < steps; i += 1) {
+            this.advanceOne();
+          }
+        },
+        advanceOne() {
+          if (this.isResetting || this.pendingLoopReset || !this.items.length) {
+            return;
+          }
+
+          this.slideIndex += 1;
+          this.activeIndex = this.slideIndex % this.items.length;
+
+          // Queue a reset once the transition to the cloned first slide finishes.
+          if (this.slideIndex === this.items.length) {
+            this.pendingLoopReset = true;
+          }
+        },
+        handleTrackTransitionEnd(event) {
+          if (event.propertyName !== 'transform' || !this.pendingLoopReset) {
+            return;
+          }
+
+          this.pendingLoopReset = false;
+          this.isResetting = true;
+          this.slideIndex = 0;
+          this.activeIndex = 0;
+          this.lastTick = performance.now();
+
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              this.isResetting = false;
+            });
+          });
+        },
+        startTicker() {
+          const step = (timestamp) => {
+            if (!this.lastTick) {
+              this.lastTick = timestamp;
+            }
+
+            const elapsed = timestamp - this.lastTick;
+            if (elapsed >= this.intervalMs) {
+              const steps = Math.floor(elapsed / this.intervalMs);
+              this.lastTick += steps * this.intervalMs;
+              this.queueSteps(steps);
+            }
+
+            this.frameId = requestAnimationFrame(step);
+          };
+
+          this.frameId = requestAnimationFrame(step);
+        },
+        next() {
+          this.advanceOne();
+          this.lastTick = performance.now();
+        }
+      }"
+      x-init="initLoopItems(); startTicker()"
+    >
+      <div class="hero__cat-reveal">
+        <ul
+          :style="{ '--slide-index': slideIndex, '--item-count': clonedItems.length || 4 }"
+          :class="{ 'is-resetting': isResetting }"
+          @transitionend="handleTrackTransitionEnd($event)"
+        >
+          <template x-for="(item, index) in clonedItems" :key="`${item}-${index}`">
+            <li
+              x-text="item"
+              :class="{ 'is-active': (index % items.length) === activeIndex }"
+            ></li>
+          </template>
+        </ul>
+      </div>
+      <a
+        class="block"
+        @click="next()"
+        >Toggle</a
+      >
+      <p x-text="activeIndex"></p>
+    </div>
+  </body>
+</html>

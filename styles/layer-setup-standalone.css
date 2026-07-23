@@ -25,4 +25,9 @@
 
 @layer existing-overrides {
   @layer unset, new;
+  @layer new {
+    @layer components {
+      @layer base, modifiers, states;
+    }
+  }
 }

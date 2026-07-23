@@ -1,3 +1,6 @@
+@use "../variables" as site-vars;
+@use "small-style/scss/theme" as *;
+
 // @layer existing-overrides {
 @mixin header-unset-rules {
   #megaMenuHeader
@@ -686,7 +689,7 @@
   ) {
     transition: all 50ms ease-in-out;
     height: calc(105 / var(--font-size-base-px) * 1rem) !important;
-    z-index: 2;
+    z-index: 3;
     /* position: relative; */
     position: sticky;
     top: 0;
@@ -1660,8 +1663,8 @@
 }
 
 @layer unset {
-  @if $disableNewHeaderLoggedIn {
-    #{$disableNewHeaderLoggedInSelector} {
+  @if site-vars.$disableNewHeaderLoggedIn {
+    #{site-vars.$disableNewHeaderLoggedInSelector} {
       @include header-unset-rules();
     }
   } @else {
@@ -1675,8 +1678,8 @@
     flex-direction: column;
   }
 
-  @if $disableNewHeaderLoggedIn {
-    #{$disableNewHeaderLoggedInSelector} {
+  @if site-vars.$disableNewHeaderLoggedIn {
+    #{site-vars.$disableNewHeaderLoggedInSelector} {
       @include header-new-rules();
     }
   } @else {
@@ -1748,5 +1751,18 @@
       }
     }
   }
+
+  /// Marisa amends to remove rounded corners and margins
+  :root:is(.unauthenticated.new):has(.hero--expanded) #mainHeader > div {
+    margin-top:0;
+  }
+
+  .hero--expanded {
+    --hero-expanded-outer-margin: 0;
+    border-radius: 0;
+  }
+    
+
+
 }
 // }
