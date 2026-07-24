@@ -159,3 +159,7 @@
   border-radius: var(--radius);
   padding: var(--space-3xs) var(--text-frame-x);
 }
+
+:root:has(.hero--expanded) {
+  --root-nav-mt: 0;
+}

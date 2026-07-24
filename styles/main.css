@@ -1414,8 +1414,8 @@
   .grid-rows-\[1fr_max-content\] {
     grid-template-rows: 1fr max-content;
   }
-  .grid-rows-\[max\(50vh\,300px\)_max-content_max-content\] {
-    grid-template-rows: max(50vh, 300px) max-content max-content;
+  .grid-rows-\[max\(45vh\,300px\)_max-content_max-content\] {
+    grid-template-rows: max(45vh, 300px) max-content max-content;
   }
   .grid-rows-\[max-content_1fr\] {
     grid-template-rows: max-content 1fr;
@@ -23604,7 +23604,7 @@
     --hero-expanded-outer-margin: clamp(0.25rem, 1vi, 1rem);
     --hero-height: clamp(
       520px,
-      calc(95dvh - (var(--header-height) + 0px)),
+      calc(100dvh - (var(--header-height) + 0px)),
       1000px
     );
     --hero-height-expanded: calc(var(--header-height) + var(--hero-height));
@@ -25616,6 +25616,9 @@
     line-height: 1;
     border-radius: var(--radius);
     padding: var(--space-3xs) var(--text-frame-x);
+  }
+  :root:has(.hero--expanded) {
+    --root-nav-mt: 0;
   }
 }
 @layer tw-base {

@@ -295,7 +295,7 @@ div.scanlines {
   // --hero-expanded-outer-margin: 4px;
   --hero-height: clamp(
     520px,
-    calc(95dvh - (var(--header-height) + 0px)),
+    calc(100dvh - (var(--header-height) + 0px)),
     1000px
   );
   --hero-height-expanded: calc(var(--header-height) + var(--hero-height));

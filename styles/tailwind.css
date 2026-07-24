@@ -7974,7 +7974,7 @@
     --hero-expanded-outer-margin: clamp(0.25rem, 1vi, 1rem);
     --hero-height: clamp(
       520px,
-      calc(95dvh - (var(--header-height) + 0px)),
+      calc(100dvh - (var(--header-height) + 0px)),
       1000px
     );
     --hero-height-expanded: calc(var(--header-height) + var(--hero-height));
@@ -10026,6 +10026,9 @@
     border-radius: var(--radius);
     padding: var(--space-3xs) var(--text-frame-x);
   }
+  :root:has(.hero--expanded) {
+    --root-nav-mt: 0;
+  }
 }
 @layer tw-base {
   :root:is(#body, .c-footer, .unauthenticated) {
@@ -10293,5 +10296,3 @@
     border-radius: calc(var(--radius) * 5);
   }
 }
-
-/*# sourceMappingURL=tailwind.css.map */
