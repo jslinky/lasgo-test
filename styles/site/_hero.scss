@@ -309,7 +309,7 @@ div.scanlines {
     border-radius: calc(var(--radius) * 5);
   }
   .card-picture {
-    width: min(1200px, 100%);
+    // width: min(1200px, 100%);
     margin-inline: auto 0;
   }
 }

@@ -905,7 +905,56 @@
     }
   }
 
+  .loggedOutHeaderMenuRight > li {
+    position: relative;
+    column-gap: var(--space-2xs);
+    > a:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      inset:0;
+    }
+    &:before {
+        content: "";
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        background-color: currentColor;
+        -webkit-mask-image: var(--svg);
+        mask-image: var(--svg);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;                
+    }
+    &:hover {
+      &:before {
+        background:currentColor;
+        background-clip: unset;
+      }
+    }    
+    &:nth-child(1) {
+      &:before {        
+        --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M13 21q-.425 0-.712-.288T12 20t.288-.712T13 19h6V5h-6q-.425 0-.712-.288T12 4t.288-.712T13 3h6q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm-1.825-8H4q-.425 0-.712-.288T3 12t.288-.712T4 11h7.175L9.3 9.125q-.275-.275-.275-.675t.275-.7t.7-.313t.725.288L14.3 11.3q.3.3.3.7t-.3.7l-3.575 3.575q-.3.3-.712.288T9.3 16.25q-.275-.3-.262-.712t.287-.688z'/%3E%3C/svg%3E");
+      }
+    }
+    &:nth-child(2) {
+      &:before {
+        --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M20 12a2 2 0 0 0 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 0 2-2a2 2 0 0 0-2-2V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 0-2 2m-3.5 4.25c0-1.5-3-2.25-4.5-2.25s-4.5.75-4.5 2.25V17h9zm-4.5-4A2.25 2.25 0 0 0 14.25 10A2.25 2.25 0 0 0 12 7.75A2.25 2.25 0 0 0 9.75 10A2.25 2.25 0 0 0 12 12.25'/%3E%3C/svg%3E");
+        
+      }
+    }
+  }  
+
   body:not(.hero-not-in-view) {
+    .loggedOutHeaderMenuRight > li {
+      &:hover {
+        &:before {
+          background:inherit;
+          background-clip: unset;
+        }
+      }
+    }
     #outerWrap:has(.hero--expanded) {
       :is(
         .stickyHeader
@@ -1085,6 +1134,7 @@
     border: none;
     height: var(--root-nav-height);
     align-items: stretch;
+    column-gap: var(--space-md);
     // @supports (anchor-name: --name) {
     //   position-anchor: --nav-menu;
     //   position: fixed;
@@ -1102,9 +1152,9 @@
       align-items: center;
       height: 100%;
       cursor: pointer;
-      @include respond-to(lg) {
-        padding-inline: var(--spacing-sm);
-      }
+      // @include respond-to(lg) {
+      //   padding-inline: var(--spacing-sm);
+      // }
     }
   }
 
@@ -1577,6 +1627,7 @@
       }
 
       :is(
+        .headerMenuRight > li,
         .headerMenuRight > li > a,
         #megaMenuHeaderLoggedOut
           #navMenu
@@ -1591,7 +1642,8 @@
 
       body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) {
         :is(
-          .headerMenuRight > li > a,
+        .headerMenuRight > li,  
+        .headerMenuRight > li > a,
           .headerMenuLeft a,
           #megaMenuHeaderLoggedOut
             #navMenu
@@ -1731,11 +1783,11 @@
     :is(.headerMenuRight a, .headerMenuLeft) {
       font-size: var(--text-sm);
     }
-    .headerMenuRight a {
-      padding-inline: var(--spacing-sm);
-    }
+    // .headerMenuRight a {
+    //   padding-inline: var(--spacing-sm);
+    // }
     body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) {
-      :is(.loggedOutHeaderMenuRight > li > a, .headerMenuLeft a) {
+      :is(.loggedOutHeaderMenuRight > li > a, .loggedOutHeaderMenuRight > li, .headerMenuLeft a) {
         color: var(--color-light);
         @media #{$mouse} {
           &:hover {
@@ -1751,6 +1803,8 @@
       }
     }
   }
+
+
 
   /// Marisa amends to remove rounded corners and margins
   :root:is(.unauthenticated.new):has(.hero--expanded) #mainHeader > div {
