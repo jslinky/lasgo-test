@@ -4503,8 +4503,8 @@
     :root:is(.unauthenticated.new) .loggedOutHeaderMenuRight > li:before {
       content: "";
       display: inline-block;
-      width: 1.5em;
-      height: 1.5em;
+      width: 1.125em;
+      height: 1.125em;
       background-color: currentColor;
       -webkit-mask-image: var(--svg);
       mask-image: var(--svg);
@@ -5086,7 +5086,7 @@
     :root:is(.unauthenticated.new) .headerMenu .headerMenuLeft {
       padding-top: 0;
       margin-left: 0;
-      margin-right: var(--space-xs);
+      margin-right: var(--space-md);
     }
     :root:is(.unauthenticated.new) .headerMenu .headerMenuLeft a {
       color: var(--color-primary);

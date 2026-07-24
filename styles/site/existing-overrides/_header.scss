@@ -917,8 +917,8 @@
     &:before {
         content: "";
         display: inline-block;
-        width: 1.5em;
-        height: 1.5em;
+        width: 1.125em;
+        height: 1.125em;
         background-color: currentColor;
         -webkit-mask-image: var(--svg);
         mask-image: var(--svg);
@@ -1705,7 +1705,7 @@
     .headerMenuLeft {
       padding-top: 0;
       margin-left: 0;
-      margin-right: var(--space-xs);
+      margin-right: var(--space-md);
       a {
         color: var(--color-primary);
         font-weight: 600;
