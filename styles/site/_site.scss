@@ -23,6 +23,7 @@
 
 /* TEMP - remove when tw integrated */
 :root:is(#{$scopeClassName}) {
+  scrollbar-gutter: stable;
   #body {
     line-height: calc(
       var(--line-height-relative, 1.4em) + var(--line-height-fixed, 0.375rem)
