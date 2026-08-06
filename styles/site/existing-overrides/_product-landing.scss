@@ -883,6 +883,10 @@
       }
       overflow: clip;
     }
+    .facetHeading + div {
+      display: block!important;
+      overflow: clip;
+    }
     .customFacetListBox {
       overflow: clip;
       display: block !important;

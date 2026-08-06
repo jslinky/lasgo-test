@@ -21513,6 +21513,10 @@
     .filter-tabs .facetContainer {
       overflow: clip;
     }
+    .filter-tabs .facetHeading + div {
+      display: block !important;
+      overflow: clip;
+    }
     .filter-tabs .customFacetListBox {
       overflow: clip;
       display: block !important;
