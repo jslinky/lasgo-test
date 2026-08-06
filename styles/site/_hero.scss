@@ -45,7 +45,7 @@ body:has(.hero--expanded) {
   #body {
     display: contents;
     > * {
-      scroll-snap-align: start;
+      scroll-snap-align: center;
     }
     .hero {
       scroll-snap-align: start;

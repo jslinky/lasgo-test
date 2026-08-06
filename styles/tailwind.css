@@ -7869,7 +7869,7 @@
     display: contents;
   }
   body:has(.hero--expanded) #body > * {
-    scroll-snap-align: start;
+    scroll-snap-align: center;
   }
   body:has(.hero--expanded) #body .hero {
     scroll-snap-align: start;
