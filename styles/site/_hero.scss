@@ -21,9 +21,22 @@
 }
 
 body:has(.hero--expanded) {
+  #outerWrap {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+html:has(.hero--expanded) {
+  scrollbar-width: none;
+}
+html:has(.hero--expanded)::-webkit-scrollbar {
+  display: none;
+}
+
+body:has(.hero--expanded) {
   overflow: hidden;
   #outerWrap {
-    scroll-snap-type: y proximity;
+    // scroll-snap-type: y proximity;
     // animation-timeline: --scroll;
     overflow: auto;
     max-height: 100vh;
@@ -32,10 +45,10 @@ body:has(.hero--expanded) {
   #body {
     display: contents;
     > * {
-      scroll-snap-align: center;
+      scroll-snap-align: start;
     }
     .hero {
-      scroll-snap-align: center;
+      scroll-snap-align: start;
     }
     // .hero + * {
     //   scroll-snap-align: start;
@@ -43,11 +56,11 @@ body:has(.hero--expanded) {
   }
 }
 
-body:not(.hero-not-in-view):has(.hero--expanded) {
-    #outerWrap {
-      scroll-snap-type: y mandatory;
-    }
-}
+// body:not(.hero-not-in-view):has(.hero--expanded) {
+//     #outerWrap {
+//       scroll-snap-type: y mandatory;
+//     }
+// }
 
 .hero.hero--expanded {
   --variable-unit: calc(40vi + 60vb);

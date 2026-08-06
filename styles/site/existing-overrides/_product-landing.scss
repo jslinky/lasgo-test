@@ -6,7 +6,6 @@
 
 // @layer existing-overrides {
 @layer new {
-
   ////
   :is(#{site-vars.$wrapperSelector}) {
     @include wrapper-grid();
@@ -20,8 +19,11 @@
     grid-column: 2/2;
   }
 
-  :is(#{site-vars.$wrapperSelector}, #{site-vars.$layoutGridSelector}).clearfix {
-    &:before {      
+  :is(
+    #{site-vars.$wrapperSelector},
+    #{site-vars.$layoutGridSelector}
+  ).clearfix {
+    &:before {
       display: none;
     }
   }
@@ -33,12 +35,12 @@
   }
 
   #facetList .filter-state-uparrow {
-    background: none!important;
-  }  
+    background: none !important;
+  }
 
   :is(#{site-vars.$asideSelector}) {
     container-type: scroll-state;
-    container-name: sticky-aside;    
+    container-name: sticky-aside;
     .collapse-icon-slot {
       display: grid;
       grid-template-columns: max-content 1fr;
@@ -439,7 +441,11 @@
     }
   }
 
-  :is(#{site-vars.$contentAreaSelector}) .searchResults ul li.resultItem .purchaseBlock {
+  :is(#{site-vars.$contentAreaSelector})
+    .searchResults
+    ul
+    li.resultItem
+    .purchaseBlock {
     all: unset;
     width: auto;
     background: var(--purchase-block-bg);
@@ -469,7 +475,12 @@
     width: 100%;
   }
 
-  :is(#{site-vars.$contentAreaSelector}) .searchResults ul li.resultItem .purchaseBlock .basket {
+  :is(#{site-vars.$contentAreaSelector})
+    .searchResults
+    ul
+    li.resultItem
+    .purchaseBlock
+    .basket {
     display: contents;
     div:last-child {
       grid-column: 2 / 2;
@@ -740,11 +751,7 @@
     }
   }
 
-  :is(#{site-vars.$contentAreaSelector})
-    .searchResults
-    .pager
-    .actionLinks
-    ul {
+  :is(#{site-vars.$contentAreaSelector}) .searchResults .pager .actionLinks ul {
     font-size: var(--text-xs);
     padding: 0;
   }
@@ -864,6 +871,22 @@
 
   :is(.temp-hide, .k-pager-nav, .ddlPageSort, .itemsPerPage) {
     display: none;
+  }
+
+  .filter-tabs {
+    .facetContainer {
+      --facet-box-state: 0px;
+      display: grid;
+      grid-template-rows: max-content var(--facet-box-state);
+      &:has(.facetHeading.active) {
+        --facet-box-state: 1fr;
+      }
+      overflow: clip;
+    }
+    .customFacetListBox {
+      overflow: clip;
+      display: block !important;
+    }
   }
 }
 // }

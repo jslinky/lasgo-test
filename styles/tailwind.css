@@ -4343,7 +4343,7 @@
       position: sticky;
       top: 0;
       margin-inline: auto;
-      width: calc(100% - clamp(0.25rem, 1vi, 1rem) * 2);
+      width: calc(100% - 1rem);
     }
     @media only screen and (min-width: 64rem) {
       :root:is(.unauthenticated.new) :is(#accountHeader + .sticky-wrapper,
@@ -4483,9 +4483,6 @@
     }
     :root:is(.unauthenticated.new) .mainBasketHeader {
       color: var(--color-primary);
-    }
-    :root:is(.unauthenticated.new) body.hero-solid-bg:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(#accountHeader + .sticky-wrapper, #mainHeader) {
-      border-radius: var(--radius);
     }
     :root:is(.unauthenticated.new) body.hero-solid-bg:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(.sticky-wrapper, #mainHeader) {
       background: var(--hero-expanded-nav-bg);
@@ -5092,15 +5089,20 @@
       color: var(--color-primary);
       font-weight: 600;
     }
+    :root:is(.new):has(.hero--expanded) :is(#accountHeader + .sticky-wrapper,
+    #mainHeader + .sticky-wrapper,
+    #mainHeader) {
+      position: fixed;
+      max-height: max-content;
+    }
     html.authenticated.new #outerWrap:has(.hero--expanded) .stickyHeader {
       grid-template-rows: 1fr 1fr;
       row-gap: var(--space-md);
     }
     .unauthenticated.new #outerWrap:has(.hero--expanded) .hero--expanded {
-      margin-top: calc(-1 * (var(--root-nav-mt) + var(--root-header-height) + var(--root-header-mt)));
+      margin-top: 0;
     }
     body.hero-not-in-view #outerWrap:has(.hero--expanded) #mainHeader {
-      width: 100%;
       box-shadow: 0 5px 2px 0px var(--color-grey-10);
     }
     :root:is(.unauthenticated.new) #sticky-wrapper {
@@ -5121,11 +5123,15 @@
     :root:is(.unauthenticated.new) :is(.headerMenuRight a, .headerMenuLeft) {
       font-size: var(--text-sm);
     }
-    :root:is(.unauthenticated.new) body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(.loggedOutHeaderMenuRight > li > a, .loggedOutHeaderMenuRight > li, .headerMenuLeft a) {
+    :root:is(.unauthenticated.new) body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(.loggedOutHeaderMenuRight > li > a,
+    .loggedOutHeaderMenuRight > li,
+    .headerMenuLeft a) {
       color: var(--color-light);
     }
     @media (hover) and (pointer: fine) {
-      :root:is(.unauthenticated.new) body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(.loggedOutHeaderMenuRight > li > a, .loggedOutHeaderMenuRight > li, .headerMenuLeft a):hover {
+      :root:is(.unauthenticated.new) body:not(.hero-not-in-view) #outerWrap:has(.hero--expanded) :is(.loggedOutHeaderMenuRight > li > a,
+      .loggedOutHeaderMenuRight > li,
+      .headerMenuLeft a):hover {
         background: linear-gradient(45deg, var(--color-brand-orange), var(--color-brand-yellow));
         background-clip: text;
         color: transparent;
@@ -5170,7 +5176,8 @@
       container-name: content-grid;
       grid-column: 2/2;
     }
-    :is(.container_16:has(.searchResultsWrapper), .container_16:has(.searchResultsWrapper) > .grid_16).clearfix:before {
+    :is(.container_16:has(.searchResultsWrapper),
+    .container_16:has(.searchResultsWrapper) > .grid_16).clearfix:before {
       display: none;
     }
     :where(.hideInclusiveVat) {
@@ -5818,6 +5825,21 @@
     }
     :is(.temp-hide, .k-pager-nav, .ddlPageSort, .itemsPerPage) {
       display: none;
+    }
+    .filter-tabs .facetContainer {
+      --facet-box-state: 0px;
+      display: grid;
+      grid-template-rows: max-content var(--facet-box-state);
+    }
+    .filter-tabs .facetContainer:has(.facetHeading.active) {
+      --facet-box-state: 1fr;
+    }
+    .filter-tabs .facetContainer {
+      overflow: clip;
+    }
+    .filter-tabs .customFacetListBox {
+      overflow: clip;
+      display: block !important;
     }
   }
   @layer new {
@@ -6812,7 +6834,7 @@
       --font-family: var(--heading-default-font-family, var(--font-family-heading));
     }
     :is(#accountHeader) .loggedinWrap {
-      font-size: var(--text-xs);
+      font-size: var(--text-sm);
     }
     .accountHolderWrap {
       margin-block: var(--spacing-xl);
@@ -6824,6 +6846,15 @@
       width: min(var(--max-wrapper-width), 100%);
       display: block;
       margin-inline: auto;
+    }
+    .validation-summary-errors {
+      font-size: var(--text-sm);
+      padding: var(--spacing-sm);
+      border-radius: var(--radius);
+      border: 2px solid currentColor;
+      color: var(--color-danger);
+      display: flex;
+      flex-direction: column;
     }
   }
   #footer {
@@ -7817,11 +7848,19 @@
   .hero .card[data-card-column-reverse-order=true] .card-picture img[src$=".png"] {
     filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.2));
   }
+  body:has(.hero--expanded) #outerWrap {
+    scroll-snap-type: y mandatory;
+  }
+  html:has(.hero--expanded) {
+    scrollbar-width: none;
+  }
+  html:has(.hero--expanded)::-webkit-scrollbar {
+    display: none;
+  }
   body:has(.hero--expanded) {
     overflow: hidden;
   }
   body:has(.hero--expanded) #outerWrap {
-    scroll-snap-type: y proximity;
     overflow: auto;
     max-height: 100vh;
     scroll-behavior: smooth;
@@ -7830,13 +7869,10 @@
     display: contents;
   }
   body:has(.hero--expanded) #body > * {
-    scroll-snap-align: center;
+    scroll-snap-align: start;
   }
   body:has(.hero--expanded) #body .hero {
-    scroll-snap-align: center;
-  }
-  body:not(.hero-not-in-view):has(.hero--expanded) #outerWrap {
-    scroll-snap-type: y mandatory;
+    scroll-snap-align: start;
   }
   .hero.hero--expanded {
     --variable-unit: calc(40vi + 60vb);
@@ -9773,6 +9809,9 @@
     }
   }
   /* TEMP - remove when tw integrated */
+  :root:is(.new) {
+    scrollbar-gutter: stable;
+  }
   :root:is(.new) #body {
     line-height: calc(var(--line-height-relative, 1.4em) + var(--line-height-fixed, 0.375rem));
     min-height: calc(100dvh - var(--header-height));
