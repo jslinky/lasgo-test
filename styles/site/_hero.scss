@@ -24,6 +24,9 @@ body:has(.hero--expanded) {
   #outerWrap {
     scroll-snap-type: y mandatory;
   }
+  #footer {
+    scroll-snap-align: end;
+  }
 }
 
 html:has(.hero--expanded) {

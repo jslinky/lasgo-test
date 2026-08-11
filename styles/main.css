@@ -1369,6 +1369,9 @@
   .snap-x {
     scroll-snap-type: x var(--tw-scroll-snap-strictness);
   }
+  .snap-y {
+    scroll-snap-type: y var(--tw-scroll-snap-strictness);
+  }
   .snap-mandatory {
     --tw-scroll-snap-strictness: mandatory;
   }
@@ -2650,6 +2653,9 @@
   .uppercase {
     text-transform: uppercase;
   }
+  .italic {
+    font-style: italic;
+  }
   .underline {
     text-decoration-line: underline;
   }
@@ -3289,8 +3295,8 @@
   .\[--text-transform\:uppercase\] {
     --text-transform: uppercase;
   }
-  .\[--timeline-marker-bg\:var\(--color-light\)\] {
-    --timeline-marker-bg: var(--color-light);
+  .\[--timeline-marker-bg\:var\(--color-grey-11\)\] {
+    --timeline-marker-bg: var(--color-grey-11);
   }
   .\[--timeline-marker-scale\:1\] {
     --timeline-marker-scale: 1;
@@ -20308,8 +20314,13 @@
       display: flex;
       align-items: center;
     }
-    :root:is(.unauthenticated.new) .headerMenuRight > li span {
+    :root:is(.unauthenticated.new) .headerMenuRight > li:last-child span:nth-child(2) {
       display: none;
+    }
+    @media only screen and (min-width: 40rem) {
+      :root:is(.unauthenticated.new) .headerMenuRight > li:last-child span:nth-child(2) {
+        display: block;
+      }
     }
     :root:is(.unauthenticated.new) .headerMenuRight a {
       display: flex;
@@ -21517,10 +21528,7 @@
       display: block !important;
       overflow: clip;
       height: auto !important;
-    }
-    .filter-tabs .customFacetListBox {
-      overflow: clip;
-      display: block !important;
+      margin-top: 0 !important;
     }
   }
   @layer new {
@@ -23501,6 +23509,9 @@
   }
   body:has(.hero--expanded) #outerWrap {
     scroll-snap-type: y mandatory;
+  }
+  body:has(.hero--expanded) #footer {
+    scroll-snap-align: end;
   }
   html:has(.hero--expanded) {
     scrollbar-width: none;

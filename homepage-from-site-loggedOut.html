@@ -269,6 +269,31 @@
       <div id="body">
         <div id="dynamicheadercontainer"></div>
         <script>
+
+          const signInNav = document.querySelector(
+              '.loggedOutHeaderMenuRight a[href="/Account/LogOn"]',
+            );
+
+          if (signInNav) {
+            signInNav.textContent = "Login";
+
+            const applyNav = document.querySelector(
+              ".loggedOutHeaderMenuRight li:last-of-type a",
+            );
+            const applyNavText = applyNav.textContent.split(" ");
+
+            const applyNavSpanOne = document.createElement("span");
+            applyNavSpanOne.innerHTML = applyNavText[0] + '&nbsp;';
+
+            applyNavText.shift();
+            const applyNavSpanTwo = document.createElement("span");
+            applyNavSpanTwo.textContent = applyNavText.join(" ");
+
+            applyNav.textContent = "";
+            applyNav.appendChild(applyNavSpanOne);
+            applyNav.appendChild(applyNavSpanTwo);
+          }
+
           document.documentElement.classList.add("new");
 
           const modeCheckbox = document.querySelector("input#mode");
@@ -350,22 +375,13 @@
                 src="http://www.lasgo.com/Content/Images/hero/hero-home.jpg"
                 alt="Picture"
               /> -->
-              <img
-                src="./assets/mask_group_1x.webp"
-                alt="DVD and Blu-ray"
-              />
-              <img
-                src="./assets/music_1x.webp"
-                alt="Music"
-              />          
-              <img
-                src="./assets/merch-hero_1x.webp"
-                alt="Merchandise"
-              />                
+              <img src="./assets/mask_group_1x.webp" alt="DVD and Blu-ray" />
+              <img src="./assets/music_1x.webp" alt="Music" />
+              <img src="./assets/merch-hero_1x.webp" alt="Merchandise" />
               <img
                 src="./assets/electronics_1x.webp"
                 alt="Consumer Electronics"
-              />                                          
+              />
             </picture>
 
             <div
@@ -380,14 +396,22 @@
                   </h2>
                 </div>
 
-                <div class="card-body__content-slot inline-flex gap-x-[0.5em] flex-wrap items-end">
-                  <p class="heading-lg fluid normal-case font-bold inline-flex gap-x-[0.3em] flex-wrap">
-                    <span class="text-[1em] leading-[inherit] text-grey-10">Your perfect partner for</span>
+                <div
+                  class="card-body__content-slot inline-flex gap-x-[0.5em] flex-wrap items-end"
+                >
+                  <p
+                    class="heading-lg fluid normal-case font-bold inline-flex gap-x-[0.3em] flex-wrap"
+                  >
+                    <span class="text-[1em] leading-[inherit] text-grey-10"
+                      >Your perfect partner for</span
+                    >
                     <span class="text-color">wholesale and distribution</span>
-                    <span class="text-[1em] leading-[inherit] text-grey-10">of</span>
+                    <span class="text-[1em] leading-[inherit] text-grey-10"
+                      >of</span
+                    >
                   </p>
-                                      <div
-                                      class="hero__cat-reveal-wrapper heading-lg normal-case"
+                  <div
+                    class="hero__cat-reveal-wrapper heading-lg normal-case"
                     x-data="{
         activeIndex: 0,
         slideIndex: 0,
@@ -480,7 +504,6 @@
                       </ul>
                     </div>
                   </div>
-
                 </div>
 
                 <div class="card-body__content__ctas flow--xl">
@@ -495,30 +518,33 @@
         <div
           class="wrapper pb-section-gap-xl pt-section-gap-xl md:min-h-[min(1200px,calc(100vh-var(--root-header-height)))] content-stretch flex"
         >
-          <div class="relative flow grid grid-rows-[max(45vh,300px)_max-content_max-content] grid-cols-[1fr] *:row-span-full *:col-span-full row-x-5xl basis-full">
-
-                <div
-                  class="c-marquee z-[-1] !row-start-1 !row-end-1 mb-layout-gap"
-                  x-data="{
+          <div
+            class="relative flow grid grid-rows-[max(45vh,300px)_max-content_max-content] grid-cols-[1fr] *:row-span-full *:col-span-full row-x-5xl basis-full"
+          >
+            <div
+              class="c-marquee z-[-1] !row-start-1 !row-end-1 mb-layout-gap"
+              x-data="{
                     slides: ['dvd-slide.png', 'music-slide.png', 'merch-slide.png', 'electronics-slide.png']
                   }"
-                >
-                <div class="flex wrap-none">
-                  <template x-for="group in 2">
-                    <div class="layout-grid min-w-[calc(max(1200px,100vw)-(var(--layout-gap)/2))] shrink-0">
-                      <template
-                        x-for="(item, index) in slides"
-                        :key="`${item}-${index}`"
-                      >
+            >
+              <div class="flex wrap-none">
+                <template x-for="group in 2">
+                  <div
+                    class="layout-grid min-w-[calc(max(1200px,100vw)-(var(--layout-gap)/2))] shrink-0"
+                  >
+                    <template
+                      x-for="(item, index) in slides"
+                      :key="`${item}-${index}`"
+                    >
                       <div class="aspect-square z-[-2] *:w-full">
                         <img :src="`./assets/${item}`" alt="" />
                       </div>
-                      </template>
-                    </div>
-                  </template>
-                </div>
+                    </template>
+                  </div>
+                </template>
+              </div>
 
-                  <!-- <template
+              <!-- <template
                     x-for="(item, index) in slides"
                     :key="`${item}-${index}`"
                   >
@@ -526,7 +552,7 @@
                     <img :src="`./assets/${item}`" alt="" />
                   </div>
                   </template>                   -->
-                  <!-- <div class="aspect-square z-[-2]">
+              <!-- <div class="aspect-square z-[-2]">
                     <img src="./assets/dvd-slide.png" alt="" />
                   </div>
                   <div class="aspect-square z-[-2]">
@@ -538,14 +564,18 @@
                   <div class="aspect-square z-[-2]">
                     <img src="./assets/electronics-slide.png" alt="" />
                   </div> -->
-                </div>
+            </div>
 
-            <h2 class="heading fluid heading--underline heading-2xl uppercase !row-start-2 !row-end-2">
+            <h2
+              class="heading fluid heading--underline heading-2xl uppercase !row-start-2 !row-end-2"
+            >
               <span class="heading-xs text-default"
                 >Innovating UK entertainment supply</span
               ><span>What we do</span>
             </h2>
-            <div class="layout-grid flow [--layout-column-min:40ch] !row-start-3 !row-end-3 !col-start-1 !col-end-1">
+            <div
+              class="layout-grid flow [--layout-column-min:40ch] !row-start-3 !row-end-3 !col-start-1 !col-end-1"
+            >
               <div class="flow flex-auto">
                 <div class="max-w-prose flow">
                   <p class="text-lg font-bold">
@@ -553,22 +583,20 @@
                     UK&#39;s longest established international wholesaler and
                     distributor of home entertainment product.
                   </p>
-
                 </div>
               </div>
               <div
                 class="basis-[fit-content] md:content-end flex md:items-end md:justify-center md:mt-0"
               >
-
-                  <p>
-                    From our humble beginnings in London&#39;s Oxford Street,
-                    our success has been achieved through the company&#39;s
-                    ability to diversify and identify new opportunities. As such
-                    we were well placed to take full advantage of this growth.
-                    We have also invested in the expansion of our Visual
-                    Entertainment and Merchandise divisions to meet a growing
-                    demand for fan-based physical products.
-                  </p>
+                <p>
+                  From our humble beginnings in London&#39;s Oxford Street, our
+                  success has been achieved through the company&#39;s ability to
+                  diversify and identify new opportunities. As such we were well
+                  placed to take full advantage of this growth. We have also
+                  invested in the expansion of our Visual Entertainment and
+                  Merchandise divisions to meet a growing demand for fan-based
+                  physical products.
+                </p>
               </div>
             </div>
           </div>
