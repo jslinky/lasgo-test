@@ -2,12 +2,14 @@
 @charset "UTF-8";
 @layer properties;
 @layer tw-base {
-  :where(#body) {
-    :where(*, ::after, ::before, ::backdrop, ::file-selector-button) {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      border: 0 solid;
+  :root:is(.new) {
+    :where(#body) {
+      :where(*, ::after, ::before, ::backdrop, ::file-selector-button) {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0 solid;
+      }
     }
   }
   html, :host {

@@ -3,12 +3,14 @@
   2. Remove default margins and padding
   3. Reset all borders.
 */
-:where(#body) {
-  :where(*, ::after, ::before, ::backdrop, ::file-selector-button) {
-    box-sizing: border-box; /* 1 */
-    margin: 0; /* 2 */
-    padding: 0; /* 2 */
-    border: 0 solid; /* 3 */
+:root:is(.new) {
+  :where(#body) {
+    :where(*, ::after, ::before, ::backdrop, ::file-selector-button) {
+      box-sizing: border-box; /* 1 */
+      margin: 0; /* 2 */
+      padding: 0; /* 2 */
+      border: 0 solid; /* 3 */
+    }
   }
 }
 
