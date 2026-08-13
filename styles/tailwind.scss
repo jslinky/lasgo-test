@@ -17,11 +17,16 @@
 @use "small-style/scss/base/mixins/rules/components/typography/_fluid-type" as *;
 @use "./base/mixins/rules/components/forms" as *;
 
-
-
 @use "./mixins/components/content-layout" as * with (
   $contentGridFullLgBp: site-vars.$contentGridFullLgBpValue
 );
+
+//// These are existing CSSLess templates that I've moved from commerceManager - core layer sits outside of layer scope defined here.
+@layer core {
+  @import "./core/newLasgo";
+  @import "./core/slick";
+  @import "./core/moveToSolution";
+}
 
 @import "./preflight-modified.css" layer(tw-base);
 @import "tailwindcss/theme.css" layer(tw);
