@@ -19696,7 +19696,7 @@
     }
   }
 }
-@layer core {
+@layer existing-less-css {
   .cd-top {
     z-index: 100000000000000000;
   }
