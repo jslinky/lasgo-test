@@ -23,6 +23,7 @@
 
 //// These are existing CSSLess templates that I've moved from commerceManager - core layer sits outside of layer scope defined here.
 @layer existing-less-css {
+  @import "./core/templates";
   @import "./core/newLasgo";
   @import "./core/slick";
   @import "./core/moveToSolution";

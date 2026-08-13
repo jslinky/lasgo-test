@@ -1,0 +1,76 @@
+$blueDark: #265983;
+$blueMedium: #004f59;
+$blueLight: #d6e4ef;
+$red: #C0272D;
+$green: #53A55B;
+$lightGreen: #22b473;
+$greyLight: #E6E6E6;
+$greyMedium: #999999;
+$OffBlack: #1A1A1A;
+$backgroundWhite: #f2f2f2;
+
+$gardBorder: 3px;
+$normalFontSize: 14px;
+
+$subHeaderFontSize: 18px;
+$pageHeaderFontSize: 26px;
+
+$regular:14px;
+$loggedOutRegular:14px;
+$loggedOutHeader:28px;
+
+/*colour info block*/
+$darkgreen: #348798;
+$darkred: #952D3E;
+$lightblack: #343642;
+$darkgrey: #969B9B;
+
+#footer{
+ background-color: #f2f2f2; 
+ width:auto; 
+ padding:0; 
+ margin: 60px 0 0 0; 
+ height:auto; 
+ overflow:hidden;
+ .footerMenu{
+  overflow:hidden;
+  ul{
+   border-left:#BDBDBD 1px solid; 
+   margin: 10px 0 0 0; 
+   padding:0; 
+   min-height:190px;
+   li{
+    padding:0 20px; 
+    margin:0; 
+    list-style:none;
+    a{ color:$OffBlack; }
+    &:first-child{font-weight:700;}
+   }
+  }
+ }
+ #subFooter{
+  background-color:#FFFFFF; 
+  overflow:hidden; 
+  padding:40px 0; 
+  font-weight:300;
+  h3{ margin:0 0 20px ; font-size:$normalFontSize; font-weight:bold; }
+  .info{ font-size: $normalFontSize; padding:20px; overflow:hidden; position:relative; line-height:18px; 
+   .trade-icon { display: inline-block; margin: 0 8px;
+    img{ height: 42px; }
+   }
+  
+  } 
+  .socials{ font-size: $normalFontSize; padding:20px; overflow:hidden; position:relative;
+   
+   .twitter { display: inline-block; margin: 0 10px;
+    img{ width: 42px; height: 45px; }
+   }
+   .facebook { display: inline-block;
+    img{ width: 42px; height: 45px; }
+   }
+
+  }
+  .copyright{clear:both; text-align:center; color:$greyMedium; font-size:10px; overflow:hidden; padding: 40px 0 0 0;}
+ }
+}
+ 

@@ -115,3 +115,12 @@
     }
   }
 }
+
+:root:not(#{$scopeClassName}) {
+  .footerMenu {
+    padding-top: 1rem;
+    ul > li:first-child {
+      font-weight: 600;
+    }
+  }
+}
