@@ -7632,11 +7632,11 @@
     }
   }
   @layer new {
-    #stockOrderBasket {
+    :root:is(.new) #stockOrderBasket {
       margin-block: var(--spacing-section-gap);
       margin-inline: auto;
     }
-    .basketHeader {
+    :root:is(.new) .basketHeader {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -7644,14 +7644,14 @@
       padding-block: var(--text-frame-y);
       gap: var(--spacing-md);
     }
-    td.colTitle {
+    :root:is(.new) td.colTitle {
       font-weight: 600;
       color: var(--color-primary);
     }
-    td.colRef > input {
+    :root:is(.new) td.colRef > input {
       width: 100% !important;
     }
-    .basketHeader #pageHeader {
+    :root:is(.new) .basketHeader #pageHeader {
       --font-size-min: var(--lg);
       --font-size-max: var(--xl);
       --font-fluid-cq-variance: 0.75cqw;
@@ -7664,55 +7664,55 @@
       bottom: unset;
       left: unset;
     }
-    .basketHeader .importEanControls {
+    :root:is(.new) .basketHeader .importEanControls {
       /* unset */
       top: unset;
     }
-    :is(.basketHeader #butEditName, .basketHeader .importEanControls button) {
+    :root:is(.new) :is(.basketHeader #butEditName, .basketHeader .importEanControls button) {
       all: unset;
       color: var(--color-primary-contrast);
     }
-    .basketTable:not(.basketSummary) thead tr {
+    :root:is(.new) .basketTable:not(.basketSummary) thead tr {
       border-bottom: 1px solid var(--field-border-color);
       background: var(--color-grey-11);
     }
-    .basketTable:not(.basketSummary) tbody tr + tr {
+    :root:is(.new) .basketTable:not(.basketSummary) tbody tr + tr {
       border-top: 1px solid var(--field-border-color);
     }
-    .basketTable:not(.basketSummary) tbody td {
+    :root:is(.new) .basketTable:not(.basketSummary) tbody td {
       border-width: 0px !important;
     }
-    .basketTable {
+    :root:is(.new) .basketTable {
       font-family: var(--font-family-heading);
       font-size: var(--text-sm);
     }
     @media (min-width: 1000px) {
-      .basketTable :is(th, td) {
+      :root:is(.new) .basketTable :is(th, td) {
         padding-inline: var(--spacing-xs);
       }
-      .basketTable thead th {
+      :root:is(.new) .basketTable thead th {
         padding-block: var(--text-frame-y);
       }
-      .basketTable thead tr > th:first-of-type {
+      :root:is(.new) .basketTable thead tr > th:first-of-type {
         vertical-align: top;
       }
     }
     @media (max-width: 1000px) {
-      .basketTable#basketGrid {
+      :root:is(.new) .basketTable#basketGrid {
         --inline-layout: min(120px, 100%) 1fr;
         background-color: #c2c2c2 !important;
         width: calc(100vw - 16px) !important;
         max-width: 1260px !important;
         margin-inline: auto;
       }
-      .basketTable#basketGrid td:not(.colSelect) {
+      :root:is(.new) .basketTable#basketGrid td:not(.colSelect) {
         padding-block: 4px !important;
         border: 0 !important;
       }
-      .basketTable#basketGrid thead {
+      :root:is(.new) .basketTable#basketGrid thead {
         display: none;
       }
-      .basketTable#basketGrid tbody {
+      :root:is(.new) .basketTable#basketGrid tbody {
         width: calc(100vw - 16px);
         max-width: 1260px;
         flex-direction: row;
@@ -7720,80 +7720,80 @@
         flex-wrap: wrap;
         container-type: inline-size;
       }
-      .basketTable#basketGrid tbody tr {
+      :root:is(.new) .basketTable#basketGrid tbody tr {
         width: 100%;
       }
       @container (width > 600px) {
-        .basketTable#basketGrid tbody tr {
+        :root:is(.new) .basketTable#basketGrid tbody tr {
           width: calc(50% - 1px);
         }
       }
-      .basketTable#basketGrid tbody tr {
+      :root:is(.new) .basketTable#basketGrid tbody tr {
         background: #fff;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
       }
-      .basketTable#basketGrid tbody td {
+      :root:is(.new) .basketTable#basketGrid tbody td {
         width: fit-content !important;
         flex-basis: 100%;
         border: none;
         text-align: left !important;
       }
-      .basketTable#basketGrid tbody,
-      .basketTable#basketGrid tbody tr,
-      .basketTable#basketGrid tbody td {
+      :root:is(.new) .basketTable#basketGrid tbody,
+      :root:is(.new) .basketTable#basketGrid tbody tr,
+      :root:is(.new) .basketTable#basketGrid tbody td {
         display: flex;
         column-gap: 2px;
       }
-      .basketPage {
+      :root:is(.new) .basketPage {
         padding: 0 !important;
         overflow: visible !important;
       }
-      #basketGridWrapper {
+      :root:is(.new) #basketGridWrapper {
         margin-left: 0 !important;
         margin-right: 0 !important;
       }
-      #stockOrderBasket {
+      :root:is(.new) #stockOrderBasket {
         width: 100% !important;
       }
-      .grid_16.layoutContent {
+      :root:is(.new) .grid_16.layoutContent {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
       }
-      td.colEAN {
+      :root:is(.new) td.colEAN {
         order: 99;
         border: 0 !important;
         align-items: baseline;
         gap: 0.5rem;
         padding-bottom: 0.75rem !important;
       }
-      td.colEAN:before {
+      :root:is(.new) td.colEAN:before {
         content: "EAN/Barcode";
         display: inline-block;
         font-weight: bold;
       }
-      td.colSelect {
+      :root:is(.new) td.colSelect {
         padding: 0 !important;
       }
-      td.colTitle {
+      :root:is(.new) td.colTitle {
         order: 1;
         background-color: #f2f2f2;
         padding-bottom: 0.75rem !important;
         flex-direction: column;
       }
-      td.colTitle:before {
+      :root:is(.new) td.colTitle:before {
         content: "Title";
         display: inline-block;
         font-weight: bold;
         font-size: 14px;
       }
-      td.colTitle {
+      :root:is(.new) td.colTitle {
         font-size: 18px;
       }
       @container (width > 300px) {
-        td:is(.colArtist,
+        :root:is(.new) td:is(.colArtist,
         .colFormat,
         .colRef,
         .colWeight,
@@ -7804,7 +7804,7 @@
           max-width: calc(50% - 1.5rem) !important;
         }
       }
-      td:is(.colArtist,
+      :root:is(.new) td:is(.colArtist,
       .colFormat,
       .colRef,
       .colWeight,
@@ -7818,7 +7818,7 @@
         flex-wrap: wrap;
         gap: 1rem;
       }
-      td:is(.colArtist,
+      :root:is(.new) td:is(.colArtist,
       .colFormat,
       .colRef,
       .colWeight,
@@ -7831,83 +7831,83 @@
         flex-basis: min(120px, 100%);
         text-align: left;
       }
-      td.colArtist {
+      :root:is(.new) td.colArtist {
         order: 2;
       }
-      td.colArtist:before {
+      :root:is(.new) td.colArtist:before {
         content: "Artist";
       }
-      td.colFormat {
+      :root:is(.new) td.colFormat {
         order: 3;
       }
-      td.colFormat:before {
+      :root:is(.new) td.colFormat:before {
         content: "Format";
       }
-      td.colRef {
+      :root:is(.new) td.colRef {
         order: 4;
       }
-      td.colRef:before {
+      :root:is(.new) td.colRef:before {
         content: "Ref";
       }
-      td.colWeight {
+      :root:is(.new) td.colWeight {
         order: 6;
       }
-      td.colWeight:before {
+      :root:is(.new) td.colWeight:before {
         content: "Indicative Weight*";
       }
-      td.colQty {
+      :root:is(.new) td.colQty {
         order: 5;
       }
-      td.colQty:before {
+      :root:is(.new) td.colQty:before {
         content: "Qty";
       }
-      .table.basketTable .colQty .quantity {
+      :root:is(.new) .table.basketTable .colQty .quantity {
         width: min(60px, 100%) !important;
       }
-      td.colStock {
+      :root:is(.new) td.colStock {
         order: 8;
       }
-      td.colStock:before {
+      :root:is(.new) td.colStock:before {
         content: "Availability";
       }
-      td.colYouPay {
+      :root:is(.new) td.colYouPay {
         order: 7;
       }
-      td.colYouPay:before {
+      :root:is(.new) td.colYouPay:before {
         content: "Unit price";
       }
-      td.colSelect {
+      :root:is(.new) td.colSelect {
         all: unset;
         display: contents;
         border: 0 !important;
       }
-      td.colSelect input[type=checkbox] {
+      :root:is(.new) td.colSelect input[type=checkbox] {
         /*         position: relative; */
       }
-      td.colSelect label {
+      :root:is(.new) td.colSelect label {
         display: none;
       }
-      .jacketPreviewIcon {
+      :root:is(.new) .jacketPreviewIcon {
         max-width: fit-content;
       }
     }
-    .basketPage table.basketSummary {
+    :root:is(.new) .basketPage table.basketSummary {
       width: 100%;
     }
     @media (min-width: 1000px) {
-      .basketPage table.basketSummary {
+      :root:is(.new) .basketPage table.basketSummary {
         width: 75%;
       }
     }
-    .basketTotals {
+    :root:is(.new) .basketTotals {
       margin-bottom: 2.5rem;
     }
     @media (max-width: 1000px) {
-      .basketTotals {
+      :root:is(.new) .basketTotals {
         margin-inline: 2rem;
       }
     }
-    .basketPage .gridOptionsWrapper {
+    :root:is(.new) .basketPage .gridOptionsWrapper {
       display: none;
     }
   }
