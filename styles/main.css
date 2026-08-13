@@ -21282,31 +21282,6 @@
   .slick-arrow.slick-hidden {
     display: none;
   }
-  #mainHeader #logo {
-    margin-top: 10px;
-  }
-  #mainHeader #logo a {
-    background: url(/Content/Images/lasgo-logo.png) 0 50% no-repeat;
-    width: 180px;
-    text-indent: -30000px;
-    display: block;
-    margin: 0;
-    background-size: 180px;
-    padding: 30px 0;
-  }
-  .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.logoSection #logo {
-    margin-top: -5px;
-  }
-  .stickyHeader #barHeader #bar-Wrapper .bar-inner > ul > li.logoSection #logo a.normal {
-    background: url(/Content/Images/lasgo-logo.png) 0 50% no-repeat;
-    height: 48px;
-    width: 180px;
-    text-indent: -30000px;
-    display: block;
-    margin: 0;
-    background-size: 180px;
-    padding: 4px 0;
-  }
 }
 @layer existing-overrides {
   @layer unset {
@@ -24104,9 +24079,6 @@
       --line-height: var(--heading-default-line-height, normal);
       --color-heading: var(--heading-default-color, inherit);
       --font-family: var(--heading-default-font-family, var(--font-family-heading));
-    }
-    :is(#accountHeader) .loggedinWrap {
-      font-size: var(--text-sm);
     }
     .accountHolderWrap {
       margin-block: var(--spacing-xl);

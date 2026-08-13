@@ -385,9 +385,9 @@
     @include output-heading-rules-default();
   }
 
-  :is(#accountHeader) .loggedinWrap {
-    font-size: var(--text-sm);
-  }
+  // :is(#accountHeader) .loggedinWrap {
+  //   font-size: var(--text-sm);
+  // }
 
   .accountHolderWrap {
     margin-block: var(--spacing-xl);
