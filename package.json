@@ -3,8 +3,10 @@
     "build:sass": "npx sass --load-path=node_modules --load-path=node_modules/small-style/node_modules --quiet-deps ./styles/tailwind.scss:./styles/tailwind.css --style=expanded --source-map",
     "watch:sass": "npx sass --load-path=node_modules --load-path=node_modules/small-style/node_modules --quiet-deps --watch ./styles/tailwind.scss:./styles/tailwind.css --style=expanded --source-map",
     "build:tailwind": "npx @tailwindcss/cli -i ./styles/tailwind.css -o ./styles/main.css",
+    "build:tailwind:min": "npx @tailwindcss/cli -i ./styles/tailwind.css -o ./styles/main.min.css --minify",
     "watch:tailwind": "npx sass --load-path=node_modules --load-path=node_modules/small-style/node_modules --watch ./styles/tailwind.scss:./styles/tailwind.css --style=expanded --no-source-map & npx @tailwindcss/cli -i ./styles/tailwind.css -o ./styles/main.css --watch",
     "build": "npm run build:sass && npm run build:tailwind",
+    "build:min": "npm run build:sass && npm run build:tailwind:min",
     "dev": "npm run watch:tailwind"
   },
   "dependencies": {
