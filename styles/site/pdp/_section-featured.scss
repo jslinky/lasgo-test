@@ -136,11 +136,13 @@
   }
 }
 
-.content-grid-container .content-grid_full > .content-grid:has(> .featured-products) {
+.content-grid-container
+  .content-grid_full
+  > .content-grid:has(> .featured-products) {
   @container content-grid-container (max-width:55ch) {
-    grid-column: span 1;    
+    grid-column: span 1;
   }
-} 
+}
 
 .content-grid_full:is(.featured-products.featured-products--three-in-a-row) {
   @container content-grid (inline-size < 55ch) {
@@ -213,4 +215,22 @@
 
 :where(.content-grid_full > :where(h1, h2, h3, h4, h5, h6, p)) {
   grid-column: 1/-1;
+}
+
+/// new additions
+@container content-grid (inline-size < 55ch) {
+  .content-grid__main
+    .content-grid_full:is(.featured-products.featured-products--three-in-a-row)
+    > div:is(:nth-of-type(2), :nth-of-type(3)) {
+    width: 100%;
+  }
+}
+
+.content-grid:has(:not(.content-grid__aside))
+  .content-grid__main
+  .featured-products:not(.featured-products--three-in-a-row)
+  > div:first-of-type:is(:nth-last-of-type(3)) {
+  @container content-grid (min-width: 80ch) {
+    grid-column-end: -4;
+  }
 }
