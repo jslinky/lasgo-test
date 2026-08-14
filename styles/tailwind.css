@@ -9644,11 +9644,6 @@
     object-fit: cover !important;
     height: 100%;
   }
-  @container (inline-size > 80ch) {
-    .hero .card-picture:has(* + *) > *:not(source) + *:is(img) {
-      height: calc(100% - var(--card-padding-block, 0) * 2);
-    }
-  }
   :where(.card-picture source) {
     position: absolute;
   }
@@ -9780,6 +9775,11 @@
     .hero .card-picture > img:first-of-type {
       position: absolute;
       height: 100%;
+    }
+  }
+  @container (inline-size > 80ch) {
+    .hero .card-picture {
+      height: calc(100% - var(--card-padding-block, 0) * 2);
     }
   }
   .hero__cat-reveal-wrapper {

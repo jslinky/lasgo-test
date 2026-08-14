@@ -235,11 +235,6 @@ div.scanlines {
     inset: 0;
     object-fit: cover !important;
     height: 100%;
-    &:is(img) {
-      @container (inline-size > 80ch) {
-        height: calc(100% - (var(--card-padding-block, 0) * 2));
-      }
-    }
   }
 }
 
@@ -328,7 +323,9 @@ div.scanlines {
   }
 }
 
-#outerWrap:has(.hero--expanded) {
+
+
+#outerWrap:has(.hero--expanded) {  
   .hero--expanded {
     &:has(.heading-3xl:not(.fluid-cq)) {
       --heading-3xl-font-size-max: calc(
@@ -427,6 +424,11 @@ div.scanlines {
       }
     }
   }
+  @container (inline-size > 80ch) {
+    .card-picture {
+      height: calc(100% - (var(--card-padding-block, 0) * 2));
+    }
+  }  
 }
 
 .hero__cat-reveal-wrapper {
@@ -435,7 +437,7 @@ div.scanlines {
 }
 
 .hero__cat-reveal {
-  transform: translateY(-1.05em);
+  transform: translateY(-1.050em);
   // --font-size: inherit;
   // font-size: var(--font-size);
   // font-family: var(--font-family-heading);
