@@ -5542,6 +5542,9 @@
   .slick-arrow.slick-hidden {
     display: none;
   }
+  #mainHeader #logo {
+    margin-top: 10px;
+  }
 }
 @source "../*.html";
 @source "../../**/*.html";

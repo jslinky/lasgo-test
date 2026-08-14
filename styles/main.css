@@ -67,10 +67,12 @@
   sup {
     top: -0.5em;
   }
-  table {
-    text-indent: 0;
-    border-color: inherit;
-    border-collapse: collapse;
+  :root:is(.new) {
+    table {
+      text-indent: 0;
+      border-color: inherit;
+      border-collapse: collapse;
+    }
   }
   :-moz-focusring {
     outline: auto;
@@ -21281,6 +21283,9 @@
   }
   .slick-arrow.slick-hidden {
     display: none;
+  }
+  #mainHeader #logo {
+    margin-top: 10px;
   }
 }
 @layer existing-overrides {
