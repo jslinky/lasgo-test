@@ -131,6 +131,7 @@
     @container content-grid (max-width:55ch) {
       grid-column: span 4;
       grid-row: 2/2;
+      width: 100%;
     }
   }
 }
