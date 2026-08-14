@@ -266,19 +266,11 @@ div.scanlines {
       height: 100%;
     }
   }
-}
-
-.hero .card:not([data-card-layout="col"]):not([data-card-layout="overlay"]) {
-  @container (inline-size < 80ch) {
-    :is(
-      .card-body,
-      .card-body__content,
-      .card-body__content-slot,
-      .card-body__content-slot img,
-      .card-body__content-slot p:has(img)
-    ) {
-      height: 100%;
-    }
+  .card-body__content-slot p:has(img) {
+    display: contents;
+  }
+  :where(.card-body__content-slot img) {
+    margin-inline: auto;
   }
 }
 

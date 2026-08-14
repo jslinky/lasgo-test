@@ -25292,10 +25292,11 @@
       height: 100%;
     }
   }
-  @container (inline-size < 80ch) {
-    .hero .card:not([data-card-layout=col]):not([data-card-layout=overlay]) :is(.card-body, .card-body__content, .card-body__content-slot, .card-body__content-slot img, .card-body__content-slot p:has(img)) {
-      height: 100%;
-    }
+  .hero .card:not([data-card-layout=col]):not([data-card-layout=overlay]) .card-body__content-slot p:has(img) {
+    display: contents;
+  }
+  .hero .card:not([data-card-layout=col]):not([data-card-layout=overlay]) :where(.card-body__content-slot img) {
+    margin-inline: auto;
   }
   .hero--expanded .card-picture {
     mask: linear-gradient(to bottom, transparent 0%, black 30%, black, transparent 90%);
