@@ -9738,6 +9738,9 @@
   .hero .heading-xs.fluid-cq {
     --heading-xs-font-fluid-cq-variance: 4cqi;
   }
+  .hero .card-body__content__caption-title.fluid-cq {
+    --heading-3xl-font-size-min: var(--xl);
+  }
   .hero--expanded .card-body__content__caption-title.fluid-cq {
     --heading-3xl-font-size-max: var(--display-2xl);
   }
@@ -10953,7 +10956,6 @@
   }
   @container content-grid (inline-size < 55ch) {
     .content-grid_full:is(.featured-products.featured-products--three-in-a-row) > div:first-of-type {
-      opacity: 0.3;
       grid-column: 1/-1;
       grid-row: 1/1;
     }
@@ -11516,7 +11518,7 @@
     position: relative;
   }
   .card-body__content__caption-tagline:before {
-    animation: tagline 5000ms cubic-bezier(0.1, -0.6, 0.2, 0) alternate infinite;
+    animation: tagline 30000ms cubic-bezier(0.1, -0.6, 0.2, 0) alternate infinite;
     content: "";
     display: inline-block;
     background: var(--surface-bg-color);

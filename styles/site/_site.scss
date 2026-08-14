@@ -96,7 +96,7 @@
   background: transparent;
   position: relative;
   &:before {
-    animation: tagline 5000ms cubic-bezier(0.1, -0.6, 0.2, 0) alternate infinite;
+    animation: tagline 30000ms cubic-bezier(0.1, -0.6, 0.2, 0) alternate infinite;
     content: "";
     display: inline-block;
     background: var(--surface-bg-color);

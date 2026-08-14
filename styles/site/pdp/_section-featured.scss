@@ -147,7 +147,7 @@
 .content-grid_full:is(.featured-products.featured-products--three-in-a-row) {
   @container content-grid (inline-size < 55ch) {
     > div:first-of-type {
-      opacity: 0.3;
+      // opacity: 0.3;
       grid-column: 1/-1;
       grid-row: 1/1;
     }
