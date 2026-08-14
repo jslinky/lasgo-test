@@ -250,6 +250,7 @@ div.scanlines {
 
 :where(.hero .card) {
   border-radius: 0;
+  --card-padding-block: var(--layout-gap);
 }
 
 // TEMP REMOVAL BECAUSE layer order is overriding the data attr modifiers in the card component
@@ -388,7 +389,7 @@ div.scanlines {
   @container (inline-size < 80ch) {
     .card-picture:not(:empty) :where(img) {
       height: 100cqh;
-      top: 0;
+      top: calc(-1 * var(--card-padding-block, 0));
       bottom: auto;
     }
     .card {
@@ -423,6 +424,11 @@ div.scanlines {
       }
     }
   }
+  @container (inline-size > 80ch) {
+    .card-picture:not(:empty) :where(img) {
+      height: calc(100% - (var(--card-padding-block, 0) * 2));
+    }
+  }  
 }
 
 .hero__cat-reveal-wrapper {

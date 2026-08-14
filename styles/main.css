@@ -25286,6 +25286,7 @@
   }
   :where(.hero .card) {
     border-radius: 0;
+    --card-padding-block: var(--layout-gap);
   }
   @container (inline-size < 80ch) {
     .hero .card:not([data-card-layout=col]):not([data-card-layout=overlay]) :is(.card-body, .card-body__content, .card-body__content-slot, .card-body__content-slot img, .card-body__content-slot p:has(img)) {
@@ -25377,7 +25378,7 @@
   @container (inline-size < 80ch) {
     .hero .card-picture:not(:empty) :where(img) {
       height: 100cqh;
-      top: 0;
+      top: calc(-1 * var(--card-padding-block, 0));
       bottom: auto;
     }
     .hero .card:not([data-card-row-content-0-size]) {
@@ -25404,6 +25405,11 @@
     .hero .card-picture > img:first-of-type {
       position: absolute;
       height: 100%;
+    }
+  }
+  @container (inline-size > 80ch) {
+    .hero .card-picture:not(:empty) :where(img) {
+      height: calc(100% - var(--card-padding-block, 0) * 2);
     }
   }
   .hero__cat-reveal-wrapper {
