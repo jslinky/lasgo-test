@@ -11015,7 +11015,7 @@
     }
   }
   @container content-grid (min-width: 80ch) {
-    .content-grid:has(:not(.content-grid__aside)) .content-grid__main .featured-products:not(.featured-products--three-in-a-row) > div:first-of-type:is(:nth-last-of-type(3)) {
+    .content-grid-container:not(:has(.content-grid__aside)) .featured-products:not(.featured-products--three-in-a-row) > div:first-of-type:is(:nth-last-of-type(3)) {
       grid-column-end: -4;
     }
   }

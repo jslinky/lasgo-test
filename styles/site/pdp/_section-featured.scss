@@ -226,11 +226,11 @@
   }
 }
 
-.content-grid:has(:not(.content-grid__aside))
-  .content-grid__main
+.content-grid-container:not(:has(.content-grid__aside)) {
   .featured-products:not(.featured-products--three-in-a-row)
-  > div:first-of-type:is(:nth-last-of-type(3)) {
-  @container content-grid (min-width: 80ch) {
-    grid-column-end: -4;
+    > div:first-of-type:is(:nth-last-of-type(3)) {
+    @container content-grid (min-width: 80ch) {
+      grid-column-end: -4;
+    }
   }
 }
