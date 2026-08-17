@@ -235,7 +235,9 @@ div.scanlines {
     inset: 0;
     object-fit: cover !important;
     height: 100%;
-    top: calc(-1 * var(--card-padding-block, 0));
+    @container (inline-size < 80ch) {
+      top: calc(-1 * var(--card-padding-block, 0));
+    }
   }
 }
 
