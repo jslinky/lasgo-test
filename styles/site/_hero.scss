@@ -278,6 +278,12 @@ div.scanlines {
   }
 }
 
+:where(.hero .card-body__content-slot img) {
+  @container (inline-size < 80ch) {
+    max-height: 40cqh;    
+  }
+}
+
 .hero--expanded {
   .card-picture {
     mask: linear-gradient(

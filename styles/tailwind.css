@@ -9674,6 +9674,11 @@
   .hero .card:not([data-card-layout=col]):not([data-card-layout=overlay]) :where(.card-body__content-slot img) {
     margin-inline: auto;
   }
+  @container (inline-size < 80ch) {
+    :where(.hero .card-body__content-slot img) {
+      max-height: 40cqh;
+    }
+  }
   .hero--expanded .card-picture {
     mask: linear-gradient(to bottom, transparent 0%, black 30%, black, transparent 90%);
     mask-position: center;
