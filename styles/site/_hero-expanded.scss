@@ -1,0 +1,325 @@
+@keyframes backdropOpacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes shrinkHero {
+  from {
+    // scale:1;
+    max-height: 100vh;
+  }
+  to {
+    // scale:0.5;
+    max-height: 0px;
+  }
+}
+
+html:has(.hero--expanded) {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body:has(.hero--expanded) {
+  overflow: hidden;
+  #outerWrap {
+    scroll-snap-type: y mandatory;
+    overflow: auto;
+    max-height: 100vh;
+    scroll-behavior: smooth;
+  }
+  #body {
+    display: contents;
+    > * {
+      scroll-snap-align: center;
+    }
+    .hero {
+      scroll-snap-align: start;
+    }
+  }
+  #footer {
+    scroll-snap-align: end;
+  }
+}
+
+.hero.hero--expanded {
+    --variable-unit: calc(40vi + 60vb);
+    min-height: var(--hero-height-expanded);
+    --hero-expanded-outer-margin: clamp(0.25rem, 1vi, 1rem);
+    --hero-height: clamp(
+      520px,
+      calc(100dvh - (var(--header-height) + 0px)),
+      1000px
+    );
+    --hero-height-expanded: calc(var(--header-height) + var(--hero-height));
+  height: 50vh;
+  position: sticky;
+  bottom: 0;
+  .card-body {
+    margin-top: calc(var(--root-header-height) + var(--root-nav-height));
+  }
+  border-radius: calc(var(--radius) * 3);
+  overflow: clip;
+  @supports (corner-shape: squircle) {
+    corner-shape: squircle;
+    border-radius: calc(var(--radius) * 5);
+  }
+  .card-picture {
+    margin-inline: auto 0;
+  }  
+  @container (min-width: 70ch) {
+    .card-picture {
+      max-height: var(--hero-height-expanded);
+      transform: translateX(20%);
+    }
+  }
+}
+
+.hero--expanded .card {
+  --card-backdrop-color-from-color: color-mix(
+    in oklab,
+    var(--color-primary),
+    var(--color-dark) 50%
+  );
+  --card-backdrop-color-to-color: color-mix(
+    in oklab,
+    var(--color-primary),
+    var(--color-dark) 50%
+  );
+  --card-backdrop-color-stop-from-opacity: 0.2;
+  --card-backdrop-color-stop-to-opacity: 0.7;
+  @supports (animation-timeline: scroll()) {
+    animation-timeline: scroll();
+    animation-range: 0 120vh;
+    :is(.card-body__content, .card-picture) {
+      animation: backdropOpacity linear both;
+      animation-timeline: scroll();
+      animation-range: 0 60vh;
+    }
+  }
+}
+
+.hero--expanded .card-body {
+  width: min(100% - var(--wrapper-padding) * 2, var(--max-wrapper-width));
+  margin-inline: auto;
+  padding: 0;
+}
+
+.hero--expanded .card-picture {
+  mask: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 30%,
+    black,
+    transparent 90%
+  );
+  mask-position: center;
+  mask-size: cover;
+  img {
+    max-width: calc(var(--max-wrapper-width) * 1.5);
+    mask: linear-gradient(
+      90deg,
+      transparent 0%,
+      black 20%,
+      black,
+      transparent 80%
+    );
+  }
+}
+
+#outerWrap:has(.hero--expanded) {
+  .hero--expanded {
+    &:has(.heading-3xl:not(.fluid-cq)) {
+      --heading-3xl-font-size-max: calc(
+        var(--display-2xl-px) * var(--text-size-increment)
+      );
+    }
+    margin-inline: var(--hero-expanded-outer-margin);
+    margin-top: calc(
+      -1 *
+        (
+          var(--root-nav-mt) + var(--root-header-height) +
+            var(--root-nav-height) + var(--root-header-mt)
+        )
+    );
+
+    .card {
+      overflow: clip;
+    }
+  }
+}
+
+.hero__cat-reveal-wrapper {
+  height: 1em;
+  overflow: clip;
+}
+
+.hero__cat-reveal {
+  transform: translateY(-1.05em);
+  color: var(--color-grey-10);
+  height: 3em;
+  overflow: hidden;
+  width: fit-content;
+  perspective: 1200px;
+  mask: linear-gradient(180deg, transparent, black 35%, black 65%, transparent);
+  transform-origin: right;
+  ul {
+    list-style: none;
+    display: grid;
+    grid-auto-rows: auto;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(
+      calc(((-100% + 1em) / var(--item-count, 4)) * var(--slide-index, 0))
+    );
+    &.is-resetting {
+      transition: none;
+    }
+  }
+  li {
+    display: flex;
+    padding: 0;
+    height: 1em;
+    border: 0;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    line-height: 1;
+    opacity: 0.3;
+    transform: rotateX(-20deg) scale(0.98);
+    transform-origin: center center;
+    transition:
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 220ms ease-out;
+  }
+
+  li:first-of-type {
+    margin-top: 1em;
+    position: relative;
+    &:before {
+      content: var(--last-item-text, "Consumer Electronics");
+      position: absolute;
+      right: 0;
+      opacity: 0.3;
+      transform: translateY(-100%) rotateX(-20deg) scale(0.98);
+    }
+  }
+
+  li:last-of-type {
+    &:before {
+      content: var(--second-item-text, "Music");
+      position: absolute;
+      right: 0;
+      opacity: 0.3;
+      transform: translateY(100%) rotateX(-20deg) scale(0.98);
+    }
+  }
+
+  li.is-active {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+}
+
+.hero:has(.hero__cat-reveal) :where(.card-picture img) {
+  opacity: 0;
+  transition: opacity 100ms ease-out;
+}
+
+.hero:has(.hero__cat-reveal ul[style*="--slide-index: 0"]) .card-picture {
+  img {
+    &:nth-of-type(1) {
+      opacity: 1;
+    }
+  }
+}
+
+.hero:has(.hero__cat-reveal ul[style*="--slide-index: 1"]) .card-picture {
+  img {
+    &:nth-of-type(2) {
+      opacity: 1;
+    }
+  }
+}
+
+.hero:has(.hero__cat-reveal ul[style*="--slide-index: 2"]) .card-picture {
+  img {
+    &:nth-of-type(3) {
+      opacity: 1;
+    }
+  }
+}
+
+.hero:has(.hero__cat-reveal ul[style*="--slide-index: 3"]) .card-picture {
+  img {
+    &:nth-of-type(4) {
+      opacity: 1;
+    }
+  }
+}
+
+.scanlines {
+  overflow: hidden;
+  position: relative;
+}
+.scanlines:before,
+.scanlines:after {
+  display: block;
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  mask: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 30%,
+    black,
+    transparent 90%
+  );
+  mask-position: center;
+  mask-size: cover;
+}
+.scanlines:before {
+  width: 100%;
+  height: 2px;
+  z-index: 2147483649;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0.75;
+  animation: scanline 6s linear infinite;
+}
+.scanlines:after {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2147483648;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.3) 51%
+  );
+  background-size: 100% 4px;
+  animation: scanlines 1s steps(60) infinite;
+}
+
+/* ANIMATE UNIQUE SCANLINE */
+@keyframes scanline {
+  0% {
+    transform: translate3d(0, 200000%, 0);
+  }
+}
+@keyframes scanlines {
+  0% {
+    background-position: 0 50%;
+  }
+}
+
+div.scanlines {
+  position: absolute;
+}

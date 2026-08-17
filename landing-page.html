@@ -77,6 +77,316 @@ $(document).ready(function(){
    });
 });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Title Case navigation menu items
+    const navMenuLinks = document.querySelectorAll(
+      "#navMenu .navMenu > .primary > li > a"
+    );
+
+    if (navMenuLinks.length === 0) {
+      console.warn("No navigation menu links found.");
+    } else {
+      navMenuLinks.forEach((link) => {
+        const text = link.textContent.trim();
+        link.textContent = text
+          .split(" ")
+          .map(
+            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+          )
+          .join(" ");
+      });
+    }
+
+    const mobileMenuScollEl = document.querySelector("#navMenu .navMenu");
+
+    //// Burger Menu toggle ////
+    const burger = document.querySelector(".hamburgerSection");
+    const outerWrap = document.querySelector("#outerWrap");
+
+    if (burger) {
+      burger.addEventListener("click", async () => {
+        outerWrap.classList.toggle("nav-open");
+
+        // Wait for animations to finish
+        const animations = mobileMenuScollEl.getAnimations();
+        if (animations.length > 0) {
+          await Promise.all(animations.map((animation) => animation.finished));
+        }
+
+        // Apply final state after animations complete
+        if (outerWrap.classList.contains("nav-open")) {
+          outerWrap.classList.add("nav-opened");
+        } else {
+          outerWrap.classList.remove("nav-opened");
+        }
+      });
+    } else {
+      console.warn("Burger menu element not found.");
+    }
+
+    //// Hero Observer ////
+    const heroInfo = () => {
+      const hero = document.querySelector(".hero");
+      if (hero) {
+        return {
+          el: hero,
+          surface: hero.getAttribute("data-surface"),
+          isExpanded: hero.classList.contains("hero--expanded"),
+        };
+      } else {
+        return null;
+      }
+    };
+
+    const hero = heroInfo();
+
+    const observerHero = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          !entry.isIntersecting
+            ? document.body.classList.add("hero-not-in-view")
+            : document.body.classList.remove("hero-not-in-view");
+          entry.intersectionRatio < 0.8
+            ? document.body.classList.add("hero-solid-bg")
+            : document.body.classList.remove("hero-solid-bg");
+        });
+      },
+      { threshold: [0, 0.1, 0.2, 0.5, 0.8, 1], rootMargin: "-50px" }
+    );
+
+    if (hero) {
+      observerHero.observe(hero.el);
+    }
+
+    //// Mobile Menu scrollTo ////
+    const mobileMenuLinks = [
+      ...document.querySelectorAll(".navMenu > .primary > li > a"),
+    ].filter(
+      (link) =>
+        link?.nextElementSibling &&
+        link?.nextElementSibling.classList.contains("megaMenu")
+    );
+    mobileMenuLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        if (window.innerWidth < 701) {
+          const megaMenu = link.nextElementSibling;
+          const megaMenuTop =
+            megaMenu.getBoundingClientRect().top + window.scrollY;
+          const offset = 80; // Adjust based on fixed header height
+          mobileMenuScollEl.scrollTo({
+            top: megaMenuTop - offset,
+            behavior: "smooth",
+          });
+        }
+      });
+    });
+
+
+  function initSlickSliders() {
+    const responsiveConfigs = [
+      {
+        name: "default",
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 6,
+              slidesToScroll: 2,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      },
+      {
+        name: "one-slide-infinite",
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      },      
+      {
+        name: "md-three-unslick",
+        responsive: [
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 3,
+            },
+          },
+        ],
+      },
+      {
+        name: "md-four-unslick",
+        responsive: [
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 4,
+            },
+          },
+        ],
+      },      
+    ];
+
+    var $sliders = $("[data-slick]");
+
+    function buildBreakpointMap(options) {
+      var map = [];
+      var responsiveArray = [];
+      if (typeof options.responsive === "string") {
+        var config = responsiveConfigs.find(function (c) {
+          return c.name === options.responsive;
+        });
+        if (config && Array.isArray(config.responsive)) {
+          responsiveArray = config.responsive;
+        }
+      } else if (Array.isArray(options.responsive)) {
+        responsiveArray = options.responsive;
+      }
+      responsiveArray.forEach(function (r) {
+        var bp = Number(r.breakpoint) || 0;
+        if (r.settings === "unslick") {
+          map.push({ bp: bp, action: "unslick" });
+        } else {
+          var slides =
+            (r.settings && Number(r.settings.slidesToShow)) ||
+            Number(options.slidesToShow) ||
+            1;
+          map.push({ bp: bp, action: "slides", value: slides });
+        }
+      });
+      map.sort(function (a, b) {
+        return a.bp - b.bp;
+      });
+      return map;
+    }
+
+    function getResponsiveAction(w, map, defaultSlides) {
+      var action = { action: "slides", value: defaultSlides || 1 };
+      for (var i = 0; i < map.length; i++) {
+        if (w >= map[i].bp) action = map[i];
+      }
+      return action;
+    }
+
+    $sliders.each(function () {
+      var el = this;
+      var $el = $(el);
+      if ($el.hasClass("slick-initialized")) return;
+
+      var raw = $el.attr("data-slick") || "{}";
+      var opts;
+      try {
+        opts = JSON.parse(raw);
+      } catch (e) {
+        opts = {};
+      }
+
+      var defaults = {
+        mobileFirst: true,
+        dots: true,
+        arrows: true,
+        autoplay: false,
+        autoplaySpeed: 2500,
+        adaptiveHeight: true,
+        slidesToShow: Number(opts.slidesToShow) || 1,
+        responsive:
+          responsiveConfigs.find((entry) => entry.name === "default")
+            ?.responsive || [],
+      };
+
+      var settings = Object.assign({}, defaults, opts);
+      // Build a map for viewport-based responsive calculations
+      var bpMap = buildBreakpointMap(settings);
+
+      var w = window.innerWidth;
+      var initialAction = getResponsiveAction(
+        w,
+        bpMap,
+        settings.slidesToShow,
+      );
+
+      if (initialAction.action === "unslick") {
+        // Don't initialize Slick
+      } else {
+        // clone settings but ensure slidesToShow is the initial value and remove responsive to avoid viewport-based changes
+        var initSettings = Object.assign({}, settings, {
+          slidesToShow: initialAction.value,
+        });
+        delete initSettings.responsive;
+
+        $el.slick(initSettings);
+      }
+
+      function updateByWidth(width) {
+        var newAction = getResponsiveAction(
+          width,
+          bpMap,
+          settings.slidesToShow,
+        );
+        if (newAction.action === "unslick") {
+          if ($el.hasClass("slick-initialized")) {
+            $el.slick("unslick");
+          }
+        } else {
+          if (!$el.hasClass("slick-initialized")) {
+            var initSettings = Object.assign({}, settings, {
+              slidesToShow: newAction.value,
+            });
+            delete initSettings.responsive;
+            $el.slick(initSettings);
+          } else {
+            $el.slick(
+              "slickSetOption",
+              "slidesToShow",
+              newAction.value,
+              true,
+            );
+          }
+        }
+      }
+
+      var t;
+      window.addEventListener("resize", function () {
+        clearTimeout(t);
+        t = setTimeout(function () {
+          updateByWidth(window.innerWidth);
+        }, 150);
+      });
+    });
+  }
+
+  initSlickSliders();
+
+  });
+
+
+
+  
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -553,157 +863,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </li>
 </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 <svg width="56" height="56" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
 <symbol id="office-hrs" viewBox="0 0 56 56">
@@ -812,40 +971,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           init();
         </script>
-   <section class="hero @container  ">
-   <article class="card wrapper    " data-surface="tertiary" data-card-column-reverse-order="true" data-card-column-align="center">
-      <picture class="card-picture *:object-contain    ">
-   
-  <img src="http://www.lasgo.com/Content/Images/hero/vinyl-cover.png" alt="Picture">
-</picture>
-
-         <div class="card-body flow flow--md">
-      <div class="card-body__content flow flex-col">
-         <div class="card-body__content__caption flow">         
-               
-
-             <h2 class="heading  heading-2xl  w-full text-left  card-body__content__caption-title fluid
-        "><span>DVD &amp; Blu-ray</span></h2>
-                   
-             <h2 class="heading  heading-default  w-full text-left  card-body__content__caption-subtitle fluid
-        "><span>Some intro text goes here</span></h2>                    
-         </div>
-
-         
-         
-         
-
-
-      </div>
-   </div>
-
-      
-
-
-
-
-   </article>
-</section>   
+        <!-- HERO BEGIN -->
+<div class="col-span-full">
+  
+  <section class="hero @container">
+      <article class="card wrapper" data-card-column-align="center" data-card-column-content-0-size="0.75fr" data-card-column-content-1-size="0.75fr">
+    
+        <div class="card-picture *:object-contain">
+          <img alt="" src="./assets/hero-1-product.png">
+          <img alt="" src="./assets/hero-1-bg.png"><p></p>
+        </div>
+        <div class="card-body flow flow--md">
+          <div class="card-body__content flow flex-col">        
+            <div class="card-body__content-slot flex justify-center">
+              <p><img alt="" src="./assets/hero-1-artwork.png"></p>
+            </div>
+          </div>
+        </div>    
+      </article>
+    </section>
+  <section class="hero @container">
+      <article class="card wrapper" data-card-column-align="center" data-card-column-content-0-size="0.75fr" data-card-column-content-1-size="0.75fr" data-card-row-reverse-order>
+    
+        <div class="card-picture *:object-contain">
+          <img alt="" src="./assets/hero-1-product.png">
+          <img alt="" src="./assets/hero-1-bg.png"><p></p>
+        </div>
+        <div class="card-body flow flow--md">
+          <div class="card-body__content flow flex-col">        
+            <div class="card-body__content-slot flex justify-center">
+              <p><img alt="" src="./assets/hero-1-artwork.png"></p>
+            </div>
+          </div>
+        </div>    
+      </article>
+    </section>    
+  <section class="hero @container">
+      <article class="card wrapper" data-card-column-align="center" data-card-column-reverse-order data-card-column-content-0-size="0.75fr" data-card-column-content-1-size="0.75fr">
+    
+        <div class="card-picture *:object-contain">
+          <img alt="" src="./assets/hero-2-product.png">
+          <img alt="" src="./assets/hero-2-bg.png"><p></p>
+        </div>
+        <div class="card-body flow flow--md">
+          <div class="card-body__content flow flex-col">        
+            <div class="card-body__content-slot flex justify-center">
+              <p><img alt="" src="./assets/hero-2-artwork.png"></p>
+            </div>
+          </div>
+        </div>    
+      </article>
+    </section>    
+  </div>
 <div class="wrapper-grid py-section-gap pt-xl">
     <div class="content-grid layout-grid layout-grid--column-count col-start-2 col-end-2">
     <nav class="col-span-full gap-y-layout-gap layout-grid [--layout-column-min:20ch] *:text-center *:fluid">
