@@ -9643,6 +9643,7 @@
     inset: 0;
     object-fit: cover !important;
     height: 100%;
+    top: calc(-1 * var(--card-padding-block, 0));
   }
   :where(.card-picture source) {
     position: absolute;
@@ -9748,7 +9749,6 @@
   @container (inline-size < 80ch) {
     .hero .card-picture:not(:empty) :where(img) {
       height: 100cqh;
-      top: calc(-1 * var(--card-padding-block, 0));
       bottom: auto;
     }
     .hero .card:not([data-card-row-content-0-size]) {
