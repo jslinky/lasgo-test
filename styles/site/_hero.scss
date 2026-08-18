@@ -69,6 +69,45 @@
   }
 }
 
+.hero .card-picture {
+  max-height: var(--hero-height);
+  height: 100%;
+  max-width: 100vw;
+  margin-inline: auto;
+  width: 100%;
+  @container (inline-size > 80ch) {
+    padding-block: max(2cqi, var(--layout-gap));
+  }
+}
+
+.hero .card-picture:has(* + *) {
+  > *:first-child {
+    z-index: 1;
+  }
+  > *:not(source) + * {
+    position: absolute;
+    inset: 0;
+    object-fit: cover !important;
+    height: 100%;
+  }
+}
+
+:where(.card-picture source) {
+  position: absolute;
+}
+
+.hero:has(.card-picture > *:not(source) + *) {
+  .card-body {
+    z-index: 1;
+  }
+}
+
+:where(.hero .card-body__content-slot img) {
+  @container (inline-size < 80ch) {
+    max-height: 40cqh;
+  }
+}
+
 ////// new hero mobile fixes
 ///
 .hero {
@@ -98,29 +137,34 @@
         /// - card-picture is last child of card AND data-card-row-reverse-order
         /// Rules:
         /// top:auto; bottom: 0;
-        /// 
+        ///
 
         //// image at bottom - below 80ch
         /// - card-picture is first child of card AND data-card-row-reverse-order
         /// - card-picture is last child of card AND NOT data-card-row-reverse-order
         /// Rules:
         /// top:0; bottom: auto;
-        /// 
-        
+        ///
       }
       .card-picture:not(:empty) :where(img) {
         &:first-of-type {
           height: calc(100% - var(--layout-gap));
         }
-      }      
-      &:is(&:is(:not([data-card-row-reverse-order])):has(.card-picture:first-child), &:is([data-card-row-reverse-order]):has(.card-picture:last-child)) {
+      }
+      &:is(
+        &:is(:not([data-card-row-reverse-order])):has(
+            .card-picture:first-child
+          ),
+        &:is([data-card-row-reverse-order]):has(.card-picture:last-child)
+      ) {
         .card-picture:not(:empty) :where(img:is(:first-of-type)) {
           top: auto;
           bottom: 0;
         }
       }
 
-      &:is([data-card-row-reverse-order]:has(.card-picture:first-child)), &:is(:not([data-card-row-reverse-order]):has(.card-picture:last-child)) {
+      &:is([data-card-row-reverse-order]:has(.card-picture:first-child)),
+      &:is(:not([data-card-row-reverse-order]):has(.card-picture:last-child)) {
         .card-picture:not(:empty) :where(img:is(:first-of-type)) {
           top: 0;
           bottom: auto;
@@ -128,8 +172,8 @@
         .card-picture:not(:empty) :where(img:is(:last-of-type)) {
           top: auto;
           bottom: 0;
-        }        
-      }      
+        }
+      }
     }
     .card-picture {
       position: relative;
@@ -143,46 +187,4 @@
       }
     }
   }
-
 }
-
-.hero .card-picture {
-  max-height: var(--hero-height);
-  height: 100%;
-  max-width: 100vw;
-  margin-inline: auto;
-  width: 100%;
-}
-
-.hero .card-picture:has(* + *) {
-  > *:first-child {
-    z-index: 1;
-  }
-  > *:not(source) + * {
-    position: absolute;
-    inset: 0;
-    object-fit: cover !important;
-    height: 100%;
-  }
-}
-
-:where(.card-picture source) {
-  position: absolute;
-}
-
-.hero:has(.card-picture > *:not(source) + *) {
-  .card-body {
-    z-index: 1;
-  }
-}
-
-:where(.hero .card-body__content-slot img) {
-  @container (inline-size < 80ch) {
-    max-height: 40cqh;    
-  }
-}
-
-
-
-
-
