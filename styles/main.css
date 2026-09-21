@@ -25178,7 +25178,7 @@
     position: absolute;
   }
   .hero:has(.card-picture > *:not(source) + *) .card-body {
-    z-index: 1;
+    z-index: 2;
   }
   @container (inline-size < 80ch) {
     :where(.hero .card-body__content-slot img) {
