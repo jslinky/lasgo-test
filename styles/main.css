@@ -24400,18 +24400,16 @@
         container-name: ctas;
         container-type: inline-size;
       }
-      @container ctas (inline-size <= 300px) {
+      @container ctas (inline-size <=300px) {
         .button {
           width: min(300px, 100%);
         }
       }
       @container ctas (inline-size > 300px) {
         .button:only-of-type {
-          --button-padding-inline-wide: clamp(
-            var(--text-frame-x),
-            10vw,
-            calc(var(--text-frame-x) * 3)
-          );
+          --button-padding-inline-wide: clamp(var(--text-frame-x),
+              10vw,
+              calc(var(--text-frame-x) * 3));
           --button-padding-inline-start: var(--button-padding-inline-wide);
           --button-padding-inline-end: var(--button-padding-inline-wide);
         }
@@ -24467,12 +24465,8 @@
     }
     @layer modifiers {
       .card .fluid {
-        --font-size: min(
-          var(--font-size-max, var(--font-size-base-px)),
-          calc(
-            var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw)
-          )
-        );
+        --font-size: min(var(--font-size-max, var(--font-size-base-px)),
+            calc(var(--font-size-min, var(--sm-px)) + var(--font-fluid-cq-variance, 3cqw)));
       }
       :is(:not(.hero > .card)) .card-body__content__caption-tagline:before {
         display: none;
@@ -24494,16 +24488,12 @@
         display: contents;
       }
       .card-body {
-        --card-body-padding-inline: clamp(
-          var(--space-sm),
-          min(3vmax, 3cqi),
-          var(--space-lg)
-        );
-        --card-body-padding-block: clamp(
-          var(--space-sm),
-          min(3vmax, 3cqi),
-          var(--space-lg)
-        );
+        --card-body-padding-inline: clamp(var(--space-sm),
+            min(3vmax, 3cqi),
+            var(--space-lg));
+        --card-body-padding-block: clamp(var(--space-sm),
+            min(3vmax, 3cqi),
+            var(--space-lg));
       }
       :is(.card:has(.overlay-expand), .overlay-expand) {
         --overlay-contracted-size: 3.5em;
@@ -24544,57 +24534,46 @@
       :where([data-card-template-variant=overlayBackdropAlignBottomS]) .card-body__content__caption-tagline:before {
         display: none;
       }
-      @container (inline-size >= 32rem) {
+      @container (inline-size >=32rem) {
         :root:is(.new) :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:1]"]:has(> div:only-child) {
           --layout-grid-template-columns: var(--col-1);
         }
       }
-      @container (inline-size >= 32rem) {
+      @container (inline-size >=32rem) {
         :root:is(.new) :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:2]"]:has(> div:nth-last-child(2)) {
           --layout-grid-template-columns: var(--col-1) var(--col-2);
         }
       }
-      @container (inline-size >= 32rem) {
+      @container (inline-size >=32rem) {
         :root:is(.new) :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:3]"]:has(> div:nth-last-child(3)) {
-          --layout-grid-template-columns: var(--col-1)
-            var(--col-2)
-            var(--col-3);
+          --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3);
         }
       }
-      @container (inline-size >= 32rem) {
+      @container (inline-size >=32rem) {
         :root:is(.new) :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:4]"]:has(> div:nth-last-child(4)) {
-          --layout-grid-template-columns: var(--col-1)
-            var(--col-2)
-            var(--col-3)
-            var(--col-4);
+          --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3) var(--col-4);
         }
       }
-      @container (inline-size >= 32rem) {
+      @container (inline-size >=32rem) {
         :root:is(.new) :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:5]"]:has(> div:nth-last-child(5)) {
-          --layout-grid-template-columns: var(--col-1)
-            var(--col-2)
-            var(--col-3)
-            var(--col-4)
-            var(--col-5);
+          --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3) var(--col-4) var(--col-5);
         }
       }
-      @container (inline-size >= 32rem) {
+      @container (inline-size >=32rem) {
         :root:is(.new) :is(.layout-grid--column-count-expand)[class*="@lg:[--column-count:6]"]:has(> div:nth-last-child(6)) {
-          --layout-grid-template-columns: var(--col-1)
-            var(--col-2)
-            var(--col-3)
-            var(--col-4)
-            var(--col-5)
-            var(--col-6);
+          --layout-grid-template-columns: var(--col-1) var(--col-2) var(--col-3) var(--col-4) var(--col-5) var(--col-6);
         }
       }
       :root:is(.new) :is(.layout-grid--column-count-expand) :where(.card) {
         --card-background-color: var(--color-dark);
       }
       :root:is(.new) :is(.layout-grid--column-count-expand) :where(.card) .card-body {
-        --card-body-padding-inline: var(--space-2xs);
+        --card-body-padding-inline: var(--space-sm);
+        margin: 0;
+        align-self: stretch;
+        align-content: flex-end;
       }
-      @container (inline-size >= 32rem) {
+      @container (inline-size >=32rem) {
         :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) {
           transition: 300ms;
           transition-delay: 50ms;
@@ -24612,11 +24591,11 @@
       }
       :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) {
         max-height: var(--card-max-height, auto);
-        --card-max-height-lg: 240px;
+        --card-max-height-lg: 300px;
         --card-aspect-lg: 9/16;
         max-height: var(--card-max-height);
       }
-      @container content-grid (inline-size >= 32rem) {
+      @container content-grid (inline-size >=32rem) {
         :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) {
           --card-aspect: var(--card-aspect-lg);
           --card-max-height: var(--card-max-height-lg);
@@ -24626,15 +24605,17 @@
         :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card):has(.card-body__content__ctas) .card-body__content-slot {
           transition: transform 0.3s ease-in-out;
         }
+        :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card):has(.card-body__content__ctas) .card-body__content-slot p {
+          margin: 0;
+        }
         :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card):has(.card-body__content__ctas):not(:hover) .card-body__content-slot {
-          transform: translateY(4em);
+          transform: translateY(3em);
         }
         :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-body__content__ctas .button {
           width: fit-content;
         }
         :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-body__content > *:not(.card-body__content-slot) {
           opacity: 0;
-          transform: translateY(20%);
           transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
       }
@@ -24644,7 +24625,7 @@
       :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) :is(.card-picture, .card-picture img) {
         max-height: var(--card-max-height);
       }
-      @container content-grid (inline-size >= 32rem) {
+      @container content-grid (inline-size >=32rem) {
         :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-picture {
           --card-picture-aspect: none;
         }
@@ -24669,20 +24650,19 @@
           width: 100%;
         }
         :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) :where(.card) .card-body__content-slot img {
-          max-height: 15cqh;
+          max-height: 10cqh;
         }
       }
       :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> *:nth-child(3):is(:last-child)) :where(.card) {
         --card-max-height-lg: 300px;
       }
-      @container content-grid (inline-size >= 32rem) {
+      @container content-grid (inline-size >=32rem) {
         @media (hover) and (pointer: fine) {
           :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover {
             max-height: var(--card-max-height);
           }
           :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover .card-body__content > *:not(.card-body__content-slot) {
             opacity: 1;
-            transform: translateY(0);
             transition-delay: 350ms;
           }
           :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]) > div:hover .card-picture img:is(:nth-child(2), :nth-child(1)) {
@@ -24699,42 +24679,42 @@
         }
       }
       @media (hover) and (pointer: fine) {
-        @container (inline-size >= 32rem) {
+        @container (inline-size >=32rem) {
           :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(1)):hover) {
             --column-size-one: 5fr;
           }
         }
       }
       @media (hover) and (pointer: fine) {
-        @container (inline-size >= 32rem) {
+        @container (inline-size >=32rem) {
           :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(2)):hover) {
             --column-size-two: 5fr;
           }
         }
       }
       @media (hover) and (pointer: fine) {
-        @container (inline-size >= 32rem) {
+        @container (inline-size >=32rem) {
           :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(3)):hover) {
             --column-size-three: 5fr;
           }
         }
       }
       @media (hover) and (pointer: fine) {
-        @container (inline-size >= 32rem) {
+        @container (inline-size >=32rem) {
           :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(4)):hover) {
             --column-size-four: 5fr;
           }
         }
       }
       @media (hover) and (pointer: fine) {
-        @container (inline-size >= 32rem) {
+        @container (inline-size >=32rem) {
           :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(5)):hover) {
             --column-size-five: 5fr;
           }
         }
       }
       @media (hover) and (pointer: fine) {
-        @container (inline-size >= 32rem) {
+        @container (inline-size >=32rem) {
           :root:is(.new) :is(.layout-grid--column-count-expand):is([class*="@lg:[--column-count:"]):has(> div:is(:nth-child(6)):hover) {
             --column-size-six: 5fr;
           }
